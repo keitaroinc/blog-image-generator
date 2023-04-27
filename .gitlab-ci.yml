@@ -14,8 +14,12 @@ pages:
     paths:
       # The folder that contains the files to be exposed at the Page URL
       - public
+  variables:
+    HOMEPAGE: "/$CI_PROJECT_NAME"
   rules:
     # This ensures that only pushes to the default branch will trigger
     # a pages deploy
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-  environment: production
+  environment:
+    name: production
+    url: $CI_PAGES_URL
