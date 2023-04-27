@@ -4,14 +4,18 @@ image: node:lts
 before_script:
   - npm ci
 pages:
+  stage: deploy
   script:
     - npm run build
+    - mkdir .public
+    - cp -r build/* .public
+    - mv .public public
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
-      - build
+      - public
   rules:
     # This ensures that only pushes to the default branch will trigger
     # a pages deploy
-    - if: $CI_COMMIT_BRANCH == "main"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
   environment: production
