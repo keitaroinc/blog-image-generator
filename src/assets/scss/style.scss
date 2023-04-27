@@ -75,3 +75,17 @@
 @import "../../../node_modules/bootstrap/scss/_spinners.scss";
 @import "../../../node_modules/bootstrap/scss/_offcanvas.scss";
 @import "../../../node_modules/bootstrap/scss/_placeholders.scss";
+
+.image-generator-layout {
+  .scrollable {
+    height: 100vh;
+    overflow-y: scroll;
+    background-color: #EEEEEE;
+  }
+
+  .fixed {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+  }
+}
