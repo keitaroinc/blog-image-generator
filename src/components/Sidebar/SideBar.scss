@@ -1,0 +1,18 @@
+.side-bar-layout {
+  .side-bar-header {
+    background-color: var(--bs-gray-200);
+    padding: 2.5rem 0;
+
+    .side-bar-title {
+      background-color: white;
+      padding: 0.6rem;
+      width: fit-content;
+      margin: 0.5rem auto;
+      border-radius: 4px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
