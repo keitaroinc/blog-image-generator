@@ -6,6 +6,9 @@ before_script:
 pages:
   script:
     - npm run build
+    - mkdir .public
+    - cp -r build/* .public
+    - mv .public public
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
