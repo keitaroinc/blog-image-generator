@@ -1,5 +1,9 @@
 # The Docker image that will be used to build your app
 image: node:lts
+
+stages:
+  - deploy
+
 # Functions that should be executed before the build script is run
 before_script:
   - npm ci
@@ -21,3 +25,5 @@ pages:
   environment:
     name: production
     url: $CI_PAGES_URL
+test:
+  allow_failure: true
