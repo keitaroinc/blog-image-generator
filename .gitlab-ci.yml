@@ -7,7 +7,7 @@ pages:
   stage: deploy
   script:
     - npm run build
-    - mv build public
+    - cp -r build/* public
   artifacts:
     paths:
       # The folder that contains the files to be exposed at the Page URL
