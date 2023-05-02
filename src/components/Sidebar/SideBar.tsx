@@ -1,6 +1,9 @@
 import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider } from '../../contexts';
 import { CanvasBackground } from '../CanvasBackground/CanvasBackground';
 import { CanvasHeadline } from '../CanvasHeadline/CanvasHeadline';
+import { CanvasGradient } from '../CanvasGradient/CanvasGradient';
+import { CanvasGradientContextProvider } from '../../contexts/GradientContext';
+
 
 export const SideBar = () => {
   return (
@@ -12,6 +15,9 @@ export const SideBar = () => {
       <CanvasHeadlineContextProvider>
         <CanvasHeadline />
       </CanvasHeadlineContextProvider>
+      <CanvasGradientContextProvider>
+        <CanvasGradient />
+      </CanvasGradientContextProvider>
       <CanvasBackgroundContextProvider>
         <CanvasBackground />
       </CanvasBackgroundContextProvider>
