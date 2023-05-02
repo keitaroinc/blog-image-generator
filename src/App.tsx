@@ -1,6 +1,7 @@
 import React from 'react';
 import './assets/scss/style.scss';
 import { CanvasWrapper, SideBar } from './components';
+import { CanvasBackgroundContextProvider } from './contexts';
 
 export const App = () => {
   return (
@@ -9,7 +10,9 @@ export const App = () => {
         <SideBar />
       </div>
       <div className="col-md-9 col-sm-8">
-        <CanvasWrapper />
+        <CanvasBackgroundContextProvider>
+          <CanvasWrapper />
+        </CanvasBackgroundContextProvider>
       </div>
     </div>
   );

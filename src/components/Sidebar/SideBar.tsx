@@ -1,4 +1,5 @@
-import { CanvasHeadlineContextProvider } from '../../contexts/HeadlineContext';
+import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider } from '../../contexts';
+import { CanvasBackground } from '../CanvasBackground/CanvasBackground';
 import { CanvasHeadline } from '../CanvasHeadline/CanvasHeadline';
 
 export const SideBar = () => {
@@ -11,6 +12,9 @@ export const SideBar = () => {
       <CanvasHeadlineContextProvider>
         <CanvasHeadline />
       </CanvasHeadlineContextProvider>
+      <CanvasBackgroundContextProvider>
+        <CanvasBackground />
+      </CanvasBackgroundContextProvider>
     </div>
   );
 };
