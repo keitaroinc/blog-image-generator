@@ -39,7 +39,6 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
     CanvasGradientContextValues
   );
   const [gradients, setGradients] = useState<CanvasGradientValuesInterface[]>([canvasGradientValues]);
-
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
@@ -74,14 +73,38 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       default:
         break;
     }
+    setGradients(newGradients);
     setCanvasGradientValues(newGradients);
   };
 
   const handleAddGradient = () => {
     if (gradients.length < 3) {
-      const newGradients = [...gradients, defaultGradient];
-      setCanvasGradientValues(newGradients);
-      setGradients(newGradients);
+      setCanvasGradientValues([
+        ...gradients,
+        {
+          startColor: '#ff0000',
+          startColorPercentage: '50',
+          endColor: '#00ff00',
+          endColorPercentage: '50',
+          scale: '10',
+          rotation: '10',
+          gradientType: 'linear',
+          blendingMode: "overlay"
+        },
+      ]);
+      setGradients([
+        ...gradients,
+        {
+          startColor: '#ff0000',
+          startColorPercentage: '50',
+          endColor: '#00ff00',
+          endColorPercentage: '50',
+          scale: '10',
+          rotation: '10',
+          gradientType: 'linear',
+          blendingMode: "overlay"
+        },
+      ]);
     }
   };
 
@@ -174,7 +197,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor="scale" className="form-label">
+                <label htmlFor="disabledRange" className="form-label">
                   Scale ({gradient.scale}%)
                 </label>
                 <input
@@ -190,7 +213,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-4">
-                <label htmlFor="rotation" className="form-label">
+                <label htmlFor="disabledRange" className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>
                 <input
