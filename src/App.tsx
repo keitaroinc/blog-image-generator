@@ -7,9 +7,7 @@ export const App = () => {
     <div className="row g-0 vh-100 overflow-hidden">
       <SideBar className="col-md-3 col-sm-4 d-flex flex-column bg-gray-light sidebar h-100 overflow-auto" />
       <div className="col-md-9 col-sm-8">
-        <CanvasBackgroundContextProvider>
-          <CanvasWrapper />
-        </CanvasBackgroundContextProvider>
+        <CanvasWrapper />
       </div>
     </div>
   );
