@@ -4,11 +4,11 @@ export interface CanvasHeadlineInterface {
 }
 
 export interface CanvasHeadlineValuesInterface {
-  content: string,
+  content: string;
   position: {
-    x: string,
-    y: string
-  }
+    x: string;
+    y: string;
+  };
 }
 
 export interface CanvasIconInterface {
@@ -17,11 +17,11 @@ export interface CanvasIconInterface {
 }
 
 export interface CanvasIconValuesInterface {
-  src: string,
+  src: string;
   position: {
-    x: string,
-    y: string
-  }
+    x: string;
+    y: string;
+  };
 }
 
 export interface CanvasBackgroundInterface {
@@ -30,13 +30,13 @@ export interface CanvasBackgroundInterface {
 }
 
 export interface CanvasBackgroundValuesInterface {
-  color: string,
-  image: string,
+  color: string;
+  image: string;
   position: {
-    x: string,
-    y: string
-  },
-  size: string
+    x: string;
+    y: string;
+  };
+  size: string;
 }
 
 export interface CanvasLogoInterface {
@@ -45,11 +45,11 @@ export interface CanvasLogoInterface {
 }
 
 export interface CanvasLogoValuesInterface {
-  src: string,
+  src: string;
   position: {
-    x: string,
-    y: string
-  }
+    x: string;
+    y: string;
+  };
 }
 
 export interface CanvasGradientInterface {
@@ -58,9 +58,12 @@ export interface CanvasGradientInterface {
 }
 
 export interface CanvasGradientValuesInterface {
-  type: string,
-  rotation: string,
-  startColor: string,
-  endColor: string,
-  blendingMode: string,
+  startColor: string;
+  startColorPercentage: string;
+  endColor: string;
+  endColorPercentage: string;
+  scale: string;
+  rotation: string;
+  gradientType: string;
+  blendingMode: string;
 }
