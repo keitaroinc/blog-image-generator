@@ -96,13 +96,13 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   return (
     <div className="bg-gray-light py-2 px-0">
       <div className="bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
-        <p className="fs-6 fw-bold mb-0">Gradient</p>
+        <h1 className="fs-6 fw-bold mb-0">Gradient</h1>
         <button
           className="btn btn-success"
           onClick={handleAddGradient}
           disabled={gradients.length === 3}
         >
-          <img src={plusIcon} />
+          <img src={plusIcon} alt="add-gradient" />
         </button>
       </div>
 
@@ -144,7 +144,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   className="mx-2 btn btn-danger"
                   onClick={() => handleRemoveGradient(index)}
                 >
-                  <img src={trashIcon} />
+                  <img src={trashIcon} alt="remove-gradient" />
                 </button>
                 <div className="d-flex">
                   <input
@@ -174,7 +174,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor="disabledRange" className="form-label">
+                <label htmlFor="scale" className="form-label">
                   Scale ({gradient.scale}%)
                 </label>
                 <input
@@ -190,7 +190,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-4">
-                <label htmlFor="disabledRange" className="form-label">
+                <label htmlFor="rotation" className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>
                 <input
