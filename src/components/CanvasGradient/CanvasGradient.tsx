@@ -23,17 +23,6 @@ const blendingMode = [
   { value: 'color', label: 'Color' },
 ];
 
-const defaultGradient = {
-  startColor: '#20c997',
-  startColorPercentage: '50',
-  endColor: '#28a745',
-  endColorPercentage: '50',
-  scale: '10',
-  rotation: '10',
-  gradientType: 'linear',
-  blendingMode: "overlay"
-};
-
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
     CanvasGradientContextValues
