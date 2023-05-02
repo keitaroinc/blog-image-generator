@@ -10,9 +10,7 @@ export const App = () => {
         <SideBar />
       </div>
       <div className="col-md-9 col-sm-8">
-        <CanvasBackgroundContextProvider>
-          <CanvasWrapper />
-        </CanvasBackgroundContextProvider>
+        <CanvasWrapper />
       </div>
     </div>
   );
