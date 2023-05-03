@@ -1,6 +1,6 @@
-import React from 'react';
-import './assets/scss/style.scss';
-import { CanvasWrapper, SideBar } from './components';
+import React from "react";
+import "./assets/scss/style.scss";
+import { CanvasWrapper, SideBar } from "./components";
 
 export const App = () => {
   return (
