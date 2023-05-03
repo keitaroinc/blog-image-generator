@@ -1,8 +1,8 @@
-import { CanvasHeadlineContextProvider } from "../../contexts/HeadlineContext";
-import { CanvasHeadline } from "../CanvasHeadline/CanvasHeadline";
-import { CanvasGradient } from "../CanvasGradient/CanvasGradient";
-import { CanvasGradientContextProvider } from "../../contexts/GradientContext";
-import keitaroLogo from "../../assets/svg/keitaro-logo-full-color.svg"
+import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider } from '../../contexts';
+import { CanvasBackground } from '../CanvasBackground/CanvasBackground';
+import { CanvasHeadline } from '../CanvasHeadline/CanvasHeadline';
+import { CanvasGradient } from '../CanvasGradient/CanvasGradient';
+import keitaroLogo from '../../assets/svg/keitaro-logo-full-color.svg';
 
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
   return (
@@ -19,6 +19,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasGradientContextProvider>
         <CanvasGradient />
       </CanvasGradientContextProvider>
+      <CanvasBackgroundContextProvider>
+        <CanvasBackground />
+      </CanvasBackgroundContextProvider>
     </div>
   );
 };

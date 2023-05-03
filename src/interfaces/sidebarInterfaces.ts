@@ -30,8 +30,9 @@ export interface CanvasBackgroundInterface {
 }
 
 export interface CanvasBackgroundValuesInterface {
-  color: string;
-  image: string;
+  color: string,
+  fileImage: Blob | null,
+  fileImageURL: string | ArrayBuffer | null,
   position: {
     x: string;
     y: string;

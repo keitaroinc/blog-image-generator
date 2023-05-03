@@ -7,7 +7,8 @@ const CanvasBackgroundContext = createContext({} as CanvasBackgroundInterface);
 export const Provider = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
   const [canvasBackgroundValues, setCanvasBackgroundValues] = useState<CanvasBackgroundValuesInterface>({
     color: "",
-    image: "",
+    fileImage: null,
+    fileImageURL: null,
     position: {
       x: "",
       y: ""
