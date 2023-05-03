@@ -1,7 +1,6 @@
 import React from 'react';
 import './assets/scss/style.scss';
 import { CanvasWrapper, SideBar } from './components';
-import { CanvasBackgroundContextProvider } from './contexts';
 
 export const App = () => {
   return (
