@@ -186,7 +186,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor="disabledRange" className="form-label">
+                <label htmlFor={`scale${index}`} className="form-label">
                   Scale ({gradient.scale}%)
                 </label>
                 <input
@@ -194,7 +194,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   className="form-range custom-range"
                   min="0"
                   max="100"
-                  id="scale"
+                  id={`scale${index}`}
                   value={gradient.scale}
                   onChange={(event) =>
                     handleEditTypeOfGradient(event, index, 'scale')
@@ -202,7 +202,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-4">
-                <label htmlFor="disabledRange" className="form-label">
+                <label htmlFor={`rotation${index}`} className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>
                 <input
@@ -210,7 +210,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   className="form-range custom-range"
                   min="0"
                   max="100"
-                  id="rotation"
+                  id={`rotation${index}`}
                   value={gradient.rotation}
                   onChange={(event) =>
                     handleEditTypeOfGradient(event, index, 'rotation')

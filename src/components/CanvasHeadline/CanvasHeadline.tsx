@@ -22,10 +22,10 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (pro
           onChange={(e) => setCanvasHeadlineValues({ ...canvasHeadlineValues, content: e.target.value })}></textarea>
         <label htmlFor="floatingTextarea">Enter headline text here.</label>
       </div>
-      <label className="form-label">Horizontal Position (0 px)</label>
-      <input type="range" className="form-range custom-range"></input>
-      <label className="form-label">Vertical Position (0 px)</label>
-      <input type="range" className="form-range custom-range"></input>
+      <label htmlFor='horizontalPosition' className="form-label">Horizontal Position (0 px)</label>
+      <input id='horizontalPosition' type="range" className="form-range custom-range"></input>
+      <label htmlFor='verticalPosition' className="form-label">Vertical Position (0 px)</label>
+      <input id='verticalPosition' type="range" className="form-range custom-range"></input>
     </div>
   </div >;
 };
