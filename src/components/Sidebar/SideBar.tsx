@@ -1,7 +1,5 @@
-import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider } from '../../contexts';
-import { CanvasBackground } from '../CanvasBackground/CanvasBackground';
-import { CanvasHeadline } from '../CanvasHeadline/CanvasHeadline';
-import { CanvasGradient } from '../CanvasGradient/CanvasGradient';
+import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider, CanvasIconContextProvider } from '../../contexts';
+import { CanvasBackground, CanvasGradient, CanvasIcon, CanvasHeadline } from '../';
 import { CanvasLogoContextProvider } from "../../contexts/LogoContext";
 import { CanvasLogo } from "../CanvasLogo/CanvasLogo"
 
@@ -25,6 +23,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasBackgroundContextProvider>
         <CanvasBackground />
       </CanvasBackgroundContextProvider>
+      <CanvasIconContextProvider >
+        <CanvasIcon />
+      </CanvasIconContextProvider>
       <CanvasLogoContextProvider>
         <CanvasLogo />
       </CanvasLogoContextProvider>
