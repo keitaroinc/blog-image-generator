@@ -17,7 +17,8 @@ export interface CanvasIconInterface {
 }
 
 export interface CanvasIconValuesInterface {
-  src: string;
+  fileImage: Blob | null,
+  fileImageURL: string | ArrayBuffer | null,
   position: {
     x: string;
     y: string;

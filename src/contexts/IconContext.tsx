@@ -6,7 +6,8 @@ const CanvasIconContext = createContext({} as CanvasIconInterface);
 
 export const Provider = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
   const [canvasIconValues, setCanvasIconValues] = useState<CanvasIconValuesInterface>({
-    src: "",
+    fileImage: null,
+    fileImageURL: null,
     position: {
       x: "",
       y: ""
