@@ -1,5 +1,8 @@
 import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider, CanvasIconContextProvider } from '../../contexts';
 import { CanvasBackground, CanvasGradient, CanvasIcon, CanvasHeadline } from '../';
+import { CanvasLogoContextProvider } from "../../contexts/LogoContext";
+import { CanvasLogo } from "../CanvasLogo/CanvasLogo"
+
 import keitaroLogo from '../../assets/svg/keitaro-logo-full-color.svg';
 
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
@@ -23,6 +26,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasIconContextProvider >
         <CanvasIcon />
       </CanvasIconContextProvider>
+      <CanvasLogoContextProvider>
+        <CanvasLogo />
+      </CanvasLogoContextProvider>
     </div>
   );
 };
