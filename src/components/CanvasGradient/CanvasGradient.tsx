@@ -67,34 +67,32 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   };
 
   const handleAddGradient = () => {
-    if (gradients.length < 3) {
-      setCanvasGradientValues([
-        ...gradients,
-        {
-          startColor: '#ff0000',
-          startColorPercentage: '50',
-          endColor: '#00ff00',
-          endColorPercentage: '50',
-          scale: '10',
-          rotation: '10',
-          gradientType: 'linear',
-          blendingMode: "overlay"
-        },
-      ]);
-      setGradients([
-        ...gradients,
-        {
-          startColor: '#ff0000',
-          startColorPercentage: '50',
-          endColor: '#00ff00',
-          endColorPercentage: '50',
-          scale: '10',
-          rotation: '10',
-          gradientType: 'linear',
-          blendingMode: "overlay"
-        },
-      ]);
-    }
+    setCanvasGradientValues([
+      ...gradients,
+      {
+        startColor: '#ff0000',
+        startColorPercentage: '50',
+        endColor: '#00ff00',
+        endColorPercentage: '50',
+        scale: '10',
+        rotation: '10',
+        gradientType: 'linear',
+        blendingMode: "overlay"
+      },
+    ]);
+    setGradients([
+      ...gradients,
+      {
+        startColor: '#ff0000',
+        startColorPercentage: '50',
+        endColor: '#00ff00',
+        endColorPercentage: '50',
+        scale: '10',
+        rotation: '10',
+        gradientType: 'linear',
+        blendingMode: "overlay"
+      },
+    ]);
   };
 
   const handleRemoveGradient = (indexToRemove: number) => {
@@ -112,7 +110,6 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
         <button
           className="btn btn-success"
           onClick={handleAddGradient}
-          disabled={gradients.length === 3}
         >
           <img src={plusIcon} alt="add-gradient" />
         </button>
@@ -201,7 +198,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   }
                 />
               </div>
-              <div className="py-4">
+              <div className="py-2">
                 <label htmlFor={`rotation${index}`} className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>
