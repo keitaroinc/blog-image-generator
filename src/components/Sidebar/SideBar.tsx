@@ -8,7 +8,7 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div data-testid="Sidebar" className={className}>
       <div className="bg-gray-light sticky-top d-flex justify-content-center flex-column align-items-center py-5">
-        <img className="sidebar-log mb-2" src={keitaroLogo} alt="Keitaro Logo" />
+        <img className="sidebar-logo mb-2" src={keitaroLogo} alt="Keitaro Logo" />
         <p className="mb-0 bg-white py-1 px-2 fs-6 fw-bold">
           Blog Image Generator
         </p>
