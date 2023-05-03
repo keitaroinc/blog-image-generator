@@ -17,8 +17,8 @@ export interface CanvasIconInterface {
 }
 
 export interface CanvasIconValuesInterface {
-  fileImage: Blob | null,
-  fileImageURL: string | ArrayBuffer | null,
+  fileImage: Blob | null;
+  fileImageURL: string | ArrayBuffer | null;
   position: {
     x: string;
     y: string;
@@ -31,9 +31,9 @@ export interface CanvasBackgroundInterface {
 }
 
 export interface CanvasBackgroundValuesInterface {
-  color: string,
-  fileImage: Blob | null,
-  fileImageURL: string | ArrayBuffer | null,
+  color: string;
+  fileImage: Blob | null;
+  fileImageURL: string | ArrayBuffer | null;
   position: {
     x: string;
     y: string;
@@ -55,7 +55,7 @@ export interface CanvasLogoValuesInterface {
 }
 
 export interface CanvasGradientInterface {
-  canvasGradientValues: CanvasGradientValuesInterface;
+  canvasGradientValues: CanvasGradientValuesInterface[];
   setCanvasGradientValues: Function;
 }
 
