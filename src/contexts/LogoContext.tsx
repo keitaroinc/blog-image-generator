@@ -2,11 +2,13 @@ import React, { createContext, useState } from 'react';
 
 import { CanvasLogoInterface, CanvasLogoValuesInterface } from '../interfaces/sidebarInterfaces'
 
+import keitaroFullColorLogo from "../assets/svg/keitaro-logo-full-color.svg"
+
 const CanvasLogoContext = createContext({} as CanvasLogoInterface);
 
 export const Provider = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
   const [canvasLogoValues, setCanvasLogoValues] = useState<CanvasLogoValuesInterface>({
-    src: "",
+    src: keitaroFullColorLogo,
     position: {
       x: "",
       y: ""
