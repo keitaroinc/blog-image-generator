@@ -29,6 +29,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasLogoContextProvider>
         <CanvasLogo />
       </CanvasLogoContextProvider>
+      <CanvasIconContextProvider >
+        <CanvasIcon />
+      </CanvasIconContextProvider>
     </div>
   );
 };
