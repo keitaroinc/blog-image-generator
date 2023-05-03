@@ -23,23 +23,11 @@ const blendingMode = [
   { value: 'color', label: 'Color' },
 ];
 
-const defaultGradient = {
-  startColor: '#20c997',
-  startColorPercentage: '50',
-  endColor: '#28a745',
-  endColorPercentage: '50',
-  scale: '10',
-  rotation: '10',
-  gradientType: 'linear',
-  blendingMode: "overlay"
-};
-
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
     CanvasGradientContextValues
   );
   const [gradients, setGradients] = useState<CanvasGradientValuesInterface[]>([canvasGradientValues]);
-
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
@@ -74,14 +62,38 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       default:
         break;
     }
+    setGradients(newGradients);
     setCanvasGradientValues(newGradients);
   };
 
   const handleAddGradient = () => {
     if (gradients.length < 3) {
-      const newGradients = [...gradients, defaultGradient];
-      setCanvasGradientValues(newGradients);
-      setGradients(newGradients);
+      setCanvasGradientValues([
+        ...gradients,
+        {
+          startColor: '#ff0000',
+          startColorPercentage: '50',
+          endColor: '#00ff00',
+          endColorPercentage: '50',
+          scale: '10',
+          rotation: '10',
+          gradientType: 'linear',
+          blendingMode: "overlay"
+        },
+      ]);
+      setGradients([
+        ...gradients,
+        {
+          startColor: '#ff0000',
+          startColorPercentage: '50',
+          endColor: '#00ff00',
+          endColorPercentage: '50',
+          scale: '10',
+          rotation: '10',
+          gradientType: 'linear',
+          blendingMode: "overlay"
+        },
+      ]);
     }
   };
 
@@ -174,7 +186,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor="scale" className="form-label">
+                <label htmlFor={`scale${index}`} className="form-label">
                   Scale ({gradient.scale}%)
                 </label>
                 <input
@@ -182,7 +194,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   className="form-range custom-range"
                   min="0"
                   max="100"
-                  id="scale"
+                  id={`scale${index}`}
                   value={gradient.scale}
                   onChange={(event) =>
                     handleEditTypeOfGradient(event, index, 'scale')
@@ -190,7 +202,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-4">
-                <label htmlFor="rotation" className="form-label">
+                <label htmlFor={`rotation${index}`} className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>
                 <input
@@ -198,7 +210,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   className="form-range custom-range"
                   min="0"
                   max="100"
-                  id="rotation"
+                  id={`rotation${index}`}
                   value={gradient.rotation}
                   onChange={(event) =>
                     handleEditTypeOfGradient(event, index, 'rotation')
