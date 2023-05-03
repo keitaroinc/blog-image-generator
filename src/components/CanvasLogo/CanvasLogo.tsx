@@ -46,7 +46,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           id="logoHorizontalPosition"
           defaultValue={canvasLogoValues.position.x}
           type="range"
-          className="form-range custom-range mb-2"
+          className="form-range mb-2"
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -64,7 +64,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
           type="range"
-          className="form-range custom-range "
+          className="form-range"
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,

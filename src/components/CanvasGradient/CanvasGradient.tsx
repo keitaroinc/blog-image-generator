@@ -191,7 +191,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </label>
                 <input
                   type="range"
-                  className="form-range custom-range"
+                  className="form-range"
                   min="0"
                   max="100"
                   id={`scale${index}`}
@@ -207,7 +207,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </label>
                 <input
                   type="range"
-                  className="form-range custom-range"
+                  className="form-range"
                   min="0"
                   max="100"
                   id={`rotation${index}`}
