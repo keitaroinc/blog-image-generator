@@ -1,7 +1,5 @@
-import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider, CanvasIconContextProvider } from '../../contexts';
-import { CanvasBackground, CanvasGradient, CanvasIcon, CanvasHeadline } from '../';
-import { CanvasLogoContextProvider } from "../../contexts/LogoContext";
-import { CanvasLogo } from "../CanvasLogo/CanvasLogo"
+import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider, CanvasIconContextProvider, CanvasLogoContextProvider } from '../../contexts';
+import { CanvasBackground, CanvasGradient, CanvasIcon, CanvasHeadline, CanvasLogo } from '../';
 
 import keitaroLogo from '../../assets/svg/keitaro-logo-full-color.svg';
 

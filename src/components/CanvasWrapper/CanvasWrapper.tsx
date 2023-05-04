@@ -1,9 +1,12 @@
 import * as React from "react";
 import "./CanvasWrapper.scss";
+import { CanvasBackgroundContextValues } from "../../contexts";
 
 export const CanvasWrapper: React.FC<{ className?: string }> = ({
   className,
 }) => {
+  const { canvasBackgroundValues, setCanvasBackgroundValues } = React.useContext(CanvasBackgroundContextValues)
+
   return (
     <div className={className}>
       <div className="canvas grid flex-grow-1">
