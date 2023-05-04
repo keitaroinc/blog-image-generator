@@ -5,14 +5,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 
 export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) => {
   const {
-    canvasHeadlineValues,
-    setCanvasHeadlineValues,
-    canvasIconValues,
-    setCanvasIconValues,
-    canvasBackgroundValues,
-    setCanvasBackgroundValues,
-    canvasLogoValues,
-    setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
+    canvasHeadlineValues, } = React.useContext(CanvasPreviewContextValues);
 
   return (
     <div className={className}>
