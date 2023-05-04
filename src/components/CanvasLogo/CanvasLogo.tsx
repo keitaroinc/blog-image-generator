@@ -26,6 +26,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
       </div>
       <div className="px-3 mt-3">
         <select
+          title="CanvasLogoOptions"
           onChange={(e) =>
             setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
           }

@@ -116,6 +116,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, 'startColor')
                     }
+                    title="Choose your color"
                   />
 
                   <input
@@ -165,6 +166,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, 'endColor')
                     }
+                    title="Choose your color"
                   />
                 </div>
               </div>
@@ -202,6 +204,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
               <div className="py-3">
                 <select
+                  title="GradientOptions"
                   defaultValue={gradient.gradientType}
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, 'gradientType')
@@ -217,6 +220,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
               <div className="py-3">
                 <select
+                  title="BlendingMode"
                   defaultValue={gradient.blendingMode}
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, 'blendingMode')
