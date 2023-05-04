@@ -1,4 +1,4 @@
-export { SideBar } from "./Sidebar/SideBar";
+export { SideBar } from "./SideBar/SideBar";
 export { CanvasWrapper } from "./CanvasWrapper/CanvasWrapper";
 export { CanvasHeadline } from "./CanvasHeadline/CanvasHeadline";
 export { CanvasIcon } from "./CanvasIcon/CanvasIcon";
