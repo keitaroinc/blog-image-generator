@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import plusIcon from '../../assets/svg/plus.svg';
 import trashIcon from '../../assets/svg/trash.svg';
 import { CanvasGradientContextValues } from '../../contexts/GradientContext';
-import { CanvasGradientValuesInterface } from "../../interfaces/sidebarInterfaces"
 
 interface GradientComponentProps {
 };
@@ -27,13 +26,13 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
     CanvasGradientContextValues
   );
-  const [gradients, setGradients] = useState<CanvasGradientValuesInterface[]>([canvasGradientValues]);
+
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
     typeOfGradientEdit: any
   ) => {
-    const newGradients = [...gradients];
+    const newGradients = [...canvasGradientValues];
     switch (typeOfGradientEdit) {
       case 'startColor':
         newGradients[index].startColor = event.target.value;
@@ -62,48 +61,34 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       default:
         break;
     }
-    setGradients(newGradients);
     setCanvasGradientValues(newGradients);
   };
 
   const handleAddGradient = () => {
-    if (gradients.length < 3) {
-      setCanvasGradientValues([
-        ...gradients,
-        {
-          startColor: '#ff0000',
-          startColorPercentage: '50',
-          endColor: '#00ff00',
-          endColorPercentage: '50',
-          scale: '10',
-          rotation: '10',
-          gradientType: 'linear',
-          blendingMode: "overlay"
-        },
-      ]);
-      setGradients([
-        ...gradients,
-        {
-          startColor: '#ff0000',
-          startColorPercentage: '50',
-          endColor: '#00ff00',
-          endColorPercentage: '50',
-          scale: '10',
-          rotation: '10',
-          gradientType: 'linear',
-          blendingMode: "overlay"
-        },
-      ]);
-    }
+    setCanvasGradientValues([
+      ...canvasGradientValues,
+      {
+        startColor: '#ff0000',
+        startColorPercentage: '50',
+        endColor: '#00ff00',
+        endColorPercentage: '50',
+        scale: '10',
+        rotation: '10',
+        gradientType: 'linear',
+        blendingMode: "overlay"
+      },
+    ]);
   };
 
+
   const handleRemoveGradient = (indexToRemove: number) => {
-    const newGradients = gradients.filter(
+    const newGradients = canvasGradientValues.filter(
       (_, index) => index !== indexToRemove
     );
     setCanvasGradientValues(newGradients);
-    setGradients(newGradients)
   };
+
+
 
   return (
     <div className="bg-gray-light py-2 px-0">
@@ -112,14 +97,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
         <button
           className="btn btn-success"
           onClick={handleAddGradient}
-          disabled={gradients.length === 3}
         >
           <img src={plusIcon} alt="add-gradient" />
         </button>
       </div>
-
-      {gradients.length > 0 &&
-        (gradients || []).map((gradient, index) => {
+      {canvasGradientValues.length > 0 &&
+        (canvasGradientValues || []).map((gradient, index) => {
           return (
             <div className="border-bottom px-3 mt-3" key={index}>
               <div className="d-flex justify-content-between">
@@ -201,7 +184,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   }
                 />
               </div>
-              <div className="py-4">
+              <div className="py-2">
                 <label htmlFor={`rotation${index}`} className="form-label">
                   Rotation ({gradient.rotation} deg)
                 </label>

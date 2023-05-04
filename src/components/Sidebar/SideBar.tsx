@@ -17,9 +17,6 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasHeadlineContextProvider>
         <CanvasHeadline />
       </CanvasHeadlineContextProvider>
-      <CanvasGradientContextProvider>
-        <CanvasGradient />
-      </CanvasGradientContextProvider>
       <CanvasBackgroundContextProvider>
         <CanvasBackground />
       </CanvasBackgroundContextProvider>
@@ -29,6 +26,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
       <CanvasLogoContextProvider>
         <CanvasLogo />
       </CanvasLogoContextProvider>
+      <CanvasGradientContextProvider>
+        <CanvasGradient />
+      </CanvasGradientContextProvider>
     </div>
   );
 };
