@@ -1,4 +1,3 @@
-import { CanvasBackgroundContextProvider, CanvasHeadlineContextProvider, CanvasGradientContextProvider, CanvasIconContextProvider, CanvasLogoContextProvider } from '../../contexts';
 import { CanvasBackground, CanvasGradient, CanvasIcon, CanvasHeadline, CanvasLogo } from '../';
 
 import keitaroLogo from '../../assets/svg/keitaro-logo-full-color.svg';
@@ -12,21 +11,11 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
           Blog Image Generator
         </p>
       </div>
-      <CanvasHeadlineContextProvider>
-        <CanvasHeadline />
-      </CanvasHeadlineContextProvider>
-      <CanvasBackgroundContextProvider>
-        <CanvasBackground />
-      </CanvasBackgroundContextProvider>
-      <CanvasIconContextProvider >
-        <CanvasIcon />
-      </CanvasIconContextProvider>
-      <CanvasLogoContextProvider>
-        <CanvasLogo />
-      </CanvasLogoContextProvider>
-      <CanvasGradientContextProvider>
-        <CanvasGradient />
-      </CanvasGradientContextProvider>
+      <CanvasHeadline />
+      <CanvasIcon />
+      <CanvasBackground />
+      <CanvasLogo />
+      <CanvasGradient />
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import plusIcon from '../../assets/svg/plus.svg';
 import trashIcon from '../../assets/svg/trash.svg';
-import { CanvasGradientContextValues } from '../../contexts/GradientContext';
+import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
 
 interface GradientComponentProps {
 };
@@ -23,9 +23,7 @@ const blendingMode = [
 ];
 
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
-  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
-    CanvasGradientContextValues
-  );
+  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(CanvasPreviewContextValues);
 
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,

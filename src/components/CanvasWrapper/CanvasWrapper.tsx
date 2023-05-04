@@ -1,17 +1,24 @@
 import * as React from "react";
 import "./CanvasWrapper.scss";
-import { CanvasBackgroundContextValues } from "../../contexts";
+import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-export const CanvasWrapper: React.FC<{ className?: string }> = ({
-  className,
-}) => {
-  const { canvasBackgroundValues, setCanvasBackgroundValues } = React.useContext(CanvasBackgroundContextValues)
+
+export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) => {
+  const {
+    canvasHeadlineValues,
+    setCanvasHeadlineValues,
+    canvasIconValues,
+    setCanvasIconValues,
+    canvasBackgroundValues,
+    setCanvasBackgroundValues,
+    canvasLogoValues,
+    setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
 
   return (
     <div className={className}>
       <div className="canvas grid flex-grow-1">
         <h1 className="title w-75 ps-5">
-          Headline text goes here and it can get pretty long
+          {canvasHeadlineValues.content}
         </h1>
         <div className="icon">
           <img

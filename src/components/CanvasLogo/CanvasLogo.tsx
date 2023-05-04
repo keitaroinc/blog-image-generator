@@ -1,5 +1,5 @@
 import * as React from "react";
-import { CanvasLogoContextValues } from "../../contexts/LogoContext";
+import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import keitaroLogoFullColor from "../../assets/svg/keitaro-logo-full-color.svg";
 import keitaroLogoBlack from "../../assets/svg/keitaro-logo-black.svg";
 import keitaroLogoGrayscale from "../../assets/svg/keitaro-logo-grayscale.svg";
@@ -15,9 +15,7 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
-    CanvasLogoContextValues
-  );
+  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
 
   return (
     <div className="bg-gray-light py-2 px-0">
