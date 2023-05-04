@@ -659,11 +659,11 @@ $font-sizes: (
 
 // scss-docs-start headings-variables
 $headings-margin-bottom: $spacer * .5 !default;
-$headings-font-family : null !default;
-$headings-font-style : null !default;
-$headings-font-weight : 500 !default;
-$headings-line-height : 1.2 !default;
-$headings-color : null !default;
+$headings-font-family: null !default;
+$headings-font-style: null !default;
+$headings-font-weight: 700 !default;
+$headings-line-height: 1.2 !default;
+$headings-color: null !default;
 // scss-docs-end headings-variables
 
 // scss-docs-start display-headings
@@ -676,8 +676,8 @@ $display-font-sizes: (
   6: 2.5rem) !default;
 
 $display-font-family: null !default;
-$display-font-style : null !default;
-$display-font-weight: 300 !default;
+$display-font-style: null !default;
+$display-font-weight: 700 !default;
 $display-line-height: $headings-line-height !default;
 // scss-docs-end display-headings
 
