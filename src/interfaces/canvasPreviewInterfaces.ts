@@ -3,7 +3,6 @@ export interface CanvasPreviewContextInterface {
   setCanvasContextValues: Function;
 }
 
-
 export interface CanvasPreviewValuesIntarface {
   canvasWidth: number,
   aspectRatio: string,
@@ -48,5 +47,4 @@ export interface CanvasPreviewValuesIntarface {
       y: string
     }
   }
-}
-
+};
