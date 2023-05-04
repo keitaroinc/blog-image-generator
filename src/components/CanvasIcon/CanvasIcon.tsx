@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { CanvasIconContextValues } from '../../contexts';
+import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
 
 interface CanvasIconProps {
 }
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
-  const { canvasIconValues, setCanvasIconValues } = React.useContext(CanvasIconContextValues);
+  const { canvasIconValues, setCanvasIconValues } = React.useContext(CanvasPreviewContextValues);
   const dragAndDropContainer = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -68,7 +68,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       >
         {canvasIconValues.fileImageURL ?
           <img id="iconSmallImage" className="w-100 h-100 object-fit-contain" src={`${canvasIconValues.fileImageURL}`} alt="Added images" /> :
-          <p className="m-0 px-3">Drag and Drop your transparent image here...</p>
+          <p className="m-0 px-3">Drag and Drop Image Here</p>
         }
       </div>
       <label htmlFor="iconHorizontalRange" className="form-label">Horizontal Position (0 px)</label>

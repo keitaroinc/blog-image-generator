@@ -1,11 +1,11 @@
 import * as React from 'react';
-import { CanvasBackgroundContextValues } from '../../contexts';
+import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
 
 interface CanvasBackgroundProps {
 }
 
 export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = (props) => {
-  const { canvasBackgroundValues, setCanvasBackgroundValues } = React.useContext(CanvasBackgroundContextValues);
+  const { canvasBackgroundValues, setCanvasBackgroundValues } = React.useContext(CanvasPreviewContextValues);
   const dragAndDropContainer = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
@@ -68,7 +68,7 @@ export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = 
       >
         {canvasBackgroundValues.fileImageURL ?
           <img id="backgroundSmallImage" className="w-100 h-100 object-fit-contain" src={`${canvasBackgroundValues.fileImageURL}`} alt="Added images" /> :
-          "Drag and Drop Image Here"
+          <p className="m-0 px-3">Drag and Drop Image Here</p>
         }
       </div>
       <label htmlFor="backgroundHorizontalRange" className="form-label">Horizontal Position (0 px)</label>

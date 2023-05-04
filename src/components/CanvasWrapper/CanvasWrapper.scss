@@ -1,0 +1,50 @@
+.canvas-wrapper {
+  padding: 8rem;
+}
+
+.canvas {
+  container-type: inline-size;
+  overflow: hidden;
+  aspect-ratio: 16/9;
+  background: var(--bs-gray-light);
+  //   transform: scale(calc(50%));
+  border: solid 2rem var(--bs-black);
+  padding: 5rem;
+  box-shadow: 0 0 10rem rgba(0, 0, 0, 0.35);
+  max-width: 100%;
+  margin-bottom: 3rem;
+
+  .title {
+    font-size: 3em;
+    margin-bottom: 0;
+  }
+
+  .icon {
+    --icon-size: 15em;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: var(--icon-size);
+    height: var(--icon-size);
+    border-radius: 50%;
+    background-color: var(--bs-gray-300);
+    position: fixed;
+    right: 10%;
+    transform: translateY(100%);
+
+    img {
+      overflow: visible;
+      object-fit: cover;
+      min-height: 100%;
+    }
+  }
+
+  .logo {
+    height: 3em;
+  }
+}
+
+.grid {
+  display: grid;
+}

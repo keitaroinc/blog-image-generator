@@ -1,6 +1,61 @@
 export interface CanvasPreviewContextInterface {
-  canvasContextValues: CanvasPreviewValuesIntarface;
-  setCanvasContextValues: Function;
+  canvasHeadlineValues: CanvasHeadlineValuesInterface;
+  setCanvasHeadlineValues: Function;
+  canvasIconValues: CanvasIconValuesInterface;
+  setCanvasIconValues: Function;
+  canvasBackgroundValues: CanvasBackgroundValuesInterface;
+  setCanvasBackgroundValues: Function;
+  canvasLogoValues: CanvasLogoValuesInterface;
+  setCanvasLogoValues: Function;
+  canvasGradientValues: CanvasGradientValuesInterface[];
+  setCanvasGradientValues: Function;
+}
+
+export interface CanvasHeadlineValuesInterface {
+  content: string;
+  position: {
+    x: string;
+    y: string;
+  };
+}
+
+export interface CanvasIconValuesInterface {
+  fileImage: Blob | null;
+  fileImageURL: string | ArrayBuffer | null;
+  position: {
+    x: string;
+    y: string;
+  };
+}
+
+export interface CanvasBackgroundValuesInterface {
+  color: string;
+  fileImage: Blob | null;
+  fileImageURL: string | ArrayBuffer | null;
+  position: {
+    x: string;
+    y: string;
+  };
+  size: string;
+}
+
+export interface CanvasLogoValuesInterface {
+  src: string;
+  position: {
+    x: string;
+    y: string;
+  };
+}
+
+export interface CanvasGradientValuesInterface {
+  startColor: string;
+  startColorPercentage: string;
+  endColor: string;
+  endColorPercentage: string;
+  scale: string;
+  rotation: string;
+  gradientType: string;
+  blendingMode: string;
 }
 
 export interface CanvasPreviewValuesIntarface {
