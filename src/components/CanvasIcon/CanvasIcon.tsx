@@ -14,7 +14,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       let file = canvasIconValues.fileImage
       fileReader = new FileReader();
       fileReader.onload = (e) => {
-        if (e.target && !isCancel) {
+        if ((!canvasIconValues.fileImageURL || canvasIconValues.fileImageURL !== fileReader.result) && e.target && !isCancel) {
           setCanvasIconValues({ ...canvasIconValues, fileImageURL: e.target.result })
         }
       }
