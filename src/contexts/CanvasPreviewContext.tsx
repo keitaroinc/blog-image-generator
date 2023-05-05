@@ -1,17 +1,25 @@
 import React, { createContext, useState } from 'react';
 
-import { CanvasPreviewContextInterface, CanvasBackgroundValuesInterface, CanvasHeadlineValuesInterface, CanvasIconValuesInterface, CanvasLogoValuesInterface, CanvasGradientValuesInterface } from '../interfaces/canvasPreviewInterfaces'
+import { CanvasPreviewContextInterface, CanvasBackgroundValuesInterface, CanvasHeadlineValuesInterface, CanvasIconValuesInterface, CanvasLogoValuesInterface, CanvasGradientValuesInterface, CanvasRefsInterface } from '../interfaces/canvasPreviewInterfaces'
 
 import keitaroFullColorLogo from "../assets/svg/keitaro-logo-full-color.svg"
 
 const CanvasPreviewContext = createContext({} as CanvasPreviewContextInterface);
 
 export const Provider = (props: { children: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | React.ReactFragment | React.ReactPortal | null | undefined; }) => {
+  const [canvasRefs, setCanvasRefs] = React.useState<CanvasRefsInterface>({
+    canvasRefWidth: 0,
+    canvasRefHeight: 0,
+    headlineRefWidth: 0,
+    headlineRefHeight: 0,
+  });
+
   const [canvasHeadlineValues, setCanvasHeadlineValues] = useState<CanvasHeadlineValuesInterface>({
     content: "Headline text goes here and it can get pretty long",
+    color: "#000000",
     position: {
-      x: "",
-      y: ""
+      x: `${canvasRefs.headlineRefWidth}`,
+      y: `${canvasRefs.headlineRefHeight}`
     }
   });
 
@@ -55,6 +63,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
   }])
 
   const canvasPreviewValues = {
+    canvasRefs,
+    setCanvasRefs,
     canvasHeadlineValues,
     setCanvasHeadlineValues,
     canvasIconValues,
