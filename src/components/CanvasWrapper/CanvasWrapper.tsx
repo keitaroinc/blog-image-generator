@@ -48,7 +48,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
           alt="Keitaro logo"
         />
       </div>
-      <button className="btn btn-success">Download</button>
+      <button className="btn btn-lg btn-keitaro-alt text-light">Download</button>
     </div>
   );
 };
