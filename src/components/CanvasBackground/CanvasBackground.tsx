@@ -14,7 +14,7 @@ export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = 
       let file = canvasBackgroundValues.fileImage
       fileReader = new FileReader();
       fileReader.onload = (e) => {
-        if (e.target && !isCancel) {
+        if ((!canvasBackgroundValues.fileImageURL || canvasBackgroundValues.fileImageURL !== fileReader.result) && e.target && !isCancel) {
           setCanvasBackgroundValues({ ...canvasBackgroundValues, fileImageURL: e.target.result })
         }
       }
