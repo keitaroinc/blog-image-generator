@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {Fragment} from 'react';
 import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
 
 interface CanvasBackgroundProps {
@@ -53,14 +53,14 @@ export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = 
     }
   }, []);
 
-  return <div className="bg-gray-light py-2 px-0">
-    <div className=" bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
-      <h1 className="fs-6 fw-bold mb-0">Background</h1>
+  return <Fragment>
+    <div className="bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
+      <h1 className="h6 mb-0">Background</h1>
       <input type="color" className="form-control form-control-color" id="backgroundColorPicker" defaultValue="#0E9842" title="Choose your color"></input>
     </div>
-    <div className="px-3 mt-3">
+    <div className="list-group-item bg-gray-light">
       <div
-        className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none p-1 bg-white"
+        className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -71,12 +71,12 @@ export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = 
           <p className="m-0 px-3">Drag and Drop Image Here</p>
         }
       </div>
-      <label htmlFor="backgroundHorizontalRange" className="form-label">Horizontal Position (0 px)</label>
+      <label htmlFor="backgroundHorizontalRange" className="form-label m-3">Horizontal Position (0 px)</label>
       <input type="range" id="backgroundHorizontalRange" className="form-range"></input>
-      <label htmlFor="backgroundVerticalRange" className="form-label">Vertical Position (0 px)</label>
+      <label htmlFor="backgroundVerticalRange" className="form-label m-3">Vertical Position (0 px)</label>
       <input type="range" id="backgroundVerticalRange" className="form-range"></input>
-      <label htmlFor="backgroundScaleRange" className="form-label">Scale (100%)</label>
+      <label htmlFor="backgroundScaleRange" className="form-label m-3">Scale (100%)</label>
       <input type="range" id="backgroundScaleRange" className="form-range"></input>
     </div>
-  </div >;
+  </Fragment>
 };

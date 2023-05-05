@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import keitaroLogoFullColor from "../../assets/svg/keitaro-logo-full-color.svg";
 import keitaroLogoBlack from "../../assets/svg/keitaro-logo-black.svg";
@@ -18,12 +18,12 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
 
   return (
-    <div className="bg-gray-light py-2 px-0">
-      <div className=" bg-gray-medium d-flex justify-content-between align-items-center py-3 px-3">
-        <h1 className="fs-6 fw-bold mb-0">Keitaro Logo</h1>
+    <Fragment>
+      <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
+        <h1 className="h6 my-2">Keitaro Logo</h1>
       </div>
-      <div className="px-3 mt-3">
-        <div className="form-floating">
+      <div className="list-group-item bg-gray-light">
+        <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"
             onChange={(e) =>
@@ -40,9 +40,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           </select>
           <label htmlFor="floatingSelect">Logo Type</label>
         </div>
-      </div>
-      <div className="px-3 my-4">
-        <label htmlFor="logoHorizontalPosition" className="form-label">
+        <label htmlFor="logoHorizontalPosition" className="form-label m-3">
           Horizontal Position (0 px)
         </label>
         <input
@@ -60,7 +58,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             })
           }
         />
-        <label htmlFor="logoVerticalPosition" className="form-label">
+        <label htmlFor="logoVerticalPosition" className="form-label m-3">
           Vertical Position (0 px)
         </label>
         <input
@@ -79,6 +77,6 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
         />
       </div>
-    </div>
+    </Fragment>
   );
 };

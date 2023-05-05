@@ -71,9 +71,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           <p className="m-0 px-3">Drag and Drop Image Here</p>
         }
       </div>
-      <label htmlFor="iconHorizontalRange" className="form-label">Horizontal Position (0 px)</label>
+      <label htmlFor="iconHorizontalRange" className="form-label m-3">Horizontal Position (0 px)</label>
       <input type="range" id="iconHorizontalRange" className="form-range"></input>
-      <label htmlFor="iconVerticalRange" className="form-label">Vertical Position (0 px)</label>
+      <label htmlFor="iconVerticalRange" className="form-label m-3">Vertical Position (0 px)</label>
       <input type="range" id="iconVerticalRange" className="form-range"></input>
     </div>
   </div >;

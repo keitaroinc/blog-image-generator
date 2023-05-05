@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
 
 // Include functions first (so you can manipulate colors, SVGs, calc, etc)
 @import "../../../node_modules/bootstrap/scss/functions";
@@ -53,8 +53,11 @@
 // // 8. Add additional custom code here
 
 .drag-and-drop-container {
-  height: 150px;
+  @extend .text-muted;
+  @extend .rounded;
+  @extend .rounded-3;
   border: 2px dashed #ccc;
+  min-height: $spacer * 10;
   transition: all 0.4s ease-in-out;
 }
 

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import plusIcon from '../../assets/svg/plus.svg';
 import trashIcon from '../../assets/svg/trash.svg';
 import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
@@ -89,9 +89,9 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
 
 
   return (
-    <div className="bg-gray-light py-2 px-0">
-      <div className="bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
-        <h1 className="fs-6 fw-bold mb-0">Gradient</h1>
+    <Fragment>
+      <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
+        <h1 className="h6 mb-0">Gradient</h1>
         <button
           className="btn btn-success"
           onClick={handleAddGradient}
@@ -102,7 +102,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       {canvasGradientValues.length > 0 &&
         (canvasGradientValues || []).map((gradient, index) => {
           return (
-            <div className="border-bottom px-3 mt-3" key={index}>
+            <div className="list-group-item bg-gray-light p-3" key={index}>
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <input
@@ -142,7 +142,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 <div className="d-flex">
                   <input
                     type="number"
-                    className="form-control me-1"
+                    className="form-control me-2"
                     placeholder="50%"
                     id="InputGroup"
                     min="0"
@@ -168,7 +168,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor={`scale${index}`} className="form-label">
+                <label htmlFor={`scale${index}`} className="form-label m-3">
                   Scale ({gradient.scale}%)
                 </label>
                 <input
@@ -184,7 +184,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-2">
-                <label htmlFor={`rotation${index}`} className="form-label">
+                <label htmlFor={`rotation${index}`} className="form-label m-3">
                   Rotation ({gradient.rotation} deg)
                 </label>
                 <input
@@ -199,7 +199,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   }
                 />
               </div>
-              <div className="py-3">
+              <div className="my-3">
                 <div className="form-floating">
                   <select
                     title="GradientOptions"
@@ -219,7 +219,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <label htmlFor="floatingSelect">Gradient Type</label>
                 </div>
               </div>
-              <div className="py-3">
+              <div className="mt-3">
                 <div className="form-floating">
                   <select
                     title="BlendingMode"
@@ -243,6 +243,6 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
           );
         })
       }
-    </div>
+    </Fragment>
   );
 };

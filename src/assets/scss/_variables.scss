@@ -5,6 +5,11 @@
 
 // Color system
 
+// Keitaro colors
+$keitaro-green-dark: #0E9842;
+$keitaro-green-light: #8cc04b;
+$keitaro-neutral: #99938b;
+
 // scss-docs-start gray-color-variables
 $white : #fff !default;
 $gray-100: #f8f9fa !default;
@@ -286,7 +291,7 @@ $cyans: (
 // fusv-enable
 
 // scss-docs-start theme-color-variables
-$primary : $blue !default;
+$primary : $keitaro-green-dark !default;
 $secondary : $gray-600 !default;
 $success : $green !default;
 $info : $cyan !default;
@@ -294,9 +299,8 @@ $warning : $yellow !default;
 $danger : $red !default;
 $light : $gray-100 !default;
 $dark : $gray-900 !default;
-$gray-light : #EEEEEE;
-$gray-medium: #DDDDDD;
-$keitaro : #0E9842;
+$gray-light : #eee;
+$gray-medium: #ddd;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -311,7 +315,9 @@ $theme-colors: (
   "dark": $dark,
   "gray-light": $gray-light,
   "gray-medium": $gray-medium,
-  "keitaro": $keitaro) !default;
+  "keitaro-alt": $keitaro-green-light,
+  "keitaro-neutral": $keitaro-neutral,
+  "keitaro-neutral-light": lighten($keitaro-neutral, 25%)) !default;
 // scss-docs-end theme-colors-map
 
 // scss-docs-start theme-text-variables
@@ -378,7 +384,7 @@ $enable-deprecation-messages: true !default;
 $enable-important-utilities : true !default;
 
 $enable-dark-mode: true !default;
-$color-mode-type : data !default; // `data` or `media-query`
+$color-mode-type : media-query !default; // `data` or `media-query`
 
 // Prefix for :root CSS variables
 
@@ -554,12 +560,12 @@ $box-shadow-inset: inset 0 1px 2px rgba($black, .075) !default;
 // scss-docs-end box-shadow-variables
 
 $component-active-color: $white !default;
-$component-active-bg : $keitaro !default;
+$component-active-bg : $primary !default;
 
 // scss-docs-start focus-ring-variables
 $focus-ring-width : .25rem !default;
 $focus-ring-opacity : .25 !default;
-$focus-ring-color : rgba($keitaro, $focus-ring-opacity) !default;
+$focus-ring-color : rgba($primary, $focus-ring-opacity) !default;
 $focus-ring-blur : 0 !default;
 $focus-ring-box-shadow: 0 0 $focus-ring-blur $focus-ring-width $focus-ring-color !default;
 // scss-docs-end focus-ring-variables
@@ -1050,7 +1056,7 @@ $form-select-transition: $input-transition !default;
 $form-range-track-width : 100% !default;
 $form-range-track-height : .5rem !default;
 $form-range-track-cursor : pointer !default;
-$form-range-track-bg : var(--#{$prefix}tertiary-bg) !default;
+$form-range-track-bg : var(--#{$prefix}gray-medium) !default;
 $form-range-track-border-radius: 1rem !default;
 $form-range-track-box-shadow : $box-shadow-inset !default;
 
@@ -1060,8 +1066,7 @@ $form-range-thumb-bg : $component-active-bg !default;
 $form-range-thumb-border : 0 !default;
 $form-range-thumb-border-radius: 1rem !default;
 $form-range-thumb-box-shadow : 0 .1rem .25rem rgba($black, .1) !default;
-$form-range-thumb-focus-box-shadow: 0 0 0 1px $body-bg,
-  $input-focus-box-shadow !default;
+$form-range-thumb-focus-box-shadow: 0 0 0 1px $body-bg, $input-focus-box-shadow !default;
 $form-range-thumb-focus-box-shadow-width: $input-focus-width !default; // For focus box shadow issue in Edge
 $form-range-thumb-active-bg : tint-color($component-active-bg, 70%) !default;
 $form-range-thumb-disabled-bg : var(--#{$prefix}secondary-color) !default;
