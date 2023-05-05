@@ -9,8 +9,8 @@ interface CanvasLogoProps { }
 
 const logoOptions = [
   { src: keitaroLogoFullColor, label: "Full Color" },
-  { src: keitaroLogoBlack, label: "Black" },
   { src: keitaroLogoGrayscale, label: "Grayscale" },
+  { src: keitaroLogoBlack, label: "Black" },
   { src: keitaroLogoWhite, label: "White" },
 ];
 
@@ -23,19 +23,23 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <h1 className="fs-6 fw-bold mb-0">Keitaro Logo</h1>
       </div>
       <div className="px-3 mt-3">
-        <select
-          title="CanvasLogoOptions"
-          onChange={(e) =>
-            setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
-          }
-          className="form-select"
-        >
-          {logoOptions.map((option) => (
-            <option key={option.src} value={option.src}>
-              {option.label}
-            </option>
-          ))}
-        </select>
+        <div className="form-floating">
+          <select
+            title="CanvasLogoOptions"
+            onChange={(e) =>
+              setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
+            }
+            className="form-select"
+            aria-label="Logo Type"
+          >
+            {logoOptions.map((option) => (
+              <option key={option.src} value={option.src}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <label htmlFor="floatingSelect">Logo Type</label>
+        </div>
       </div>
       <div className="px-3 my-4">
         <label htmlFor="logoHorizontalPosition" className="form-label">

@@ -116,7 +116,6 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     }
                     title="Choose your color"
                   />
-
                   <input
                     type="number"
                     className="form-control ms-2"
@@ -201,36 +200,44 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 />
               </div>
               <div className="py-3">
-                <select
-                  title="GradientOptions"
-                  defaultValue={gradient.gradientType}
-                  onChange={(event: any) =>
-                    handleEditTypeOfGradient(event, index, 'gradientType')
-                  }
-                  className="form-select"
-                >
-                  {gradientOptions.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                <div className="form-floating">
+                  <select
+                    title="GradientOptions"
+                    defaultValue={gradient.gradientType}
+                    onChange={(event: any) =>
+                      handleEditTypeOfGradient(event, index, 'gradientType')
+                    }
+                    className="form-select"
+                    aria-label="Gradient Type"
+                  >
+                    {gradientOptions.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                  <label htmlFor="floatingSelect">Gradient Type</label>
+                </div>
               </div>
               <div className="py-3">
-                <select
-                  title="BlendingMode"
-                  defaultValue={gradient.blendingMode}
-                  onChange={(event: any) =>
-                    handleEditTypeOfGradient(event, index, 'blendingMode')
-                  }
-                  className="form-select"
-                >
-                  {blendingMode.map((option) => (
-                    <option key={option.value} value={option.value}>
-                      {option.label}
-                    </option>
-                  ))}
-                </select>
+                <div className="form-floating">
+                  <select
+                    title="BlendingMode"
+                    defaultValue={gradient.blendingMode}
+                    onChange={(event: any) =>
+                      handleEditTypeOfGradient(event, index, 'blendingMode')
+                    }
+                    className="form-select"
+                    aria-label="Blending Mode"
+                  >
+                    {blendingMode.map((option) => (
+                      <option key={option.value} value={option.value}>
+                        {option.label}
+                      </option>
+                    ))}
+                  </select>
+                  <label htmlFor="floatingSelect">Blending Mode</label>
+                </div>
               </div>
             </div>
           );
