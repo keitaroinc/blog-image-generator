@@ -15,7 +15,12 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
+  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } = React.useContext(CanvasPreviewContextValues);
+
+  console.log(canvasRefs.canvasRefHeight - canvasRefs.logoRefHeight);
+  console.log(canvasRefs.canvasRefWidth - canvasRefs.logoRefWidth);
+
+
 
   return (
     <Fragment>
@@ -48,6 +53,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           defaultValue={canvasLogoValues.position.x}
           type="range"
           className="form-range mb-2"
+          min={0}
+          max={canvasRefs.canvasRefHeight - canvasRefs.logoRefHeight}
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -66,6 +73,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           defaultValue={canvasLogoValues.position.y}
           type="range"
           className="form-range"
+          min={0}
+          max={canvasRefs.canvasRefWidth - canvasRefs.logoRefWidth}
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
