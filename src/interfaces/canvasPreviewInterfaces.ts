@@ -16,8 +16,10 @@ export interface CanvasPreviewContextInterface {
 export interface CanvasRefsInterface {
   canvasRefHeight: number;
   canvasRefWidth: number;
-  headlineRefWidth: number,
-  headlineRefHeight: number,
+  headlineRefWidth: number;
+  headlineRefHeight: number;
+  logoRefWidth: number;
+  logoRefHeight: number;
 }
 export interface CanvasHeadlineValuesInterface {
   content: string;
@@ -68,47 +70,47 @@ export interface CanvasGradientValuesInterface {
 }
 
 export interface CanvasPreviewValuesIntarface {
-  canvasWidth: number,
-  aspectRatio: string,
-  canvasBorderStyle: string,
-  canvasBorderWidth: number,
+  canvasWidth: number;
+  aspectRatio: string;
+  canvasBorderStyle: string;
+  canvasBorderWidth: number;
   canvasBackground: {
-    color: string,
-    image: string,
+    color: string;
+    image: string;
     position: {
-      x: string,
-      y: string
-    },
-    size: string
-  },
+      x: string;
+      y: string;
+    };
+    size: string;
+  };
   canvasGradients: [
     {
-      type: string,
-      rotation: string,
-      startColor: string,
-      endColor: string,
-      blendingMode: string,
+      type: string;
+      rotation: string;
+      startColor: string;
+      endColor: string;
+      blendingMode: string;
     }
-  ],
+  ];
   canvasIcon: {
-    src: string,
+    src: string;
     position: {
-      x: string,
-      y: string
-    }
-  },
+      x: string;
+      y: string;
+    };
+  };
   canvasHeadline: {
-    content: string,
+    content: string;
     position: {
-      x: string,
-      y: string
-    }
-  }
+      x: string;
+      y: string;
+    };
+  };
   canvasLogo: {
-    src: string,
+    src: string;
     position: {
-      x: string,
-      y: string
-    }
-  }
-};
+      x: string;
+      y: string;
+    };
+  };
+}
