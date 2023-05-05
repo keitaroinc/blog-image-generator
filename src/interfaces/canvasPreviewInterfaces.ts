@@ -1,4 +1,6 @@
 export interface CanvasPreviewContextInterface {
+  canvasRefs: CanvasRefsInterface;
+  setCanvasRefs: Function;
   canvasHeadlineValues: CanvasHeadlineValuesInterface;
   setCanvasHeadlineValues: Function;
   canvasIconValues: CanvasIconValuesInterface;
@@ -11,8 +13,15 @@ export interface CanvasPreviewContextInterface {
   setCanvasGradientValues: Function;
 }
 
+export interface CanvasRefsInterface {
+  canvasRefHeight: number;
+  canvasRefWidth: number;
+  headlineRefWidth: number,
+  headlineRefHeight: number,
+}
 export interface CanvasHeadlineValuesInterface {
   content: string;
+  color: string;
   position: {
     x: string;
     y: string;
