@@ -6,6 +6,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
   const {
     canvasHeadlineValues,
     canvasLogoValues,
+    canvasBackgroundValues,
     setCanvasRefs } = React.useContext(CanvasPreviewContextValues);
 
   const canvasRef = React.useRef<HTMLDivElement>(null)
@@ -28,10 +29,17 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
     return () => window.removeEventListener('resize', updateSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
+  console.log(canvasRef.current?.clientWidth)
   return (
     <div className={className}>
-      <div className="canvas grid flex-grow-1" ref={canvasRef}>
+      <div
+        className="canvas grid flex-grow-1"
+        ref={canvasRef}
+        style={{
+          backgroundColor: `${canvasBackgroundValues.color}`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== "" ? canvasBackgroundValues.fileImageURL : null})`,
+          backgroundSize: `auto ${canvasBackgroundValues.size}%`
+        }}>
         <h1
           className="title w-75"
           style={{ transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`, color: canvasHeadlineValues.color }}
