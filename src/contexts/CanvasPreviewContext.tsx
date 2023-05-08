@@ -12,6 +12,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
     canvasRefHeight: 0,
     headlineRefWidth: 0,
     headlineRefHeight: 0,
+    logoRefWidth: 0,
+    logoRefHeight: 0
   });
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] = useState<CanvasHeadlineValuesInterface>({
@@ -46,8 +48,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
   const [canvasLogoValues, setCanvasLogoValues] = useState<CanvasLogoValuesInterface>({
     src: keitaroFullColorLogo,
     position: {
-      x: "",
-      y: ""
+      x: `${canvasRefs.logoRefWidth}`,
+      y: `${canvasRefs.logoRefHeight}`
     }
   });
 
