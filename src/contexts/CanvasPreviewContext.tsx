@@ -39,8 +39,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
     fileImage: null,
     fileImageURL: null,
     position: {
-      x: "0",
-      y: "0"
+      x: "50",
+      y: "50"
     },
     size: "100"
   });
