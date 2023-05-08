@@ -49,7 +49,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           type="range"
           className="form-range mb-2"
           min={0}
-          max={canvasRefs.canvasRefHeight - canvasRefs.logoRefHeight}
+          max={canvasRefs.canvasRefWidth - (canvasRefs.logoRefWidth + 200)}
+          step={1}
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -69,7 +70,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           type="range"
           className="form-range"
           min={0}
-          max={canvasRefs.canvasRefWidth - canvasRefs.logoRefWidth}
+          step={1}
+          max={(canvasRefs.canvasRefHeight - 60) - canvasRefs.logoRefHeight}
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
