@@ -123,6 +123,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           type="range"
           id="iconHorizontalRange"
           className="form-range"
+          style={{ transform: "rotate(180deg" }}
           defaultValue={canvasIconValues.position.x}
           max={100}
           step={1}
