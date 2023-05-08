@@ -23,17 +23,13 @@
 
   .icon {
     --icon-size: 15em;
-
     display: flex;
     justify-content: center;
     align-items: center;
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 50%;
-    background-color: var(--bs-gray-300);
     position: fixed;
-    right: 10%;
-    transform: translateY(100%);
 
     img {
       overflow: visible;
