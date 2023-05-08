@@ -36,14 +36,14 @@ export const Provider = (props: { children: string | number | boolean | React.Re
   });
 
   const [canvasBackgroundValues, setCanvasBackgroundValues] = useState<CanvasBackgroundValuesInterface>({
-    color: "",
+    color: "#FFFFFF",
     fileImage: null,
     fileImageURL: null,
     position: {
-      x: "",
-      y: ""
+      x: "50",
+      y: "50"
     },
-    size: ""
+    size: "100"
   });
 
   const [canvasLogoValues, setCanvasLogoValues] = useState<CanvasLogoValuesInterface>({
