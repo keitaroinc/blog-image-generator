@@ -14,7 +14,7 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
         </p>
       </div>
       <div className="list-group list-group-flush">
-        <div className='list-group-item bg-gray-light'>
+        <div className='list-group-item'>
             <p className='text-muted m-4'><span className="h4">👋</span> Use the following controls to <strong>adjust the image</strong> and click on <strong>Download</strong> to generate an image file.</p>
         </div>
         <CanvasHeadline />

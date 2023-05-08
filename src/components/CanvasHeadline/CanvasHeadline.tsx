@@ -20,7 +20,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (pro
       <h1 className="h6 mb-0">Headline</h1>
       <input type="color" className="form-control form-control-color" id="headlineColorPicker" defaultValue="#000" title="Choose your color" onChange={(e) => setCanvasHeadlineValues({ ...canvasHeadlineValues, color: e.target.value })}></input>
     </div>
-    <div className="list-group-item bg-gray-light">
+    <div className="list-group-item">
       <div className="form-floating mb-3 mt-2">
         <textarea
           className="form-control h-100"
