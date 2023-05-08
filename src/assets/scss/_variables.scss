@@ -383,7 +383,7 @@ $enable-negative-margins : false !default;
 $enable-deprecation-messages: true !default;
 $enable-important-utilities : true !default;
 
-$enable-dark-mode: true !default;
+$enable-dark-mode: false !default;
 $color-mode-type : media-query !default; // `data` or `media-query`
 
 // Prefix for :root CSS variables
@@ -1597,7 +1597,7 @@ $progress-bar-transition : width .6s ease !default;
 
 // scss-docs-start list-group-variables
 $list-group-color : var(--#{$prefix}body-color) !default;
-$list-group-bg : var(--#{$prefix}body-bg) !default;
+$list-group-bg : var(--#{$prefix}gray-light) !default;
 $list-group-border-color : var(--#{$prefix}border-color) !default;
 $list-group-border-width : var(--#{$prefix}border-width) !default;
 $list-group-border-radius: var(--#{$prefix}border-radius) !default;
