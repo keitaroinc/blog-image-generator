@@ -102,7 +102,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       {canvasGradientValues.length > 0 &&
         (canvasGradientValues || []).map((gradient, index) => {
           return (
-            <div className="list-group-item bg-gray-light p-3" key={index}>
+            <div className="list-group-item p-3" key={index}>
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <input
