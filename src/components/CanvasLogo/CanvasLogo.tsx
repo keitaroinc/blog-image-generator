@@ -17,11 +17,6 @@ const logoOptions = [
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   const { canvasLogoValues, setCanvasLogoValues, canvasRefs } = React.useContext(CanvasPreviewContextValues);
 
-  console.log(canvasRefs.canvasRefHeight - canvasRefs.logoRefHeight);
-  console.log(canvasRefs.canvasRefWidth - canvasRefs.logoRefWidth);
-
-
-
   return (
     <Fragment>
       <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
