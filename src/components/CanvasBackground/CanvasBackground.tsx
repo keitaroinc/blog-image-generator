@@ -58,7 +58,7 @@ export const CanvasBackground: React.FunctionComponent<CanvasBackgroundProps> = 
       <h1 className="h6 mb-0">Background</h1>
       <input type="color" className="form-control form-control-color" id="backgroundColorPicker" defaultValue="#0E9842" title="Choose your color"></input>
     </div>
-    <div className="list-group-item bg-gray-light">
+    <div className="list-group-item">
       <div
         className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"
         onDrop={handleDrop}

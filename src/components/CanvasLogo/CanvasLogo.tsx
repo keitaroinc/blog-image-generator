@@ -22,7 +22,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
       <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
         <h1 className="h6 my-2">Keitaro Logo</h1>
       </div>
-      <div className="list-group-item bg-gray-light">
+      <div className="list-group-item">
         <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"
