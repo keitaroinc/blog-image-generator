@@ -49,13 +49,13 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
         >
           {canvasHeadlineValues.content}
         </h1>
-        <div className="icon" style={{ transform: `translateY(${canvasIconValues.position.y}%)`, right: `${canvasIconValues.position.x}%`, backgroundColor: `${canvasIconValues.color}` }}>
+        {canvasIconValues.fileImageURL && <div className="icon" style={{ transform: `translateY(${canvasIconValues.position.y}%)`, right: `${canvasIconValues.position.x}%`, backgroundColor: `${canvasIconValues.color}` }}>
           <img
             className="w-25 h-25 justify-self-end"
             src={canvasIconValues.fileImageURL ? `${canvasIconValues.fileImageURL}` : "/image-generator/static/media/keitaro-logo-full-color.44775c6e1a17ea7494df1b4c93c5dd09.svg"}
             alt="Keitaro logo"
           />
-        </div>
+        </div>}
         <img
           className="align-self-end logo"
           src={canvasLogoValues.src}
