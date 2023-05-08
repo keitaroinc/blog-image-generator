@@ -33,6 +33,7 @@ export interface CanvasHeadlineValuesInterface {
 export interface CanvasIconValuesInterface {
   fileImage: Blob | null;
   fileImageURL: string | ArrayBuffer | null;
+  color: string;
   position: {
     x: string;
     y: string;
@@ -94,6 +95,7 @@ export interface CanvasPreviewValuesIntarface {
   ];
   canvasIcon: {
     src: string;
+    color: string;
     position: {
       x: string;
       y: string;

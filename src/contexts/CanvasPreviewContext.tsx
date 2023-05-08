@@ -28,9 +28,10 @@ export const Provider = (props: { children: string | number | boolean | React.Re
   const [canvasIconValues, setCanvasIconValues] = useState<CanvasIconValuesInterface>({
     fileImage: null,
     fileImageURL: null,
+    color: "var(--bs-gray-300)",
     position: {
-      x: "",
-      y: ""
+      x: "10",
+      y: "100"
     }
   });
 

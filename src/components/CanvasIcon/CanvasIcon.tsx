@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CanvasIconProps {}
+interface CanvasIconProps { }
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const { canvasIconValues, setCanvasIconValues } = React.useContext(
@@ -92,8 +92,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           type="color"
           className="form-control form-control-color"
           id="iconColorPicker"
-          defaultValue="#0E9842"
+          defaultValue="#DEE2E6"
           title="Choose your color"
+          onChange={(e) => setCanvasIconValues({ ...canvasIconValues, color: e.target.value })}
         ></input>
       </div>
       <div className="list-group-item">
@@ -122,6 +123,18 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           type="range"
           id="iconHorizontalRange"
           className="form-range"
+          defaultValue={canvasIconValues.position.x}
+          max={100}
+          step={1}
+          onChange={(e) =>
+            setCanvasIconValues({
+              ...canvasIconValues,
+              position: {
+                x: e.target.value,
+                y: canvasIconValues.position.y
+              }
+            })
+          }
         ></input>
         <label htmlFor="iconVerticalRange" className="form-label m-3">
           Vertical Position (0 px)
@@ -130,6 +143,17 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           type="range"
           id="iconVerticalRange"
           className="form-range"
+          max={100}
+          defaultValue={canvasIconValues.position.y}
+          onChange={(e) =>
+            setCanvasIconValues({
+              ...canvasIconValues,
+              position: {
+                x: canvasIconValues.position.x,
+                y: e.target.value
+              }
+            })
+          }
         ></input>
       </div>
     </Fragment>
