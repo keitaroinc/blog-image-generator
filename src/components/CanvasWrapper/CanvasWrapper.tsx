@@ -30,7 +30,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
     return () => window.removeEventListener('resize', updateSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-  console.log(canvasRef.current?.clientWidth)
+
   return (
     <div className={className}>
       <div
