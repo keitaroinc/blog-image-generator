@@ -19,7 +19,21 @@ const blendingMode = [
   { value: 'overlay', label: 'Overlay' },
   { value: 'darken', label: 'Darken' },
   { value: 'lighten', label: 'Lighten' },
+  { value: 'color-dodge', label: 'Color Dodge' },
+  { value: 'color-burn', label: 'Color Burn' },
+  { value: 'hard-light', label: 'Hard Light' },
+  { value: 'soft-light', label: 'Soft Light' },
+  { value: 'difference', label: 'Difference' },
+  { value: 'exclusion', label: 'Exclusion' },
+  { value: 'hue', label: 'Hue' },
+  { value: 'saturation', label: 'Saturation' },
   { value: 'color', label: 'Color' },
+  { value: 'luminosity', label: 'Luminosity' },
+  { value: 'inherit', label: 'Inherit' },
+  { value: 'initial', label: 'Initial' },
+  { value: 'revert', label: 'Revert' },
+  { value: 'revert-layer', label: 'Revert Layer' },
+  { value: 'unset', label: 'Unset' }
 ];
 
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
