@@ -113,7 +113,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
           <img src={plusIcon} alt="add-gradient" />
         </button>
       </div>
-      {canvasGradientValues.length > 0 &&
+      {canvasGradientValues.length > 0 ?
         (canvasGradientValues || []).map((gradient, index) => {
           return (
             <div className="list-group-item p-3" key={index}>
@@ -255,7 +255,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
             </div>
           );
-        })
+        }) : <p className='d-flex justify-content-center py-5 text-muted'>No gradients added yet.</p>
       }
     </Fragment>
   );
