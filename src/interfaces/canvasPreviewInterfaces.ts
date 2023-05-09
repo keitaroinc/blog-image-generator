@@ -69,6 +69,7 @@ export interface CanvasGradientValuesInterface {
   rotation: string;
   gradientType: string;
   blendingMode: string;
+  opacity: string;
 }
 
 export interface CanvasPreviewValuesIntarface {
@@ -96,6 +97,8 @@ export interface CanvasPreviewValuesIntarface {
       startColor: string;
       endColor: string;
       blendingMode: string;
+      gradientType: string;
+      opacity: string;
     }
   ];
   canvasIcon: {
