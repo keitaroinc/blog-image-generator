@@ -1,6 +1,9 @@
+import '@popperjs/core/dist/esm/popper-lite';
+import 'bootstrap/dist/js/bootstrap';
 import "./assets/scss/style.scss";
 import { CanvasWrapper, SideBar } from "./components";
 import { CanvasPreviewContextProvider } from "./contexts/CanvasPreviewContext";
+
 
 export const App = () => {
   return (
