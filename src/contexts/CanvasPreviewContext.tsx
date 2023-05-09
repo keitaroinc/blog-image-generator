@@ -54,16 +54,7 @@ export const Provider = (props: { children: string | number | boolean | React.Re
     }
   });
 
-  const [canvasGradientValues, setCanvasGradientValues] = useState<CanvasGradientValuesInterface[]>([{
-    startColor: '#28a745',
-    startColorPercentage: '50',
-    endColor: '#20c997',
-    endColorPercentage: '50',
-    scale: '10',
-    rotation: '10',
-    gradientType: 'linear',
-    blendingMode: "overlay"
-  }])
+  const [canvasGradientValues, setCanvasGradientValues] = useState<CanvasGradientValuesInterface[]>([])
 
   const canvasPreviewValues = {
     canvasRefs,
