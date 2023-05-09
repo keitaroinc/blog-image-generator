@@ -1,43 +1,44 @@
-import React, { Fragment } from 'react';
-import plusIcon from '../../assets/svg/plus.svg';
-import trashIcon from '../../assets/svg/trash.svg';
-import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
+import React, { Fragment } from "react";
+import plusIcon from "../../assets/svg/plus.svg";
+import trashIcon from "../../assets/svg/trash.svg";
+import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface GradientComponentProps {
-};
+interface GradientComponentProps { }
 
 const gradientOptions = [
-  { value: 'linear', label: 'Linear' },
-  { value: 'radial', label: 'Radial' },
-  { value: 'conic', label: 'Conic' },
+  { value: "linear-gradient", label: "Linear" },
+  { value: "radial-gradient", label: "Radial" },
+  { value: "conic", label: "Conic" },
 ];
 
 const blendingMode = [
-  { value: 'normal', label: 'Normal' },
-  { value: 'multiply', label: 'Multiply' },
-  { value: 'screen', label: 'Screen' },
-  { value: 'overlay', label: 'Overlay' },
-  { value: 'darken', label: 'Darken' },
-  { value: 'lighten', label: 'Lighten' },
-  { value: 'color-dodge', label: 'Color Dodge' },
-  { value: 'color-burn', label: 'Color Burn' },
-  { value: 'hard-light', label: 'Hard Light' },
-  { value: 'soft-light', label: 'Soft Light' },
-  { value: 'difference', label: 'Difference' },
-  { value: 'exclusion', label: 'Exclusion' },
-  { value: 'hue', label: 'Hue' },
-  { value: 'saturation', label: 'Saturation' },
-  { value: 'color', label: 'Color' },
-  { value: 'luminosity', label: 'Luminosity' },
-  { value: 'inherit', label: 'Inherit' },
-  { value: 'initial', label: 'Initial' },
-  { value: 'revert', label: 'Revert' },
-  { value: 'revert-layer', label: 'Revert Layer' },
-  { value: 'unset', label: 'Unset' }
+  { value: "normal", label: "Normal" },
+  { value: "multiply", label: "Multiply" },
+  { value: "screen", label: "Screen" },
+  { value: "overlay", label: "Overlay" },
+  { value: "darken", label: "Darken" },
+  { value: "lighten", label: "Lighten" },
+  { value: "color-dodge", label: "Color Dodge" },
+  { value: "color-burn", label: "Color Burn" },
+  { value: "hard-light", label: "Hard Light" },
+  { value: "soft-light", label: "Soft Light" },
+  { value: "difference", label: "Difference" },
+  { value: "exclusion", label: "Exclusion" },
+  { value: "hue", label: "Hue" },
+  { value: "saturation", label: "Saturation" },
+  { value: "color", label: "Color" },
+  { value: "luminosity", label: "Luminosity" },
+  { value: "inherit", label: "Inherit" },
+  { value: "initial", label: "Initial" },
+  { value: "revert", label: "Revert" },
+  { value: "revert-layer", label: "Revert Layer" },
+  { value: "unset", label: "Unset" },
 ];
 
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
-  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(CanvasPreviewContextValues);
+  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
+    CanvasPreviewContextValues
+  );
 
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,
@@ -46,28 +47,31 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   ) => {
     const newGradients = [...canvasGradientValues];
     switch (typeOfGradientEdit) {
-      case 'startColor':
+      case "startColor":
         newGradients[index].startColor = event.target.value;
         break;
-      case 'endColor':
+      case "endColor":
         newGradients[index].endColor = event.target.value;
         break;
-      case 'endColorPercentage':
+      case "endColorPercentage":
         newGradients[index].endColorPercentage = event.target.value;
         break;
-      case 'startColorPercentage':
+      case "startColorPercentage":
         newGradients[index].startColorPercentage = event.target.value;
         break;
-      case 'scale':
+      case "scale":
         newGradients[index].scale = event.target.value;
         break;
-      case 'rotation':
+      case "rotation":
         newGradients[index].rotation = event.target.value;
         break;
-      case 'gradientType':
+      case "opacity":
+        newGradients[index].opacity = event.target.value;
+        break;
+      case "gradientType":
         newGradients[index].gradientType = event.target.value;
         break;
-      case 'blendingMode':
+      case "blendingMode":
         newGradients[index].blendingMode = event.target.value;
         break;
       default:
@@ -80,18 +84,18 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
     setCanvasGradientValues([
       ...canvasGradientValues,
       {
-        startColor: '#ff0000',
-        startColorPercentage: '50',
-        endColor: '#00ff00',
-        endColorPercentage: '50',
-        scale: '10',
-        rotation: '10',
-        gradientType: 'linear',
-        blendingMode: "overlay"
+        startColor: "#28a745",
+        startColorPercentage: "0",
+        endColor: "#20c997",
+        endColorPercentage: "100",
+        scale: "100",
+        rotation: "10",
+        gradientType: "linear-gradient",
+        blendingMode: "normal",
+        opacity: "50"
       },
     ]);
   };
-
 
   const handleRemoveGradient = (indexToRemove: number) => {
     const newGradients = canvasGradientValues.filter(
@@ -100,20 +104,15 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
     setCanvasGradientValues(newGradients);
   };
 
-
-
   return (
     <Fragment>
       <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
         <h1 className="h6 mb-0">Gradient</h1>
-        <button
-          className="btn btn-success"
-          onClick={handleAddGradient}
-        >
+        <button className="btn btn-success" onClick={handleAddGradient}>
           <img src={plusIcon} alt="add-gradient" />
         </button>
       </div>
-      {canvasGradientValues.length > 0 ?
+      {canvasGradientValues.length > 0 ? (
         (canvasGradientValues || []).map((gradient, index) => {
           return (
             <div className="list-group-item p-3" key={index}>
@@ -126,7 +125,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     max="100"
                     value={gradient.startColor}
                     onChange={(event) =>
-                      handleEditTypeOfGradient(event, index, 'startColor')
+                      handleEditTypeOfGradient(event, index, "startColor")
                     }
                     title="Choose your color"
                   />
@@ -134,15 +133,16 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     type="number"
                     className="form-control ms-2"
                     id="floatingInputGroup1"
-                    placeholder="50%"
+                    placeholder="50"
                     min="0"
                     max="100"
+                    pattern="[0-9]*"
                     defaultValue={gradient.startColorPercentage}
                     onChange={(event) =>
                       handleEditTypeOfGradient(
                         event,
                         index,
-                        'startColorPercentage'
+                        "startColorPercentage"
                       )
                     }
                   />
@@ -157,16 +157,17 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <input
                     type="number"
                     className="form-control me-2"
-                    placeholder="50%"
+                    placeholder="50"
                     id="InputGroup"
                     min="0"
                     max="100"
+                    pattern="[0-9]*"
                     defaultValue={gradient.endColorPercentage}
                     onChange={(event) =>
                       handleEditTypeOfGradient(
                         event,
                         index,
-                        'endColorPercentage'
+                        "endColorPercentage"
                       )
                     }
                   />
@@ -175,7 +176,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     className="form-control form-control-color"
                     value={gradient.endColor}
                     onChange={(event) =>
-                      handleEditTypeOfGradient(event, index, 'endColor')
+                      handleEditTypeOfGradient(event, index, "endColor")
                     }
                     title="Choose your color"
                   />
@@ -189,11 +190,11 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   type="range"
                   className="form-range"
                   min="0"
-                  max="100"
+                  max="600"
                   id={`scale${index}`}
                   value={gradient.scale}
                   onChange={(event) =>
-                    handleEditTypeOfGradient(event, index, 'scale')
+                    handleEditTypeOfGradient(event, index, "scale")
                   }
                 />
               </div>
@@ -205,11 +206,27 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   type="range"
                   className="form-range"
                   min="0"
-                  max="100"
+                  max="360"
                   id={`rotation${index}`}
                   value={gradient.rotation}
                   onChange={(event) =>
-                    handleEditTypeOfGradient(event, index, 'rotation')
+                    handleEditTypeOfGradient(event, index, "rotation")
+                  }
+                />
+              </div>
+              <div className="py-2">
+                <label htmlFor={`opacity${index}`} className="form-label m-3">
+                  Opacity ({gradient.opacity}%)
+                </label>
+                <input
+                  type="range"
+                  className="form-range"
+                  min="0"
+                  max="100"
+                  id={`opacity${index}`}
+                  value={gradient.opacity}
+                  onChange={(event) =>
+                    handleEditTypeOfGradient(event, index, "opacity")
                   }
                 />
               </div>
@@ -219,7 +236,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     title="GradientOptions"
                     defaultValue={gradient.gradientType}
                     onChange={(event: any) =>
-                      handleEditTypeOfGradient(event, index, 'gradientType')
+                      handleEditTypeOfGradient(event, index, "gradientType")
                     }
                     className="form-select"
                     aria-label="Gradient Type"
@@ -239,7 +256,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     title="BlendingMode"
                     defaultValue={gradient.blendingMode}
                     onChange={(event: any) =>
-                      handleEditTypeOfGradient(event, index, 'blendingMode')
+                      handleEditTypeOfGradient(event, index, "blendingMode")
                     }
                     className="form-select"
                     aria-label="Blending Mode"
@@ -255,8 +272,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
             </div>
           );
-        }) : <p className='d-flex justify-content-center py-5 text-muted'>No gradients added yet.</p>
-      }
+        })
+      ) : (
+        <p className="d-flex justify-content-center py-5 text-muted">
+          No gradients added yet.
+        </p>
+      )}
     </Fragment>
   );
 };

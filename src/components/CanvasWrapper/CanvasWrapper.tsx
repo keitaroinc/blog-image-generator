@@ -1,16 +1,21 @@
-import * as React from "react";
+import React from "react";
 import "./CanvasWrapper.scss";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
+import { GradientComponent } from "../GradientComponent/GradientComponent";
 
-export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) => {
+export const CanvasWrapper: React.FC<{ className?: string }> = ({
+  className,
+}) => {
   const {
     canvasHeadlineValues,
     canvasLogoValues,
     canvasIconValues,
     canvasBackgroundValues,
-    setCanvasRefs } = React.useContext(CanvasPreviewContextValues);
+    canvasGradientValues,
+    setCanvasRefs,
+  } = React.useContext(CanvasPreviewContextValues);
 
-  const canvasRef = React.useRef<HTMLDivElement>(null)
+  const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
   const logoRef = React.useRef<HTMLImageElement>(null);
 
@@ -22,14 +27,14 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
         headlineRefHeight: headlineRef.current?.clientHeight,
         headlineRefWidth: headlineRef.current?.clientWidth,
         logoRefHeight: logoRef.current?.clientHeight,
-        logoRefWidth: logoRef.current?.clientWidth
-      })
+        logoRefWidth: logoRef.current?.clientWidth,
+      });
     }
-    window.addEventListener('resize', updateSize);
+    window.addEventListener("resize", updateSize);
     updateSize();
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener("resize", updateSize);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   return (
     <div className={className}>
@@ -38,35 +43,65 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== "" ? canvasBackgroundValues.fileImageURL : null})`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
+              ? canvasBackgroundValues.fileImageURL
+              : null
+            })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
-          borderColor: canvasHeadlineValues.color
-        }}>
-        { canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? <div className="blur" style={{ backdropFilter: `blur(${canvasBackgroundValues.blur}px)`}}></div> : null}
+          borderColor: canvasHeadlineValues.color,
+        }}
+      >
+        {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
+          <div
+            className="blur"
+            style={{ backdropFilter: `blur(${canvasBackgroundValues.blur}px)` }}
+          ></div>
+        ) : null}
+        <GradientComponent canvasGradientValues={canvasGradientValues} />
         <h1
           className="title w-75"
-          style={{ transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`, color: canvasHeadlineValues.color }}
+          style={{
+            transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`,
+            color: canvasHeadlineValues.color,
+          }}
           ref={headlineRef}
         >
           {canvasHeadlineValues.content}
         </h1>
-        {canvasIconValues.fileImageURL && <div className="icon" style={{ transform: `translateY(${canvasIconValues.position.y}%)`, right: `${canvasIconValues.position.x}%`, backgroundColor: `${canvasIconValues.color}` }}>
-          <img
-            className="w-25 h-25 justify-self-end"
-            src={canvasIconValues.fileImageURL ? `${canvasIconValues.fileImageURL}` : "/image-generator/static/media/keitaro-logo-full-color.44775c6e1a17ea7494df1b4c93c5dd09.svg"}
-            alt="Keitaro logo"
-          />
-        </div>}
+        {canvasIconValues.fileImageURL && (
+          <div
+            className="icon"
+            style={{
+              transform: `translateY(${canvasIconValues.position.y}%)`,
+              right: `${canvasIconValues.position.x}%`,
+              backgroundColor: `${canvasIconValues.color}`,
+            }}
+          >
+            <img
+              className="w-25 h-25 justify-self-end"
+              src={
+                canvasIconValues.fileImageURL
+                  ? `${canvasIconValues.fileImageURL}`
+                  : "/image-generator/static/media/keitaro-logo-full-color.44775c6e1a17ea7494df1b4c93c5dd09.svg"
+              }
+              alt="Keitaro logo"
+            />
+          </div>
+        )}
         <img
           className="align-self-end logo"
           src={canvasLogoValues.src}
           alt="Keitaro logo"
           ref={logoRef}
-          style={{ transform: `translate(${canvasLogoValues.position.x}px, -${canvasLogoValues.position.y}px)`, }}
+          style={{
+            transform: `translate(${canvasLogoValues.position.x}px, -${canvasLogoValues.position.y}px)`,
+          }}
         />
       </div>
-      <button className="btn btn-lg btn-keitaro-alt text-light">Download</button>
+      <button className="btn btn-lg btn-keitaro-alt text-light">
+        Download
+      </button>
     </div>
   );
 };
