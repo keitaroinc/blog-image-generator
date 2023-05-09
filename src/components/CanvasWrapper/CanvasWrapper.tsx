@@ -40,7 +40,8 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
           backgroundColor: `${canvasBackgroundValues.color}`,
           backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== "" ? canvasBackgroundValues.fileImageURL : null})`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
-          backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`
+          backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
+          borderColor: canvasHeadlineValues.color
         }}>
         <h1
           className="title w-75"
