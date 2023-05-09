@@ -94,7 +94,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           id="iconColorPicker"
           defaultValue="#DEE2E6"
           title="Choose your color"
-          onChange={(e) => setCanvasIconValues({ ...canvasIconValues, color: e.target.value })}
+          onChange={(e) =>
+            setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
+          }
         ></input>
       </div>
       <div className="list-group-item">
@@ -116,46 +118,50 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             <p className="m-0 px-3">Drag and Drop Image Here</p>
           )}
         </div>
-        <label htmlFor="iconHorizontalRange" className="form-label m-3">
-          Horizontal Position ({canvasIconValues.position.x}px)
-        </label>
-        <input
-          type="range"
-          id="iconHorizontalRange"
-          className="form-range"
-          style={{ transform: "rotate(180deg" }}
-          defaultValue={canvasIconValues.position.x}
-          max={100}
-          step={1}
-          onChange={(e) =>
-            setCanvasIconValues({
-              ...canvasIconValues,
-              position: {
-                x: e.target.value,
-                y: canvasIconValues.position.y
+        {canvasIconValues.fileImageURL && (
+          <Fragment>
+            <label htmlFor="iconHorizontalRange" className="form-label m-3">
+              Horizontal Position ({canvasIconValues.position.x}px)
+            </label>
+            <input
+              type="range"
+              id="iconHorizontalRange"
+              className="form-range"
+              style={{ transform: "rotate(180deg" }}
+              defaultValue={canvasIconValues.position.x}
+              max={100}
+              step={1}
+              onChange={(e) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  position: {
+                    x: e.target.value,
+                    y: canvasIconValues.position.y,
+                  },
+                })
               }
-            })
-          }
-        ></input>
-        <label htmlFor="iconVerticalRange" className="form-label m-3">
-          Vertical Position ({canvasIconValues.position.y}px)
-        </label>
-        <input
-          type="range"
-          id="iconVerticalRange"
-          className="form-range"
-          max={100}
-          defaultValue={canvasIconValues.position.y}
-          onChange={(e) =>
-            setCanvasIconValues({
-              ...canvasIconValues,
-              position: {
-                x: canvasIconValues.position.x,
-                y: e.target.value
+            ></input>
+            <label htmlFor="iconVerticalRange" className="form-label m-3">
+              Vertical Position ({canvasIconValues.position.y}px)
+            </label>
+            <input
+              type="range"
+              id="iconVerticalRange"
+              className="form-range"
+              max={100}
+              defaultValue={canvasIconValues.position.y}
+              onChange={(e) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  position: {
+                    x: canvasIconValues.position.x,
+                    y: e.target.value,
+                  },
+                })
               }
-            })
-          }
-        ></input>
+            ></input>
+          </Fragment>
+        )}
       </div>
     </Fragment>
   );
