@@ -43,6 +43,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({ className }) =
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasHeadlineValues.color
         }}>
+        { canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? <div className="blur" style={{ backdropFilter: `blur(${canvasBackgroundValues.blur}px)`}}></div> : null}
         <h1
           className="title w-75"
           style={{ transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`, color: canvasHeadlineValues.color }}
