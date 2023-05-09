@@ -274,7 +274,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
           );
         })
       ) : (
-        <p className="d-flex justify-content-center py-5 text-muted">
+        <p className="py-5 mb-0 text-muted text-center">
           No gradients added yet.
         </p>
       )}
