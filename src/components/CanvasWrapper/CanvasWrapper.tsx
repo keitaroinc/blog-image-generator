@@ -44,8 +44,8 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
           backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
+            ? canvasBackgroundValues.fileImageURL
+            : null
             })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
