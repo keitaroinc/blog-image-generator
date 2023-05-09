@@ -117,7 +117,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           )}
         </div>
         <label htmlFor="iconHorizontalRange" className="form-label m-3">
-          Horizontal Position (0 px)
+          Horizontal Position ({canvasIconValues.position.x}px)
         </label>
         <input
           type="range"
@@ -138,7 +138,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           }
         ></input>
         <label htmlFor="iconVerticalRange" className="form-label m-3">
-          Vertical Position (0 px)
+          Vertical Position ({canvasIconValues.position.y}px)
         </label>
         <input
           type="range"
