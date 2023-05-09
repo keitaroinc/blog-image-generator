@@ -8,7 +8,7 @@ interface GradientComponentProps { }
 const gradientOptions = [
   { value: "linear-gradient", label: "Linear" },
   { value: "radial-gradient", label: "Radial" },
-  { value: "conic", label: "Conic" },
+  { value: "conic-gradient", label: "Conic" },
 ];
 
 const blendingMode = [
@@ -92,7 +92,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
         rotation: "10",
         gradientType: "linear-gradient",
         blendingMode: "normal",
-        opacity: "50"
+        opacity: "50",
       },
     ]);
   };
