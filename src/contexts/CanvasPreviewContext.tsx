@@ -43,7 +43,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
       x: "50",
       y: "50"
     },
-    size: "100"
+    size: "100",
+    blur: 0
   });
 
   const [canvasLogoValues, setCanvasLogoValues] = useState<CanvasLogoValuesInterface>({
@@ -88,4 +89,4 @@ export const Provider = (props: { children: string | number | boolean | React.Re
 };
 
 export const CanvasPreviewContextProvider = Provider;
-export const CanvasPreviewContextValues = CanvasPreviewContext; 
+export const CanvasPreviewContextValues = CanvasPreviewContext;
