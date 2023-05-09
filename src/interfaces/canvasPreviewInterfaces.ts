@@ -49,6 +49,7 @@ export interface CanvasBackgroundValuesInterface {
     y: string;
   };
   size: string;
+  blur: number;
 }
 
 export interface CanvasLogoValuesInterface {
@@ -83,6 +84,10 @@ export interface CanvasPreviewValuesIntarface {
       y: string;
     };
     size: string;
+    blur: {
+        on: boolean,
+        size: number
+    }
   };
   canvasGradients: [
     {
