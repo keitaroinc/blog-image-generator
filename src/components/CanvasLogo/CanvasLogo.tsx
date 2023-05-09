@@ -41,7 +41,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           <label htmlFor="floatingSelect">Logo Type</label>
         </div>
         <label htmlFor="logoHorizontalPosition" className="form-label m-3">
-          Horizontal Position (0 px)
+          Horizontal Position ({canvasLogoValues.position.x}px)
         </label>
         <input
           id="logoHorizontalPosition"
@@ -62,7 +62,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
         />
         <label htmlFor="logoVerticalPosition" className="form-label m-3">
-          Vertical Position (0 px)
+          Vertical Position ({canvasLogoValues.position.y}px)
         </label>
         <input
           id="logoVerticalPosition"

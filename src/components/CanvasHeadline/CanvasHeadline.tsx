@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
 
 interface CanvasHeadlineProps {
@@ -31,7 +31,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (pro
           onChange={(e) => setCanvasHeadlineValues({ ...canvasHeadlineValues, content: e.target.value })}></textarea>
         <label htmlFor="headlineTextarea">Enter headline text here.</label>
       </div>
-      <label htmlFor="headlineHorizontalRange" className="form-label m-3">Horizontal Position (0 px)</label>
+      <label htmlFor="headlineHorizontalRange" className="form-label m-3">Horizontal Position ({canvasHeadlineValues.position.x}px)</label>
       <input
         type="range"
         min={0}
@@ -41,7 +41,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (pro
         value={canvasHeadlineValues.position.x}
         onChange={(e) => handleHorizontalPositionChange(e)}
         className="form-range"></input>
-      <label htmlFor="headlineVerticalRange" className="form-label m-3">Vertical Position (0 px)</label>
+      <label htmlFor="headlineVerticalRange" className="form-label m-3">Vertical Position ({canvasHeadlineValues.position.y}px)</label>
       <input
         type="range"
         min={0}
