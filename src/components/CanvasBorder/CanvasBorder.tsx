@@ -17,7 +17,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (props) 
 
   return <Fragment>
     <HeaderComponent>
-      <Heading title="Headline" />
+      <Heading title="Border" />
       <ColorPicker
         inputDefaultVaule="#000000"
         inputId="canvasBorderColorPicker"
