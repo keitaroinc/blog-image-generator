@@ -4,8 +4,9 @@ import keitaroLogoFullColor from "../../assets/svg/keitaro-logo-full-color.svg";
 import keitaroLogoBlack from "../../assets/svg/keitaro-logo-black.svg";
 import keitaroLogoGrayscale from "../../assets/svg/keitaro-logo-grayscale.svg";
 import keitaroLogoWhite from "../../assets/svg/keitaro-logo-white.svg";
+import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasLogoProps { }
+interface CanvasLogoProps {}
 
 const logoOptions = [
   { src: keitaroLogoFullColor, label: "Full Color" },
@@ -15,7 +16,8 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } = React.useContext(CanvasPreviewContextValues);
+  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } =
+    React.useContext(CanvasPreviewContextValues);
 
   return (
     <Fragment>
@@ -43,42 +45,38 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <label htmlFor="logoHorizontalPosition" className="form-label m-3">
           Horizontal Position ({canvasLogoValues.position.x}px)
         </label>
-        <input
+        <RangeControl
           id="logoHorizontalPosition"
-          defaultValue={canvasLogoValues.position.x}
-          type="range"
-          className="form-range mb-2"
+          value={canvasLogoValues.position.x}
           min={0}
           max={canvasRefs.canvasRefWidth - (canvasRefs.logoRefWidth + 200)}
           step={1}
-          onChange={(e) =>
+          onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
               position: {
                 x: e.target.value,
-                y: canvasLogoValues.position.y
-              }
+                y: canvasLogoValues.position.y,
+              },
             })
           }
         />
         <label htmlFor="logoVerticalPosition" className="form-label m-3">
           Vertical Position ({canvasLogoValues.position.y}px)
         </label>
-        <input
+        <RangeControl
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
-          type="range"
-          className="form-range"
           min={0}
           step={1}
-          max={(canvasRefs.canvasRefHeight - 60) - canvasRefs.logoRefHeight}
-          onChange={(e) =>
+          max={canvasRefs.canvasRefHeight - 60 - canvasRefs.logoRefHeight}
+          onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
               position: {
                 x: canvasLogoValues.position.x,
                 y: e.target.value,
-              }
+              },
             })
           }
         />
