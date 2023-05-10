@@ -3,7 +3,6 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
-import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasHeadlineProps {}
 
