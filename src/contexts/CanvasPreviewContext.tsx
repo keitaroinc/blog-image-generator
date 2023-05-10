@@ -25,6 +25,11 @@ export const Provider = (props: { children: string | number | boolean | React.Re
     }
   });
 
+  const [canvasBorderValues, setCanvasBorderValues] = useState({
+    width: "0",
+    color: "#000000"
+  })
+
   const [canvasIconValues, setCanvasIconValues] = useState<CanvasIconValuesInterface>({
     fileImage: null,
     fileImageURL: null,
@@ -62,6 +67,8 @@ export const Provider = (props: { children: string | number | boolean | React.Re
     setCanvasRefs,
     canvasHeadlineValues,
     setCanvasHeadlineValues,
+    canvasBorderValues,
+    setCanvasBorderValues,
     canvasIconValues,
     setCanvasIconValues,
     canvasBackgroundValues,

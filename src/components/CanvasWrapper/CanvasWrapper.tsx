@@ -9,6 +9,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 }) => {
   const {
     canvasHeadlineValues,
+    canvasBorderValues,
     canvasLogoValues,
     canvasIconValues,
     canvasBackgroundValues,
@@ -43,7 +44,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         return;
       }
       if (type === "png") {
-        toPng(canvasRef.current, { cacheBust: true })
+        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -58,7 +59,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           });
       }
       if (type === "jpg") {
-        toJpeg(canvasRef.current, { cacheBust: true })
+        toJpeg(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -83,14 +84,14 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${
-            canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
-          })`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
+            ? canvasBackgroundValues.fileImageURL
+            : null
+            })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
-          borderColor: canvasHeadlineValues.color,
+          borderColor: canvasBorderValues.color,
+          borderWidth: `${canvasBorderValues.width}rem`
         }}
       >
         {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (

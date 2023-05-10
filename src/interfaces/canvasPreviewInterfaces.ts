@@ -3,6 +3,8 @@ export interface CanvasPreviewContextInterface {
   setCanvasRefs: Function;
   canvasHeadlineValues: CanvasHeadlineValuesInterface;
   setCanvasHeadlineValues: Function;
+  canvasBorderValues: CanvasBorderValuesInerface;
+  setCanvasBorderValues: Function;
   canvasIconValues: CanvasIconValuesInterface;
   setCanvasIconValues: Function;
   canvasBackgroundValues: CanvasBackgroundValuesInterface;
@@ -21,6 +23,7 @@ export interface CanvasRefsInterface {
   logoRefWidth: number;
   logoRefHeight: number;
 }
+
 export interface CanvasHeadlineValuesInterface {
   content: string;
   color: string;
@@ -28,6 +31,11 @@ export interface CanvasHeadlineValuesInterface {
     x: string;
     y: string;
   };
+}
+
+export interface CanvasBorderValuesInerface {
+  width: string;
+  color: string
 }
 
 export interface CanvasIconValuesInterface {
@@ -70,57 +78,4 @@ export interface CanvasGradientValuesInterface {
   gradientType: string;
   blendingMode: string;
   opacity: string;
-}
-
-export interface CanvasPreviewValuesIntarface {
-  canvasWidth: number;
-  aspectRatio: string;
-  canvasBorderStyle: string;
-  canvasBorderWidth: number;
-  canvasBackground: {
-    color: string;
-    image: string;
-    position: {
-      x: string;
-      y: string;
-    };
-    size: string;
-    blur: {
-        on: boolean,
-        size: number
-    }
-  };
-  canvasGradients: [
-    {
-      type: string;
-      rotation: string;
-      startColor: string;
-      endColor: string;
-      blendingMode: string;
-      gradientType: string;
-      opacity: string;
-    }
-  ];
-  canvasIcon: {
-    src: string;
-    color: string;
-    position: {
-      x: string;
-      y: string;
-    };
-  };
-  canvasHeadline: {
-    content: string;
-    position: {
-      x: string;
-      y: string;
-    };
-  };
-  canvasLogo: {
-    src: string;
-    position: {
-      x: string;
-      y: string;
-    };
-  };
 }

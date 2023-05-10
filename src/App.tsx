@@ -1,6 +1,5 @@
-import '@popperjs/core/dist/esm/popper-lite';
-import 'bootstrap/dist/js/bootstrap';
 import "./assets/scss/style.scss";
+import 'bootstrap/dist/js/bootstrap';
 import { CanvasWrapper, SideBar } from "./components";
 import { CanvasPreviewContextProvider } from "./contexts/CanvasPreviewContext";
 
