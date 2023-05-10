@@ -23,8 +23,6 @@ export const GradientComponent: React.FC<GradientComponentProps> = ({
             break;
           default:
         }
-        console.log(gradientRotation);
-
         return (
           <div
             key={index}

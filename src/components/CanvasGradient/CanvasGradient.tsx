@@ -4,6 +4,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { AddGradient } from "../AddGradient/AddGradient";
+import { RangeControl } from "../RangeControl/RangeControl";
 
 interface GradientComponentProps {}
 
@@ -186,14 +187,13 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 <label htmlFor={`scale${index}`} className="form-label m-3">
                   Scale ({gradient.scale}%)
                 </label>
-                <input
-                  type="range"
-                  className="form-range"
-                  min="0"
-                  max="600"
+                <RangeControl
+                  min={0}
+                  max={600}
+                  step="1"
                   id={`scale${index}`}
                   value={gradient.scale}
-                  onChange={(event) =>
+                  onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "scale")
                   }
                 />
@@ -202,14 +202,13 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 <label htmlFor={`rotation${index}`} className="form-label m-3">
                   Rotation ({gradient.rotation} deg)
                 </label>
-                <input
-                  type="range"
-                  className="form-range"
-                  min="0"
-                  max="360"
+                <RangeControl
+                  min={0}
+                  max={360}
+                  step="1"
                   id={`rotation${index}`}
                   value={gradient.rotation}
-                  onChange={(event) =>
+                  onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "rotation")
                   }
                 />
@@ -218,14 +217,13 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 <label htmlFor={`opacity${index}`} className="form-label m-3">
                   Opacity ({gradient.opacity}%)
                 </label>
-                <input
-                  type="range"
-                  className="form-range"
-                  min="0"
-                  max="100"
+                <RangeControl
+                  min={0}
+                  max={100}
+                  step="1"
                   id={`opacity${index}`}
                   value={gradient.opacity}
-                  onChange={(event) =>
+                  onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "opacity")
                   }
                 />

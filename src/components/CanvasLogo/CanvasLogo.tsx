@@ -6,6 +6,7 @@ import keitaroLogoGrayscale from "../../assets/svg/keitaro-logo-grayscale.svg";
 import keitaroLogoWhite from "../../assets/svg/keitaro-logo-white.svg";
 import { Heading } from "../Heading/Heading";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasLogoProps {}
 
@@ -46,15 +47,13 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <label htmlFor="logoHorizontalPosition" className="form-label m-3">
           Horizontal Position ({canvasLogoValues.position.x}px)
         </label>
-        <input
+        <RangeControl
           id="logoHorizontalPosition"
-          defaultValue={canvasLogoValues.position.x}
-          type="range"
-          className="form-range mb-2"
+          value={canvasLogoValues.position.x}
           min={0}
           max={canvasRefs.canvasRefWidth - (canvasRefs.logoRefWidth + 200)}
           step={1}
-          onChange={(e) =>
+          onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
               position: {
@@ -67,15 +66,13 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <label htmlFor="logoVerticalPosition" className="form-label m-3">
           Vertical Position ({canvasLogoValues.position.y}px)
         </label>
-        <input
+        <RangeControl
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
-          type="range"
-          className="form-range"
           min={0}
           step={1}
           max={canvasRefs.canvasRefHeight - 60 - canvasRefs.logoRefHeight}
-          onChange={(e) =>
+          onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
               position: {
