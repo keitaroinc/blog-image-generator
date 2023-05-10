@@ -3,6 +3,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
+import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasBackgroundProps {}
 
@@ -168,55 +169,47 @@ export const CanvasBackground: React.FunctionComponent<
             >
               Horizontal Position ({canvasBackgroundValues.position.x}%)
             </label>
-            <input
-              type="range"
+            <RangeControl
               id="backgroundHorizontalRange"
               min={-100}
               max={200}
-              step={1}
+              step="1"
               value={canvasBackgroundValues.position.x}
-              onChange={(e) => handleHorizontalPositionChange(e)}
-              className="form-range"
-            ></input>
+              onChange={(e: any) => handleHorizontalPositionChange(e)}
+            />
             <label htmlFor="backgroundVerticalRange" className="form-label m-3">
               Vertical Position ({canvasBackgroundValues.position.y}%)
             </label>
-            <input
-              type="range"
+            <RangeControl
               id="backgroundVerticalRange"
               min={-100}
               max={200}
-              step={1}
+              step="1"
               value={canvasBackgroundValues.position.y}
-              onChange={(e) => handleVerticalPositionChange(e)}
-              className="form-range"
-            ></input>
+              onChange={(e: any) => handleVerticalPositionChange(e)}
+            />
             <label htmlFor="backgroundScaleRange" className="form-label m-3">
               Scale ({canvasBackgroundValues.size}%)
             </label>
-            <input
-              type="range"
+            <RangeControl
+              id="backgroundVerticalRange"
               min={0}
               max={1000}
-              step={1}
+              step="1"
               value={canvasBackgroundValues.size}
-              onChange={(e) => handleBackgroundImageScale(e)}
-              id="backgroundScaleRange"
-              className="form-range"
-            ></input>
+              onChange={(e: any) => handleBackgroundImageScale(e)}
+            />
             <label htmlFor="backgroundBlurRange" className="form-label m-3">
               Blur ({canvasBackgroundValues.blur}px)
             </label>
-            <input
-              type="range"
+            <RangeControl
+              id="backgroundVerticalRange"
               min={0}
               max={100}
-              step={1}
+              step="1"
               value={canvasBackgroundValues.blur}
-              onChange={(e) => handleBackgroundBlur(e)}
-              id="backgroundBlurRange"
-              className="form-range"
-            ></input>
+              onChange={(e: any) => handleBackgroundBlur(e)}
+            />
           </Fragment>
         ) : null}
       </div>

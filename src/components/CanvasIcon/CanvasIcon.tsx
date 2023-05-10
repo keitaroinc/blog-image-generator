@@ -3,6 +3,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
+import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasIconProps {}
 
@@ -124,15 +125,13 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             <label htmlFor="iconHorizontalRange" className="form-label m-3">
               Horizontal Position ({canvasIconValues.position.x}px)
             </label>
-            <input
-              type="range"
+            <RangeControl
               id="iconHorizontalRange"
-              className="form-range"
               style={{ transform: "rotate(180deg" }}
-              defaultValue={canvasIconValues.position.x}
-              max={100}
-              step={1}
-              onChange={(e) =>
+              value={canvasIconValues.position.x}
+              max="100"
+              step="1"
+              onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
                   position: {
@@ -141,17 +140,16 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
                   },
                 })
               }
-            ></input>
+            />
             <label htmlFor="iconVerticalRange" className="form-label m-3">
               Vertical Position ({canvasIconValues.position.y}px)
             </label>
-            <input
-              type="range"
+            <RangeControl
               id="iconVerticalRange"
-              className="form-range"
-              max={100}
-              defaultValue={canvasIconValues.position.y}
-              onChange={(e) =>
+              value={canvasIconValues.position.y}
+              max="100"
+              step="1"
+              onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
                   position: {
@@ -160,7 +158,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
                   },
                 })
               }
-            ></input>
+            />
           </Fragment>
         )}
       </div>
