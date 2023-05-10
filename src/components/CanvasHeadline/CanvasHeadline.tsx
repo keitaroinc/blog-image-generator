@@ -3,6 +3,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
+import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasHeadlineProps {}
 
@@ -66,29 +67,25 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
         <label htmlFor="headlineHorizontalRange" className="form-label m-3">
           Horizontal Position ({canvasHeadlineValues.position.x}px)
         </label>
-        <input
-          type="range"
-          min={0}
+        <RangeControl
+          min="0"
           max={canvasRefs.canvasRefWidth - canvasRefs.headlineRefWidth}
-          step={1}
+          step="1"
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
-          onChange={(e) => handleHorizontalPositionChange(e)}
-          className="form-range"
-        ></input>
+          onChange={(e: any) => handleHorizontalPositionChange(e)}
+        />
         <label htmlFor="headlineVerticalRange" className="form-label m-3">
           Vertical Position ({canvasHeadlineValues.position.y}px)
         </label>
-        <input
-          type="range"
-          min={0}
+        <RangeControl
+          min="0"
           max={canvasRefs.canvasRefHeight - canvasRefs.headlineRefHeight}
-          step={1}
+          step="1"
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
-          onChange={(e) => handleVerticalPositionChange(e)}
-          className="form-range"
-        ></input>
+          onChange={(e: any) => handleVerticalPositionChange(e)}
+        />
       </div>
     </Fragment>
   );
