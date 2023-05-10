@@ -44,7 +44,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         return;
       }
       if (type === "png") {
-        toPng(canvasRef.current, { cacheBust: true })
+        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -59,7 +59,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           });
       }
       if (type === "jpg") {
-        toJpeg(canvasRef.current, { cacheBust: true })
+        toJpeg(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
