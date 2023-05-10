@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
+import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 
 interface CanvasBackgroundProps {}
 
@@ -124,22 +125,18 @@ export const CanvasBackground: React.FunctionComponent<
 
   return (
     <Fragment>
-      <div className="bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
-        <h1 className="h6 mb-0">Background</h1>
-        <input
-          type="color"
-          className="form-control form-control-color"
-          id="backgroundColorPicker"
-          title="Choose your color"
-          value={canvasBackgroundValues.color}
-          onChange={(e) =>
-            setCanvasBackgroundValues({
-              ...canvasBackgroundValues,
-              color: e.target.value,
-            })
-          }
-        ></input>
-      </div>
+      <HeaderComponent
+        title="Background"
+        inputDefaultVaule={canvasBackgroundValues.color}
+        inputId="backgroundColorPicker"
+        inputTitle="Choose your color"
+        onChange={(e: any) =>
+          setCanvasBackgroundValues({
+            ...canvasBackgroundValues,
+            color: e.target.value,
+          })
+        }
+      />
       <div className="list-group-item">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"
