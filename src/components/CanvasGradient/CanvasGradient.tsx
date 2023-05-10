@@ -1,9 +1,11 @@
 import React, { Fragment } from "react";
-import plusIcon from "../../assets/svg/plus.svg";
 import trashIcon from "../../assets/svg/trash.svg";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
+import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { AddGradient } from "../AddGradient/AddGradient";
 
-interface GradientComponentProps { }
+interface GradientComponentProps {}
 
 const gradientOptions = [
   { value: "linear-gradient", label: "Linear" },
@@ -106,12 +108,10 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
 
   return (
     <Fragment>
-      <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
-        <h1 className="h6 mb-0">Gradient</h1>
-        <button className="btn btn-success" onClick={handleAddGradient}>
-          <img src={plusIcon} alt="add-gradient" />
-        </button>
-      </div>
+      <HeaderComponent>
+        <Heading title="Gradient" />
+        <AddGradient onClick={handleAddGradient} />
+      </HeaderComponent>
       {canvasGradientValues.length > 0 ? (
         (canvasGradientValues || []).map((gradient, index) => {
           return (

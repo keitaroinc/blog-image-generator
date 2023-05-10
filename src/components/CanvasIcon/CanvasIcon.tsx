@@ -1,7 +1,10 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
+import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasIconProps { }
+interface CanvasIconProps {}
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const { canvasIconValues, setCanvasIconValues } = React.useContext(
@@ -86,19 +89,17 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
 
   return (
     <Fragment>
-      <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center py-2 px-3">
-        <h1 className="fs-6 fw-bold mb-0">Icon</h1>
-        <input
-          type="color"
-          className="form-control form-control-color"
-          id="iconColorPicker"
-          defaultValue="#DEE2E6"
-          title="Choose your color"
-          onChange={(e) =>
+      <HeaderComponent>
+        <Heading title="Icon" />
+        <ColorPicker
+          inputDefaultVaule={"#DEE2E6"}
+          inputId="iconColorPicker"
+          inputTitle="Choose your color"
+          onChange={(e: any) =>
             setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
           }
-        ></input>
-      </div>
+        />
+      </HeaderComponent>
       <div className="list-group-item">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white"
