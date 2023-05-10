@@ -126,7 +126,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             </label>
             <RangeControl
               id="iconHorizontalRange"
-              style={{ transform: "rotate(180deg" }}
+              className={"reverseRangeControl"}
               value={canvasIconValues.position.x}
               max="100"
               step="1"

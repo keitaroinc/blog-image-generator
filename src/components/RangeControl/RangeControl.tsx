@@ -7,7 +7,7 @@ type RangeControlProps = {
   id: any;
   value?: any;
   onChange: Function;
-  style?: any;
+  className?: any;
   defaultValue?: any;
 };
 
@@ -19,7 +19,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
   value,
   onChange,
   defaultValue,
-  style,
+  className,
 }) => {
   return (
     <input
@@ -30,9 +30,8 @@ export const RangeControl: React.FC<RangeControlProps> = ({
       id={id}
       value={value}
       onChange={(e) => onChange(e)}
-      className="form-range"
+      className={`form-range ${className}`}
       defaultValue={defaultValue && defaultValue}
-      style={style && style}
     />
   );
 };
