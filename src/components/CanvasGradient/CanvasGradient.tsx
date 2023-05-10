@@ -2,6 +2,8 @@ import React, { Fragment } from "react";
 import trashIcon from "../../assets/svg/trash.svg";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { AddGradient } from "../AddGradient/AddGradient";
 
 interface GradientComponentProps {}
 
@@ -106,12 +108,10 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
 
   return (
     <Fragment>
-      <HeaderComponent
-        title="Gradient"
-        onClick={handleAddGradient}
-        onChange={handleAddGradient}
-        headerType="gradientHeader"
-      />
+      <HeaderComponent>
+        <Heading title="Gradient" />
+        <AddGradient onClick={handleAddGradient} />
+      </HeaderComponent>
       {canvasGradientValues.length > 0 ? (
         (canvasGradientValues || []).map((gradient, index) => {
           return (

@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { ColorPicker } from "../ColorPicker/ColorPicker";
 
 interface CanvasBackgroundProps {}
 
@@ -125,18 +127,20 @@ export const CanvasBackground: React.FunctionComponent<
 
   return (
     <Fragment>
-      <HeaderComponent
-        title="Background"
-        inputDefaultVaule={canvasBackgroundValues.color}
-        inputId="backgroundColorPicker"
-        inputTitle="Choose your color"
-        onChange={(e: any) =>
-          setCanvasBackgroundValues({
-            ...canvasBackgroundValues,
-            color: e.target.value,
-          })
-        }
-      />
+      <HeaderComponent>
+        <Heading title="Background" />
+        <ColorPicker
+          inputDefaultVaule={canvasBackgroundValues.color}
+          inputId="backgroundColorPicker"
+          inputTitle="Choose your color"
+          onChange={(e: any) =>
+            setCanvasBackgroundValues({
+              ...canvasBackgroundValues,
+              color: e.target.value,
+            })
+          }
+        />
+      </HeaderComponent>
       <div className="list-group-item">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"

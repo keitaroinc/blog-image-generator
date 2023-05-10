@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { ColorPicker } from "../ColorPicker/ColorPicker";
 
 interface CanvasIconProps {}
 
@@ -87,15 +89,17 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
 
   return (
     <Fragment>
-      <HeaderComponent
-        title="Icon"
-        inputDefaultVaule={"#DEE2E6"}
-        inputId="iconColorPicker"
-        inputTitle="Choose your color"
-        onChange={(e: any) =>
-          setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
-        }
-      />
+      <HeaderComponent>
+        <Heading title="Icon" />
+        <ColorPicker
+          inputDefaultVaule={"#DEE2E6"}
+          inputId="iconColorPicker"
+          inputTitle="Choose your color"
+          onChange={(e: any) =>
+            setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
+          }
+        />
+      </HeaderComponent>
       <div className="list-group-item">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white"

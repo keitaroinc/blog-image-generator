@@ -4,8 +4,10 @@ import keitaroLogoFullColor from "../../assets/svg/keitaro-logo-full-color.svg";
 import keitaroLogoBlack from "../../assets/svg/keitaro-logo-black.svg";
 import keitaroLogoGrayscale from "../../assets/svg/keitaro-logo-grayscale.svg";
 import keitaroLogoWhite from "../../assets/svg/keitaro-logo-white.svg";
+import { Heading } from "../Heading/Heading";
+import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 
-interface CanvasLogoProps { }
+interface CanvasLogoProps {}
 
 const logoOptions = [
   { src: keitaroLogoFullColor, label: "Full Color" },
@@ -15,13 +17,14 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } = React.useContext(CanvasPreviewContextValues);
+  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } =
+    React.useContext(CanvasPreviewContextValues);
 
   return (
     <Fragment>
-      <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
-        <h1 className="h6 my-2">Keitaro Logo</h1>
-      </div>
+      <HeaderComponent>
+        <Heading title="Keitaro Logo" className="py-2" />
+      </HeaderComponent>
       <div className="list-group-item">
         <div className="form-floating my-2">
           <select
@@ -56,8 +59,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
               ...canvasLogoValues,
               position: {
                 x: e.target.value,
-                y: canvasLogoValues.position.y
-              }
+                y: canvasLogoValues.position.y,
+              },
             })
           }
         />
@@ -71,14 +74,14 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           className="form-range"
           min={0}
           step={1}
-          max={(canvasRefs.canvasRefHeight - 60) - canvasRefs.logoRefHeight}
+          max={canvasRefs.canvasRefHeight - 60 - canvasRefs.logoRefHeight}
           onChange={(e) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
               position: {
                 x: canvasLogoValues.position.x,
                 y: e.target.value,
-              }
+              },
             })
           }
         />

@@ -1,6 +1,8 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
+import { Heading } from "../Heading/Heading";
+import { ColorPicker } from "../ColorPicker/ColorPicker";
 
 interface CanvasHeadlineProps {}
 
@@ -30,18 +32,20 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
 
   return (
     <Fragment>
-      <HeaderComponent
-        title="Headline"
-        inputDefaultVaule="#000"
-        inputId="headlineColorPicker"
-        inputTitle="Choose your color"
-        onChange={(e: any) =>
-          setCanvasHeadlineValues({
-            ...canvasHeadlineValues,
-            color: e.target.value,
-          })
-        }
-      />
+      <HeaderComponent>
+        <Heading title="Headline" />
+        <ColorPicker
+          inputDefaultVaule="#000"
+          inputId="headlineColorPicker"
+          inputTitle="Choose your color"
+          onChange={(e: any) =>
+            setCanvasHeadlineValues({
+              ...canvasHeadlineValues,
+              color: e.target.value,
+            })
+          }
+        />
+      </HeaderComponent>
       <div className="list-group-item">
         <div className="form-floating mb-3 mt-2">
           <textarea
