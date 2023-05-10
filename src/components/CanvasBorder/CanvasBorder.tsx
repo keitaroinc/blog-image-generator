@@ -1,5 +1,9 @@
 import React, { Fragment, useContext } from 'react';
 import { CanvasPreviewContextValues } from '../../contexts/CanvasPreviewContext';
+import { RangeControl } from '../RangeControl/RangeControl';
+import { HeaderComponent } from '../HeaderComponent/HeaderComponent';
+import { Heading } from '../Heading/Heading';
+import { ColorPicker } from '../ColorPicker/ColorPicker';
 
 interface CanvasBorderProps {
 }
@@ -12,28 +16,25 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (props) 
   }
 
   return <Fragment>
-    <div className="list-group-item bg-gray-medium d-flex justify-content-between align-items-center">
-      <h1 className="h6 mb-0">Border</h1>
-      <input
-        type="color"
-        className="form-control form-control-color"
-        id="headlineColorPicker"
-        defaultValue="#000"
-        title="Choose your color"
-        onChange={(e) => setCanvasBorderValues({ ...canvasBorderValues, color: e.target.value })}>
-      </input>
-    </div>
+    <HeaderComponent>
+      <Heading title="Headline" />
+      <ColorPicker
+        inputDefaultVaule="#000000"
+        inputId="canvasBorderColorPicker"
+        inputTitle="Choose your color"
+        onChange={(e: any) => setCanvasBorderValues({ ...canvasBorderValues, color: e.target.value })}
+      />
+    </HeaderComponent>
     <div className="list-group-item">
-      <label htmlFor="headlineHorizontalRange" className="form-label m-3">Border width ({canvasBorderValues.width}rem)</label>
-      <input
-        type="range"
+      <label htmlFor="canvasBorderWidth" className="form-label m-3">Border width ({canvasBorderValues.width}rem)</label>
+      <RangeControl
         min={0}
-        max={6}
+        max={10}
         step={1}
-        id="headlineHorizontalRange"
+        id="canvasBorderWidth"
         value={canvasBorderValues.width}
-        onChange={(e) => handleBorderWidthChange(e)}
-        className="form-range"></input>
+        onChange={(e: any) => handleBorderWidthChange(e)}
+      />
     </div>
   </Fragment>;
 };
