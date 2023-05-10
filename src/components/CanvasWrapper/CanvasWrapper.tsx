@@ -37,36 +37,44 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const onDownload = useCallback((type: string) => {
-    if (canvasRef.current === null) {
-      return;
-    }
-    if (type === "png") {
-      toPng(canvasRef.current, { cacheBust: true })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content.toLowerCase().split(" ").join("-")}.png`
-          link.href = dataUrl;
-          link.click();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    if (type === "jpg") {
-      toJpeg(canvasRef.current, { cacheBust: true })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content.toLowerCase().split(" ").join("-")}.jpeg`;
-          link.href = dataUrl;
-          link.click();
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-
-  }, [canvasHeadlineValues.content, canvasRef]);
+  const onDownload = useCallback(
+    (type: string) => {
+      if (canvasRef.current === null) {
+        return;
+      }
+      if (type === "png") {
+        toPng(canvasRef.current, { cacheBust: true })
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.png`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      if (type === "jpg") {
+        toJpeg(canvasRef.current, { cacheBust: true })
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.jpg`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
+    [canvasHeadlineValues.content, canvasRef]
+  );
 
   return (
     <div className={className}>
@@ -75,10 +83,11 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
-            ? canvasBackgroundValues.fileImageURL
-            : null
-            })`,
+          backgroundImage: `url(${
+            canvasBackgroundValues.fileImageURL !== ""
+              ? canvasBackgroundValues.fileImageURL
+              : null
+          })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasHeadlineValues.color,
@@ -132,13 +141,33 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         />
       </div>
 
-      <div className="dropdown">
-        <div className="btn btn-keitaro-alt px-3 py-2 dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-          Save As
-        </div>
+      <div className="btn-group">
+        <button type="button" className="btn btn-lg btn-keitaro-alt" onClick={() => onDownload("png")}>
+          Download
+        </button>
+        <button
+          type="button"
+          className="btn btn-keitaro-alt dropdown-toggle dropdown-toggle-split"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          <span className="visually-hidden">Toggle Dropdown</span>
+        </button>
         <ul className="dropdown-menu">
-          <li className="dropdown-item" role="button" onClick={() => onDownload("png")}>PNG</li>
-          <li className="dropdown-item" role="button" onClick={() => onDownload("jpg")}>JPEG</li>
+          <li
+            className="dropdown-item"
+            role="button"
+            onClick={() => onDownload("png")}
+          >
+            PNG
+          </li>
+          <li
+            className="dropdown-item"
+            role="button"
+            onClick={() => onDownload("jpg")}
+          >
+            JPG
+          </li>
         </ul>
       </div>
     </div>
