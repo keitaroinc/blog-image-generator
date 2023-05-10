@@ -3,6 +3,8 @@ export interface CanvasPreviewContextInterface {
   setCanvasRefs: Function;
   canvasHeadlineValues: CanvasHeadlineValuesInterface;
   setCanvasHeadlineValues: Function;
+  canvasBorderValues: CanvasBorderValuesInerface;
+  setCanvasBorderValues: Function;
   canvasIconValues: CanvasIconValuesInterface;
   setCanvasIconValues: Function;
   canvasBackgroundValues: CanvasBackgroundValuesInterface;
@@ -28,6 +30,11 @@ export interface CanvasHeadlineValuesInterface {
     x: string;
     y: string;
   };
+}
+
+export interface CanvasBorderValuesInerface {
+  width: string;
+  color: string
 }
 
 export interface CanvasIconValuesInterface {
@@ -86,8 +93,8 @@ export interface CanvasPreviewValuesIntarface {
     };
     size: string;
     blur: {
-        on: boolean,
-        size: number
+      on: boolean,
+      size: number
     }
   };
   canvasGradients: [

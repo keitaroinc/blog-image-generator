@@ -9,6 +9,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 }) => {
   const {
     canvasHeadlineValues,
+    canvasBorderValues,
     canvasLogoValues,
     canvasIconValues,
     canvasBackgroundValues,
@@ -83,14 +84,14 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${
-            canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
-          })`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
+            ? canvasBackgroundValues.fileImageURL
+            : null
+            })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
-          borderColor: canvasHeadlineValues.color,
+          borderColor: canvasBorderValues.color,
+          borderWidth: `${canvasBorderValues.width}rem`
         }}
       >
         {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
