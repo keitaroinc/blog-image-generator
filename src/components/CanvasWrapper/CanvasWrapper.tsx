@@ -142,12 +142,12 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
       </div>
 
       <div className="btn-group">
-        <button type="button" className="btn btn-lg btn-keitaro-alt" onClick={() => onDownload("png")}>
+        <button type="button" className="btn btn-lg text-light btn-keitaro-alt" onClick={() => onDownload("png")}>
           Download
         </button>
         <button
           type="button"
-          className="btn btn-keitaro-alt dropdown-toggle dropdown-toggle-split"
+          className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
