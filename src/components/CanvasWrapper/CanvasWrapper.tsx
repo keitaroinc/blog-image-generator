@@ -84,14 +84,15 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
-            ? canvasBackgroundValues.fileImageURL
-            : null
-            })`,
+          backgroundImage: `url(${
+            canvasBackgroundValues.fileImageURL !== ""
+              ? canvasBackgroundValues.fileImageURL
+              : null
+          })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
-          borderWidth: `${canvasBorderValues.width}rem`
+          borderWidth: `${canvasBorderValues.width}em`,
         }}
       >
         {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
@@ -102,10 +103,14 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ) : null}
         <GradientComponent canvasGradientValues={canvasGradientValues} />
         <h1
-          className={`title w-75 display-${canvasHeadlineValues.fontSize}`}
+          className={`title`}
           style={{
-            transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`,
+            gridColumnStart: canvasHeadlineValues.position.x,
+            gridColumnEnd: 12,
+            gridRowStart: canvasHeadlineValues.position.y,
+            gridRowEnd: 12,
             color: canvasHeadlineValues.color,
+            fontSize: `${canvasHeadlineValues.size}em`
           }}
           ref={headlineRef}
         >
@@ -115,13 +120,14 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           <div
             className="icon"
             style={{
-              transform: `translateY(${canvasIconValues.position.y}%)`,
-              right: `${canvasIconValues.position.x}%`,
+              gridColumnStart: canvasIconValues.position.x,
+              gridRowStart: canvasIconValues.position.y,
               backgroundColor: `${canvasIconValues.color}`,
+              transform: `scale(${1 * canvasIconValues.scale})`
             }}
           >
             <img
-              className="w-25 h-25 justify-self-end"
+              className="justify-self-end"
               src={
                 canvasIconValues.fileImageURL
                   ? `${canvasIconValues.fileImageURL}`
@@ -137,13 +143,19 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           alt="Keitaro logo"
           ref={logoRef}
           style={{
-            transform: `translate(${canvasLogoValues.position.x}px, -${canvasLogoValues.position.y}px)`,
+            gridColumnStart: canvasLogoValues.position.x,
+            gridRowStart: canvasLogoValues.position.y,
+            opacity: `${canvasLogoValues.opacity}%`
           }}
         />
       </div>
 
       <div className="btn-group">
-        <button type="button" className="btn btn-lg text-light btn-keitaro-alt" onClick={() => onDownload("png")}>
+        <button
+          type="button"
+          className="btn btn-lg text-light btn-keitaro-alt"
+          onClick={() => onDownload("png")}
+        >
           Download
         </button>
         <button
