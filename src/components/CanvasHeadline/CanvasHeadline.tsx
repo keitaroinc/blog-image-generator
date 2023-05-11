@@ -5,15 +5,14 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasHeadlineProps { }
-
-const fontSizeNames = ["6", "5", "4", "3", "2", "1"]
+interface CanvasHeadlineProps {}
 
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
 ) => {
-  const { canvasHeadlineValues, setCanvasHeadlineValues, canvasRefs } =
-    React.useContext(CanvasPreviewContextValues);
+  const { canvasHeadlineValues, setCanvasHeadlineValues } = React.useContext(
+    CanvasPreviewContextValues
+  );
 
   const handleHorizontalPositionChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -32,14 +31,15 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
       position: { ...canvasHeadlineValues.position, y: event.target.value },
     });
   };
-  const handleFontSizeChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFontSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
-      fontSize: event.target.value
+      size: event.target.value,
     });
   };
+
+  const max = 12;
+  const maxStep = 1;
 
   return (
     <Fragment>
@@ -75,38 +75,35 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           <label htmlFor="headlineTextarea">Enter headline text here.</label>
         </div>
         <RangeControl
-          min="0"
-          max={canvasRefs.canvasRefWidth - canvasRefs.headlineRefWidth}
-          step="1"
+          min={3}
+          max={12}
+          step={1}
+          id="headlineSizeRange"
+          value={canvasHeadlineValues.size}
+          onChange={(e: any) => handleFontSizeChange(e)}
+          labelTitle={"Size"}
+          labelValue={canvasHeadlineValues.size}
+          labelValueType=""
+        />
+        <RangeControl
+          min={2}
+          max={max}
+          step={maxStep}
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
           onChange={(e: any) => handleHorizontalPositionChange(e)}
           labelTitle={"Horizontal Position"}
           labelValue={canvasHeadlineValues.position.x}
-          labelValueType="px"
         />
         <RangeControl
-          min="0"
-          max={canvasRefs.canvasRefHeight - canvasRefs.headlineRefHeight}
-          step="1"
+          min={2}
+          max={max}
+          step={maxStep}
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
           onChange={(e: any) => handleVerticalPositionChange(e)}
           labelTitle={"Vertical Position"}
           labelValue={canvasHeadlineValues.position.y}
-          labelValueType="px"
-        />
-        <RangeControl
-          min="1"
-          max="6"
-          step="1"
-          id="headlineFontSizeRange"
-          value={canvasHeadlineValues.fontSize}
-          onChange={(e: any) => handleFontSizeChange(e)}
-          labelTitle={"Fonts size "}
-          labelValue={fontSizeNames[parseInt(canvasHeadlineValues.fontSize) - 1]}
-          labelValueType=""
-          className="reverseRangeControl"
         />
       </div>
     </Fragment>
