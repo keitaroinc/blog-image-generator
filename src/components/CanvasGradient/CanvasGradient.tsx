@@ -184,9 +184,6 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 </div>
               </div>
               <div className="py-4">
-                <label htmlFor={`scale${index}`} className="form-label m-3">
-                  Scale ({gradient.scale}%)
-                </label>
                 <RangeControl
                   min={0}
                   max={600}
@@ -196,12 +193,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "scale")
                   }
+                  labelTitle={"Scale"}
+                  labelValue={gradient.scale}
+                  labelValueType="%"
                 />
               </div>
               <div className="py-2">
-                <label htmlFor={`rotation${index}`} className="form-label m-3">
-                  Rotation ({gradient.rotation} deg)
-                </label>
                 <RangeControl
                   min={0}
                   max={360}
@@ -211,12 +208,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "rotation")
                   }
+                  labelTitle={"Rotation"}
+                  labelValue={gradient.rotation}
+                  labelValueType="deg"
                 />
               </div>
               <div className="py-2">
-                <label htmlFor={`opacity${index}`} className="form-label m-3">
-                  Opacity ({gradient.opacity}%)
-                </label>
                 <RangeControl
                   min={0}
                   max={100}
@@ -226,6 +223,9 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "opacity")
                   }
+                  labelTitle={"Opacity"}
+                  labelValue={gradient.opacity}
+                  labelValueType="%"
                 />
               </div>
               <div className="my-3">

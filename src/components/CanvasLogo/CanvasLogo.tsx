@@ -44,9 +44,6 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           </select>
           <label htmlFor="floatingSelect">Logo Type</label>
         </div>
-        <label htmlFor="logoHorizontalPosition" className="form-label m-3">
-          Horizontal Position ({canvasLogoValues.position.x}px)
-        </label>
         <RangeControl
           id="logoHorizontalPosition"
           value={canvasLogoValues.position.x}
@@ -62,10 +59,10 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
               },
             })
           }
+          labelTitle={"Horizontal Position"}
+          labelValue={canvasLogoValues.position.x}
+          labelValueType="px"
         />
-        <label htmlFor="logoVerticalPosition" className="form-label m-3">
-          Vertical Position ({canvasLogoValues.position.y}px)
-        </label>
         <RangeControl
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
@@ -81,6 +78,9 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
               },
             })
           }
+          labelTitle={"Vertical Position"}
+          labelValue={canvasLogoValues.position.y}
+          labelValueType="px"
         />
       </div>
     </Fragment>
