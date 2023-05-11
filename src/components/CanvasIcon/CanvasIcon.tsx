@@ -129,7 +129,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               id="iconScaleRange"
               defaultValue={canvasIconValues.scale}
               min={1}
-              max={12}
+              max={max}
               step={1}
               onChange={(e: any) =>
                 setCanvasIconValues({
@@ -139,6 +139,21 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Scale"}
               labelValue={canvasIconValues.scale}
+            />
+            <RangeControl
+              id="iconPaddingRange"
+              defaultValue={canvasIconValues.padding}
+              min={0}
+              max={max/2}
+              step={maxStep}
+              onChange={(e: any) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  padding: e.target.value,
+                })
+              }
+              labelTitle={"Padding"}
+              labelValue={canvasIconValues.padding}
             />
             <RangeControl
               id="iconHorizontalRange"

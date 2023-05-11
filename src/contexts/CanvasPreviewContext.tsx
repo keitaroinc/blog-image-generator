@@ -56,6 +56,7 @@ export const Provider = (props: {
       fileImageURL: null,
       color: "var(--bs-gray-300)",
       scale: 1,
+      padding: 0,
       position: {
         x: 10,
         y: 9,

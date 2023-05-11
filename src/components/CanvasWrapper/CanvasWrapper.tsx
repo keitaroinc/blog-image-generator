@@ -123,7 +123,8 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               gridColumnStart: canvasIconValues.position.x,
               gridRowStart: canvasIconValues.position.y,
               backgroundColor: `${canvasIconValues.color}`,
-              transform: `scale(${1 * canvasIconValues.scale})`
+              transform: `scale(${1 * canvasIconValues.scale})`,
+              padding: `${canvasIconValues.padding}em`
             }}
           >
             <img

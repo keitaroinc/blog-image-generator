@@ -44,6 +44,7 @@ export interface CanvasIconValuesInterface {
   fileImageURL: string | ArrayBuffer | null;
   color: string;
   scale: number;
+  padding: number,
   position: {
     x: number;
     y: number;
