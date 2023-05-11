@@ -25,12 +25,13 @@ export const RangeControl: React.FC<RangeControlProps> = ({
   className,
   labelTitle,
   labelValue,
-  labelValueType,
+  labelValueType = '',
 }) => {
   return (
     <Fragment>
-      <label htmlFor={id} className="form-label m-3">
-        {`${labelTitle}(${labelValue}${labelValueType})`}
+      <label htmlFor={id} className="form-label d-flex flex-wrap align-items-center justify-content-between m-3">
+        <span>{labelTitle}</span>
+        <span className="badge bg-primary">{`${labelValue}${labelValueType}`}</span>
       </label>
       <input
         type="range"

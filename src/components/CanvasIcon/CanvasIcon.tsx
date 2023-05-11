@@ -88,6 +88,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     []
   );
 
+  const max = 12;
+  const maxStep = 1;
+
   return (
     <Fragment>
       <HeaderComponent>
@@ -123,11 +126,41 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
         {canvasIconValues.fileImageURL && (
           <Fragment>
             <RangeControl
+              id="iconScaleRange"
+              defaultValue={canvasIconValues.scale}
+              min={1}
+              max={max}
+              step={1}
+              onChange={(e: any) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  scale: e.target.value,
+                })
+              }
+              labelTitle={"Scale"}
+              labelValue={canvasIconValues.scale}
+            />
+            <RangeControl
+              id="iconPaddingRange"
+              defaultValue={canvasIconValues.padding}
+              min={0}
+              max={max/2}
+              step={maxStep}
+              onChange={(e: any) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  padding: e.target.value,
+                })
+              }
+              labelTitle={"Padding"}
+              labelValue={canvasIconValues.padding}
+            />
+            <RangeControl
               id="iconHorizontalRange"
-              className={"reverseRangeControl"}
-              value={canvasIconValues.position.x}
-              max="100"
-              step="1"
+              defaultValue={canvasIconValues.position.x}
+              min={1}
+              max={max}
+              step={maxStep}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -139,13 +172,14 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Horizontal Position"}
               labelValue={canvasIconValues.position.x}
-              labelValueType="px"
             />
             <RangeControl
               id="iconVerticalRange"
-              value={canvasIconValues.position.y}
-              max="100"
-              step="1"
+              className="form-range"
+              min={1}
+              max={max}
+              step={1}
+              defaultValue={canvasIconValues.position.y}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -157,7 +191,6 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Vertical Position"}
               labelValue={canvasIconValues.position.y}
-              labelValueType="px"
             />
           </Fragment>
         )}

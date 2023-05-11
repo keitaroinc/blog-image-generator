@@ -87,9 +87,9 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
     setCanvasGradientValues([
       ...canvasGradientValues,
       {
-        startColor: "#28a745",
+        startColor: "#8cc04b",
         startColorPercentage: "0",
-        endColor: "#20c997",
+        endColor: "#28a745",
         endColorPercentage: "100",
         scale: "100",
         rotation: "10",

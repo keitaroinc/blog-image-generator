@@ -18,8 +18,10 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues, canvasRefs } =
+  const { canvasLogoValues, setCanvasLogoValues } =
     React.useContext(CanvasPreviewContextValues);
+
+  const maxStep = 1;
 
   return (
     <Fragment>
@@ -45,11 +47,27 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           <label htmlFor="floatingSelect">Logo Type</label>
         </div>
         <RangeControl
+          id="logoOpacity"
+          value={canvasLogoValues.opacity}
+          min={0}
+          max={100}
+          step={10}
+          onChange={(e: any) =>
+            setCanvasLogoValues({
+              ...canvasLogoValues,
+              opacity: e.target.value,
+            })
+          }
+          labelTitle={"Opacity"}
+          labelValue={canvasLogoValues.opacity}
+          labelValueType="%"
+        />
+        <RangeControl
           id="logoHorizontalPosition"
           value={canvasLogoValues.position.x}
-          min={0}
-          max={canvasRefs.canvasRefWidth - (canvasRefs.logoRefWidth + 200)}
-          step={1}
+          min={1}
+          max={11}
+          step={maxStep}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -61,14 +79,13 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
           labelTitle={"Horizontal Position"}
           labelValue={canvasLogoValues.position.x}
-          labelValueType="px"
         />
         <RangeControl
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
-          min={0}
-          step={1}
-          max={canvasRefs.canvasRefHeight - 60 - canvasRefs.logoRefHeight}
+          min={1}
+          step={maxStep}
+          max={12}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -80,7 +97,6 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
           labelTitle={"Vertical Position"}
           labelValue={canvasLogoValues.position.y}
-          labelValueType="px"
         />
       </div>
     </Fragment>
