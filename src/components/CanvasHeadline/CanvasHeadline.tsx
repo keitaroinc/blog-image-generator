@@ -64,9 +64,6 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           ></textarea>
           <label htmlFor="headlineTextarea">Enter headline text here.</label>
         </div>
-        <label htmlFor="headlineHorizontalRange" className="form-label m-3">
-          Horizontal Position ({canvasHeadlineValues.position.x}px)
-        </label>
         <RangeControl
           min="0"
           max={canvasRefs.canvasRefWidth - canvasRefs.headlineRefWidth}
@@ -74,10 +71,10 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
           onChange={(e: any) => handleHorizontalPositionChange(e)}
+          labelTitle={"Horizontal Position"}
+          labelValue={canvasHeadlineValues.position.x}
+          labelValueType="px"
         />
-        <label htmlFor="headlineVerticalRange" className="form-label m-3">
-          Vertical Position ({canvasHeadlineValues.position.y}px)
-        </label>
         <RangeControl
           min="0"
           max={canvasRefs.canvasRefHeight - canvasRefs.headlineRefHeight}
@@ -85,6 +82,9 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
           onChange={(e: any) => handleVerticalPositionChange(e)}
+          labelTitle={"Vertical Position"}
+          labelValue={canvasHeadlineValues.position.y}
+          labelValueType="px"
         />
       </div>
     </Fragment>

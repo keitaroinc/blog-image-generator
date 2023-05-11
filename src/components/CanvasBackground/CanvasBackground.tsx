@@ -163,12 +163,6 @@ export const CanvasBackground: React.FunctionComponent<
         </div>
         {canvasBackgroundValues.fileImageURL ? (
           <Fragment>
-            <label
-              htmlFor="backgroundHorizontalRange"
-              className="form-label m-3"
-            >
-              Horizontal Position ({canvasBackgroundValues.position.x}%)
-            </label>
             <RangeControl
               id="backgroundHorizontalRange"
               min={-100}
@@ -176,10 +170,10 @@ export const CanvasBackground: React.FunctionComponent<
               step="1"
               value={canvasBackgroundValues.position.x}
               onChange={(e: any) => handleHorizontalPositionChange(e)}
+              labelTitle={"Horizontal Position"}
+              labelValue={canvasBackgroundValues.position.x}
+              labelValueType="%"
             />
-            <label htmlFor="backgroundVerticalRange" className="form-label m-3">
-              Vertical Position ({canvasBackgroundValues.position.y}%)
-            </label>
             <RangeControl
               id="backgroundVerticalRange"
               min={-100}
@@ -187,10 +181,10 @@ export const CanvasBackground: React.FunctionComponent<
               step="1"
               value={canvasBackgroundValues.position.y}
               onChange={(e: any) => handleVerticalPositionChange(e)}
+              labelTitle={"Vertical Position"}
+              labelValue={canvasBackgroundValues.position.y}
+              labelValueType="%"
             />
-            <label htmlFor="backgroundScaleRange" className="form-label m-3">
-              Scale ({canvasBackgroundValues.size}%)
-            </label>
             <RangeControl
               id="backgroundVerticalRange"
               min={0}
@@ -198,10 +192,10 @@ export const CanvasBackground: React.FunctionComponent<
               step="1"
               value={canvasBackgroundValues.size}
               onChange={(e: any) => handleBackgroundImageScale(e)}
+              labelTitle={"Scale"}
+              labelValue={canvasBackgroundValues.size}
+              labelValueType="%"
             />
-            <label htmlFor="backgroundBlurRange" className="form-label m-3">
-              Blur ({canvasBackgroundValues.blur}px)
-            </label>
             <RangeControl
               id="backgroundVerticalRange"
               min={0}
@@ -209,6 +203,9 @@ export const CanvasBackground: React.FunctionComponent<
               step="1"
               value={canvasBackgroundValues.blur}
               onChange={(e: any) => handleBackgroundBlur(e)}
+              labelTitle="Blur"
+              labelValue={canvasBackgroundValues.blur}
+              labelValueType="px"
             />
           </Fragment>
         ) : null}

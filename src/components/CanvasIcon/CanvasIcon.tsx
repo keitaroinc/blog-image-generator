@@ -122,9 +122,6 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
         </div>
         {canvasIconValues.fileImageURL && (
           <Fragment>
-            <label htmlFor="iconHorizontalRange" className="form-label m-3">
-              Horizontal Position ({canvasIconValues.position.x}px)
-            </label>
             <RangeControl
               id="iconHorizontalRange"
               className={"reverseRangeControl"}
@@ -140,10 +137,10 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
                   },
                 })
               }
+              labelTitle={"Horizontal Position"}
+              labelValue={canvasIconValues.position.x}
+              labelValueType="px"
             />
-            <label htmlFor="iconVerticalRange" className="form-label m-3">
-              Vertical Position ({canvasIconValues.position.y}px)
-            </label>
             <RangeControl
               id="iconVerticalRange"
               value={canvasIconValues.position.y}
@@ -158,6 +155,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
                   },
                 })
               }
+              labelTitle={"Vertical Position"}
+              labelValue={canvasIconValues.position.y}
+              labelValueType="px"
             />
           </Fragment>
         )}
