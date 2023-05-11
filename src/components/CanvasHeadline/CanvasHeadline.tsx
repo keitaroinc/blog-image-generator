@@ -7,6 +7,8 @@ import { RangeControl } from "../RangeControl/RangeControl";
 
 interface CanvasHeadlineProps { }
 
+const fontSizeNames = ["6", "5", "4", "3", "2", "1"]
+
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
 ) => {
@@ -102,8 +104,9 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           value={canvasHeadlineValues.fontSize}
           onChange={(e: any) => handleFontSizeChange(e)}
           labelTitle={"Fonts size "}
-          labelValue={canvasHeadlineValues.fontSize}
+          labelValue={fontSizeNames[parseInt(canvasHeadlineValues.fontSize) - 1]}
           labelValueType=""
+          className="reverseRangeControl"
         />
       </div>
     </Fragment>
