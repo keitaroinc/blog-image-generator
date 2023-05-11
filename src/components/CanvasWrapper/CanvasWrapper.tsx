@@ -102,7 +102,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ) : null}
         <GradientComponent canvasGradientValues={canvasGradientValues} />
         <h1
-          className="title w-75"
+          className={`title w-75 display-${canvasHeadlineValues.fontSize}`}
           style={{
             transform: `translate(${canvasHeadlineValues.position.x}px, ${canvasHeadlineValues.position.y}px)`,
             color: canvasHeadlineValues.color,

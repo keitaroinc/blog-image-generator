@@ -5,7 +5,9 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasHeadlineProps {}
+interface CanvasHeadlineProps { }
+
+const fontSizeNames = ["6", "5", "4", "3", "2", "1"]
 
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
@@ -28,6 +30,14 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
       position: { ...canvasHeadlineValues.position, y: event.target.value },
+    });
+  };
+  const handleFontSizeChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      fontSize: event.target.value
     });
   };
 
@@ -85,6 +95,18 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelTitle={"Vertical Position"}
           labelValue={canvasHeadlineValues.position.y}
           labelValueType="px"
+        />
+        <RangeControl
+          min="1"
+          max="6"
+          step="1"
+          id="headlineFontSizeRange"
+          value={canvasHeadlineValues.fontSize}
+          onChange={(e: any) => handleFontSizeChange(e)}
+          labelTitle={"Fonts size "}
+          labelValue={fontSizeNames[parseInt(canvasHeadlineValues.fontSize) - 1]}
+          labelValueType=""
+          className="reverseRangeControl"
         />
       </div>
     </Fragment>

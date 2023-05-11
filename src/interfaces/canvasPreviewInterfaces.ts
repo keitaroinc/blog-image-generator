@@ -27,6 +27,7 @@ export interface CanvasRefsInterface {
 export interface CanvasHeadlineValuesInterface {
   content: string;
   color: string;
+  fontSize: string;
   position: {
     x: string;
     y: string;

@@ -19,6 +19,7 @@ export const Provider = (props: { children: string | number | boolean | React.Re
   const [canvasHeadlineValues, setCanvasHeadlineValues] = useState<CanvasHeadlineValuesInterface>({
     content: "Headline text goes here and it can get pretty long",
     color: "#000000",
+    fontSize: "3",
     position: {
       x: `${canvasRefs.headlineRefWidth}`,
       y: `${canvasRefs.headlineRefHeight}`
