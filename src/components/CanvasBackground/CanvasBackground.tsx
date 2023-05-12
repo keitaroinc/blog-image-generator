@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasBackgroundProps {}
+interface CanvasBackgroundProps { }
 
 export const CanvasBackground: React.FunctionComponent<
   CanvasBackgroundProps
@@ -126,6 +126,13 @@ export const CanvasBackground: React.FunctionComponent<
     });
   };
 
+  const handleDeleteImage = () => {
+    setCanvasBackgroundValues({
+      ...canvasBackgroundValues,
+      fileImageURL: null,
+      fileImage: null,
+    });
+  };
   return (
     <Fragment>
       <HeaderComponent>
@@ -151,12 +158,22 @@ export const CanvasBackground: React.FunctionComponent<
           ref={dragAndDropContainer}
         >
           {canvasBackgroundValues.fileImageURL ? (
-            <img
-              id="backgroundSmallImage"
-              className="w-100 h-100 object-fit-contain"
-              src={`${canvasBackgroundValues.fileImageURL}`}
-              alt="Added images"
-            />
+            <div className="position-relative">
+              <img
+                id="iconSmallImage"
+                className="w-100 h-100 object-fit-contain"
+                src={`${canvasBackgroundValues.fileImageURL}`}
+                alt="Added images"
+              />
+              <button
+                type="button"
+                onClick={() => handleDeleteImage()}
+                className="btn btn-outline-danger btn-outline-danger btn-outline-danger btn-sm fw-bold  m-3 position-absolute top-10 end-0"
+                aria-label="Close"
+              >
+                X
+              </button>
+            </div>
           ) : (
             <p className="m-0 px-3">Drag and Drop Image Here</p>
           )}

@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasIconProps {}
+interface CanvasIconProps { }
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const { canvasIconValues, setCanvasIconValues } = React.useContext(
@@ -91,6 +91,13 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const max = 12;
   const maxStep = 1;
 
+  const handleDeleteImage = () => {
+    setCanvasIconValues({
+      ...canvasIconValues,
+      fileImageURL: null,
+      fileImage: null,
+    });
+  };
   return (
     <Fragment>
       <HeaderComponent>
@@ -113,12 +120,22 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           ref={dragAndDropContainer}
         >
           {canvasIconValues.fileImageURL ? (
-            <img
-              id="iconSmallImage"
-              className="w-100 h-100 object-fit-contain"
-              src={`${canvasIconValues.fileImageURL}`}
-              alt="Added images"
-            />
+            <div className="position-relative">
+              <img
+                id="iconSmallImage"
+                className="w-100 h-100 object-fit-contain"
+                src={`${canvasIconValues.fileImageURL}`}
+                alt="Added images"
+              />
+              <button
+                type="button"
+                onClick={() => handleDeleteImage()}
+                className="btn btn-sm fw-bold btn-outline-danger m-3 position-absolute top-10 end-0"
+                aria-label="Close"
+              >
+                X
+              </button>
+            </div>
           ) : (
             <p className="m-0 px-3">Drag and Drop Image Here</p>
           )}
@@ -144,7 +161,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               id="iconPaddingRange"
               defaultValue={canvasIconValues.padding}
               min={0}
-              max={max/2}
+              max={max / 2}
               step={maxStep}
               onChange={(e: any) =>
                 setCanvasIconValues({
