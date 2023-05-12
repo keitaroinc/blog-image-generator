@@ -3,7 +3,7 @@ import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
-import { LogoComponent } from "../LogoCoponent/LogoComponent";
+import { LogoComponent } from "../LogoComponent/LogoComponent";
 
 const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"];
 
