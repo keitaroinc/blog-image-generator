@@ -76,7 +76,7 @@ export const Provider = (props: {
 
   const [canvasLogoValues, setCanvasLogoValues] =
     useState<CanvasLogoValuesInterface>({
-      src: `FullColor`,
+      src: "KeitaroFullColorLogo",
       opacity: 100,
       position: {
         x: 1,

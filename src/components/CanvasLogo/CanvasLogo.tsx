@@ -7,16 +7,14 @@ import { RangeControl } from "../RangeControl/RangeControl";
 interface CanvasLogoProps { }
 
 const logoOptions = [
-  { src: `FullColor`, label: "Full Color" },
-  { src: `Grayscale`, label: "Grayscale" },
-  { src: `Black`, label: "Black" },
-  { src: `White`, label: "White" },
+  { src: "KeitaroFullColorLogo", label: "Full Color" },
+  { src: "KeitaroGrayscaleLogo", label: "Grayscale" },
+  { src: "KeitaroBlackLogo", label: "Black" },
+  { src: "KeitaroWhiteLogo", label: "White" },
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } =
-    React.useContext(CanvasPreviewContextValues);
-
+  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
   const maxStep = 1;
 
   return (
@@ -28,14 +26,12 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"
-            onChange={(e) =>
-              setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
-            }
+            onChange={(e) => setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })}
             className="form-select"
             aria-label="Logo Type"
           >
             {logoOptions.map((option) => (
-              <option key={option.src} value={option.src}>
+              <option key={option.label} value={option.src}>
                 {option.label}
               </option>
             ))}

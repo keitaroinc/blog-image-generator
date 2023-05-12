@@ -3,10 +3,7 @@ import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
-import { KeitaroFullColorLogo } from "../Logos/KeitaroFullColorLogo";
-import { KeitaroGrayscaleLogo } from "../Logos/KeitaroGrayscaleLogo";
-import { KeitaroWhiteLogo } from "../Logos/KeitaroWhiteLogo";
-import { KeitaroBlackLogo } from "../Logos/KeitaroBlackLogo";
+import { LogoComponent } from "../LogoCoponent/LogoComponent";
 
 const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"];
 
@@ -154,10 +151,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             gridRowStart: canvasLogoValues.position.y,
             opacity: `${canvasLogoValues.opacity}%`,
           }}>
-          {canvasLogoValues.src === "FullColor" ? <KeitaroFullColorLogo /> :
-            canvasLogoValues.src === "Grayscale" ? <KeitaroGrayscaleLogo /> :
-              canvasLogoValues.src === "White" ? <KeitaroWhiteLogo /> :
-                canvasLogoValues.src === "Black" && <KeitaroBlackLogo />}
+          <LogoComponent logoType={canvasLogoValues.src} />
         </div>
       </div>
       <div className="row row-cols-1 row-cols-md-2">
