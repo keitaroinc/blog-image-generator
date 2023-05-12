@@ -88,10 +88,11 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
-            ? canvasBackgroundValues.fileImageURL
-            : null
-            })`,
+          backgroundImage: `url(${
+            canvasBackgroundValues.fileImageURL !== ""
+              ? canvasBackgroundValues.fileImageURL
+              : null
+          })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
@@ -140,17 +141,27 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               }
               alt="Keitaro logo"
             />
-
           </div>
         )}
         <div
-          className="align-self-end logo"
-          ref={logoRef}
+          className="logo align-self-end d-flex flex-column justify-content-center"
           style={{
             gridColumnStart: canvasLogoValues.position.x,
             gridRowStart: canvasLogoValues.position.y,
             opacity: `${canvasLogoValues.opacity}%`,
-          }}>
+          }}
+        >
+          {canvasLogoValues.title.content ? (
+            <span
+              className="title h6 text-uppercase mb-2 text-center px-3 py-3 align-self-center"
+              style={{
+                color: canvasLogoValues.title.color,
+                borderBottomColor: canvasLogoValues.title.color,
+              }}
+            >
+              {canvasLogoValues.title.content}
+            </span>
+          ) : null}
           <LogoComponent logoType={canvasLogoValues.src} />
         </div>
       </div>
