@@ -1,8 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./CanvasWrapper.scss";
+import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
-import { toJpeg, toPng } from "html-to-image";
+
+const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"];
 
 export const CanvasWrapper: React.FC<{ className?: string }> = ({
   className,
@@ -16,6 +18,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     canvasGradientValues,
     setCanvasRefs,
   } = React.useContext(CanvasPreviewContextValues);
+  const [canvasAspectRatio, setCanvasAspectRatio] = useState<string>("16/9");
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
@@ -93,6 +96,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
+          aspectRatio: `${canvasAspectRatio}`,
         }}
       >
         {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
@@ -110,7 +114,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             gridRowStart: canvasHeadlineValues.position.y,
             gridRowEnd: 12,
             color: canvasHeadlineValues.color,
-            fontSize: `${canvasHeadlineValues.size}em`
+            fontSize: `${canvasHeadlineValues.size}em`,
           }}
           ref={headlineRef}
         >
@@ -124,7 +128,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               gridRowStart: canvasIconValues.position.y,
               backgroundColor: `${canvasIconValues.color}`,
               transform: `scale(${1 * canvasIconValues.scale})`,
-              padding: `${canvasIconValues.padding}em`
+              padding: `${canvasIconValues.padding}em`,
             }}
           >
             <img
@@ -146,43 +150,63 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           style={{
             gridColumnStart: canvasLogoValues.position.x,
             gridRowStart: canvasLogoValues.position.y,
-            opacity: `${canvasLogoValues.opacity}%`
+            opacity: `${canvasLogoValues.opacity}%`,
           }}
         />
       </div>
-
-      <div className="btn-group">
-        <button
-          type="button"
-          className="btn btn-lg text-light btn-keitaro-alt"
-          onClick={() => onDownload("png")}
-        >
-          Download
-        </button>
-        <button
-          type="button"
-          className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span className="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul className="dropdown-menu">
-          <li
-            className="dropdown-item"
-            role="button"
-            onClick={() => onDownload("png")}
-          >
-            PNG
-          </li>
-          <li
-            className="dropdown-item"
-            role="button"
-            onClick={() => onDownload("jpg")}
-          >
-            JPG
-          </li>
-        </ul>
+      <div className="row row-cols-1 row-cols-md-2">
+        <div className="col">
+          <div className="form-floating">
+            <select
+              title="canvasAspectRatio"
+              onChange={(e) => setCanvasAspectRatio(e.target.value)}
+              className="form-select"
+              aria-label="Select canvas aspect ratio"
+            >
+              {aspectRatioOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="canvasAspectRatio">Aspect Ratio</label>
+          </div>
+        </div>
+        <div className="col d-flex flex-column">
+          <div className="btn-group flex-grow-1">
+            <button
+              type="button"
+              className="btn btn-lg text-light btn-keitaro-alt"
+              onClick={() => onDownload("png")}
+            >
+              Download
+            </button>
+            <button
+              type="button"
+              className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span className="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul className="dropdown-menu">
+              <li
+                className="dropdown-item"
+                role="button"
+                onClick={() => onDownload("png")}
+              >
+                PNG
+              </li>
+              <li
+                className="dropdown-item"
+                role="button"
+                onClick={() => onDownload("jpg")}
+              >
+                JPG
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
