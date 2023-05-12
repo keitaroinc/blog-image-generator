@@ -1,8 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import "./CanvasWrapper.scss";
+import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
-import { toJpeg, toPng } from "html-to-image";
+
+const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"]
 
 export const CanvasWrapper: React.FC<{ className?: string }> = ({
   className,
@@ -16,6 +18,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     canvasGradientValues,
     setCanvasRefs,
   } = React.useContext(CanvasPreviewContextValues);
+  const [canvasAspectRatio, setCanvasAspectRatio] = useState<string>("16/9")
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
@@ -84,15 +87,15 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${
-            canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
-          })`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
+            ? canvasBackgroundValues.fileImageURL
+            : null
+            })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
+          aspectRatio: `${canvasAspectRatio}`,
         }}
       >
         {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
@@ -150,39 +153,59 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           }}
         />
       </div>
-
-      <div className="btn-group">
-        <button
-          type="button"
-          className="btn btn-lg text-light btn-keitaro-alt"
-          onClick={() => onDownload("png")}
-        >
-          Download
-        </button>
-        <button
-          type="button"
-          className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          <span className="visually-hidden">Toggle Dropdown</span>
-        </button>
-        <ul className="dropdown-menu">
-          <li
-            className="dropdown-item"
-            role="button"
-            onClick={() => onDownload("png")}
-          >
-            PNG
-          </li>
-          <li
-            className="dropdown-item"
-            role="button"
-            onClick={() => onDownload("jpg")}
-          >
-            JPG
-          </li>
-        </ul>
+      <div className="row">
+        <div className="col">
+          <div className="form-floating my-2">
+            <select
+              title="CanvasAspectRatio"
+              onChange={(e) => setCanvasAspectRatio(e.target.value)}
+              className="form-select custom-aspect-ratio-width"
+              aria-label="Select canvas aspect ratio"
+            >
+              {aspectRatioOptions.map((option) => (
+                <option key={option} value={option}>
+                  {option}
+                </option>
+              ))}
+            </select>
+            <label htmlFor="CanvasAspectRatio position-relative">Aspect ratio</label>
+          </div>
+        </div>
+        <div className="col d-flex align-items-center">
+          <div className="btn-group">
+            <button
+              type="button"
+              className="btn btn-lg text-light btn-keitaro-alt"
+              onClick={() => onDownload("png")}
+            >
+              Download
+            </button>
+            <button
+              type="button"
+              className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <span className="visually-hidden">Toggle Dropdown</span>
+            </button>
+            <ul className="dropdown-menu">
+              <li
+                className="dropdown-item"
+                role="button"
+                onClick={() => onDownload("png")}
+              >
+                PNG
+              </li>
+              <li
+                className="dropdown-item"
+                role="button"
+                onClick={() => onDownload("jpg")}
+              >
+                JPG
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   );
