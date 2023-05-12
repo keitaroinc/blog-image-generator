@@ -169,7 +169,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
                 </option>
               ))}
             </select>
-            <label htmlFor="canvasAspectRatio">Aspect ratio</label>
+            <label htmlFor="canvasAspectRatio">Aspect Ratio</label>
           </div>
         </div>
         <div className="col d-flex flex-column">
