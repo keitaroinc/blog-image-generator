@@ -72,7 +72,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
               })
             }
           ></textarea>
-          <label htmlFor="headlineTextarea">Enter headline text here.</label>
+          <label htmlFor="headlineTextarea">Enter headline text here</label>
         </div>
         <RangeControl
           min={3}
@@ -86,7 +86,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelValueType=""
         />
         <RangeControl
-          min={2}
+          min={1}
           max={max}
           step={maxStep}
           id="headlineHorizontalRange"
@@ -96,7 +96,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelValue={canvasHeadlineValues.position.x}
         />
         <RangeControl
-          min={2}
+          min={1}
           max={max}
           step={maxStep}
           id="headlineVerticalRange"
