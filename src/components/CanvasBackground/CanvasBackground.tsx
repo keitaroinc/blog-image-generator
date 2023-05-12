@@ -158,21 +158,19 @@ export const CanvasBackground: React.FunctionComponent<
           ref={dragAndDropContainer}
         >
           {canvasBackgroundValues.fileImageURL ? (
-            <div className="position-relative">
+            <div className="alert alert-dismissible">
               <img
                 id="iconSmallImage"
-                className="w-100 h-100 object-fit-contain"
+                className="img-fluid"
                 src={`${canvasBackgroundValues.fileImageURL}`}
                 alt="Added images"
               />
               <button
                 type="button"
                 onClick={() => handleDeleteImage()}
-                className="btn btn-outline-danger btn-outline-danger btn-outline-danger btn-sm fw-bold  m-3 position-absolute top-10 end-0"
+                className="btn-close justify-self-end"
                 aria-label="Close"
-              >
-                X
-              </button>
+              />
             </div>
           ) : (
             <p className="m-0 px-3">Drag and Drop Image Here</p>
