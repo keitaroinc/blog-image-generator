@@ -7,6 +7,7 @@ import keitaroLogoWhite from "../../assets/svg/keitaro-logo-white.svg";
 import { Heading } from "../Heading/Heading";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
+import { ColorPicker } from "../ColorPicker/ColorPicker";
 
 interface CanvasLogoProps {}
 
@@ -18,8 +19,9 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } =
-    React.useContext(CanvasPreviewContextValues);
+  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
+    CanvasPreviewContextValues
+  );
 
   const maxStep = 1;
 
@@ -45,6 +47,45 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             ))}
           </select>
           <label htmlFor="floatingSelect">Logo Type</label>
+        </div>
+        <div className="row mt-3">
+          <div className="col">
+            <div className="form-floating mb-3">
+              <textarea
+                className="form-control h-100"
+                placeholder="Leave a comment here"
+                id="logoTitleTextarea"
+                rows={3}
+                value={canvasLogoValues.title.content}
+                onChange={(e) =>
+                  setCanvasLogoValues({
+                    ...canvasLogoValues,
+                    title: {
+                      content: e.target.value,
+                      color: canvasLogoValues.title.color,
+                    },
+                  })
+                }
+              ></textarea>
+              <label htmlFor="logoTitleTextarea">Enter logo title here</label>
+            </div>
+          </div>
+          <div className="col-auto">
+            <ColorPicker
+              inputDefaultVaule="#000"
+              inputId="logoTitleColorPicker"
+              inputTitle="Choose your color"
+              onChange={(e: any) =>
+                setCanvasLogoValues({
+                  ...canvasLogoValues,
+                  title: {
+                    content: canvasLogoValues.title.content,
+                    color: e.target.value,
+                  },
+                })
+              }
+            />
+          </div>
         </div>
         <RangeControl
           id="logoOpacity"
