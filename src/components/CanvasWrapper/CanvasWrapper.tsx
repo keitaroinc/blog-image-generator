@@ -3,6 +3,7 @@ import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
+import { LogoComponent } from "../LogoComponent/LogoComponent";
 
 const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"];
 
@@ -87,11 +88,10 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${
-            canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
-          })`,
+          backgroundImage: `url(${canvasBackgroundValues.fileImageURL !== ""
+            ? canvasBackgroundValues.fileImageURL
+            : null
+            })`,
           backgroundSize: `auto ${canvasBackgroundValues.size}%`,
           backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
@@ -140,19 +140,19 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               }
               alt="Keitaro logo"
             />
+
           </div>
         )}
-        <img
+        <div
           className="align-self-end logo"
-          src={canvasLogoValues.src}
-          alt="Keitaro logo"
           ref={logoRef}
           style={{
             gridColumnStart: canvasLogoValues.position.x,
             gridRowStart: canvasLogoValues.position.y,
             opacity: `${canvasLogoValues.opacity}%`,
-          }}
-        />
+          }}>
+          <LogoComponent logoType={canvasLogoValues.src} />
+        </div>
       </div>
       <div className="row row-cols-1 row-cols-md-2">
         <div className="col">

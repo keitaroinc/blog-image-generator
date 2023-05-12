@@ -1,26 +1,20 @@
 import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
-import keitaroLogoFullColor from "../../assets/svg/keitaro-logo-full-color.svg";
-import keitaroLogoBlack from "../../assets/svg/keitaro-logo-black.svg";
-import keitaroLogoGrayscale from "../../assets/svg/keitaro-logo-grayscale.svg";
-import keitaroLogoWhite from "../../assets/svg/keitaro-logo-white.svg";
 import { Heading } from "../Heading/Heading";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasLogoProps {}
+interface CanvasLogoProps { }
 
 const logoOptions = [
-  { src: keitaroLogoFullColor, label: "Full Color" },
-  { src: keitaroLogoGrayscale, label: "Grayscale" },
-  { src: keitaroLogoBlack, label: "Black" },
-  { src: keitaroLogoWhite, label: "White" },
+  { src: "KeitaroFullColorLogo", label: "Full Color" },
+  { src: "KeitaroGrayscaleLogo", label: "Grayscale" },
+  { src: "KeitaroBlackLogo", label: "Black" },
+  { src: "KeitaroWhiteLogo", label: "White" },
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } =
-    React.useContext(CanvasPreviewContextValues);
-
+  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
   const maxStep = 1;
 
   return (
@@ -32,14 +26,12 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"
-            onChange={(e) =>
-              setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
-            }
+            onChange={(e) => setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })}
             className="form-select"
             aria-label="Logo Type"
           >
             {logoOptions.map((option) => (
-              <option key={option.src} value={option.src}>
+              <option key={option.label} value={option.src}>
                 {option.label}
               </option>
             ))}
