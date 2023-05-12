@@ -3,7 +3,10 @@ import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { GradientComponent } from "../GradientComponent/GradientComponent";
-import { SvgComponent } from "../SvgComponent/SvgComponent";
+import { KeitaroFullColorLogo } from "../Logos/KeitaroFullColorLogo";
+import { KeitaroGrayscaleLogo } from "../Logos/KeitaroGrayscaleLogo";
+import { KeitaroWhiteLogo } from "../Logos/KeitaroWhiteLogo";
+import { KeitaroBlackLogo } from "../Logos/KeitaroBlackLogo";
 
 const aspectRatioOptions = ["16/9", "16/10", "5/3", "4/3", "1/1"];
 
@@ -143,17 +146,6 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 
           </div>
         )}
-        {/* <img
-          className="align-self-end logo"
-          src={canvasLogoValues.src}
-          alt="Keitaro logo"
-          ref={logoRef}
-          style={{
-            gridColumnStart: canvasLogoValues.position.x,
-            gridRowStart: canvasLogoValues.position.y,
-            opacity: `${canvasLogoValues.opacity}%`,
-          }}
-        /> */}
         <div
           className="align-self-end logo"
           ref={logoRef}
@@ -162,9 +154,11 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             gridRowStart: canvasLogoValues.position.y,
             opacity: `${canvasLogoValues.opacity}%`,
           }}>
-          <SvgComponent svgCode={canvasLogoValues.src} />
+          {canvasLogoValues.src === "FullColor" ? <KeitaroFullColorLogo /> :
+            canvasLogoValues.src === "Grayscale" ? <KeitaroGrayscaleLogo /> :
+              canvasLogoValues.src === "White" ? <KeitaroWhiteLogo /> :
+                canvasLogoValues.src === "Black" && <KeitaroBlackLogo />}
         </div>
-
       </div>
       <div className="row row-cols-1 row-cols-md-2">
         <div className="col">
