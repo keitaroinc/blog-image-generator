@@ -80,6 +80,10 @@ export const Provider = (props: {
     useState<CanvasLogoValuesInterface>({
       src: keitaroFullColorLogo,
       opacity: 100,
+      title: {
+        content: '',
+        color: '#000'
+      },
       position: {
         x: 1,
         y: 12,
