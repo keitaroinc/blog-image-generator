@@ -66,6 +66,10 @@ export interface CanvasBackgroundValuesInterface {
 export interface CanvasLogoValuesInterface {
   src: string;
   opacity: number,
+  title: {
+    content: string,
+    color: string
+  },
   position: {
     x: number;
     y: number;
