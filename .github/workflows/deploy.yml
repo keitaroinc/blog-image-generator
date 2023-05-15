@@ -25,15 +25,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        publish_dir: ./build
     - run: npm ci
     - run: npm run build --if-present
     - run: npm test
-    
-  deploy:
-    runs-on: node:lts
-    steps:
-    - uses: peaceiris/actions-gh-pages@v3
-      if: github.ref == 'refs/heads/main'
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./build
