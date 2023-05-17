@@ -97,10 +97,11 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           <div
             className="blur"
             style={{
-              backgroundImage: `url(${canvasBackgroundValues.fileImageURL})`, backgroundSize: `auto ${canvasBackgroundValues.size}%`,
+              backgroundImage: `url(${canvasBackgroundValues.fileImageURL})`,
+              backgroundSize: `auto ${canvasBackgroundValues.size}%`,
               backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
               backgroundRepeat: "no-repeat",
-              filter: `blur(${canvasBackgroundValues.blur}px)`
+              filter: `blur(${canvasBackgroundValues.blur}px)`,
             }}
           ></div>
         ) : null}
