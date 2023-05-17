@@ -88,22 +88,20 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
-          backgroundImage: `url(${
-            canvasBackgroundValues.fileImageURL !== ""
-              ? canvasBackgroundValues.fileImageURL
-              : null
-          })`,
-          backgroundSize: `auto ${canvasBackgroundValues.size}%`,
-          backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
           aspectRatio: `${canvasAspectRatio}`,
         }}
       >
-        {canvasBackgroundValues.fileImageURL && canvasBackgroundValues.blur ? (
+        {canvasBackgroundValues.fileImageURL ? (
           <div
             className="blur"
-            style={{ backdropFilter: `blur(${canvasBackgroundValues.blur}px)` }}
+            style={{
+              backgroundImage: `url(${canvasBackgroundValues.fileImageURL})`, backgroundSize: `auto ${canvasBackgroundValues.size}%`,
+              backgroundPosition: `${canvasBackgroundValues.position.x}% ${canvasBackgroundValues.position.y}%`,
+              backgroundRepeat: "no-repeat",
+              filter: `blur(${canvasBackgroundValues.blur}px)`
+            }}
           ></div>
         ) : null}
         <GradientComponent canvasGradientValues={canvasGradientValues} />
