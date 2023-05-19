@@ -30,9 +30,6 @@
         "eject": "react-scripts eject",
         "lint": "npx prettier -cw src/*.*"
     },
-    "eslintIgnore": [
-        "node_modules/**/*.*"
-    ],
     "browserslist": {
         "production": [
             ">0.2%",
