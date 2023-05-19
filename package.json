@@ -28,7 +28,7 @@
         "build": "react-scripts build",
         "test": "react-scripts test",
         "eject": "react-scripts eject",
-        "lint": "npx prettier -cw ."
+        "lint": "npx prettier -cw src/*.*"
     },
     "eslintIgnore": [
         "node_modules/**/*.*"
