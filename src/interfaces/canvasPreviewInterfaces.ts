@@ -36,7 +36,7 @@ export interface CanvasHeadlineValuesInterface {
 
 export interface CanvasBorderValuesInerface {
   width: number;
-  color: string
+  color: string;
 }
 
 export interface CanvasIconValuesInterface {
@@ -44,7 +44,7 @@ export interface CanvasIconValuesInterface {
   fileImageURL: string | ArrayBuffer | null;
   color: string;
   scale: number;
-  padding: number,
+  padding: number;
   position: {
     x: number;
     y: number;
@@ -65,11 +65,11 @@ export interface CanvasBackgroundValuesInterface {
 
 export interface CanvasLogoValuesInterface {
   src: string;
-  opacity: number,
+  opacity: number;
   title: {
-    content: string,
-    color: string
-  },
+    content: string;
+    color: string;
+  };
   position: {
     x: number;
     y: number;
