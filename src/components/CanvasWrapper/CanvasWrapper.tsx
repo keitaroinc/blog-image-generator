@@ -82,7 +82,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
   );
 
   return (
-    <div className={className}>
+    <div className={className} data-testid="CanvasWrapper">
       <div
         className="canvas grid flex-grow-1"
         ref={canvasRef}

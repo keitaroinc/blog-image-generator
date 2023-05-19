@@ -149,7 +149,7 @@ export const CanvasBackground: React.FunctionComponent<
           }
         />
       </HeaderComponent>
-      <div className="list-group-item">
+      <div className="list-group-item" data-testid="canvas-background">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"
           onDrop={handleDrop}

@@ -6,7 +6,7 @@ import { Heading } from "../Heading/Heading";
 import { AddGradient } from "../AddGradient/AddGradient";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface GradientComponentProps {}
+interface GradientComponentProps { }
 
 const gradientOptions = [
   { value: "linear-gradient", label: "Linear" },
@@ -116,7 +116,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       {canvasGradientValues.length > 0 ? (
         (canvasGradientValues || []).map((gradient, index) => {
           return (
-            <div className="list-group-item p-3" key={index}>
+            <div className="list-group-item p-3" key={index} data-testid="canvas-gradient">
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <input

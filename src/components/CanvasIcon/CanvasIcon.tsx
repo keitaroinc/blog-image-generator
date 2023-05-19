@@ -111,7 +111,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           }
         />
       </HeaderComponent>
-      <div className="list-group-item">
+      <div className="list-group-item" data-testid="canvas-icon">
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white"
           onDrop={handleDrop}

@@ -2,9 +2,14 @@ import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom'
 import { App } from '../../App';
 
-describe('SideBar component', () => {
-  it('renders a container with test id "Sidebar"', () => {
+describe('App.tsx tests', () => {
+  it('should render a component with test-id "SideBar"', () => {
     render(<App />);
-    expect(screen.getByTestId("Sidebar")).toBeInTheDocument();
+    expect(screen.getByTestId("SideBar")).toBeInTheDocument();
+  });
+
+  it('should render a component with test-id "CanvasWrapper"', () => {
+    render(<App />);
+    expect(screen.getByTestId("CanvasWrapper")).toBeInTheDocument();
   });
 });

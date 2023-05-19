@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasBorderProps {}
+interface CanvasBorderProps { }
 
 export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
   props
@@ -34,7 +34,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
           }
         />
       </HeaderComponent>
-      <div className="list-group-item">
+      <div className="list-group-item" data-testid="canvas-border">
         <RangeControl
           min={0}
           max={6}
