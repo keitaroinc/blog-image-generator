@@ -14,14 +14,14 @@ const CanvasPreviewContext = createContext({} as CanvasPreviewContextInterface);
 
 export const Provider = (props: {
   children:
-  | string
-  | number
-  | boolean
-  | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  | React.ReactFragment
-  | React.ReactPortal
-  | null
-  | undefined;
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
 }) => {
   const [canvasRefs, setCanvasRefs] = React.useState<CanvasRefsInterface>({
     canvasRefWidth: 0,
@@ -79,8 +79,8 @@ export const Provider = (props: {
       src: "KeitaroFullColorLogo",
       opacity: 100,
       title: {
-        content: '',
-        color: '#000'
+        content: "",
+        color: "#000",
       },
       position: {
         x: 1,

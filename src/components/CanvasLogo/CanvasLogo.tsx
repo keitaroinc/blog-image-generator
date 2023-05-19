@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasLogoProps { }
+interface CanvasLogoProps {}
 
 const logoOptions = [
   { src: "KeitaroFullColorLogo", label: "Full Color" },
@@ -15,7 +15,9 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(CanvasPreviewContextValues);
+  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
+    CanvasPreviewContextValues
+  );
   const maxStep = 1;
 
   return (
@@ -27,7 +29,9 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"
-            onChange={(e) => setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })}
+            onChange={(e) =>
+              setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
+            }
             className="form-select"
             aria-label="Logo Type"
           >

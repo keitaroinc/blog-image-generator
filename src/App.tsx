@@ -1,8 +1,7 @@
 import "./assets/scss/style.scss";
-import 'bootstrap/dist/js/bootstrap';
+import "bootstrap/dist/js/bootstrap";
 import { CanvasWrapper, SideBar } from "./components";
 import { CanvasPreviewContextProvider } from "./contexts/CanvasPreviewContext";
-
 
 export const App = () => {
   return (
