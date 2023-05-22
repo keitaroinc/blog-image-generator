@@ -116,7 +116,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
       {canvasGradientValues.length > 0 ? (
         (canvasGradientValues || []).map((gradient, index) => {
           return (
-            <div className="list-group-item p-3" key={index} data-testid="canvas-gradient">
+            <div className="list-group-item p-3" key={index} data-testid="canvas-gradient-option">
               <div className="d-flex justify-content-between">
                 <div className="d-flex">
                   <input
@@ -149,6 +149,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   />
                 </div>
                 <button
+                  data-testid="delete-gradient-option"
                   className="mx-2 btn btn-danger"
                   onClick={() => handleRemoveGradient(index)}
                 >
