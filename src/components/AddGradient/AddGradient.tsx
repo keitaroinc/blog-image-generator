@@ -6,7 +6,7 @@ type AddGradinetPops = {
 
 export const AddGradient: React.FC<AddGradinetPops> = ({ onClick }) => {
   return (
-    <button className="btn btn-success" onClick={onClick} data-testid="add-gradient-button">
+    <button className="btn btn-success" onClick={onClick} id="addGradient" data-testid="addGradient">
       <img src={plusIcon} alt="add-gradient" />
     </button>
   );

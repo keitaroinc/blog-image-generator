@@ -39,7 +39,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
         max={max}
         step={step}
         id={id}
-        data-testid="range-slider-input"
+        data-testid="rangeSliderInput"
         value={value}
         onChange={(e) => onChange(e)}
         className={`form-range ${className}`}

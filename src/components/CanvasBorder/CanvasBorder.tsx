@@ -34,7 +34,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
           }
         />
       </HeaderComponent>
-      <div className="list-group-item" data-testid="canvas-border">
+      <div className="list-group-item" data-testid="canvasBorder">
         <RangeControl
           min={0}
           max={6}

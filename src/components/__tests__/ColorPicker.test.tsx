@@ -8,7 +8,7 @@ describe('ColorPicker.tsx tests', () => {
 
   it("should render a range input", () => {
     render(<ColorPicker onChange={jest.fn} />)
-    expect(screen.getByTestId(/color-picker/i) as HTMLInputElement).toBeInTheDocument()
+    expect(screen.getByTestId(/colorPicker/i) as HTMLInputElement).toBeInTheDocument()
   })
 
   it('should be able to change the color', () => {
@@ -22,7 +22,7 @@ describe('ColorPicker.tsx tests', () => {
         onChange={onChange}
       />
     );
-    const colorPickerElement = screen.getByTestId(/color-picker/i) as HTMLInputElement;
+    const colorPickerElement = screen.getByTestId(/colorPicker/i) as HTMLInputElement;
     fireEvent.change(colorPickerElement, { target: { value: "#ffffff" } });
     expect(value).toBe("#ffffff");
   });

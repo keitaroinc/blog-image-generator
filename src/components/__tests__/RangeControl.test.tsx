@@ -15,7 +15,7 @@ describe('RangeControl.tsx tests', () => {
       labelTitle="Range Slider"
       labelValue="Value"
       labelValueType="%" />)
-    expect(screen.getByTestId(/range-slider-input/i) as HTMLInputElement).toBeInTheDocument()
+    expect(screen.getByTestId(/rangeSliderInput/i) as HTMLInputElement).toBeInTheDocument()
   })
 
   it('should be able to change the range value', () => {
@@ -38,7 +38,7 @@ describe('RangeControl.tsx tests', () => {
         labelValueType="%"
       />
     );
-    const rangeElement = screen.getByTestId(/range-slider-input/i) as HTMLInputElement;
+    const rangeElement = screen.getByTestId(/rangeSliderInput/i) as HTMLInputElement;
     fireEvent.click(rangeElement);
     fireEvent.change(rangeElement, { target: { value: "7" } });
     expect(value).toBe(7);

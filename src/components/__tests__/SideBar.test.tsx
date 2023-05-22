@@ -12,25 +12,25 @@ const MockSideBar = () => {
 }
 
 describe('SideBar.tsx tests', () => {
-  it('should render a component with test-id "canvas-headline"', () => {
+  it('should render a component with test-id "canvasHeadline"', () => {
     render(<MockSideBar />)
-    expect(screen.getByTestId("canvas-headline")).toBeInTheDocument();
+    expect(screen.getByTestId("canvasHeadline")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvas-logo"', () => {
+  it('should render a component with test-id "canvasLogo"', () => {
     render(<MockSideBar />);
-    expect(screen.getByTestId("canvas-logo")).toBeInTheDocument();
+    expect(screen.getByTestId("canvasLogo")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvas-background"', () => {
+  it('should render a component with test-id "canvasBackground"', () => {
     render(<MockSideBar />);
-    expect(screen.getByTestId("canvas-background")).toBeInTheDocument();
+    expect(screen.getByTestId("canvasBackground")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvas-icon"', () => {
+  it('should render a component with test-id "canvasIcon"', () => {
     render(<MockSideBar />);
-    expect(screen.getByTestId("canvas-icon")).toBeInTheDocument();
+    expect(screen.getByTestId("canvasIcon")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvas-border"', () => {
+  it('should render a component with test-id "canvasBorder"', () => {
     render(<MockSideBar />);
-    expect(screen.getByTestId("canvas-border")).toBeInTheDocument();
+    expect(screen.getByTestId("canvasBorder")).toBeInTheDocument();
   });
   it('should render an element with alt text Keitaro Logo', () => {
     render(<MockSideBar />);

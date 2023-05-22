@@ -57,7 +57,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           }
         />
       </HeaderComponent>
-      <div className="list-group-item" data-testid="canvas-headline">
+      <div className="list-group-item" data-testid="canvasHeadline">
         <div className="form-floating mb-3 mt-2">
           <textarea
             className="form-control h-100"
