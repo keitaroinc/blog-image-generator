@@ -36,20 +36,60 @@ describe('CanvasGradient.tsx tests', () => {
   })
   it('should be able to select gradient type', () => {
     render(<MockCanvasGradient />);
-    addGradient(2)
+    addGradient(2);
     const selectElements = screen.getAllByTitle(/GradientOptions/i) as HTMLInputElement[];
     selectElements.forEach(element => {
-      fireEvent.change(element, { target: { value: "linear-gradient" } })
+      fireEvent.change(element, { target: { value: "linear-gradient" } });
       expect(element.value).toBe("linear-gradient");
     })
   });
   it('should be able to select blending mode', () => {
     render(<MockCanvasGradient />);
-    addGradient(2)
+    addGradient(2);
     const selectElements = screen.getAllByTitle(/BlendingMode/i) as HTMLInputElement[];
     selectElements.forEach(element => {
-      fireEvent.change(element, { target: { value: "luminosity" } })
+      fireEvent.change(element, { target: { value: "luminosity" } });
       expect(element.value).toBe("luminosity");
+    })
+  });
+  it('should render start color pick input and change its value', () => {
+    render(<MockCanvasGradient />);
+    addGradient(2);
+    const gradientOptionElements = screen.getAllByTestId(/gradientStartColorType/i) as HTMLInputElement[];
+    expect(gradientOptionElements).toHaveLength(2);
+    gradientOptionElements.forEach(element => {
+      fireEvent.change(element, { target: { value: "#ffffff" } });
+      expect(element.value).toBe("#ffffff")
+    })
+  });
+  it('should render end color pick input and change its value', () => {
+    render(<MockCanvasGradient />);
+    addGradient(2);
+    const gradientOptionElements = screen.getAllByTestId(/gradientEndColorType/i) as HTMLInputElement[];
+    expect(gradientOptionElements).toHaveLength(2);
+    gradientOptionElements.forEach(element => {
+      fireEvent.change(element, { target: { value: "#000000" } });
+      expect(element.value).toBe("#000000")
+    })
+  });
+  it('should render start color percentage input and change its value', () => {
+    render(<MockCanvasGradient />);
+    addGradient(2);
+    const gradientOptionElements = screen.getAllByTestId(/gradientStartColorPercentage/i) as HTMLInputElement[];
+    expect(gradientOptionElements).toHaveLength(2);
+    gradientOptionElements.forEach(element => {
+      fireEvent.change(element, { target: { value: "20" } });
+      expect(element.value).toBe("20")
+    })
+  });
+  it('should render end color percentage input and change its value', () => {
+    render(<MockCanvasGradient />);
+    addGradient(2);
+    const gradientOptionElements = screen.getAllByTestId(/gradientEndColorPercentage/i) as HTMLInputElement[];
+    expect(gradientOptionElements).toHaveLength(2);
+    gradientOptionElements.forEach(element => {
+      fireEvent.change(element, { target: { value: "20" } });
+      expect(element.value).toBe("20")
     })
   });
 });

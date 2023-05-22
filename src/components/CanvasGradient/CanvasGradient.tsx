@@ -122,8 +122,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <input
                     type="color"
                     className="form-control form-control-color"
-                    min="0"
-                    max="100"
+                    data-testid={`gradientStartColorType-${index}`}
                     value={gradient.startColor}
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "startColor")
@@ -133,12 +132,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <input
                     type="number"
                     className="form-control ms-2"
-                    id="floatingInputGroup1"
                     placeholder="50"
+                    data-testid={`gradientStartColorPercentage-${index}`}
                     min="0"
                     max="100"
                     pattern="[0-9]*"
-                    defaultValue={gradient.startColorPercentage}
+                    value={gradient.startColorPercentage}
                     onChange={(event) =>
                       handleEditTypeOfGradient(
                         event,
@@ -159,12 +158,12 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <input
                     type="number"
                     className="form-control me-2"
+                    data-testid={`gradientEndColorPercentage-${index}`}
                     placeholder="50"
-                    id="InputGroup"
                     min="0"
                     max="100"
                     pattern="[0-9]*"
-                    defaultValue={gradient.endColorPercentage}
+                    value={gradient.endColorPercentage}
                     onChange={(event) =>
                       handleEditTypeOfGradient(
                         event,
@@ -176,6 +175,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   <input
                     type="color"
                     className="form-control form-control-color"
+                    data-testid={`gradientEndColorType-${index}`}
                     value={gradient.endColor}
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "endColor")
