@@ -39,7 +39,6 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     window.addEventListener("resize", updateSize);
     updateSize();
     return () => window.removeEventListener("resize", updateSize);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const onDownload = useCallback(

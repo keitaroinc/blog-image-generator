@@ -1,6 +1,6 @@
 # Blog Image Generator by Keitaro
 
-[![Deploy](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml)
+[![Deploy](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml) [![Lint](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
