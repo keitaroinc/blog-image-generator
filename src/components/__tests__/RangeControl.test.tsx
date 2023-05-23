@@ -1,8 +1,8 @@
-import { render, screen, fireEvent } from '@testing-library/react';
-import '@testing-library/jest-dom';
-import { RangeControl } from '../RangeControl/RangeControl';
+import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { RangeControl } from "../RangeControl/RangeControl";
 
-describe('RangeControl.tsx tests', () => {
+describe("RangeControl.tsx tests", () => {
 
   it("should render a range input", () => {
     render(<RangeControl min={0}
@@ -18,7 +18,7 @@ describe('RangeControl.tsx tests', () => {
     expect(screen.getByTestId(/rangeSliderInput/i) as HTMLInputElement).toBeInTheDocument()
   })
 
-  it('should be able to change the range value', () => {
+  it("should be able to change the range value", () => {
     let value = 50;
     const onChange = jest.fn((event) => {
       value = Number(event.target.value);
@@ -43,4 +43,5 @@ describe('RangeControl.tsx tests', () => {
     fireEvent.change(rangeElement, { target: { value: "7" } });
     expect(value).toBe(7);
   });
+
 });

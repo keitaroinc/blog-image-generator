@@ -1,7 +1,7 @@
-import { render, screen } from '@testing-library/react';
-import '@testing-library/jest-dom'
-import { SideBar } from '../SideBar/SideBar';
-import { CanvasPreviewContextProvider } from '../../contexts/CanvasPreviewContext';
+import { render, screen } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { SideBar } from "../SideBar/SideBar";
+import { CanvasPreviewContextProvider } from "../../contexts/CanvasPreviewContext";
 
 const MockSideBar = () => {
   return (
@@ -11,29 +11,36 @@ const MockSideBar = () => {
   );
 }
 
-describe('SideBar.tsx tests', () => {
-  it('should render a component with test-id "canvasHeadline"', () => {
+describe("SideBar.tsx tests", () => {
+
+  it("should render a component with test-id canvasHeadline", () => {
     render(<MockSideBar />)
     expect(screen.getByTestId("canvasHeadline")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvasLogo"', () => {
+
+  it("should render a component with test-id canvasLogo", () => {
     render(<MockSideBar />);
     expect(screen.getByTestId("canvasLogo")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvasBackground"', () => {
+
+  it("should render a component with test-id canvasBackground", () => {
     render(<MockSideBar />);
     expect(screen.getByTestId("canvasBackground")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvasIcon"', () => {
+
+  it("should render a component with test-id canvasIcon", () => {
     render(<MockSideBar />);
     expect(screen.getByTestId("canvasIcon")).toBeInTheDocument();
   });
-  it('should render a component with test-id "canvasBorder"', () => {
+
+  it("should render a component with test-id canvasBorder", () => {
     render(<MockSideBar />);
     expect(screen.getByTestId("canvasBorder")).toBeInTheDocument();
   });
-  it('should render an element with alt text Keitaro Logo', () => {
+
+  it("should render an element with alt text Keitaro Logo", () => {
     render(<MockSideBar />);
     expect(screen.getByAltText("Keitaro Logo")).toBeInTheDocument();
   });
+
 });
