@@ -57,12 +57,12 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           }
         />
       </HeaderComponent>
-      <div className="list-group-item">
+      <div className="list-group-item" data-testid="canvasHeadline">
         <div className="form-floating mb-3 mt-2">
           <textarea
             className="form-control h-100"
-            placeholder="Leave a comment here"
             id="headlineTextarea"
+            placeholder="Leave a comment here"
             rows={3}
             value={canvasHeadlineValues.content}
             onChange={(e) =>

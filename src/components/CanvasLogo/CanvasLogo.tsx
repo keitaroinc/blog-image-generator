@@ -25,7 +25,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
       <HeaderComponent>
         <Heading title="Keitaro Logo" className="py-2" />
       </HeaderComponent>
-      <div className="list-group-item">
+      <div className="list-group-item" data-testid="canvasLogo">
         <div className="form-floating my-2">
           <select
             title="CanvasLogoOptions"

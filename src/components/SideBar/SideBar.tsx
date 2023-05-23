@@ -11,7 +11,7 @@ import { CanvasBorder } from "../CanvasBorder/CanvasBorder";
 
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
   return (
-    <div data-testid="Sidebar" className={className}>
+    <div data-testid="SideBar" className={className}>
       <div className="bg-gray-light sticky-top shadow shadow-lg d-flex justify-content-center flex-column align-items-center py-5 px-3">
         <a href="/blog-image-generator" rel="bookmark">
           <img
