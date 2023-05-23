@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasHeadlineProps { }
+interface CanvasHeadlineProps {}
 
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
