@@ -9,12 +9,11 @@ const MockSideBar = () => {
       <SideBar />
     </CanvasPreviewContextProvider>
   );
-}
+};
 
 describe("SideBar.tsx tests", () => {
-
   it("should render a component with test-id canvasHeadline", () => {
-    render(<MockSideBar />)
+    render(<MockSideBar />);
     expect(screen.getByTestId("canvasHeadline")).toBeInTheDocument();
   });
 
@@ -42,5 +41,4 @@ describe("SideBar.tsx tests", () => {
     render(<MockSideBar />);
     expect(screen.getByAltText("Keitaro Logo")).toBeInTheDocument();
   });
-
 });
