@@ -56,8 +56,8 @@ export const Provider = (props: {
       scale: 1,
       padding: 0,
       position: {
-        x: 10,
-        y: 9,
+        x: 17,
+        y: 14,
       },
     });
 
@@ -84,7 +84,7 @@ export const Provider = (props: {
       },
       position: {
         x: 1,
-        y: 12,
+        y: 24,
       },
     });
 
