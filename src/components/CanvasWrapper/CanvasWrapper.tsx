@@ -109,9 +109,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           className={`title`}
           style={{
             gridColumnStart: canvasHeadlineValues.position.x,
-            gridColumnEnd: 12,
             gridRowStart: canvasHeadlineValues.position.y,
-            gridRowEnd: 12,
             color: canvasHeadlineValues.color,
             fontSize: `${canvasHeadlineValues.size}em`,
           }}
