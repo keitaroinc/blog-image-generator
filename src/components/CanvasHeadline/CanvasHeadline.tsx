@@ -38,7 +38,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     });
   };
 
-  const max = 12;
+  const max = 24;
   const maxStep = 1;
 
   return (
