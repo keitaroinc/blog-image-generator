@@ -201,7 +201,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelValueType="%"
             />
             <RangeControl
-              id="backgroundVerticalRange"
+              id="backgroundScaleRange"
               min={0}
               max={1000}
               step="1"
@@ -212,7 +212,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelValueType="%"
             />
             <RangeControl
-              id="backgroundVerticalRange"
+              id="backgroundBlurRange"
               min={0}
               max={100}
               step="1"
