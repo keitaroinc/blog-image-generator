@@ -107,6 +107,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         <GradientComponent canvasGradientValues={canvasGradientValues} />
         <h1
           className={`title`}
+          data-testid="canvasHeadlineTitle"
           style={{
             gridColumnStart: canvasHeadlineValues.position.x,
             gridColumnEnd: 12,

@@ -48,7 +48,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
         <ColorPicker
           inputDefaultVaule="#000"
           inputId="headlineColorPicker"
-          inputTitle="Choose your color"
+          inputTitle="Choose your headline text color"
           onChange={(e: any) =>
             setCanvasHeadlineValues({
               ...canvasHeadlineValues,
@@ -62,6 +62,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           <textarea
             className="form-control h-100"
             id="headlineTextarea"
+            data-testid="headlineTextarea"
             placeholder="Leave a comment here"
             rows={3}
             value={canvasHeadlineValues.content}
