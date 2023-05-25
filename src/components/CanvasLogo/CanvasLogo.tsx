@@ -121,7 +121,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <RangeControl
           id="logoVerticalPosition"
           defaultValue={canvasLogoValues.position.y}
-          min={1}
+          min={2}
           step={maxStep}
           max={max}
           onChange={(e: any) =>
