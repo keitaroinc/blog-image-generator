@@ -18,6 +18,8 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
     CanvasPreviewContextValues
   );
+
+  const max = 24;
   const maxStep = 1;
 
   return (
@@ -102,7 +104,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           id="logoHorizontalPosition"
           value={canvasLogoValues.position.x}
           min={1}
-          max={11}
+          max={max - 4}
           step={maxStep}
           onChange={(e: any) =>
             setCanvasLogoValues({
@@ -121,7 +123,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           defaultValue={canvasLogoValues.position.y}
           min={1}
           step={maxStep}
-          max={12}
+          max={max}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
