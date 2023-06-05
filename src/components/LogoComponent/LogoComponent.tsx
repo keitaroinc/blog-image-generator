@@ -8,7 +8,12 @@ export const LogoComponent: React.FC<LogoProps> = ({ logoType }) => {
   switch (logoType) {
     case "KeitaroBlackLogo":
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 224.6 50">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 224.6 50"
+        >
           <g fill="#1d1d1b">
             <g transform="translate(-30 -20)">
               <path d="M40 70V50l10 10 10 10zm40-10V40L70 50 60 60zM30 30v20l10-10 10-10zm40-10v20L60 30 50 20z" />
@@ -20,7 +25,12 @@ export const LogoComponent: React.FC<LogoProps> = ({ logoType }) => {
       );
     case "KeitaroWhiteLogo":
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 224.6 50">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 224.6 50"
+        >
           <g fill="#fff">
             <g transform="translate(-30 -20)">
               <path d="M40 70V50l10 10 10 10zM80 60V40L70 50 60 60zM30 30v20l10-10 10-10zM70 20v20L60 30 50 20z" />
@@ -32,7 +42,12 @@ export const LogoComponent: React.FC<LogoProps> = ({ logoType }) => {
       );
     case "KeitaroGrayscaleLogo":
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 224.6 50">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 224.6 50"
+        >
           <g transform="translate(-30 -20)">
             <path fill="#8a8a8a" d="M40 70V50l10 10 10 10z" />
             <path
@@ -49,7 +64,12 @@ export const LogoComponent: React.FC<LogoProps> = ({ logoType }) => {
       );
     default:
       return (
-        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 224.6 50">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="100%"
+          height="100%"
+          viewBox="0 0 224.6 50"
+        >
           <g transform="translate(-30 -20)">
             <path fill="#0e9842" d="m50 60 10 10H40V50z" />
             <path fill="#8cc04b" d="M70 50 60 60h20V40zM40 40l10-10H30v20z" />
