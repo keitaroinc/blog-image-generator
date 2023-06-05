@@ -48,7 +48,7 @@
   }
 
   .logo {
-    grid-column-end: span 5;
+    grid-column-end: span 3;
     grid-row-end: span 2;
     z-index: var(--zIndex);
 
@@ -57,6 +57,7 @@
       white-space: nowrap;
       letter-spacing: 1px;
       border-bottom: 1px solid;
+      flex-basis: 100%;
     }
   }
 }

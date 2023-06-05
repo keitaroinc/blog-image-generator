@@ -149,7 +149,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         >
           {canvasLogoValues.title.content ? (
             <span
-              className="title h6 text-uppercase mb-2 text-center px-3 py-3 align-self-center"
+              className="title h6 text-uppercase mb-4 text-center px-3 py-3 align-self-center"
               style={{
                 color: canvasLogoValues.title.color,
                 borderBottomColor: canvasLogoValues.title.color,
