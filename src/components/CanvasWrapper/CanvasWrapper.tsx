@@ -47,7 +47,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         return;
       }
       if (type === "png") {
-        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
+        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 1 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
