@@ -83,8 +83,8 @@ export const Provider = (props: {
         color: "#000",
       },
       position: {
-        x: 1,
-        y: 24,
+        x: 2,
+        y: 22,
       },
     });
 
