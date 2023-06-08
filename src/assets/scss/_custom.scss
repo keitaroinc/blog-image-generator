@@ -1,42 +1,42 @@
 .drag-and-drop-container {
-    @extend .text-muted;
-    @extend .rounded;
-    @extend .rounded-3;
-    border: 2px dashed #ccc;
-    min-height: $spacer * 10;
-    transition: all 0.4s ease-in-out;
+  @extend .text-muted;
+  @extend .rounded;
+  @extend .rounded-3;
+  border: 2px dashed #ccc;
+  min-height: $spacer * 10;
+  transition: all 0.4s ease-in-out;
 }
 
 .sidebar-logo {
-    width: 200px;
+  width: 200px;
 }
 
 .reverseRangeControl {
-    transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .sidebar {
-    display: flex;
-    flex-direction: column;
-    @extend .bg-gray-light;
+  display: flex;
+  flex-direction: column;
+  @extend .bg-gray-light;
 }
 
 .canvas-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 @include media-breakpoint-up(xl) {
-    .sidebar {
-        height: 100vh;
-        overflow: auto;
-    }
+  .sidebar {
+    height: 100vh;
+    overflow: auto;
+  }
 }
 
 @include media-breakpoint-down(xl) {
-    .canvas-wrapper {
-        height: 100vh;
-    }
+  .canvas-wrapper {
+    height: 100vh;
+  }
 }
