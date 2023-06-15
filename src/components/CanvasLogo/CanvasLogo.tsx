@@ -84,6 +84,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         </div>
         <RangeControl
           id="logoOpacity"
+          title="Logo Opacity"
           value={canvasLogoValues.opacity}
           min={0}
           max={100}
@@ -100,6 +101,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         />
         <RangeControl
           id="logoHorizontalPosition"
+          title="Logo Horizontal Position"
           value={canvasLogoValues.position.x}
           min={1}
           max={11}
@@ -118,6 +120,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         />
         <RangeControl
           id="logoVerticalPosition"
+          title="Logo Vertical Position"
           defaultValue={canvasLogoValues.position.y}
           min={1}
           step={maxStep}

@@ -84,6 +84,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     <div className={className} data-testid="CanvasWrapper">
       <div
         className="canvas grid flex-grow-1"
+        data-testid="canvasPreviewWrapper"
         ref={canvasRef}
         style={{
           backgroundColor: `${canvasBackgroundValues.color}`,
@@ -144,6 +145,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         )}
         <div
           className="logo align-self-end d-flex flex-column justify-content-center"
+          data-testid="canvasLogoPreview"
           style={{
             gridColumnStart: canvasLogoValues.position.x,
             gridRowStart: canvasLogoValues.position.y,
