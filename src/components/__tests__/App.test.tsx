@@ -49,7 +49,7 @@ describe("App.tsx tests", () => {
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
       const styles = window.getComputedStyle(headlinePreviewElement);
-      expect(styles.fontSize).toBe("5em");
+      expect(styles.fontSize).toBe("5vw");
     });
 
     it("should change headline horizontal position", () => {
