@@ -51,20 +51,4 @@
 @import "../../../node_modules/bootstrap/scss/utilities/api";
 
 // // 8. Add additional custom code here
-
-.drag-and-drop-container {
-  @extend .text-muted;
-  @extend .rounded;
-  @extend .rounded-3;
-  border: 2px dashed #ccc;
-  min-height: $spacer * 10;
-  transition: all 0.4s ease-in-out;
-}
-
-.sidebar-logo {
-  width: 200px;
-}
-
-.reverseRangeControl {
-  transform: rotate(180deg);
-}
+@import "./custom";

@@ -36,7 +36,7 @@ export const Provider = (props: {
     useState<CanvasHeadlineValuesInterface>({
       content: "Headline text goes here and it can get pretty long",
       color: "#000000",
-      size: 4,
+      size: 3,
       position: {
         x: 2,
         y: 2,
@@ -56,8 +56,8 @@ export const Provider = (props: {
       scale: 1,
       padding: 0,
       position: {
-        x: 10,
-        y: 9,
+        x: 17,
+        y: 14,
       },
     });
 
@@ -83,8 +83,8 @@ export const Provider = (props: {
         color: "#000",
       },
       position: {
-        x: 1,
-        y: 12,
+        x: 2,
+        y: 22,
       },
     });
 

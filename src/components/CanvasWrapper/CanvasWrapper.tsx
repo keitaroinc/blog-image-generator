@@ -47,7 +47,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         return;
       }
       if (type === "png") {
-        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 2 })
+        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 1 })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -111,11 +111,9 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           data-testid="canvasHeadlineTitle"
           style={{
             gridColumnStart: canvasHeadlineValues.position.x,
-            gridColumnEnd: 12,
             gridRowStart: canvasHeadlineValues.position.y,
-            gridRowEnd: 12,
             color: canvasHeadlineValues.color,
-            fontSize: `${canvasHeadlineValues.size}em`,
+            fontSize: `${canvasHeadlineValues.size}vw`,
           }}
           ref={headlineRef}
         >
@@ -129,7 +127,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               gridRowStart: canvasIconValues.position.y,
               backgroundColor: `${canvasIconValues.color}`,
               transform: `scale(${1 * canvasIconValues.scale})`,
-              padding: `${canvasIconValues.padding}em`,
+              padding: `${canvasIconValues.padding}vw`,
             }}
           >
             <img
@@ -154,7 +152,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         >
           {canvasLogoValues.title.content ? (
             <span
-              className="title h6 text-uppercase mb-2 text-center px-3 py-3 align-self-center"
+              className="title text-uppercase mb-4 text-center px-3 py-3 align-self-center"
               style={{
                 color: canvasLogoValues.title.color,
                 borderBottomColor: canvasLogoValues.title.color,
