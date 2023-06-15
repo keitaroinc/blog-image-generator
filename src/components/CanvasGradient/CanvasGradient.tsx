@@ -190,10 +190,11 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
               <div className="py-4">
                 <RangeControl
+                  id={`scale${index}`}
+                  title="Gradient Scale Range"
                   min={0}
                   max={600}
                   step="1"
-                  id={`scale${index}`}
                   value={gradient.scale}
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "scale")
@@ -205,10 +206,11 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
               <div className="py-2">
                 <RangeControl
+                  id={`rotation${index}`}
+                  title="Gradient Rotation Range"
                   min={0}
                   max={360}
                   step="1"
-                  id={`rotation${index}`}
                   value={gradient.rotation}
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "rotation")
@@ -220,10 +222,11 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               </div>
               <div className="py-2">
                 <RangeControl
+                  id={`opacity${index}`}
+                  title="Gradient Opacity Range"
                   min={0}
                   max={100}
                   step="1"
-                  id={`opacity${index}`}
                   value={gradient.opacity}
                   onChange={(event: any) =>
                     handleEditTypeOfGradient(event, index, "opacity")

@@ -36,10 +36,11 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasBorder">
         <RangeControl
+          id="canvasBorderWidth"
+          title="Canvas Border Width"
           min={0}
           max={6}
           step={1}
-          id="canvasBorderWidth"
           value={canvasBorderValues.width}
           onChange={(e: any) => handleBorderWidthChange(e)}
           labelTitle={"Border Width"}

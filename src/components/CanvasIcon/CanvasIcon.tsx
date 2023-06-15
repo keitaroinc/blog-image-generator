@@ -105,7 +105,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
         <ColorPicker
           inputDefaultVaule={"#DEE2E6"}
           inputId="iconColorPicker"
-          inputTitle="Choose your color"
+          inputTitle="Choose your icon color"
           onChange={(e: any) =>
             setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
           }
@@ -143,6 +143,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           <Fragment>
             <RangeControl
               id="iconScaleRange"
+              title="Icon Scale Range"
               defaultValue={canvasIconValues.scale}
               min={1}
               max={max}
@@ -158,6 +159,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             />
             <RangeControl
               id="iconPaddingRange"
+              title="Icon Padding Range"
               defaultValue={canvasIconValues.padding}
               min={0}
               max={max / 2}
@@ -173,6 +175,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             />
             <RangeControl
               id="iconHorizontalRange"
+              title="Icon Horizontal Range"
               defaultValue={canvasIconValues.position.x}
               min={1}
               max={max}
@@ -191,6 +194,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             />
             <RangeControl
               id="iconVerticalRange"
+              title="Icon Vertical Range"
               className="form-range"
               min={1}
               max={max}

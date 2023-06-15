@@ -5,6 +5,7 @@ type RangeControlProps = {
   max: any;
   step: any;
   id: any;
+  title: string;
   value?: any;
   onChange: Function;
   className?: any;
@@ -19,6 +20,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
   max,
   step,
   id,
+  title,
   value,
   onChange,
   defaultValue,
@@ -42,6 +44,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
         max={max}
         step={step}
         id={id}
+        title={title}
         data-testid="rangeSliderInput"
         value={value}
         onChange={(e) => onChange(e)}

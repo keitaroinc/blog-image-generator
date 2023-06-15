@@ -180,6 +180,7 @@ export const CanvasBackground: React.FunctionComponent<
           <Fragment>
             <RangeControl
               id="backgroundHorizontalRange"
+              title="Background Horizontal Range"
               min={-100}
               max={200}
               step="1"
@@ -191,6 +192,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundVerticalRange"
+              title="Background Vertical Range"
               min={-100}
               max={200}
               step="1"
@@ -202,6 +204,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundScaleRange"
+              title="Background Scale Range"
               min={0}
               max={1000}
               step="1"
@@ -213,6 +216,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundBlurRange"
+              title="Background Blur Range"
               min={0}
               max={100}
               step="1"
