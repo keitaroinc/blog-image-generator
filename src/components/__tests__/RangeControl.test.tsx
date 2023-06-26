@@ -17,6 +17,7 @@ describe("RangeControl.tsx tests", () => {
         labelTitle="Range Slider"
         labelValue="Value"
         labelValueType="%"
+        type="range"
       />
     );
     expect(
@@ -43,6 +44,7 @@ describe("RangeControl.tsx tests", () => {
         labelTitle="Range Slider"
         labelValue="Value"
         labelValueType="%"
+        type="range"
       />
     );
     const rangeElement = screen.getByTestId(
