@@ -177,6 +177,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Scale"}
               labelValue={canvasIconValues.scale}
+              type="scale"
             />
             <RangeControl
               id="iconPaddingRange"
@@ -193,6 +194,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Padding"}
               labelValue={canvasIconValues.padding}
+              type="padding"
             />
             <RangeControl
               id="iconHorizontalRange"
@@ -212,6 +214,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Horizontal Position"}
               labelValue={canvasIconValues.position.x}
+              type="horizontal-position"
             />
             <RangeControl
               id="iconVerticalRange"
@@ -232,6 +235,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Vertical Position"}
               labelValue={canvasIconValues.position.y}
+              type="vertical-position"
             />
           </Fragment>
         )}

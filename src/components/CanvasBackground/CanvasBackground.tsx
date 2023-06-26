@@ -203,6 +203,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle={"Horizontal Position"}
               labelValue={canvasBackgroundValues.position.x}
               labelValueType="%"
+              type="horizontal-position"
             />
             <RangeControl
               id="backgroundVerticalRange"
@@ -215,6 +216,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle={"Vertical Position"}
               labelValue={canvasBackgroundValues.position.y}
               labelValueType="%"
+              type="vertical-position"
             />
             <RangeControl
               id="backgroundScaleRange"
@@ -227,6 +229,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle={"Scale"}
               labelValue={canvasBackgroundValues.size}
               labelValueType="%"
+              type="scale"
             />
             <RangeControl
               id="backgroundBlurRange"
@@ -239,6 +242,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle="Blur"
               labelValue={canvasBackgroundValues.blur}
               labelValueType="px"
+              type="blur"
             />
           </Fragment>
         ) : null}
