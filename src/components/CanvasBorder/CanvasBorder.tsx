@@ -45,6 +45,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
           onChange={(e: any) => handleBorderWidthChange(e)}
           labelTitle={"Border Width"}
           labelValue={canvasBorderValues.width}
+          type="width"
         />
       </div>
     </Fragment>

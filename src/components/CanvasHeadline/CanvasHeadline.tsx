@@ -86,6 +86,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelTitle={"Size"}
           labelValue={canvasHeadlineValues.size}
           labelValueType=""
+          type="size"
         />
         <RangeControl
           min={1}
@@ -97,6 +98,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           onChange={(e: any) => handleHorizontalPositionChange(e)}
           labelTitle={"Horizontal Position"}
           labelValue={canvasHeadlineValues.position.x}
+          type="horizontal-position"
         />
         <RangeControl
           min={1}
@@ -108,6 +110,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           onChange={(e: any) => handleVerticalPositionChange(e)}
           labelTitle={"Vertical Position"}
           labelValue={canvasHeadlineValues.position.y}
+          type="vertical-position"
         />
       </div>
     </Fragment>
