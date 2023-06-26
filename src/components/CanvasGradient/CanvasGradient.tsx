@@ -202,6 +202,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   labelTitle={"Scale"}
                   labelValue={gradient.scale}
                   labelValueType="%"
+                  type="scale"
                 />
               </div>
               <div className="py-2">
@@ -218,6 +219,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   labelTitle={"Rotation"}
                   labelValue={gradient.rotation}
                   labelValueType="deg"
+                  type="rotation"
                 />
               </div>
               <div className="py-2">
@@ -234,6 +236,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                   labelTitle={"Opacity"}
                   labelValue={gradient.opacity}
                   labelValueType="%"
+                  type="opacity"
                 />
               </div>
               <div className="my-3">
