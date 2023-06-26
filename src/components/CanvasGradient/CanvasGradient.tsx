@@ -109,7 +109,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
   return (
     <Fragment>
       <HeaderComponent>
-        <Heading title="Gradient" />
+        <Heading title="Gradients" />
         <AddGradient onClick={handleAddGradient} />
       </HeaderComponent>
       {canvasGradientValues.length > 0 ? (
