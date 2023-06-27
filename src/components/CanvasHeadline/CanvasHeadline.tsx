@@ -48,7 +48,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
         <ColorPicker
           inputDefaultVaule="#000"
           inputId="headlineColorPicker"
-          inputTitle="Choose your color"
+          inputTitle="Headline Text Color"
           onChange={(e: any) =>
             setCanvasHeadlineValues({
               ...canvasHeadlineValues,
@@ -62,6 +62,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           <textarea
             className="form-control h-100"
             id="headlineTextarea"
+            data-testid="headlineTextarea"
             placeholder="Leave a comment here"
             rows={3}
             value={canvasHeadlineValues.content}
@@ -79,6 +80,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           max={12}
           step={1}
           id="headlineSizeRange"
+          title="Headline Size Range"
           value={canvasHeadlineValues.size}
           onChange={(e: any) => handleFontSizeChange(e)}
           labelTitle={"Size"}
@@ -89,6 +91,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           min={1}
           max={max}
           step={maxStep}
+          title="Headline Horizontal Range"
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
           onChange={(e: any) => handleHorizontalPositionChange(e)}
@@ -99,6 +102,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           min={1}
           max={max}
           step={maxStep}
+          title="Headline Vertical Range"
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
           onChange={(e: any) => handleVerticalPositionChange(e)}
