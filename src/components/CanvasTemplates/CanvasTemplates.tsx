@@ -11,13 +11,20 @@ interface CanvasTemplatesProps {}
 export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   props
 ) => {
-  const { canvasTemplates, setCanvasTemplates } = useContext(
-    CanvasPreviewContextValues
-  );
+  const {
+    canvasTemplates,
+    setCanvasTemplates,
+    setCanvasRefs,
+    setCanvasHeadlineValues,
+    setCanvasBorderValues,
+    setCanvasIconValues,
+    setCanvasBackgroundValues,
+    setCanvasGradientValues,
+    setCanvasLogoValues,
+  } = useContext(CanvasPreviewContextValues);
 
   useEffect(() => {
     let storageTemplateData = localStorage.getItem("templates");
-
     if (storageTemplateData === null) {
       localStorage.setItem("templates", JSON.stringify(templatesData));
       setCanvasTemplates(templatesData);
@@ -25,6 +32,31 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasTemplates(JSON.parse(storageTemplateData));
     }
   }, []);
+
+  const handleSelectTemplate = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    if (e.target.value === "Default") {
+      setCanvasRefs(templatesData.default.canvasRefs);
+      setCanvasHeadlineValues(templatesData.default.canvasHeadlineValues);
+      setCanvasBackgroundValues(templatesData.default.canvasBackgroundValues);
+      setCanvasBorderValues(templatesData.default.canvasBorderValues);
+      setCanvasIconValues(templatesData.default.canvasIconValues);
+      setCanvasLogoValues(templatesData.default.canvasLogoValues);
+      setCanvasGradientValues(templatesData.default.canvasGradientValues);
+    } else {
+      let filteredTemplate = templatesData.templatesArr.filter(
+        (template) => template.templateName === e.target.value
+      );
+      if (filteredTemplate.length > 0) {
+        setCanvasRefs(filteredTemplate[0].canvasRefs);
+        setCanvasHeadlineValues(filteredTemplate[0].canvasHeadlineValues);
+        setCanvasBackgroundValues(filteredTemplate[0].canvasBackgroundValues);
+        setCanvasBorderValues(filteredTemplate[0].canvasBorderValues);
+        setCanvasIconValues(filteredTemplate[0].canvasIconValues);
+        setCanvasLogoValues(filteredTemplate[0].canvasLogoValues);
+        setCanvasGradientValues(filteredTemplate[0].canvasGradientValues);
+      }
+    }
+  };
 
   return (
     <Fragment>
@@ -41,13 +73,21 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
             title="Canvas Template Default Options"
             className="form-select"
             aria-label="Template Type"
+            onChange={(e) => handleSelectTemplate(e)}
           >
-            {canvasTemplates &&
+            <option value="Default">Default</option>
+            {canvasTemplates && canvasTemplates.templatesArr.length > 0 ? (
               canvasTemplates.templatesArr.map((template: any) => (
-                <option key={template.templateName} value="default">
+                <option
+                  key={template.templateName}
+                  value={template.templateName}
+                >
                   {template.templateName}
                 </option>
-              ))}
+              ))
+            ) : (
+              <option value={"default"}>No templates available</option>
+            )}
           </select>
           <label htmlFor="floatingSelect">Select Template</label>
         </div>
