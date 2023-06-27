@@ -1,6 +1,8 @@
 export interface CanvasPreviewContextInterface {
   canvasRefs: CanvasRefsInterface;
   setCanvasRefs: Function;
+  canvasTemplates: any;
+  setCanvasTemplates: Function;
   canvasHeadlineValues: CanvasHeadlineValuesInterface;
   setCanvasHeadlineValues: Function;
   canvasBorderValues: CanvasBorderValuesInerface;

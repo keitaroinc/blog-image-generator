@@ -23,7 +23,7 @@ export const Provider = (props: {
     | null
     | undefined;
 }) => {
-  const [canvasRefs, setCanvasRefs] = React.useState<CanvasRefsInterface>({
+  const [canvasRefs, setCanvasRefs] = useState<CanvasRefsInterface>({
     canvasRefWidth: 0,
     canvasRefHeight: 0,
     headlineRefWidth: 0,
@@ -31,6 +31,8 @@ export const Provider = (props: {
     logoRefWidth: 0,
     logoRefHeight: 0,
   });
+
+  const [canvasTemplates, setCanvasTemplates] = useState<any>(null);
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
@@ -95,6 +97,8 @@ export const Provider = (props: {
   const canvasPreviewValues = {
     canvasRefs,
     setCanvasRefs,
+    canvasTemplates,
+    setCanvasTemplates,
     canvasHeadlineValues,
     setCanvasHeadlineValues,
     canvasBorderValues,

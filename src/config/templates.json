@@ -1,0 +1,118 @@
+{
+  "templatesArr": [
+    {
+      "templateName": "Template 1",
+      "canvasRefs": {
+        "canvasRefHeight": 712,
+        "canvasRefWidth": 783,
+        "headlineRefHeight": 51,
+        "headlineRefWidth": 515
+      },
+      "canvasHeadlineValues": {
+        "content": "Headline text goes here and it can get pretty long",
+        "color": "#000000",
+        "size": 3,
+        "position": {
+          "x": 2,
+          "y": 2
+        }
+      },
+      "canvasBorderValues": {
+        "width": 2,
+        "color": "#040404"
+      },
+      "canvasIconValues": {
+        "fileImage": null,
+        "fileImageURL": null,
+        "color": "var(--bs-gray-300)",
+        "scale": 1,
+        "padding": 0,
+        "position": {
+          "x": 17,
+          "y": 14
+        }
+      },
+      "canvasBackgroundValues": {
+        "color": "#FFFFFF",
+        "fileImage": null,
+        "fileImageURL": null,
+        "position": {
+          "x": "50",
+          "y": "50"
+        },
+        "size": "100",
+        "blur": 0
+      },
+      "canvasLogoValues": {
+        "src": "KeitaroFullColorLogo",
+        "opacity": 100,
+        "title": {
+          "content": "",
+          "color": "#000"
+        },
+        "position": {
+          "x": 2,
+          "y": 22
+        }
+      },
+      "canvasGradientValues": []
+    },
+    {
+      "templateName": "Template 2",
+      "canvasRefs": {
+        "canvasRefHeight": 712,
+        "canvasRefWidth": 783,
+        "headlineRefHeight": 51,
+        "headlineRefWidth": 515
+      },
+      "canvasHeadlineValues": {
+        "content": "Headline text goes here and it can get pretty long",
+        "color": "#000000",
+        "size": 3,
+        "position": {
+          "x": 3,
+          "y": 1
+        }
+      },
+      "canvasBorderValues": {
+        "width": 2,
+        "color": "#f4f4f4"
+      },
+      "canvasIconValues": {
+        "fileImage": null,
+        "fileImageURL": null,
+        "color": "var(--bs-gray-300)",
+        "scale": 1,
+        "padding": 0,
+        "position": {
+          "x": 17,
+          "y": 14
+        }
+      },
+      "canvasBackgroundValues": {
+        "color": "#FFFFFF",
+        "fileImage": null,
+        "fileImageURL": null,
+        "position": {
+          "x": "50",
+          "y": "50"
+        },
+        "size": "100",
+        "blur": 0
+      },
+      "canvasLogoValues": {
+        "src": "KeitaroFullColorLogo",
+        "opacity": 80,
+        "title": {
+          "content": "",
+          "color": "#000"
+        },
+        "position": {
+          "x": 2,
+          "y": 20
+        }
+      },
+      "canvasGradientValues": []
+    }
+  ]
+}
