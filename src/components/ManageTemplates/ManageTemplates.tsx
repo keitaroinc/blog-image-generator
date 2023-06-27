@@ -14,7 +14,21 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
   const [dialogVisibility, setDialogVisibility] = useState<boolean>(false);
 
   const handleDeleteTemplate = (templateName: string) => {
-    console.log(templateName);
+    if (confirm("Confirm Templete Deletion") === true) {
+      let filteredTemplates = canvasTemplates.templatesArr.filter(
+        (template: { templateName: string }) =>
+          template.templateName !== templateName
+      );
+      console.log(filteredTemplates);
+      setCanvasTemplates({
+        ...canvasTemplates,
+        templatesArr: filteredTemplates,
+      });
+      localStorage.setItem(
+        "templates",
+        JSON.stringify({ templatesArr: filteredTemplates })
+      );
+    }
   };
 
   return (
@@ -31,7 +45,10 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
         <ul className="list-group">
           {canvasTemplates &&
             canvasTemplates.templatesArr.map((template: any) => (
-              <li className="list-group-item d-flex py-3">
+              <li
+                className="list-group-item d-flex justify-content-between py-3"
+                key={template.templateName}
+              >
                 <span className="d-flex align-items-center">
                   {template.templateName}
                 </span>
