@@ -23,7 +23,7 @@
     "canvasIconValues": {
       "fileImage": null,
       "fileImageURL": null,
-      "color": "var(--bs-gray-300)",
+      "color": "#f4f4f4",
       "scale": 1,
       "padding": 0,
       "position": {
@@ -47,7 +47,7 @@
       "opacity": 100,
       "title": {
         "content": "",
-        "color": "#000"
+        "color": "#000000"
       },
       "position": {
         "x": 2,
@@ -58,7 +58,7 @@
   },
   "templatesArr": [
     {
-      "templateName": "Template 1",
+      "templateName": "CKAN Extension",
       "canvasRefs": {
         "canvasRefHeight": 712,
         "canvasRefWidth": 783,
@@ -66,22 +66,22 @@
         "headlineRefWidth": 515
       },
       "canvasHeadlineValues": {
-        "content": "Headline text goes here and it can get pretty long",
-        "color": "#223322",
-        "size": 5,
+        "content": "ckan-ext\nC3 CHART",
+        "color": "#FFFFFF",
+        "size": 3,
         "position": {
           "x": 2,
           "y": 2
         }
       },
       "canvasBorderValues": {
-        "width": 1,
-        "color": "#032032"
+        "width": 0,
+        "color": "#000000"
       },
       "canvasIconValues": {
         "fileImage": null,
         "fileImageURL": null,
-        "color": "var(--bs-gray-300)",
+        "color": "#55504C",
         "scale": 2,
         "padding": 1,
         "position": {
@@ -90,7 +90,7 @@
         }
       },
       "canvasBackgroundValues": {
-        "color": "#DDDD44",
+        "color": "#55504C",
         "fileImage": null,
         "fileImageURL": null,
         "position": {
@@ -101,15 +101,15 @@
         "blur": 1
       },
       "canvasLogoValues": {
-        "src": "KeitaroGreayscale",
+        "src": "KeitaroWhiteLogo",
         "opacity": 100,
         "title": {
-          "content": "",
-          "color": "#000233"
+          "content": "ckan extension by",
+          "color": "#FFFFFF"
         },
         "position": {
-          "x": 2,
-          "y": 22
+          "x": 3,
+          "y": 23
         }
       },
       "canvasGradientValues": []
@@ -138,8 +138,8 @@
       "canvasIconValues": {
         "fileImage": null,
         "fileImageURL": null,
-        "color": "var(--bs-gray-300)",
-        "scale": 1,
+        "color": "#f4f4f4",
+        "scale": 2,
         "padding": 0,
         "position": {
           "x": 17,
@@ -162,7 +162,7 @@
         "opacity": 80,
         "title": {
           "content": "",
-          "color": "#000"
+          "color": "#000000"
         },
         "position": {
           "x": 2,

@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasLogoProps {}
+interface CanvasLogoProps { }
 
 const logoOptions = [
   { src: "KeitaroFullColorLogo", label: "Full Color" },
@@ -69,7 +69,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           </div>
           <div className="col-auto">
             <ColorPicker
-              inputDefaultVaule="#000"
+              inputValue={canvasLogoValues.title.color}
               inputId="logoTitleColorPicker"
               inputTitle="Choose your color"
               onChange={(e: any) =>

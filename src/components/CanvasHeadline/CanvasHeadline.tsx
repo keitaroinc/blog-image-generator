@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasHeadlineProps {}
+interface CanvasHeadlineProps { }
 
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
@@ -46,7 +46,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
       <HeaderComponent>
         <Heading title="Headline" />
         <ColorPicker
-          inputDefaultVaule="#000"
+          inputValue={canvasHeadlineValues.color}
           inputId="headlineColorPicker"
           inputTitle="Headline Text Color"
           onChange={(e: any) =>

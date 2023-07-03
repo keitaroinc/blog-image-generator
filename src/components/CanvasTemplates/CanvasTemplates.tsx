@@ -6,7 +6,7 @@ import { ManageTemplates } from "../ManageTemplates/ManageTemplates";
 import templatesData from "../../config/templates.json";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CanvasTemplatesProps {}
+interface CanvasTemplatesProps { }
 
 export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   props
@@ -27,9 +27,9 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     let storageTemplateData = localStorage.getItem("templates");
     if (storageTemplateData === null) {
       localStorage.setItem("templates", JSON.stringify(templatesData));
-      setCanvasTemplates(templatesData);
+      setCanvasTemplates(templatesData.templatesArr);
     } else {
-      setCanvasTemplates(JSON.parse(storageTemplateData));
+      setCanvasTemplates(JSON.parse(storageTemplateData).templatesArr);
     }
   }, []);
 
@@ -76,8 +76,8 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
             onChange={(e) => handleSelectTemplate(e)}
           >
             <option value="Default">Default</option>
-            {canvasTemplates && canvasTemplates.templatesArr.length > 0 ? (
-              canvasTemplates.templatesArr.map((template: any) => (
+            {canvasTemplates.length > 0 ? (
+              canvasTemplates.map((template: any) => (
                 <option
                   key={template.templateName}
                   value={template.templateName}

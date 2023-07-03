@@ -14,14 +14,14 @@ const CanvasPreviewContext = createContext({} as CanvasPreviewContextInterface);
 
 export const Provider = (props: {
   children:
-    | string
-    | number
-    | boolean
-    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | React.ReactFragment
-    | React.ReactPortal
-    | null
-    | undefined;
+  | string
+  | number
+  | boolean
+  | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+  | React.ReactFragment
+  | React.ReactPortal
+  | null
+  | undefined;
 }) => {
   const [canvasRefs, setCanvasRefs] = useState<CanvasRefsInterface>({
     canvasRefWidth: 0,
@@ -32,7 +32,7 @@ export const Provider = (props: {
     logoRefHeight: 0,
   });
 
-  const [canvasTemplates, setCanvasTemplates] = useState<any>(null);
+  const [canvasTemplates, setCanvasTemplates] = useState<any[]>([]);
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
@@ -54,7 +54,7 @@ export const Provider = (props: {
     useState<CanvasIconValuesInterface>({
       fileImage: null,
       fileImageURL: null,
-      color: "var(--bs-gray-300)",
+      color: "#dee2e6",
       scale: 1,
       padding: 0,
       position: {
@@ -82,7 +82,7 @@ export const Provider = (props: {
       opacity: 100,
       title: {
         content: "",
-        color: "#000",
+        color: "#000000",
       },
       position: {
         x: 2,

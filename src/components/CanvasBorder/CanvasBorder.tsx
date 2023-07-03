@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasBorderProps {}
+interface CanvasBorderProps { }
 
 export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
   props
@@ -23,7 +23,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
       <HeaderComponent>
         <Heading title="Border" />
         <ColorPicker
-          inputDefaultVaule="#000000"
+          inputValue="#000000"
           inputId="canvasBorderColorPicker"
           inputTitle="Choose your color"
           onChange={(e: any) =>

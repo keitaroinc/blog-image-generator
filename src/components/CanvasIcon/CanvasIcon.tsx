@@ -11,7 +11,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasIconProps {}
+interface CanvasIconProps { }
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const { canvasIconValues, setCanvasIconValues } = useContext(
@@ -104,7 +104,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       <HeaderComponent>
         <Heading title="Icon" />
         <ColorPicker
-          inputDefaultVaule={"#DEE2E6"}
+          inputValue={canvasIconValues.color}
           inputId="iconColorPicker"
           inputTitle="Choose your icon color"
           onChange={(e: any) =>

@@ -1,12 +1,12 @@
 type ColorPickerProps = {
   inputId?: string;
-  inputDefaultVaule?: string;
+  inputValue?: string;
   inputTitle?: string;
   onChange: Function;
 };
 
 export const ColorPicker: React.FC<ColorPickerProps> = ({
-  inputDefaultVaule,
+  inputValue,
   inputId,
   inputTitle,
   onChange,
@@ -17,7 +17,7 @@ export const ColorPicker: React.FC<ColorPickerProps> = ({
       className="form-control form-control-color"
       id={inputId}
       data-testid="colorPicker"
-      defaultValue={inputDefaultVaule}
+      value={inputValue}
       title={inputTitle}
       onChange={(e) => onChange(e)}
     ></input>

@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasBackgroundProps {}
+interface CanvasBackgroundProps { }
 
 export const CanvasBackground: React.FunctionComponent<
   CanvasBackgroundProps
@@ -138,7 +138,7 @@ export const CanvasBackground: React.FunctionComponent<
       <HeaderComponent>
         <Heading title="Background" />
         <ColorPicker
-          inputDefaultVaule={canvasBackgroundValues.color}
+          inputValue={canvasBackgroundValues.color}
           inputId="backgroundColorPicker"
           inputTitle="Choose your color"
           onChange={(e: any) =>
