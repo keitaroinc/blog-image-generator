@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasLogoProps { }
+interface CanvasLogoProps {}
 
 const logoOptions = [
   { src: "KeitaroFullColorLogo", label: "Full Color" },

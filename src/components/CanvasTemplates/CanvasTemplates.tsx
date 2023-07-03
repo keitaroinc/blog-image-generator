@@ -6,7 +6,7 @@ import { ManageTemplates } from "../ManageTemplates/ManageTemplates";
 import templatesData from "../../config/templates.json";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CanvasTemplatesProps { }
+interface CanvasTemplatesProps {}
 
 export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   props

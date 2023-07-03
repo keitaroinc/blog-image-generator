@@ -4,7 +4,7 @@ import { Dialog } from "../Dialog/Dialog";
 import trashIcon from "../../assets/svg/trash.svg";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";
-interface ManageTemplatesProps { }
+interface ManageTemplatesProps {}
 
 export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
   props

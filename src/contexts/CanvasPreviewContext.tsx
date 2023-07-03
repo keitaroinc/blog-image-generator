@@ -14,14 +14,14 @@ const CanvasPreviewContext = createContext({} as CanvasPreviewContextInterface);
 
 export const Provider = (props: {
   children:
-  | string
-  | number
-  | boolean
-  | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-  | React.ReactFragment
-  | React.ReactPortal
-  | null
-  | undefined;
+    | string
+    | number
+    | boolean
+    | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+    | React.ReactFragment
+    | React.ReactPortal
+    | null
+    | undefined;
 }) => {
   const [canvasRefs, setCanvasRefs] = useState<CanvasRefsInterface>({
     canvasRefWidth: 0,

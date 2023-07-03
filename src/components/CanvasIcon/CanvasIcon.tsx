@@ -11,7 +11,7 @@ import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasIconProps { }
+interface CanvasIconProps {}
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const { canvasIconValues, setCanvasIconValues } = useContext(

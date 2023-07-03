@@ -3,7 +3,7 @@ import plusIcon from "../../assets/svg/plus.svg";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CreateTemplateProps { }
+interface CreateTemplateProps {}
 
 export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
   props
