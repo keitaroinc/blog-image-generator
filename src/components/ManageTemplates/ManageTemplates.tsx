@@ -32,39 +32,48 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
     }
   };
   const renderCanvasTemplates = (arr: any[]) => {
-    let filteredDefaultTemplates = arr.filter((template: any) => template.templateName !== "CKAN Extension" && template.templateName !== "Default" && template.templateName !== "Template 2")
+    let filteredDefaultTemplates = arr.filter(
+      (template: any) =>
+        template.templateName !== "CKAN Extension" &&
+        template.templateName !== "Default" &&
+        template.templateName !== "Template 2"
+    );
     if (filteredDefaultTemplates.length > 0) {
-      return filteredDefaultTemplates.map((template: any) => (
-        template.templateName !== "CKAN Extension" && template.templateName !== "Default" && template.templateName !== "Template 2" &&
-        <li
-          className="list-group-item d-flex justify-content-between py-3"
-          key={template.templateName}
-        >
-          <span className="d-flex align-items-center">
-            {template.templateName}
-          </span>
-          <button
-            data-testid="deleteTemplateBtn"
-            className="px-2 py-1 ms-3 btn btn-danger"
-          >
-            <img
-              src={trashIcon}
-              alt="remove-gradient"
-              onClick={() => handleDeleteTemplate(template.templateName)}
-            />
-          </button>
-        </li>
-      ))
+      return filteredDefaultTemplates.map(
+        (template: any) =>
+          template.templateName !== "CKAN Extension" &&
+          template.templateName !== "Default" &&
+          template.templateName !== "Template 2" && (
+            <li
+              className="list-group-item d-flex justify-content-between py-3"
+              key={template.templateName}
+            >
+              <span className="d-flex align-items-center">
+                {template.templateName}
+              </span>
+              <button
+                data-testid="deleteTemplateBtn"
+                className="px-2 py-1 ms-3 btn btn-danger"
+              >
+                <img
+                  src={trashIcon}
+                  alt="remove-gradient"
+                  onClick={() => handleDeleteTemplate(template.templateName)}
+                />
+              </button>
+            </li>
+          )
+      );
     } else {
-      return <li
-        className="list-group-item d-flex justify-content-between py-3">
-        <span className="d-flex align-items-center">
-          No tamplates have been added yet.
-        </span>
-      </li>
+      return (
+        <li className="list-group-item d-flex justify-content-between py-3">
+          <span className="d-flex align-items-center">
+            No tamplates have been added yet.
+          </span>
+        </li>
+      );
     }
   };
-
 
   return (
     <div className="mx-1">
