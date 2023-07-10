@@ -33,6 +33,8 @@ export const Provider = (props: {
   });
 
   const [canvasTemplates, setCanvasTemplates] = useState<any[]>([]);
+  const [currentSelectedTemplate, setCurrentSelectedTemplate] =
+    useState<string>("Default");
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
@@ -99,6 +101,8 @@ export const Provider = (props: {
     setCanvasRefs,
     canvasTemplates,
     setCanvasTemplates,
+    currentSelectedTemplate,
+    setCurrentSelectedTemplate,
     canvasHeadlineValues,
     setCanvasHeadlineValues,
     canvasBorderValues,

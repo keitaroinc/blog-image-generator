@@ -14,6 +14,8 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   const {
     canvasTemplates,
     setCanvasTemplates,
+    currentSelectedTemplate,
+    setCurrentSelectedTemplate,
     setCanvasRefs,
     setCanvasHeadlineValues,
     setCanvasBorderValues,
@@ -35,6 +37,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
 
   const handleSelectTemplate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === "Default") {
+      setCurrentSelectedTemplate("Default");
       setCanvasRefs(templatesData.default.canvasRefs);
       setCanvasHeadlineValues(templatesData.default.canvasHeadlineValues);
       setCanvasBackgroundValues(templatesData.default.canvasBackgroundValues);
@@ -43,10 +46,11 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasLogoValues(templatesData.default.canvasLogoValues);
       setCanvasGradientValues(templatesData.default.canvasGradientValues);
     } else {
-      let filteredTemplate = templatesData.templatesArr.filter(
+      let filteredTemplate = canvasTemplates.filter(
         (template) => template.templateName === e.target.value
       );
       if (filteredTemplate.length > 0) {
+        setCurrentSelectedTemplate(filteredTemplate[0].templateName);
         setCanvasRefs(filteredTemplate[0].canvasRefs);
         setCanvasHeadlineValues(filteredTemplate[0].canvasHeadlineValues);
         setCanvasBackgroundValues(filteredTemplate[0].canvasBackgroundValues);
@@ -74,6 +78,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
             className="form-select"
             aria-label="Template Type"
             onChange={(e) => handleSelectTemplate(e)}
+            value={currentSelectedTemplate}
           >
             <option value="Default">Default</option>
             {canvasTemplates.length > 0 ? (

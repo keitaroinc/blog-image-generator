@@ -3,34 +3,50 @@ import gearIcon from "../../assets/svg/gear.svg";
 import { Dialog } from "../Dialog/Dialog";
 import trashIcon from "../../assets/svg/trash.svg";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
-import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";
+import templatesData from "../../config/templates.json";
 interface ManageTemplatesProps {}
 
 export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
   props
 ) => {
-  const { canvasTemplates, setCanvasTemplates } = useContext(
-    CanvasPreviewContextValues
-  );
+  const {
+    canvasTemplates,
+    setCanvasTemplates,
+    setCurrentSelectedTemplate,
+    setCanvasRefs,
+    setCanvasHeadlineValues,
+    setCanvasBackgroundValues,
+    setCanvasBorderValues,
+    setCanvasIconValues,
+    setCanvasLogoValues,
+    setCanvasGradientValues,
+  } = useContext(CanvasPreviewContextValues);
   const [dialogVisibility, setDialogVisibility] = useState<boolean>(false);
 
   const handleDeleteTemplate = (templateName: string) => {
-    if (confirm("Confirm Templete Deletion") === true) {
+    if (confirm("Confirm Templete Deletion") == true) {
       let filteredTemplates = canvasTemplates.filter(
         (template: { templateName: string }) =>
           template.templateName !== templateName
       );
-      console.log(filteredTemplates);
-      setCanvasTemplates({
-        ...canvasTemplates,
-        templatesArr: filteredTemplates,
-      });
       localStorage.setItem(
         "templates",
         JSON.stringify({ templatesArr: filteredTemplates })
       );
+
+      setCurrentSelectedTemplate("Default");
+      setCanvasTemplates(filteredTemplates);
+      setCanvasRefs(templatesData.default.canvasRefs);
+      setCanvasHeadlineValues(templatesData.default.canvasHeadlineValues);
+      setCanvasBackgroundValues(templatesData.default.canvasBackgroundValues);
+      setCanvasBorderValues(templatesData.default.canvasBorderValues);
+      setCanvasIconValues(templatesData.default.canvasIconValues);
+      setCanvasLogoValues(templatesData.default.canvasLogoValues);
+      setCanvasGradientValues(templatesData.default.canvasGradientValues);
+      setDialogVisibility(false);
     }
   };
+
   const renderCanvasTemplates = (arr: any[]) => {
     let filteredDefaultTemplates = arr.filter(
       (template: any) =>

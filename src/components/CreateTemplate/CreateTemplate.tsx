@@ -12,6 +12,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
     canvasRefs,
     canvasTemplates,
     setCanvasTemplates,
+    setCurrentSelectedTemplate,
     canvasHeadlineValues,
     canvasBorderValues,
     canvasIconValues,
@@ -36,15 +37,15 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
         canvasLogoValues,
         canvasGradientValues,
       };
-      const updatedData = {
-        templatesArr: [...canvasTemplates, combinedData],
-      };
+      const updatedData = [...canvasTemplates, combinedData];
       localStorage.setItem(
         "templates",
-        JSON.stringify({ templatesArr: updatedData.templatesArr })
+        JSON.stringify({ templatesArr: updatedData })
       );
-      setDialogVisibility(false);
       setCanvasTemplates(updatedData);
+      setCurrentSelectedTemplate(templateName);
+      setTemplateName("");
+      setDialogVisibility(false);
     }
     return;
   };
@@ -67,6 +68,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
               className="form-control"
               id="templateName"
               placeholder="name@example.com"
+              value={templateName}
               onChange={(e) => setTemplateName(e.target.value)}
             />
             <label htmlFor="templateName">Template name...</label>
