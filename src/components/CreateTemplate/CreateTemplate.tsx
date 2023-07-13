@@ -20,10 +20,9 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
     canvasLogoValues,
     canvasGradientValues,
   } = useContext(CanvasPreviewContextValues);
-  const [dialogVisibility, setDialogVisibility] = useState<boolean>(false);
   const [templateName, setTemplateName] = useState("");
 
-  const handleSave = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     let currentTemplateData = localStorage.getItem("templates");
     if (currentTemplateData !== null && templateName !== "") {
@@ -45,7 +44,6 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
       setCanvasTemplates(updatedData);
       setCurrentSelectedTemplate(templateName);
       setTemplateName("");
-      setDialogVisibility(false);
     }
     return;
   };
@@ -53,35 +51,42 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
   return (
     <div className="mx-1">
       <button
+        type="button"
         className="btn btn-success"
-        id="createTemplate"
-        data-testid="createTemplate"
-        onClick={() => setDialogVisibility(!dialogVisibility)}
+        data-bs-toggle="modal"
+        data-bs-target="#createTemplate"
       >
         <img src={plusIcon} alt="create-template" />
       </button>
-      <Dialog dialogVisibility={dialogVisibility}>
-        <form>
-          <div className="form-floating mb-3">
-            <input
-              type="text"
-              className="form-control"
-              id="templateName"
-              placeholder="name@example.com"
-              value={templateName}
-              onChange={(e) => setTemplateName(e.target.value)}
-            />
-            <label htmlFor="templateName">Template name...</label>
+      <Dialog id="createTemplate" title="Create template">
+        <form onSubmit={(e) => handleSave(e)}>
+          <div className="modal-body">
+            <div className="form-floating mb-3">
+              <input
+                type="text"
+                className="form-control"
+                id="templateName"
+                placeholder="name@example.com"
+                value={templateName}
+                onChange={(e) => setTemplateName(e.target.value)}
+              />
+              <label htmlFor="templateName">Template name...</label>
+            </div>
           </div>
-          <div className="d-flex justify-content-end">
+          <div className="modal-footer">
             <button
-              className="btn btn-secondary mx-2"
-              onClick={() => setDialogVisibility(false)}
+              type="button"
+              className="btn btn-secondary"
+              data-bs-dismiss="modal"
             >
-              Cancel
+              Close
             </button>
-            <button className="btn btn-success" onClick={(e) => handleSave(e)}>
-              Confirm
+            <button
+              type="submit"
+              className="btn text-light btn-keitaro-alt"
+              data-bs-dismiss="modal"
+            >
+              Save changes
             </button>
           </div>
         </form>

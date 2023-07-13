@@ -21,7 +21,6 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
     setCanvasLogoValues,
     setCanvasGradientValues,
   } = useContext(CanvasPreviewContextValues);
-  const [dialogVisibility, setDialogVisibility] = useState<boolean>(false);
 
   const handleDeleteTemplate = (templateName: string) => {
     if (confirm("Confirm Templete Deletion") == true) {
@@ -43,19 +42,19 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
       setCanvasIconValues(templatesData.default.canvasIconValues);
       setCanvasLogoValues(templatesData.default.canvasLogoValues);
       setCanvasGradientValues(templatesData.default.canvasGradientValues);
-      setDialogVisibility(false);
     }
   };
 
-  const renderCanvasTemplates = (arr: any[]) => {
-    let filteredDefaultTemplates = arr.filter(
-      (template: any) =>
-        template.templateName !== "CKAN Extension" &&
-        template.templateName !== "Default" &&
-        template.templateName !== "Template 2"
-    );
-    if (filteredDefaultTemplates.length > 0) {
-      return filteredDefaultTemplates.map(
+  const renderCustomTemplates = (arr: any[]) => {
+    if (
+      arr.filter(
+        (template: any) =>
+          template.templateName !== "CKAN Extension" &&
+          template.templateName !== "Default" &&
+          template.templateName !== "Template 2"
+      ).length > 0
+    ) {
+      return arr.map(
         (template: any) =>
           template.templateName !== "CKAN Extension" &&
           template.templateName !== "Default" &&
@@ -70,41 +69,58 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
               <button
                 data-testid="deleteTemplateBtn"
                 className="px-2 py-1 ms-3 btn btn-danger"
+                data-bs-dismiss="modal"
+                onClick={() => handleDeleteTemplate(template.templateName)}
               >
-                <img
-                  src={trashIcon}
-                  alt="remove-gradient"
-                  onClick={() => handleDeleteTemplate(template.templateName)}
-                />
+                <img src={trashIcon} alt="trash can" />
               </button>
             </li>
           )
       );
     } else {
       return (
-        <li className="list-group-item d-flex justify-content-between py-3">
-          <span className="d-flex align-items-center">
-            No tamplates have been added yet.
-          </span>
+        <li className="list-group-item py-3">
+          <p className="m-0">No customized tamplates have been added yet.</p>
         </li>
       );
     }
   };
 
+  const renderDefaultTemplates = (arr: any[]) => {
+    return arr.map((template: any) =>
+      template.templateName === "CKAN Extension" ||
+      template.templateName === "Template 2" ? (
+        <li className="list-group-item py-3" key={template.templateName}>
+          <p className="m-0">{template.templateName}</p>
+        </li>
+      ) : null
+    );
+  };
+
   return (
-    <div className="mx-1">
+    <div className="ms-auto me-1">
       <button
+        type="button"
+        data-testid="manageTemplateBtn"
         className="btn btn-success"
-        id="createTemplate"
-        data-testid="manageTemplate"
-        onClick={() => setDialogVisibility(!dialogVisibility)}
+        data-bs-toggle="modal"
+        data-bs-target="#manageTemplate"
       >
         <img src={gearIcon} alt="create-template" />
       </button>
-      <Dialog dialogVisibility={dialogVisibility} className={"p-0"}>
-        <ul className="list-group">
-          {canvasTemplates !== null && renderCanvasTemplates(canvasTemplates)}
-        </ul>
+      <Dialog id="manageTemplate" title="Manage templates">
+        <div className="modal-body">
+          <h2 className="fs-6">Default templates</h2>
+          <ul className="list-group">
+            {canvasTemplates !== null &&
+              renderDefaultTemplates(canvasTemplates)}
+          </ul>
+          <hr />
+          <h2 className="fs-6">Customized templates</h2>
+          <ul className="list-group">
+            {canvasTemplates !== null && renderCustomTemplates(canvasTemplates)}
+          </ul>
+        </div>
       </Dialog>
     </div>
   );
