@@ -46,7 +46,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
       <HeaderComponent>
         <Heading title="Headline" />
         <ColorPicker
-          inputDefaultVaule="#000"
+          inputValue={canvasHeadlineValues.color}
           inputId="headlineColorPicker"
           inputTitle="Headline Text Color"
           onChange={(e: any) =>
