@@ -1,175 +1,106 @@
-{
-  "default": {
-    "templateName": "Default",
-    "canvasRefs": {
-      "canvasRefHeight": 712,
-      "canvasRefWidth": 783,
-      "headlineRefHeight": 51,
-      "headlineRefWidth": 515
-    },
-    "canvasHeadlineValues": {
-      "content": "Headline text goes here and it can get pretty long",
-      "color": "#000000",
-      "size": 3,
-      "position": {
-        "x": 2,
-        "y": 2
-      }
-    },
-    "canvasBorderValues": {
-      "width": 0,
-      "color": "#000000"
-    },
-    "canvasIconValues": {
-      "fileImage": null,
-      "fileImageURL": null,
-      "color": "#f4f4f4",
-      "scale": 1,
-      "padding": 0,
-      "position": {
-        "x": 17,
-        "y": 14
-      }
-    },
-    "canvasBackgroundValues": {
-      "color": "#FFFFFF",
-      "fileImage": null,
-      "fileImageURL": null,
-      "position": {
-        "x": "50",
-        "y": "50"
-      },
-      "size": "100",
-      "blur": 0
-    },
-    "canvasLogoValues": {
-      "src": "KeitaroFullColorLogo",
-      "opacity": 100,
-      "title": {
-        "content": "",
-        "color": "#000000"
-      },
-      "position": {
-        "x": 2,
-        "y": 22
-      }
-    },
-    "canvasGradientValues": []
-  },
-  "templatesArr": [
+[
     {
-      "templateName": "CKAN Extension",
-      "canvasRefs": {
-        "canvasRefHeight": 712,
-        "canvasRefWidth": 783,
-        "headlineRefHeight": 51,
-        "headlineRefWidth": 515
-      },
-      "canvasHeadlineValues": {
-        "content": "ckan-ext\nC3 CHART",
-        "color": "#FFFFFF",
-        "size": 3,
-        "position": {
-          "x": 2,
-          "y": 2
-        }
-      },
-      "canvasBorderValues": {
-        "width": 0,
-        "color": "#000000"
-      },
-      "canvasIconValues": {
-        "fileImage": null,
-        "fileImageURL": null,
-        "color": "#55504C",
-        "scale": 2,
-        "padding": 1,
-        "position": {
-          "x": 17,
-          "y": 14
-        }
-      },
-      "canvasBackgroundValues": {
-        "color": "#55504C",
-        "fileImage": null,
-        "fileImageURL": null,
-        "position": {
-          "x": "50",
-          "y": "50"
+        "templateName": "Default",
+        "templateType": "default",
+        "canvasHeadlineValues": {
+            "content": "Headline text goes here and it can get pretty long...",
+            "color": "#000000",
+            "size": 3,
+            "position": {
+                "x": 2,
+                "y": 2
+            }
         },
-        "size": "100",
-        "blur": 1
-      },
-      "canvasLogoValues": {
-        "src": "KeitaroWhiteLogo",
-        "opacity": 100,
-        "title": {
-          "content": "ckan extension by",
-          "color": "#FFFFFF"
+        "canvasBorderValues": {
+            "width": 0,
+            "color": "#000000"
         },
-        "position": {
-          "x": 3,
-          "y": 23
-        }
-      },
-      "canvasGradientValues": []
+        "canvasIconValues": {
+            "fileImage": null,
+            "fileImageURL": null,
+            "color": "#f4f4f4",
+            "scale": 1,
+            "padding": 0,
+            "position": {
+                "x": 17,
+                "y": 14
+            }
+        },
+        "canvasBackgroundValues": {
+            "color": "#ffffff",
+            "fileImage": null,
+            "fileImageURL": null,
+            "position": {
+                "x": "50",
+                "y": "50"
+            },
+            "size": "100",
+            "blur": 0
+        },
+        "canvasLogoValues": {
+            "src": "KeitaroFullColorLogo",
+            "opacity": 100,
+            "title": {
+                "content": "",
+                "color": "#000000"
+            },
+            "position": {
+                "x": 2,
+                "y": 22
+            }
+        },
+        "canvasGradientValues": []
     },
     {
-      "templateName": "Template 2",
-      "canvasRefs": {
-        "canvasRefHeight": 712,
-        "canvasRefWidth": 783,
-        "headlineRefHeight": 51,
-        "headlineRefWidth": 515
-      },
-      "canvasHeadlineValues": {
-        "content": "Headline text goes here and it can get pretty long",
-        "color": "#000000",
-        "size": 3,
-        "position": {
-          "x": 3,
-          "y": 1
-        }
-      },
-      "canvasBorderValues": {
-        "width": 2,
-        "color": "#f4f4f4"
-      },
-      "canvasIconValues": {
-        "fileImage": null,
-        "fileImageURL": null,
-        "color": "#f4f4f4",
-        "scale": 2,
-        "padding": 0,
-        "position": {
-          "x": 17,
-          "y": 14
-        }
-      },
-      "canvasBackgroundValues": {
-        "color": "#FFFFFF",
-        "fileImage": null,
-        "fileImageURL": null,
-        "position": {
-          "x": "50",
-          "y": "50"
+        "templateName": "CKAN Extension",
+        "templateType": "default",
+        "canvasHeadlineValues": {
+            "content": "ckan-ext\nEXTENSION NAME",
+            "color": "#ffffff",
+            "size": 3,
+            "position": {
+                "x": 2,
+                "y": 2
+            }
         },
-        "size": "100",
-        "blur": 0
-      },
-      "canvasLogoValues": {
-        "src": "KeitaroFullColorLogo",
-        "opacity": 80,
-        "title": {
-          "content": "",
-          "color": "#000000"
+        "canvasBorderValues": {
+            "width": 0,
+            "color": "#000000"
         },
-        "position": {
-          "x": 2,
-          "y": 20
-        }
-      },
-      "canvasGradientValues": []
+        "canvasIconValues": {
+            "fileImage": null,
+            "fileImageURL": null,
+            "color": "#55504C",
+            "scale": 2,
+            "padding": 1,
+            "position": {
+                "x": 17,
+                "y": 14
+            }
+        },
+        "canvasBackgroundValues": {
+            "color": "#55504C",
+            "fileImage": null,
+            "fileImageURL": null,
+            "position": {
+                "x": "50",
+                "y": "50"
+            },
+            "size": "100",
+            "blur": 1
+        },
+        "canvasLogoValues": {
+            "src": "KeitaroWhiteLogo",
+            "opacity": 100,
+            "title": {
+                "content": "CKAN Extension by",
+                "color": "#ffffff"
+            },
+            "position": {
+                "x": 2,
+                "y": 23
+            }
+        },
+        "canvasGradientValues": []
     }
-  ]
-}
+]
