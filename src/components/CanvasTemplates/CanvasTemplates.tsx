@@ -29,22 +29,21 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     let storageTemplateData = localStorage.getItem("templates");
     if (storageTemplateData === null) {
       localStorage.setItem("templates", JSON.stringify(templatesData));
-      setCanvasTemplates(templatesData.templatesArr);
+      setCanvasTemplates(templatesData);
     } else {
-      setCanvasTemplates(JSON.parse(storageTemplateData).templatesArr);
+      setCanvasTemplates(JSON.parse(storageTemplateData));
     }
   }, []);
 
   const handleSelectTemplate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === "Default") {
       setCurrentSelectedTemplate("Default");
-      setCanvasRefs(templatesData.default.canvasRefs);
-      setCanvasHeadlineValues(templatesData.default.canvasHeadlineValues);
-      setCanvasBackgroundValues(templatesData.default.canvasBackgroundValues);
-      setCanvasBorderValues(templatesData.default.canvasBorderValues);
-      setCanvasIconValues(templatesData.default.canvasIconValues);
-      setCanvasLogoValues(templatesData.default.canvasLogoValues);
-      setCanvasGradientValues(templatesData.default.canvasGradientValues);
+      setCanvasHeadlineValues(templatesData[0].canvasHeadlineValues);
+      setCanvasBackgroundValues(templatesData[0].canvasBackgroundValues);
+      setCanvasBorderValues(templatesData[0].canvasBorderValues);
+      setCanvasIconValues(templatesData[0].canvasIconValues);
+      setCanvasLogoValues(templatesData[0].canvasLogoValues);
+      setCanvasGradientValues(templatesData[0].canvasGradientValues);
     } else {
       let filteredTemplate = canvasTemplates.filter(
         (template) => template.templateName === e.target.value
@@ -66,7 +65,10 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     <Fragment>
       <HeaderComponent>
         <Heading title="Templates" className="py-2" />
-        <ManageTemplates />
+        {canvasTemplates.filter((item) => item.templateType !== "default")
+          .length ? (
+          <ManageTemplates />
+        ) : null}
         <CreateTemplate />
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasLogo">
@@ -78,7 +80,6 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
             onChange={(e) => handleSelectTemplate(e)}
             value={currentSelectedTemplate}
           >
-            <option value="Default">Default</option>
             {canvasTemplates.length > 0 ? (
               canvasTemplates.map((template: any) => (
                 <option
