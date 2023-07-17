@@ -25,7 +25,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
         <ColorPicker
           inputValue="#000000"
           inputId="canvasBorderColorPicker"
-          inputTitle="Change border color"
+          inputTitle="Border Color"
           onChange={(e: any) =>
             setCanvasBorderValues({
               ...canvasBorderValues,
@@ -37,7 +37,7 @@ export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
       <div className="list-group-item" data-testid="canvasBorder">
         <RangeControl
           id="canvasBorderWidth"
-          title="Canvas Border Width"
+          title="Border Width"
           min={0}
           max={6}
           step={1}

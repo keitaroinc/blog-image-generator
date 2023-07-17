@@ -31,7 +31,7 @@ describe("App.tsx tests", () => {
     it("should change headline text color on the canvas", () => {
       render(<App />);
       const colorPickerElement = screen.getByTitle(
-        /Change headline color/i
+        /Headline Color/i
       ) as HTMLInputElement;
       fireEvent.change(colorPickerElement, {
         target: { value: "#f4f4f4" },
@@ -44,7 +44,7 @@ describe("App.tsx tests", () => {
     it("should change healine font size", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
-        /Headline Size Range/i
+        /Headline Size/i
       ) as HTMLInputElement;
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
@@ -55,7 +55,7 @@ describe("App.tsx tests", () => {
     it("should change headline horizontal position", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
-        /Headline Horizontal Range/i
+        /Headline Horizontal Position/i
       ) as HTMLInputElement;
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
@@ -66,7 +66,7 @@ describe("App.tsx tests", () => {
     it("should change headline vertical position", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
-        /Headline Vertical Range/i
+        /Headline Vertical Position/i
       ) as HTMLInputElement;
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
@@ -79,7 +79,7 @@ describe("App.tsx tests", () => {
     it("should change border width", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
-        /Canvas Border Width/i
+        /Border Width/i
       ) as HTMLInputElement;
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const canvasPreviewWrapper = screen.getByTestId(/canvasPreviewWrapper/i);
