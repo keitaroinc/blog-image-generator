@@ -71,7 +71,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
         ) : null}
         <CreateTemplate />
       </HeaderComponent>
-      <div className="list-group-item" data-testid="canvasLogo">
+      <div className="list-group-item">
         <div className="form-floating my-2">
           <select
             title="Canvas Template Default Options"
