@@ -78,7 +78,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
         <RangeControl
           min={3}
           max={12}
-          step={1}
+          step={0.5}
           id="headlineSizeRange"
           title="Headline Size Range"
           value={canvasHeadlineValues.size}
