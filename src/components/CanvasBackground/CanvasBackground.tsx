@@ -140,7 +140,7 @@ export const CanvasBackground: React.FunctionComponent<
         <ColorPicker
           inputValue={canvasBackgroundValues.color}
           inputId="backgroundColorPicker"
-          inputTitle="Choose your color"
+          inputTitle="Change background color"
           onChange={(e: any) =>
             setCanvasBackgroundValues({
               ...canvasBackgroundValues,

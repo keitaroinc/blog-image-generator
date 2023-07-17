@@ -130,7 +130,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "startColor")
                     }
-                    title="Choose your color"
+                    title="Change gradient start color"
                   />
                   <input
                     type="number"
@@ -184,7 +184,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "endColor")
                     }
-                    title="Choose your color"
+                    title="Change gradient end color"
                   />
                 </div>
               </div>

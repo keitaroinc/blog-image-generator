@@ -106,7 +106,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
         <ColorPicker
           inputValue={canvasIconValues.color}
           inputId="iconColorPicker"
-          inputTitle="Choose your icon color"
+          inputTitle="Change icon color"
           onChange={(e: any) =>
             setCanvasIconValues({ ...canvasIconValues, color: e.target.value })
           }

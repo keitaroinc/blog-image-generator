@@ -31,7 +31,7 @@ describe("App.tsx tests", () => {
     it("should change headline text color on the canvas", () => {
       render(<App />);
       const colorPickerElement = screen.getByTitle(
-        /Headline Text Color/i
+        /Change headline color/i
       ) as HTMLInputElement;
       fireEvent.change(colorPickerElement, {
         target: { value: "#f4f4f4" },

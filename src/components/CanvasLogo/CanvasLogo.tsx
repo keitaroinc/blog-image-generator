@@ -71,7 +71,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             <ColorPicker
               inputValue={canvasLogoValues.title.color}
               inputId="logoTitleColorPicker"
-              inputTitle="Choose your color"
+              inputTitle="Change logo title color"
               onChange={(e: any) =>
                 setCanvasLogoValues({
                   ...canvasLogoValues,

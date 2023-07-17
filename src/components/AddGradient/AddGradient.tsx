@@ -9,8 +9,9 @@ export const AddGradient: React.FC<AddGradinetPops> = ({ onClick }) => {
       onClick={onClick}
       id="addGradient"
       data-testid="addGradient"
+      title="Add Gradient"
     >
-      <i className="bi bi-plus" title="Add Gradient"></i>
+      <i className="bi bi-plus"></i>
     </button>
   );
 };

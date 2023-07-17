@@ -97,7 +97,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
         data-bs-target="#manageTemplate"
         title="Manage Templates"
       >
-        <i className="bi bi-gear" title="Manage Templates icon"></i>
+        <i className="bi bi-gear"></i>
       </button>
       <Dialog id="manageTemplate" title="Manage Templates" icon="gear">
         <div className="modal-body">
