@@ -48,8 +48,7 @@
   }
 
   .logo {
-    grid-column-end: span 3;
-    // grid-row-end: span 3;
+    min-width: 14vh;
     z-index: var(--zIndex);
 
     .title {

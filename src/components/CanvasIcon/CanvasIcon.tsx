@@ -1,4 +1,10 @@
-import React, { Fragment } from "react";
+import React, {
+  Fragment,
+  useRef,
+  useContext,
+  useCallback,
+  useEffect,
+} from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -8,12 +14,12 @@ import { RangeControl } from "../RangeControl/RangeControl";
 interface CanvasIconProps {}
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
-  const { canvasIconValues, setCanvasIconValues } = React.useContext(
+  const { canvasIconValues, setCanvasIconValues } = useContext(
     CanvasPreviewContextValues
   );
-  const dragAndDropContainer = React.useRef<HTMLDivElement>(null);
+  const dragAndDropContainer = useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let fileReader: FileReader,
       isCancel: boolean = false;
     if (canvasIconValues.fileImage) {
@@ -42,7 +48,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     };
   }, [canvasIconValues, setCanvasIconValues]);
 
-  const handleDrop = React.useCallback(
+  const handleDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       const files = Array.from(e.dataTransfer.files);
@@ -58,35 +64,29 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     [canvasIconValues, setCanvasIconValues]
   );
 
-  const handleDragOver = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.add(
-          "border-success",
-          "shadow",
-          "bg-white"
-        );
-        dragAndDropContainer.current.classList.remove("bg-transparent");
-      }
-    },
-    []
-  );
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (dragAndDropContainer.current) {
+      dragAndDropContainer.current.classList.add(
+        "border-success",
+        "shadow",
+        "bg-white"
+      );
+      dragAndDropContainer.current.classList.remove("bg-transparent");
+    }
+  }, []);
 
-  const handleDragLeave = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove(
-          "border-success",
-          "shadow",
-          "bg-white"
-        );
-        dragAndDropContainer.current.classList.add("bg-transparent");
-      }
-    },
-    []
-  );
+  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (dragAndDropContainer.current) {
+      dragAndDropContainer.current.classList.remove(
+        "border-success",
+        "shadow",
+        "bg-white"
+      );
+      dragAndDropContainer.current.classList.add("bg-transparent");
+    }
+  }, []);
 
   const max = 24;
   const maxStep = 1;
@@ -98,12 +98,13 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       fileImage: null,
     });
   };
+
   return (
     <Fragment>
       <HeaderComponent>
         <Heading title="Icon" />
         <ColorPicker
-          inputDefaultVaule={"#DEE2E6"}
+          inputValue={canvasIconValues.color}
           inputId="iconColorPicker"
           inputTitle="Choose your icon color"
           onChange={(e: any) =>

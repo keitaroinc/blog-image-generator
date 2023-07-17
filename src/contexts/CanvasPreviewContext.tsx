@@ -23,7 +23,7 @@ export const Provider = (props: {
     | null
     | undefined;
 }) => {
-  const [canvasRefs, setCanvasRefs] = React.useState<CanvasRefsInterface>({
+  const [canvasRefs, setCanvasRefs] = useState<CanvasRefsInterface>({
     canvasRefWidth: 0,
     canvasRefHeight: 0,
     headlineRefWidth: 0,
@@ -32,11 +32,15 @@ export const Provider = (props: {
     logoRefHeight: 0,
   });
 
+  const [canvasTemplates, setCanvasTemplates] = useState<any[]>([]);
+  const [currentSelectedTemplate, setCurrentSelectedTemplate] =
+    useState<string>("Default");
+
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
-      content: "Headline text goes here and it can get pretty long",
+      content: "Headline text goes here and it can get pretty long...",
       color: "#000000",
-      size: 3,
+      size: 5,
       position: {
         x: 2,
         y: 2,
@@ -52,7 +56,7 @@ export const Provider = (props: {
     useState<CanvasIconValuesInterface>({
       fileImage: null,
       fileImageURL: null,
-      color: "var(--bs-gray-300)",
+      color: "#dee2e6",
       scale: 1,
       padding: 0,
       position: {
@@ -80,7 +84,7 @@ export const Provider = (props: {
       opacity: 100,
       title: {
         content: "",
-        color: "#000",
+        color: "#000000",
       },
       position: {
         x: 2,
@@ -95,6 +99,10 @@ export const Provider = (props: {
   const canvasPreviewValues = {
     canvasRefs,
     setCanvasRefs,
+    canvasTemplates,
+    setCanvasTemplates,
+    currentSelectedTemplate,
+    setCurrentSelectedTemplate,
     canvasHeadlineValues,
     setCanvasHeadlineValues,
     canvasBorderValues,

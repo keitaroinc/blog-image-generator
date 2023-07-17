@@ -1,5 +1,3 @@
-import plusIcon from "../../assets/svg/plus.svg";
-
 type AddGradinetPops = {
   onClick: any;
 };
@@ -12,7 +10,7 @@ export const AddGradient: React.FC<AddGradinetPops> = ({ onClick }) => {
       id="addGradient"
       data-testid="addGradient"
     >
-      <img src={plusIcon} alt="add-gradient" />
+      <i className="bi bi-plus" title="Add Gradient"></i>
     </button>
   );
 };

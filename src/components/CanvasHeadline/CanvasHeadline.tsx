@@ -46,7 +46,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
       <HeaderComponent>
         <Heading title="Headline" />
         <ColorPicker
-          inputDefaultVaule="#000"
+          inputValue={canvasHeadlineValues.color}
           inputId="headlineColorPicker"
           inputTitle="Headline Text Color"
           onChange={(e: any) =>
@@ -78,7 +78,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
         <RangeControl
           min={3}
           max={12}
-          step={1}
+          step={0.5}
           id="headlineSizeRange"
           title="Headline Size Range"
           value={canvasHeadlineValues.size}

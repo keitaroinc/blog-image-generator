@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import trashIcon from "../../assets/svg/trash.svg";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -154,9 +153,10 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                 <button
                   data-testid="delete-gradient-option"
                   className="mx-2 btn btn-danger"
+                  title="Delete Gradient"
                   onClick={() => handleRemoveGradient(index)}
                 >
-                  <img src={trashIcon} alt="remove-gradient" />
+                  <i className="bi bi-trash" title="Delete Gradient"></i>
                 </button>
                 <div className="d-flex">
                   <input

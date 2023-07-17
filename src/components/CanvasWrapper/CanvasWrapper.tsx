@@ -113,7 +113,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             gridColumnStart: canvasHeadlineValues.position.x,
             gridRowStart: canvasHeadlineValues.position.y,
             color: canvasHeadlineValues.color,
-            fontSize: `${canvasHeadlineValues.size}vw`,
+            fontSize: `${canvasHeadlineValues.size}em`,
           }}
           ref={headlineRef}
         >

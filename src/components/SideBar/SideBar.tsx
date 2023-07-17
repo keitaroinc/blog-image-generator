@@ -8,6 +8,7 @@ import {
 
 import keitaroLogo from "../../assets/svg/keitaro-logo-full-color.svg";
 import { CanvasBorder } from "../CanvasBorder/CanvasBorder";
+import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";
 
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
   return (
@@ -32,6 +33,7 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
             <strong>Download</strong> to generate an image file.
           </p>
         </div>
+        <CanvasTemplates />
         <CanvasHeadline />
         <CanvasBorder />
         <CanvasBackground />
