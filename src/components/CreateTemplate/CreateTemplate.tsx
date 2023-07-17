@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import plusIcon from "../../assets/svg/plus.svg";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
@@ -28,7 +27,6 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
     if (currentTemplateData !== null && templateName !== "") {
       const combinedData = {
         templateName,
-        canvasRefs,
         canvasHeadlineValues,
         canvasBorderValues,
         canvasIconValues,
@@ -39,7 +37,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
       const updatedData = [...canvasTemplates, combinedData];
       localStorage.setItem(
         "templates",
-        JSON.stringify({ templatesArr: updatedData })
+        JSON.stringify(updatedData)
       );
       setCanvasTemplates(updatedData);
       setCurrentSelectedTemplate(templateName);
@@ -56,12 +54,12 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
         data-bs-toggle="modal"
         data-bs-target="#createTemplate"
       >
-        <img src={plusIcon} alt="create-template" />
+        <i className="bi bi-plus" title="Create Template"></i>
       </button>
-      <Dialog id="createTemplate" title="Create template">
+      <Dialog id="createTemplate" title="Create Template" icon="plus">
         <form onSubmit={(e) => handleSave(e)}>
           <div className="modal-body">
-            <div className="form-floating mb-3">
+            <div className="form-floating">
               <input
                 type="text"
                 className="form-control"
@@ -70,23 +68,23 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
                 value={templateName}
                 onChange={(e) => setTemplateName(e.target.value)}
               />
-              <label htmlFor="templateName">Template name...</label>
+              <label htmlFor="templateName">Template Name</label>
             </div>
           </div>
           <div className="modal-footer">
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-outline-secondary"
               data-bs-dismiss="modal"
             >
-              Close
+              Cancel
             </button>
             <button
               type="submit"
-              className="btn text-light btn-keitaro-alt"
+              className="btn ms-auto btn-success"
               data-bs-dismiss="modal"
             >
-              Save changes
+              Create
             </button>
           </div>
         </form>
