@@ -38,7 +38,7 @@ export const Provider = (props: {
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
-      content: "Headline text goes here and it can get pretty long",
+      content: "Headline text goes here and it can get pretty long...",
       color: "#000000",
       size: 3,
       position: {
