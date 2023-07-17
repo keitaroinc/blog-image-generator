@@ -30,7 +30,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
       <div className="list-group-item" data-testid="canvasLogo">
         <div className="form-floating my-2">
           <select
-            title="CanvasLogoOptions"
+            title="Canvas Logo Options"
             onChange={(e) =>
               setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
             }
@@ -71,7 +71,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             <ColorPicker
               inputValue={canvasLogoValues.title.color}
               inputId="logoTitleColorPicker"
-              inputTitle="Choose your color"
+              inputTitle="Logo Title Color"
               onChange={(e: any) =>
                 setCanvasLogoValues({
                   ...canvasLogoValues,

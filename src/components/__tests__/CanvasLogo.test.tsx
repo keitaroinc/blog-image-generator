@@ -26,7 +26,7 @@ describe("CanvasLogo.tsx tests", () => {
   it("should be able to select logo type", () => {
     render(<MockCanvasLogo />);
     const selectElement = screen.getByTitle(
-      /CanvasLogoOptions/i
+      /Canvas Logo Options/i
     ) as HTMLInputElement;
     fireEvent.change(selectElement, {
       target: { value: "KeitaroFullColorLogo" },

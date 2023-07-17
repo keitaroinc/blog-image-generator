@@ -140,7 +140,7 @@ export const CanvasBackground: React.FunctionComponent<
         <ColorPicker
           inputValue={canvasBackgroundValues.color}
           inputId="backgroundColorPicker"
-          inputTitle="Choose your color"
+          inputTitle="Background Color"
           onChange={(e: any) =>
             setCanvasBackgroundValues({
               ...canvasBackgroundValues,
@@ -180,7 +180,7 @@ export const CanvasBackground: React.FunctionComponent<
           <Fragment>
             <RangeControl
               id="backgroundHorizontalRange"
-              title="Background Horizontal Range"
+              title="Background Horizontal Position"
               min={-100}
               max={200}
               step="1"
@@ -192,7 +192,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundVerticalRange"
-              title="Background Vertical Range"
+              title="Background Vertical Position"
               min={-100}
               max={200}
               step="1"
@@ -204,7 +204,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundScaleRange"
-              title="Background Scale Range"
+              title="Background Scale"
               min={0}
               max={1000}
               step="1"
@@ -216,7 +216,7 @@ export const CanvasBackground: React.FunctionComponent<
             />
             <RangeControl
               id="backgroundBlurRange"
-              title="Background Blur Range"
+              title="Background Blur"
               min={0}
               max={100}
               step="1"

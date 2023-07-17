@@ -74,7 +74,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       <div className="list-group-item">
         <div className="form-floating my-2">
           <select
-            title="Canvas Template Default Options"
+            title="Select Canvas Template"
             className="form-select"
             aria-label="Template Type"
             onChange={(e) => handleSelectTemplate(e)}

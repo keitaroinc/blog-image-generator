@@ -45,7 +45,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const selectElements = screen.getAllByTitle(
-      /GradientOptions/i
+      /Gradient Options/i
     ) as HTMLInputElement[];
     selectElements.forEach((element) => {
       fireEvent.change(element, { target: { value: "linear-gradient" } });

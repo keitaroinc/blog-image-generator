@@ -130,7 +130,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "startColor")
                     }
-                    title="Choose your color"
+                    title="Gradient Start Color"
                   />
                   <input
                     type="number"
@@ -184,14 +184,14 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                     onChange={(event) =>
                       handleEditTypeOfGradient(event, index, "endColor")
                     }
-                    title="Choose your color"
+                    title="Gradient End Color"
                   />
                 </div>
               </div>
               <div className="py-4">
                 <RangeControl
                   id={`scale${index}`}
-                  title="Gradient Scale Range"
+                  title="Gradient Scale"
                   min={0}
                   max={600}
                   step="1"
@@ -207,7 +207,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               <div className="py-2">
                 <RangeControl
                   id={`rotation${index}`}
-                  title="Gradient Rotation Range"
+                  title="Gradient Rotation"
                   min={0}
                   max={360}
                   step="1"
@@ -223,7 +223,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               <div className="py-2">
                 <RangeControl
                   id={`opacity${index}`}
-                  title="Gradient Opacity Range"
+                  title="Gradient Opacity"
                   min={0}
                   max={100}
                   step="1"
@@ -239,7 +239,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
               <div className="my-3">
                 <div className="form-floating">
                   <select
-                    title="GradientOptions"
+                    title="Gradient Options"
                     defaultValue={gradient.gradientType}
                     onChange={(event: any) =>
                       handleEditTypeOfGradient(event, index, "gradientType")

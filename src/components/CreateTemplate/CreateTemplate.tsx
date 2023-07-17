@@ -50,6 +50,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
         className="btn btn-success"
         data-bs-toggle="modal"
         data-bs-target="#createTemplate"
+        title="Create Template"
       >
         <i className="bi bi-plus" title="Create Template"></i>
       </button>
