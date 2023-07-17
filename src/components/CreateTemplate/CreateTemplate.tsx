@@ -35,10 +35,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
         canvasGradientValues,
       };
       const updatedData = [...canvasTemplates, combinedData];
-      localStorage.setItem(
-        "templates",
-        JSON.stringify(updatedData)
-      );
+      localStorage.setItem("templates", JSON.stringify(updatedData));
       setCanvasTemplates(updatedData);
       setCurrentSelectedTemplate(templateName);
       setTemplateName("");

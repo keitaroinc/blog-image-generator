@@ -25,10 +25,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
         (template: { templateName: string }) =>
           template.templateName !== templateName
       );
-      localStorage.setItem(
-        "templates",
-        JSON.stringify(filteredTemplates)
-      );
+      localStorage.setItem("templates", JSON.stringify(filteredTemplates));
 
       setCurrentSelectedTemplate("Default");
       setCanvasTemplates(filteredTemplates);
@@ -113,7 +110,9 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
           </h2>
         </div>
         <ul className="list-group list-group-flush">
-          {canvasTemplates !== null && canvasTemplates.length && renderDefaultTemplates(canvasTemplates)}
+          {canvasTemplates !== null &&
+            canvasTemplates.length &&
+            renderDefaultTemplates(canvasTemplates)}
         </ul>
         <div className="modal-body">
           <h2 className="h6 mb-0">
@@ -122,7 +121,9 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
           </h2>
         </div>
         <ul className="list-group list-group-flush">
-          {canvasTemplates !== null && canvasTemplates.length && renderCustomTemplates(canvasTemplates)}
+          {canvasTemplates !== null &&
+            canvasTemplates.length &&
+            renderCustomTemplates(canvasTemplates)}
         </ul>
         <div className="modal-footer">
           <button
