@@ -1,6 +1,6 @@
 export interface CanvasPreviewContextInterface {
-  canvasRefs: CanvasRefsInterface;
-  setCanvasRefs: Function;
+  canvasAspectRatio: string;
+  setCanvasAspectRatio: Function;
   canvasTemplates: any[];
   setCanvasTemplates: Function;
   currentSelectedTemplate: string;
@@ -17,15 +17,6 @@ export interface CanvasPreviewContextInterface {
   setCanvasLogoValues: Function;
   canvasGradientValues: CanvasGradientValuesInterface[];
   setCanvasGradientValues: Function;
-}
-
-export interface CanvasRefsInterface {
-  canvasRefHeight: number;
-  canvasRefWidth: number;
-  headlineRefWidth: number;
-  headlineRefHeight: number;
-  logoRefWidth: number;
-  logoRefHeight: number;
 }
 
 export interface CanvasHeadlineValuesInterface {
