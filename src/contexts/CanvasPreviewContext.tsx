@@ -7,7 +7,6 @@ import {
   CanvasIconValuesInterface,
   CanvasLogoValuesInterface,
   CanvasGradientValuesInterface,
-  CanvasRefsInterface,
 } from "../interfaces/canvasPreviewInterfaces";
 
 const CanvasPreviewContext = createContext({} as CanvasPreviewContextInterface);
@@ -23,18 +22,11 @@ export const Provider = (props: {
     | null
     | undefined;
 }) => {
-  const [canvasRefs, setCanvasRefs] = useState<CanvasRefsInterface>({
-    canvasRefWidth: 0,
-    canvasRefHeight: 0,
-    headlineRefWidth: 0,
-    headlineRefHeight: 0,
-    logoRefWidth: 0,
-    logoRefHeight: 0,
-  });
-
   const [canvasTemplates, setCanvasTemplates] = useState<any[]>([]);
   const [currentSelectedTemplate, setCurrentSelectedTemplate] =
     useState<string>("Default");
+
+  const [canvasAspectRatio, setCanvasAspectRatio] = useState<string>("16/9");
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
     useState<CanvasHeadlineValuesInterface>({
@@ -97,8 +89,8 @@ export const Provider = (props: {
   >([]);
 
   const canvasPreviewValues = {
-    canvasRefs,
-    setCanvasRefs,
+    canvasAspectRatio,
+    setCanvasAspectRatio,
     canvasTemplates,
     setCanvasTemplates,
     currentSelectedTemplate,

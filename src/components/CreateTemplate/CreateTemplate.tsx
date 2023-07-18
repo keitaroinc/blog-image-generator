@@ -8,10 +8,10 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
   props
 ) => {
   const {
-    canvasRefs,
     canvasTemplates,
     setCanvasTemplates,
     setCurrentSelectedTemplate,
+    canvasAspectRatio,
     canvasHeadlineValues,
     canvasBorderValues,
     canvasIconValues,
@@ -27,6 +27,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
     if (currentTemplateData !== null && templateName !== "") {
       const combinedData = {
         templateName,
+        canvasAspectRatio,
         canvasHeadlineValues,
         canvasBorderValues,
         canvasIconValues,

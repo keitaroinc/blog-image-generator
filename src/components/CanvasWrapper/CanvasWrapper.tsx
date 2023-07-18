@@ -17,29 +17,13 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     canvasIconValues,
     canvasBackgroundValues,
     canvasGradientValues,
-    setCanvasRefs,
+    canvasAspectRatio,
+    setCanvasAspectRatio,
   } = React.useContext(CanvasPreviewContextValues);
-  const [canvasAspectRatio, setCanvasAspectRatio] = useState<string>("16/9");
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
   const logoRef = React.useRef<HTMLImageElement>(null);
-
-  React.useLayoutEffect(() => {
-    function updateSize() {
-      setCanvasRefs({
-        canvasRefHeight: canvasRef.current?.clientHeight,
-        canvasRefWidth: canvasRef.current?.clientWidth,
-        headlineRefHeight: headlineRef.current?.clientHeight,
-        headlineRefWidth: headlineRef.current?.clientWidth,
-        logoRefHeight: logoRef.current?.clientHeight,
-        logoRefWidth: logoRef.current?.clientWidth,
-      });
-    }
-    window.addEventListener("resize", updateSize);
-    updateSize();
-    return () => window.removeEventListener("resize", updateSize);
-  }, []);
 
   const onDownload = useCallback(
     (type: string) => {
@@ -172,6 +156,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               onChange={(e) => setCanvasAspectRatio(e.target.value)}
               className="form-select"
               aria-label="Select canvas aspect ratio"
+              value={canvasAspectRatio}
             >
               {aspectRatioOptions.map((option) => (
                 <option key={option} value={option}>

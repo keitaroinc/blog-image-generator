@@ -16,13 +16,13 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     setCanvasTemplates,
     currentSelectedTemplate,
     setCurrentSelectedTemplate,
-    setCanvasRefs,
     setCanvasHeadlineValues,
     setCanvasBorderValues,
     setCanvasIconValues,
     setCanvasBackgroundValues,
     setCanvasGradientValues,
     setCanvasLogoValues,
+    setCanvasAspectRatio,
   } = useContext(CanvasPreviewContextValues);
 
   useEffect(() => {
@@ -38,6 +38,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   const handleSelectTemplate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === "Default") {
       setCurrentSelectedTemplate("Default");
+      setCanvasAspectRatio(templatesData[0].canvasAspectRatio);
       setCanvasHeadlineValues(templatesData[0].canvasHeadlineValues);
       setCanvasBackgroundValues(templatesData[0].canvasBackgroundValues);
       setCanvasBorderValues(templatesData[0].canvasBorderValues);
@@ -50,7 +51,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       );
       if (filteredTemplate.length > 0) {
         setCurrentSelectedTemplate(filteredTemplate[0].templateName);
-        setCanvasRefs(filteredTemplate[0].canvasRefs);
+        setCanvasAspectRatio(filteredTemplate[0].canvasAspectRatio);
         setCanvasHeadlineValues(filteredTemplate[0].canvasHeadlineValues);
         setCanvasBackgroundValues(filteredTemplate[0].canvasBackgroundValues);
         setCanvasBorderValues(filteredTemplate[0].canvasBorderValues);
