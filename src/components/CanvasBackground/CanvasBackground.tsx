@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useCallback, useEffect } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -14,7 +14,7 @@ export const CanvasBackground: React.FunctionComponent<
     React.useContext(CanvasPreviewContextValues);
   const dragAndDropContainer = React.useRef<HTMLDivElement>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     let fileReader: FileReader,
       isCancel: boolean = false;
     if (canvasBackgroundValues.fileImage) {
@@ -43,7 +43,16 @@ export const CanvasBackground: React.FunctionComponent<
     };
   }, [canvasBackgroundValues, setCanvasBackgroundValues]);
 
-  const handleDrop = React.useCallback(
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setCanvasBackgroundValues({
+        ...canvasBackgroundValues,
+        fileImage: e.target.files[0],
+      });
+    }
+  };
+
+  const handleDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       const files = Array.from(e.dataTransfer.files);
@@ -62,35 +71,29 @@ export const CanvasBackground: React.FunctionComponent<
     [canvasBackgroundValues, setCanvasBackgroundValues]
   );
 
-  const handleDragOver = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.add(
-          "border-success",
-          "shadow",
-          "bg-white"
-        );
-        dragAndDropContainer.current.classList.remove("bg-transparent");
-      }
-    },
-    []
-  );
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (dragAndDropContainer.current) {
+      dragAndDropContainer.current.classList.add(
+        "border-success",
+        "shadow",
+        "bg-white"
+      );
+      dragAndDropContainer.current.classList.remove("bg-transparent");
+    }
+  }, []);
 
-  const handleDragLeave = React.useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove(
-          "border-success",
-          "shadow",
-          "bg-white"
-        );
-        dragAndDropContainer.current.classList.add("bg-transparent");
-      }
-    },
-    []
-  );
+  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    if (dragAndDropContainer.current) {
+      dragAndDropContainer.current.classList.remove(
+        "border-success",
+        "shadow",
+        "bg-white"
+      );
+      dragAndDropContainer.current.classList.add("bg-transparent");
+    }
+  }, []);
 
   const handleHorizontalPositionChange = (
     event: React.ChangeEvent<HTMLInputElement>
@@ -151,12 +154,23 @@ export const CanvasBackground: React.FunctionComponent<
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasBackground">
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white"
+          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white position-relative"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           ref={dragAndDropContainer}
         >
+          <div className="position-absolute w-100 h-100 opacity-0">
+            <label htmlFor="formFile" className="form-label">
+              Default file input example
+            </label>
+            <input
+              className="form-control w-100 h-100"
+              type="file"
+              id="formFile"
+              onChange={(e) => handleFileChange(e)}
+            />
+          </div>
           {canvasBackgroundValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -173,7 +187,7 @@ export const CanvasBackground: React.FunctionComponent<
               />
             </div>
           ) : (
-            <p className="m-0 px-3">Drag and Drop Image Here</p>
+            <p className="m-0 px-3">Click to choose image or drag it here.</p>
           )}
         </div>
         {canvasBackgroundValues.fileImageURL ? (
