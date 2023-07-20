@@ -48,6 +48,15 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     };
   }, [canvasIconValues, setCanvasIconValues]);
 
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files) {
+      setCanvasIconValues({
+        ...canvasIconValues,
+        fileImage: e.target.files[0],
+      });
+    }
+  };
+
   const handleDrop = useCallback(
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
@@ -114,13 +123,24 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasIcon">
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white"
+          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white position-relative"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           ref={dragAndDropContainer}
           style={{ backgroundColor: canvasIconValues.color }}
         >
+          <div className="position-absolute w-100 h-100 opacity-0">
+            <label htmlFor="formFile" className="form-label">
+              Default file input example
+            </label>
+            <input
+              className="form-control w-100 h-100"
+              type="file"
+              id="formFile"
+              onChange={(e) => handleFileChange(e)}
+            />
+          </div>
           {canvasIconValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -137,7 +157,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               />
             </div>
           ) : (
-            <p className="m-0 px-3">Drag and Drop Image Here</p>
+            <p className="m-0 px-3">Click to choose image or drag it here.</p>
           )}
         </div>
         {canvasIconValues.fileImageURL && (
