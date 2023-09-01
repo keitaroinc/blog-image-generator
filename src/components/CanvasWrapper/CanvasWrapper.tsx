@@ -185,16 +185,10 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               <span className="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul className="dropdown-menu">
-              <li
-                className="dropdown-item"
-                onClick={() => onDownload("png")}
-              >
+              <li className="dropdown-item" onClick={() => onDownload("png")}>
                 PNG
               </li>
-              <li
-                className="dropdown-item"
-                onClick={() => onDownload("jpg")}
-              >
+              <li className="dropdown-item" onClick={() => onDownload("jpg")}>
                 JPG
               </li>
             </ul>
