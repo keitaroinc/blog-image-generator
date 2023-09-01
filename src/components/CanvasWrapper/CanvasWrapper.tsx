@@ -187,14 +187,12 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             <ul className="dropdown-menu">
               <li
                 className="dropdown-item"
-                role="button"
                 onClick={() => onDownload("png")}
               >
                 PNG
               </li>
               <li
                 className="dropdown-item"
-                role="button"
                 onClick={() => onDownload("jpg")}
               >
                 JPG
