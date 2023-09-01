@@ -152,7 +152,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         <div className="col">
           <div className="form-floating">
             <select
-              title="canvasAspectRatio"
+              id="canvasAspectRatio"
               onChange={(e) => setCanvasAspectRatio(e.target.value)}
               className="form-select"
               aria-label="Select canvas aspect ratio"
