@@ -39,7 +39,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-start`}
               id={`${type}-${id}-start`}
             />
             <label
@@ -51,7 +51,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-center`}
               id={`${type}-${id}-center`}
             />
             <label
@@ -63,7 +63,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-end`}
               id={`${type}-${id}-end`}
             />
             <label
@@ -80,7 +80,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-top`}
               id={`${type}-${id}-top`}
             />
             <label
@@ -92,7 +92,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-middle`}
               id={`${type}-${id}-middle`}
             />
             <label
@@ -104,7 +104,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             <input
               type="radio"
               className="btn-check"
-              name={type}
+              name={`${type}-${id}-bottom`}
               id={`${type}-${id}-bottom`}
             />
             <label
