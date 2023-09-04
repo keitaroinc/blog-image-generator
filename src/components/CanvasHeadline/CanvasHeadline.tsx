@@ -63,7 +63,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
             className="form-control h-100"
             id="headlineTextarea"
             data-testid="headlineTextarea"
-            placeholder="Leave a comment here"
+            placeholder="Enter the headline content here"
             rows={3}
             value={canvasHeadlineValues.content}
             onChange={(e) =>
