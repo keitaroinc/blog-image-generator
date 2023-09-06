@@ -34,8 +34,8 @@ export const Provider = (props: {
       color: "#000000",
       size: 4,
       align: {
-        horizontal: '',
-        vertical: ''
+        horizontal: "",
+        vertical: "",
       },
       position: {
         x: 2,
@@ -83,8 +83,8 @@ export const Provider = (props: {
         color: "#000000",
       },
       align: {
-        horizontal: '',
-        vertical: ''
+        horizontal: "",
+        vertical: "",
       },
       position: {
         x: 2,
