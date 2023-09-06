@@ -23,6 +23,10 @@ export interface CanvasHeadlineValuesInterface {
   content: string;
   color: string;
   size: number;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: number;
     y: number;
@@ -64,6 +68,10 @@ export interface CanvasLogoValuesInterface {
   title: {
     content: string;
     color: string;
+  };
+  align: {
+    horizontal: string;
+    vertical: string;
   };
   position: {
     x: number;

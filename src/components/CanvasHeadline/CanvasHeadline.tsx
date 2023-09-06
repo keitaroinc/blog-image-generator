@@ -14,6 +14,24 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     CanvasPreviewContextValues
   );
 
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      align: { ...canvasHeadlineValues.align, horizontal: event.target.value },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      align: { ...canvasHeadlineValues.align, vertical: event.target.value },
+    });
+  };
+
   const handleHorizontalPositionChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -95,7 +113,9 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           title="Headline Horizontal Position"
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
+          align={canvasHeadlineValues.align.horizontal}
           onChange={(e: any) => handleHorizontalPositionChange(e)}
+          onHorizontalAlignChange={(e: any) => handleHorizontalAlignChange(e)}
           labelTitle={"Horizontal Position"}
           labelValue={canvasHeadlineValues.position.x}
           type="horizontal-position"
@@ -107,7 +127,9 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           title="Headline Vertical Position"
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
+          align={canvasHeadlineValues.align.vertical}
           onChange={(e: any) => handleVerticalPositionChange(e)}
+          onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
           labelTitle={"Vertical Position"}
           labelValue={canvasHeadlineValues.position.y}
           type="vertical-position"

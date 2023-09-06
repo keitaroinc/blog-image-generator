@@ -22,6 +22,24 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   const max = 24;
   const maxStep = 1;
 
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasLogoValues({
+      ...canvasLogoValues,
+      align: { ...canvasLogoValues.align, horizontal: event.target.value },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasLogoValues({
+      ...canvasLogoValues,
+      align: { ...canvasLogoValues.align, vertical: event.target.value },
+    });
+  };
+
   return (
     <Fragment>
       <HeaderComponent>
@@ -106,9 +124,11 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           id="logoHorizontalPosition"
           title="Logo Horizontal Position"
           value={canvasLogoValues.position.x}
+          align={canvasLogoValues.align.horizontal}
           min={1}
           max={max - 2}
           step={maxStep}
+          onHorizontalAlignChange={(e: any) => handleHorizontalAlignChange(e)}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -125,10 +145,12 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
         <RangeControl
           id="logoVerticalPosition"
           title="Logo Vertical Position"
-          defaultValue={canvasLogoValues.position.y}
+          value={canvasLogoValues.position.y}
+          align={canvasLogoValues.align.vertical}
           min={1}
           step={maxStep}
           max={max}
+          onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,

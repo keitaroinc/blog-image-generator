@@ -7,7 +7,10 @@ type RangeControlProps = {
   id: any;
   title: string;
   value?: any;
+  align?: string;
   onChange: Function;
+  onHorizontalAlignChange?: any;
+  onVerticalAlignChange?: any;
   className?: any;
   defaultValue?: any;
   labelTitle?: string;
@@ -24,6 +27,9 @@ export const RangeControl: React.FC<RangeControlProps> = ({
   title,
   value,
   onChange,
+  align,
+  onHorizontalAlignChange,
+  onVerticalAlignChange,
   defaultValue,
   className,
   labelTitle,
@@ -41,6 +47,9 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-start`}
+              value="start"
+              checked={align === "start"}
+              onChange={(e) => onHorizontalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
@@ -53,6 +62,9 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-center`}
+              value="center"
+              checked={align === "center"}
+              onChange={(e) => onHorizontalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
@@ -65,12 +77,30 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-end`}
+              value="end"
+              checked={align === "end"}
+              onChange={(e) => onHorizontalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
               htmlFor={`${type}-${id}-end`}
             >
               <i className="bi bi-align-end"></i>
+            </label>
+            <input
+              type="radio"
+              className="btn-check"
+              name={`${type}-${id}`}
+              id={`${type}-${id}-none`}
+              value=""
+              checked={align === ""}
+              onChange={(e) => onHorizontalAlignChange(e)}
+            />
+            <label
+              className="btn btn-outline-secondary"
+              htmlFor={`${type}-${id}-none`}
+            >
+              <i className="bi bi-distribute-horizontal"></i>
             </label>
           </div>
         );
@@ -82,6 +112,9 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-top`}
+              value="top"
+              checked={align === "top"}
+              onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
@@ -94,6 +127,9 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-middle`}
+              value="middle"
+              checked={align === "middle"}
+              onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
@@ -106,12 +142,30 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               className="btn-check"
               name={`${type}-${id}`}
               id={`${type}-${id}-bottom`}
+              value="bottom"
+              checked={align === "bottom"}
+              onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
               htmlFor={`${type}-${id}-bottom`}
             >
               <i className="bi bi-align-bottom"></i>
+            </label>
+            <input
+              type="radio"
+              className="btn-check"
+              name={`${type}-${id}`}
+              id={`${type}-${id}-none`}
+              value=""
+              checked={align === ""}
+              onChange={(e) => onVerticalAlignChange(e)}
+            />
+            <label
+              className="btn btn-outline-secondary"
+              htmlFor={`${type}-${id}-none`}
+            >
+              <i className="bi bi-distribute-vertical"></i>
             </label>
           </div>
         );
@@ -141,8 +195,11 @@ export const RangeControl: React.FC<RangeControlProps> = ({
           onChange={(e) => onChange(e)}
           className={`form-range ${className}`}
           defaultValue={defaultValue && defaultValue}
+          disabled={align && align !== "" ? true : false}
         />
-        <span className="ms-3 badge bg-primary">{`${labelValue}${labelValueType}`}</span>
+        <span className="ms-3 badge bg-primary">
+          {align && align !== "" ? align : `${labelValue}${labelValueType}`}
+        </span>
       </div>
     </Fragment>
   );
