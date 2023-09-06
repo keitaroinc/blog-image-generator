@@ -53,6 +53,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to Start"
               htmlFor={`${type}-${id}-start`}
             >
               <i className="bi bi-align-start"></i>
@@ -68,6 +69,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to Center"
               htmlFor={`${type}-${id}-center`}
             >
               <i className="bi bi-align-center"></i>
@@ -83,6 +85,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to End"
               htmlFor={`${type}-${id}-end`}
             >
               <i className="bi bi-align-end"></i>
@@ -98,6 +101,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Custom Position"
               htmlFor={`${type}-${id}-none`}
             >
               <i className="bi bi-distribute-horizontal"></i>
@@ -118,6 +122,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to Top"
               htmlFor={`${type}-${id}-top`}
             >
               <i className="bi bi-align-top"></i>
@@ -133,6 +138,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to Middle"
               htmlFor={`${type}-${id}-middle`}
             >
               <i className="bi bi-align-middle"></i>
@@ -148,6 +154,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Align to Bottom"
               htmlFor={`${type}-${id}-bottom`}
             >
               <i className="bi bi-align-bottom"></i>
@@ -163,6 +170,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
+              title="Custom Position"
               htmlFor={`${type}-${id}-none`}
             >
               <i className="bi bi-distribute-vertical"></i>
