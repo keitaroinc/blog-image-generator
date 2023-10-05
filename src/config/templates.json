@@ -7,6 +7,10 @@
       "content": "Headline text goes here and it can get pretty long...",
       "color": "#000000",
       "size": 4,
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
         "x": 2,
         "y": 2
@@ -45,6 +49,10 @@
         "content": "",
         "color": "#000000"
       },
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
         "x": 2,
         "y": 22
@@ -60,6 +68,10 @@
       "content": "ckan-ext\nEXTENSION NAME",
       "color": "#ffffff",
       "size": 5,
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
         "x": 2,
         "y": 2
@@ -97,6 +109,10 @@
       "title": {
         "content": "CKAN Extension by",
         "color": "#ffffff"
+      },
+      "align": {
+        "horizontal": "",
+        "vertical": ""
       },
       "position": {
         "x": 2,
