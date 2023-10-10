@@ -194,7 +194,7 @@ export const CanvasBackground: React.FunctionComponent<
           labelValue={canvasBackgroundValues.padding}
         />
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white position-relative"
+          className="drag-and-drop-container d-flex justify-content-center align-items-center user-select-none my-3 p-1 bg-white position-relative"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
