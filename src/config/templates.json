@@ -6,7 +6,7 @@
     "canvasHeadlineValues": {
       "content": "Headline text goes here and it can get pretty long...",
       "color": "#000000",
-      "size": 5,
+      "size": 4,
       "align": {
         "horizontal": "",
         "vertical": ""
@@ -75,7 +75,7 @@
     "canvasHeadlineValues": {
       "content": "ckan-ext\nEXTENSION NAME",
       "color": "#ffffff",
-      "size": 5,
+      "size": 4,
       "align": {
         "horizontal": "",
         "vertical": ""
