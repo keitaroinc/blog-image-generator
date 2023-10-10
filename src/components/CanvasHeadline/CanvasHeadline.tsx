@@ -107,7 +107,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           type="size"
         />
         <RangeControl
-          min={1}
+          min={0}
           max={max}
           step={maxStep}
           title="Headline Horizontal Position"
@@ -121,7 +121,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           type="horizontal-position"
         />
         <RangeControl
-          min={1}
+          min={0}
           max={max}
           step={maxStep}
           title="Headline Vertical Position"
