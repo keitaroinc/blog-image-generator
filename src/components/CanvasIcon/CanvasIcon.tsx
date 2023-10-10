@@ -108,6 +108,24 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     });
   };
 
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasIconValues({
+      ...canvasIconValues,
+      align: { ...canvasIconValues.align, horizontal: event.target.value },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasIconValues({
+      ...canvasIconValues,
+      align: { ...canvasIconValues.align, vertical: event.target.value },
+    });
+  };
+
   return (
     <Fragment>
       <HeaderComponent>
@@ -199,10 +217,14 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
             <RangeControl
               id="iconHorizontalRange"
               title="Icon Horizontal Position"
-              defaultValue={canvasIconValues.position.x}
-              min={1}
+              value={canvasIconValues.position.x}
+              align={canvasIconValues.align.horizontal}
+              min={0}
               max={max}
               step={maxStep}
+              onHorizontalAlignChange={(e: any) =>
+                handleHorizontalAlignChange(e)
+              }
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -220,10 +242,12 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               id="iconVerticalRange"
               title="Icon Vertical Position"
               className="form-range"
-              min={1}
+              min={0}
               max={max}
               step={1}
-              defaultValue={canvasIconValues.position.y}
+              value={canvasIconValues.position.y}
+              align={canvasIconValues.align.vertical}
+              onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
