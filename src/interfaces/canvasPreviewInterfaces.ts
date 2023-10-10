@@ -44,6 +44,10 @@ export interface CanvasIconValuesInterface {
   color: string;
   scale: number;
   padding: number;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: number;
     y: number;
@@ -54,6 +58,10 @@ export interface CanvasBackgroundValuesInterface {
   color: string;
   fileImage: Blob | null;
   fileImageURL: string | ArrayBuffer | null;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: string;
     y: string;
