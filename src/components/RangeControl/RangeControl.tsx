@@ -16,7 +16,7 @@ type RangeControlProps = {
   labelTitle?: string;
   labelValue?: any;
   labelValueType?: string;
-  type: string;
+  type?: string;
 };
 
 export const RangeControl: React.FC<RangeControlProps> = ({
