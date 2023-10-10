@@ -55,6 +55,7 @@ export interface CanvasIconValuesInterface {
 }
 
 export interface CanvasBackgroundValuesInterface {
+  padding: number;
   color: string;
   fileImage: Blob | null;
   fileImageURL: string | ArrayBuffer | null;
