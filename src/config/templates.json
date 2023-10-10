@@ -36,6 +36,7 @@
       }
     },
     "canvasBackgroundValues": {
+      "padding": 5,
       "color": "#ffffff",
       "fileImage": null,
       "fileImageURL": null,
@@ -105,6 +106,7 @@
       }
     },
     "canvasBackgroundValues": {
+      "padding": 5,
       "color": "#55504C",
       "fileImage": null,
       "fileImageURL": null,

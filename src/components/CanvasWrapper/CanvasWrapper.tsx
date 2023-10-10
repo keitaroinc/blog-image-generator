@@ -70,6 +70,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         data-testid="canvasPreviewWrapper"
         ref={canvasRef}
         style={{
+          padding: `${canvasBackgroundValues.padding}em`,
           backgroundColor: `${canvasBackgroundValues.color}`,
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,

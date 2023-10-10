@@ -67,6 +67,7 @@ export const Provider = (props: {
 
   const [canvasBackgroundValues, setCanvasBackgroundValues] =
     useState<CanvasBackgroundValuesInterface>({
+      padding: 5,
       color: "#FFFFFF",
       fileImage: null,
       fileImageURL: null,

@@ -113,6 +113,13 @@ export const CanvasBackground: React.FunctionComponent<
     });
   };
 
+  const handlePaddingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCanvasBackgroundValues({
+      ...canvasBackgroundValues,
+      padding: event.target.value,
+    });
+  };
+
   const handleBackgroundImageScale = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -175,6 +182,17 @@ export const CanvasBackground: React.FunctionComponent<
         />
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasBackground">
+        <RangeControl
+          id="backgroundPaddingRange"
+          title="Background Padding"
+          min={0}
+          max={10}
+          step="1"
+          value={canvasBackgroundValues.padding}
+          onChange={(e: any) => handlePaddingChange(e)}
+          labelTitle={"Padding"}
+          labelValue={canvasBackgroundValues.padding}
+        />
         <div
           className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white position-relative"
           onDrop={handleDrop}
