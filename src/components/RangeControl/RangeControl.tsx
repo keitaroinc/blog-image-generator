@@ -115,15 +115,15 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               type="radio"
               className="btn-check"
               name={`${type}-${id}`}
-              id={`${type}-${id}-top`}
-              value="top"
-              checked={align === "top"}
+              id={`${type}-${id}-start`}
+              value="start"
+              checked={align === "start"}
               onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
               title="Align to Top"
-              htmlFor={`${type}-${id}-top`}
+              htmlFor={`${type}-${id}-start`}
             >
               <i className="bi bi-align-top"></i>
             </label>
@@ -131,15 +131,15 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               type="radio"
               className="btn-check"
               name={`${type}-${id}`}
-              id={`${type}-${id}-middle`}
-              value="middle"
-              checked={align === "middle"}
+              id={`${type}-${id}-center`}
+              value="center"
+              checked={align === "center"}
               onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
               title="Align to Middle"
-              htmlFor={`${type}-${id}-middle`}
+              htmlFor={`${type}-${id}-center`}
             >
               <i className="bi bi-align-middle"></i>
             </label>
@@ -147,15 +147,15 @@ export const RangeControl: React.FC<RangeControlProps> = ({
               type="radio"
               className="btn-check"
               name={`${type}-${id}`}
-              id={`${type}-${id}-bottom`}
-              value="bottom"
-              checked={align === "bottom"}
+              id={`${type}-${id}-end`}
+              value="end"
+              checked={align === "end"}
               onChange={(e) => onVerticalAlignChange(e)}
             />
             <label
               className="btn btn-outline-secondary"
-              title="Align to Bottom"
-              htmlFor={`${type}-${id}-bottom`}
+              title="Align to End"
+              htmlFor={`${type}-${id}-end`}
             >
               <i className="bi bi-align-bottom"></i>
             </label>
