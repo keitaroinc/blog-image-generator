@@ -63,7 +63,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       const files = Array.from(e.dataTransfer.files);
       setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.children[0].classList.remove("border-success");
+        dragAndDropContainer.current.children[0].classList.remove(
+          "border-success"
+        );
       }
     },
     [canvasIconValues, setCanvasIconValues]
@@ -79,7 +81,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.children[0].classList.remove("border-success");
+      dragAndDropContainer.current.children[0].classList.remove(
+        "border-success"
+      );
     }
   }, []);
 
