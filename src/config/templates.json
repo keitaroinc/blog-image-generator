@@ -40,10 +40,6 @@
       "color": "#ffffff",
       "fileImage": null,
       "fileImageURL": null,
-      "align": {
-        "horizontal": "",
-        "vertical": ""
-      },
       "position": {
         "x": "50",
         "y": "50"
@@ -94,26 +90,22 @@
       "fileImage": null,
       "fileImageURL": null,
       "color": "#55504C",
-      "scale": 2,
-      "padding": 1,
+      "scale": 1,
+      "padding": 0,
       "align": {
-        "horizontal": "",
+        "horizontal": "end",
         "vertical": ""
       },
       "position": {
-        "x": 17,
-        "y": 14
+        "x": 0,
+        "y": 0
       }
     },
     "canvasBackgroundValues": {
-      "padding": 5,
+      "padding": 7,
       "color": "#55504C",
       "fileImage": null,
       "fileImageURL": null,
-      "align": {
-        "horizontal": "",
-        "vertical": ""
-      },
       "position": {
         "x": "50",
         "y": "50"
