@@ -61,11 +61,7 @@ export const CanvasBackground: React.FunctionComponent<
         fileImage: files[0],
       });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove(
-          "border-success",
-          "shadow",
-          "bg-white"
-        );
+        dragAndDropContainer.current.classList.remove("border-success");
       }
     },
     [canvasBackgroundValues, setCanvasBackgroundValues]
@@ -74,24 +70,14 @@ export const CanvasBackground: React.FunctionComponent<
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.add(
-        "border-success",
-        "shadow",
-        "bg-white"
-      );
-      dragAndDropContainer.current.classList.remove("bg-transparent");
+      dragAndDropContainer.current.classList.add("border-success");
     }
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.remove(
-        "border-success",
-        "shadow",
-        "bg-white"
-      );
-      dragAndDropContainer.current.classList.add("bg-transparent");
+      dragAndDropContainer.current.classList.remove("border-success");
     }
   }, []);
 
@@ -194,23 +180,12 @@ export const CanvasBackground: React.FunctionComponent<
           labelValue={canvasBackgroundValues.padding}
         />
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center user-select-none my-3 p-1 bg-white position-relative"
+          className="drag-and-drop-container d-flex flex-column flex-fill user-select-none mt-4 mb-2"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           ref={dragAndDropContainer}
         >
-          <div className="position-absolute w-100 h-100 opacity-0">
-            <label htmlFor="formFile" className="form-label">
-              Default file input example
-            </label>
-            <input
-              className="form-control w-100 h-100"
-              type="file"
-              id="formFile"
-              onChange={(e) => handleFileChange(e)}
-            />
-          </div>
           {canvasBackgroundValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -227,7 +202,20 @@ export const CanvasBackground: React.FunctionComponent<
               />
             </div>
           ) : (
-            <p className="m-0 px-3">Click to choose image or drag it here.</p>
+            <React.Fragment>
+              <label
+                htmlFor="formFileBackground"
+                className="flex-fill form-label d-block text-center mb-0 p-5"
+              >
+                Click to choose image or drag it here.
+              </label>
+              <input
+                className="form-control d-none"
+                type="file"
+                id="formFileBackground"
+                onChange={(e) => handleFileChange(e)}
+              />
+            </React.Fragment>
           )}
         </div>
         {canvasBackgroundValues.fileImageURL ? (
