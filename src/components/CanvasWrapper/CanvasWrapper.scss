@@ -4,6 +4,7 @@
 
 .canvas {
   --zIndex: 999;
+  --icon-size: 16vw;
   container-type: inline-size;
   overflow: hidden;
   background: var(--bs-gray-light);
@@ -30,7 +31,6 @@
 
   .icon {
     position: relative;
-    --icon-size: 10vw;
     width: var(--icon-size);
     height: var(--icon-size);
     border-radius: 50%;
@@ -49,7 +49,7 @@
     display: flex;
     flex-direction: column;
     justify-self: flex-start;
-    position: relative;
+    position: sticky;
     z-index: var(--zIndex);
 
     &.align-v-start {
