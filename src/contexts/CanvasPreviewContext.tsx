@@ -56,12 +56,12 @@ export const Provider = (props: {
       scale: 1,
       padding: 0,
       align: {
-        horizontal: "",
+        horizontal: "end",
         vertical: "",
       },
       position: {
-        x: 17,
-        y: 14,
+        x: 0,
+        y: 0,
       },
     });
 
