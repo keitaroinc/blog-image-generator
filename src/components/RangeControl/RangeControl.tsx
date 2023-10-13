@@ -53,7 +53,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
-              title="Align to Start"
+              title="Align to Left"
               htmlFor={`${type}-${id}-start`}
             >
               <i className="bi bi-align-start"></i>
@@ -85,7 +85,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
-              title="Align to End"
+              title="Align to Right"
               htmlFor={`${type}-${id}-end`}
             >
               <i className="bi bi-align-end"></i>
@@ -154,7 +154,7 @@ export const RangeControl: React.FC<RangeControlProps> = ({
             />
             <label
               className="btn btn-outline-secondary"
-              title="Align to End"
+              title="Align to Bottom"
               htmlFor={`${type}-${id}-end`}
             >
               <i className="bi bi-align-bottom"></i>
