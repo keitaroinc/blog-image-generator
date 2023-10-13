@@ -63,7 +63,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       const files = Array.from(e.dataTransfer.files);
       setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove("border-success");
+        dragAndDropContainer.current.children[0].classList.remove("border-success");
       }
     },
     [canvasIconValues, setCanvasIconValues]
@@ -72,14 +72,14 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.add("border-success");
+      dragAndDropContainer.current.children[0].classList.add("border-success");
     }
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.remove("border-success");
+      dragAndDropContainer.current.children[0].classList.remove("border-success");
     }
   }, []);
 
@@ -134,8 +134,8 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
-          ref={dragAndDropContainer}
           style={{ backgroundColor: canvasIconValues.color }}
+          ref={dragAndDropContainer}
         >
           {canvasIconValues.fileImageURL ? (
             <div className="alert alert-dismissible">

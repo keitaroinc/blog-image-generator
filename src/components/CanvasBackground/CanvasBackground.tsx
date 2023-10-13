@@ -61,7 +61,7 @@ export const CanvasBackground: React.FunctionComponent<
         fileImage: files[0],
       });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove("border-success");
+        dragAndDropContainer.current.children[0].classList.remove("border-success");
       }
     },
     [canvasBackgroundValues, setCanvasBackgroundValues]
@@ -70,14 +70,14 @@ export const CanvasBackground: React.FunctionComponent<
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.add("border-success");
+      dragAndDropContainer.current.children[0].classList.add("border-success");
     }
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.remove("border-success");
+      dragAndDropContainer.current.children[0].classList.remove("border-success");
     }
   }, []);
 
