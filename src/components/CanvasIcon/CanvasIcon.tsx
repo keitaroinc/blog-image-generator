@@ -182,7 +182,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               title="Icon Scale"
               defaultValue={canvasIconValues.scale}
               min={1}
-              max={max/2}
+              max={max / 2}
               step={maxStep / 2}
               onChange={(e: any) =>
                 setCanvasIconValues({
