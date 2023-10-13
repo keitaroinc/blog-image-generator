@@ -134,27 +134,6 @@ export const CanvasBackground: React.FunctionComponent<
     });
   };
 
-  const handleHorizontalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setCanvasBackgroundValues({
-      ...canvasBackgroundValues,
-      align: {
-        ...canvasBackgroundValues.align,
-        horizontal: event.target.value,
-      },
-    });
-  };
-
-  const handleVerticalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
-  ) => {
-    setCanvasBackgroundValues({
-      ...canvasBackgroundValues,
-      align: { ...canvasBackgroundValues.align, vertical: event.target.value },
-    });
-  };
-
   return (
     <Fragment>
       <HeaderComponent>
@@ -231,15 +210,10 @@ export const CanvasBackground: React.FunctionComponent<
               max={200}
               step="1"
               value={canvasBackgroundValues.position.x}
-              align={canvasBackgroundValues.align.horizontal}
-              onHorizontalAlignChange={(e: any) =>
-                handleHorizontalAlignChange(e)
-              }
               onChange={(e: any) => handleHorizontalPositionChange(e)}
               labelTitle={"Horizontal Position"}
               labelValue={canvasBackgroundValues.position.x}
               labelValueType="%"
-              type="horizontal-position"
             />
             <RangeControl
               id="backgroundVerticalRange"
@@ -248,13 +222,10 @@ export const CanvasBackground: React.FunctionComponent<
               max={200}
               step="1"
               value={canvasBackgroundValues.position.y}
-              align={canvasBackgroundValues.align.vertical}
-              onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
               onChange={(e: any) => handleVerticalPositionChange(e)}
               labelTitle={"Vertical Position"}
               labelValue={canvasBackgroundValues.position.y}
               labelValueType="%"
-              type="vertical-position"
             />
             <RangeControl
               id="backgroundScaleRange"
