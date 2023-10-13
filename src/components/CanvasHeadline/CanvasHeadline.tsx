@@ -20,6 +20,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
       align: { ...canvasHeadlineValues.align, horizontal: event.target.value },
+      position: { ...canvasHeadlineValues.position, x: 0 },
     });
   };
 
@@ -29,6 +30,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
       align: { ...canvasHeadlineValues.align, vertical: event.target.value },
+      position: { ...canvasHeadlineValues.position, y: 0 },
     });
   };
 
@@ -56,7 +58,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     });
   };
 
-  const max = 24;
+  const max = 25;
   const maxStep = 1;
 
   return (
@@ -107,7 +109,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           type="size"
         />
         <RangeControl
-          min={0}
+          min={-max}
           max={max}
           step={maxStep}
           title="Headline Horizontal Position"
@@ -121,7 +123,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           type="horizontal-position"
         />
         <RangeControl
-          min={0}
+          min={-max}
           max={max}
           step={maxStep}
           title="Headline Vertical Position"

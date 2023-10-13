@@ -87,7 +87,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     }
   }, []);
 
-  const max = 50;
+  const max = 100;
   const maxStep = 1;
 
   const handleDeleteImage = () => {
@@ -104,6 +104,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     setCanvasIconValues({
       ...canvasIconValues,
       align: { ...canvasIconValues.align, horizontal: event.target.value },
+      position: { ...canvasIconValues.position, x: 0 },
     });
   };
 
@@ -113,6 +114,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     setCanvasIconValues({
       ...canvasIconValues,
       align: { ...canvasIconValues.align, vertical: event.target.value },
+      position: { ...canvasIconValues.position, y: 0 },
     });
   };
 
@@ -180,7 +182,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               title="Icon Scale"
               defaultValue={canvasIconValues.scale}
               min={1}
-              max={max}
+              max={max/2}
               step={maxStep / 2}
               onChange={(e: any) =>
                 setCanvasIconValues({
@@ -214,7 +216,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               title="Icon Horizontal Position"
               value={canvasIconValues.position.x}
               align={canvasIconValues.align.horizontal}
-              min={0}
+              min={-max}
               max={max}
               step={maxStep}
               onHorizontalAlignChange={(e: any) =>
@@ -237,7 +239,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               id="iconVerticalRange"
               title="Icon Vertical Position"
               className="form-range"
-              min={0}
+              min={-max}
               max={max}
               step={1}
               value={canvasIconValues.position.y}
