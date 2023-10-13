@@ -1,17 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap");
-
-// Include functions first (so you can manipulate colors, SVGs, calc, etc)
+// Bootstrap 5.3
 @import "../../../node_modules/bootstrap/scss/functions";
 @import "./variables";
 @import "./variables-dark";
-
-// 5. Include remainder of required parts
 @import "../../../node_modules/bootstrap/scss/mixins";
 @import "../../../node_modules/bootstrap/scss/maps";
 @import "../../../node_modules/bootstrap/scss/root";
 @import "../../../node_modules/bootstrap/scss/utilities";
-
-// // Layout & components
 @import "../../../node_modules/bootstrap/scss/_root.scss";
 @import "../../../node_modules/bootstrap/scss/_reboot.scss";
 @import "../../../node_modules/bootstrap/scss/_type.scss";
@@ -27,30 +21,27 @@
 @import "../../../node_modules/bootstrap/scss/_nav.scss";
 @import "../../../node_modules/bootstrap/scss/_navbar.scss";
 @import "../../../node_modules/bootstrap/scss/_card.scss";
-@import "../../../node_modules/bootstrap/scss/_accordion.scss";
-@import "../../../node_modules/bootstrap/scss/_breadcrumb.scss";
-@import "../../../node_modules/bootstrap/scss/_pagination.scss";
+// @import "../../../node_modules/bootstrap/scss/_accordion.scss";
+// @import "../../../node_modules/bootstrap/scss/_breadcrumb.scss";
+// @import "../../../node_modules/bootstrap/scss/_pagination.scss";
 @import "../../../node_modules/bootstrap/scss/_badge.scss";
 @import "../../../node_modules/bootstrap/scss/_alert.scss";
-@import "../../../node_modules/bootstrap/scss/_progress.scss";
+// @import "../../../node_modules/bootstrap/scss/_progress.scss";
 @import "../../../node_modules/bootstrap/scss/_list-group.scss";
 @import "../../../node_modules/bootstrap/scss/_close.scss";
-@import "../../../node_modules/bootstrap/scss/_toasts.scss";
+// @import "../../../node_modules/bootstrap/scss/_toasts.scss";
 @import "../../../node_modules/bootstrap/scss/_modal.scss";
 @import "../../../node_modules/bootstrap/scss/_tooltip.scss";
 @import "../../../node_modules/bootstrap/scss/_popover.scss";
-@import "../../../node_modules/bootstrap/scss/_carousel.scss";
+// @import "../../../node_modules/bootstrap/scss/_carousel.scss";
 @import "../../../node_modules/bootstrap/scss/_spinners.scss";
 @import "../../../node_modules/bootstrap/scss/_offcanvas.scss";
 @import "../../../node_modules/bootstrap/scss/_placeholders.scss";
-
-// // 6. Optionally include any other parts as needed
 @import "../../../node_modules/bootstrap/scss/helpers";
-
-// // 7. Optionally include utilities API last to generate classes based on the Sass map in `_utilities.scss`
 @import "../../../node_modules/bootstrap/scss/utilities/api";
 
-@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons";
-
-// // 8. Add additional custom code here
+// Custom SCSS
 @import "./custom";
+
+// Bootstrap Icons v1.10.5
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons";

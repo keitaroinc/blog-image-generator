@@ -1,10 +1,25 @@
 .drag-and-drop-container {
   @extend .text-muted;
-  @extend .rounded;
-  @extend .rounded-3;
-  border: 2px dashed #ccc;
-  min-height: $spacer * 10;
-  transition: all 0.4s ease-in-out;
+  @extend .bg-white;
+  @extend .p-2;
+
+  .form-label {
+    transition: border 150ms ease-in-out;
+    @extend .rounded;
+    @extend .rounded-3;
+    @extend .p-5;
+    border: 2px dashed $gray-400;
+    cursor: pointer;
+
+    &:hover {
+      border-color: $secondary;
+    }
+
+    &:focus,
+    &:active {
+      border-color: $dark;
+    }
+  }
 }
 
 .sidebar-logo {

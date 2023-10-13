@@ -61,10 +61,8 @@ export const CanvasBackground: React.FunctionComponent<
         fileImage: files[0],
       });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove(
-          "border-success",
-          "shadow",
-          "bg-white"
+        dragAndDropContainer.current.children[0].classList.remove(
+          "border-success"
         );
       }
     },
@@ -74,24 +72,16 @@ export const CanvasBackground: React.FunctionComponent<
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.add(
-        "border-success",
-        "shadow",
-        "bg-white"
-      );
-      dragAndDropContainer.current.classList.remove("bg-transparent");
+      dragAndDropContainer.current.children[0].classList.add("border-success");
     }
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.remove(
-        "border-success",
-        "shadow",
-        "bg-white"
+      dragAndDropContainer.current.children[0].classList.remove(
+        "border-success"
       );
-      dragAndDropContainer.current.classList.add("bg-transparent");
     }
   }, []);
 
@@ -110,6 +100,13 @@ export const CanvasBackground: React.FunctionComponent<
     setCanvasBackgroundValues({
       ...canvasBackgroundValues,
       position: { ...canvasBackgroundValues.position, y: event.target.value },
+    });
+  };
+
+  const handlePaddingChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCanvasBackgroundValues({
+      ...canvasBackgroundValues,
+      padding: event.target.value,
     });
   };
 
@@ -136,6 +133,7 @@ export const CanvasBackground: React.FunctionComponent<
       fileImage: null,
     });
   };
+
   return (
     <Fragment>
       <HeaderComponent>
@@ -153,24 +151,24 @@ export const CanvasBackground: React.FunctionComponent<
         />
       </HeaderComponent>
       <div className="list-group-item" data-testid="canvasBackground">
+        <RangeControl
+          id="backgroundPaddingRange"
+          title="Background Padding"
+          min={0}
+          max={10}
+          step="1"
+          value={canvasBackgroundValues.padding}
+          onChange={(e: any) => handlePaddingChange(e)}
+          labelTitle={"Padding"}
+          labelValue={canvasBackgroundValues.padding}
+        />
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none my-2 p-1 bg-white position-relative"
+          className="drag-and-drop-container d-flex flex-column flex-fill user-select-none mt-4 mb-2"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           ref={dragAndDropContainer}
         >
-          <div className="position-absolute w-100 h-100 opacity-0">
-            <label htmlFor="formFile" className="form-label">
-              Default file input example
-            </label>
-            <input
-              className="form-control w-100 h-100"
-              type="file"
-              id="formFile"
-              onChange={(e) => handleFileChange(e)}
-            />
-          </div>
           {canvasBackgroundValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -187,7 +185,20 @@ export const CanvasBackground: React.FunctionComponent<
               />
             </div>
           ) : (
-            <p className="m-0 px-3">Click to choose image or drag it here.</p>
+            <React.Fragment>
+              <label
+                htmlFor="formFileBackground"
+                className="flex-fill form-label d-block text-center mb-0 p-5"
+              >
+                Click to choose image or drag it here.
+              </label>
+              <input
+                className="form-control d-none"
+                type="file"
+                id="formFileBackground"
+                onChange={(e) => handleFileChange(e)}
+              />
+            </React.Fragment>
           )}
         </div>
         {canvasBackgroundValues.fileImageURL ? (
@@ -227,6 +238,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle={"Scale"}
               labelValue={canvasBackgroundValues.size}
               labelValueType="%"
+              type="scale"
             />
             <RangeControl
               id="backgroundBlurRange"
@@ -239,6 +251,7 @@ export const CanvasBackground: React.FunctionComponent<
               labelTitle="Blur"
               labelValue={canvasBackgroundValues.blur}
               labelValueType="px"
+              type="blur"
             />
           </Fragment>
         ) : null}

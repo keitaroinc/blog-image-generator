@@ -63,10 +63,8 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       const files = Array.from(e.dataTransfer.files);
       setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
       if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.classList.remove(
-          "border-success",
-          "shadow",
-          "bg-white"
+        dragAndDropContainer.current.children[0].classList.remove(
+          "border-success"
         );
       }
     },
@@ -76,28 +74,20 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.add(
-        "border-success",
-        "shadow",
-        "bg-white"
-      );
-      dragAndDropContainer.current.classList.remove("bg-transparent");
+      dragAndDropContainer.current.children[0].classList.add("border-success");
     }
   }, []);
 
   const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.classList.remove(
-        "border-success",
-        "shadow",
-        "bg-white"
+      dragAndDropContainer.current.children[0].classList.remove(
+        "border-success"
       );
-      dragAndDropContainer.current.classList.add("bg-transparent");
     }
   }, []);
 
-  const max = 24;
+  const max = 100;
   const maxStep = 1;
 
   const handleDeleteImage = () => {
@@ -105,6 +95,26 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
       ...canvasIconValues,
       fileImageURL: null,
       fileImage: null,
+    });
+  };
+
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasIconValues({
+      ...canvasIconValues,
+      align: { ...canvasIconValues.align, horizontal: event.target.value },
+      position: { ...canvasIconValues.position, x: 0 },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasIconValues({
+      ...canvasIconValues,
+      align: { ...canvasIconValues.align, vertical: event.target.value },
+      position: { ...canvasIconValues.position, y: 0 },
     });
   };
 
@@ -121,26 +131,18 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           }
         />
       </HeaderComponent>
-      <div className="list-group-item" data-testid="canvasIcon">
+      <div
+        className="list-group-item d-flex flex-column"
+        data-testid="canvasIcon"
+      >
         <div
-          className="drag-and-drop-container d-flex justify-content-center align-items-center mb-3 user-select-none mt-2 p-1 bg-white position-relative"
+          className="drag-and-drop-container d-flex flex-column flex-fill user-select-none my-2"
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
-          ref={dragAndDropContainer}
           style={{ backgroundColor: canvasIconValues.color }}
+          ref={dragAndDropContainer}
         >
-          <div className="position-absolute w-100 h-100 opacity-0">
-            <label htmlFor="formFile" className="form-label">
-              Default file input example
-            </label>
-            <input
-              className="form-control w-100 h-100"
-              type="file"
-              id="formFile"
-              onChange={(e) => handleFileChange(e)}
-            />
-          </div>
           {canvasIconValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -157,7 +159,20 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               />
             </div>
           ) : (
-            <p className="m-0 px-3">Click to choose image or drag it here.</p>
+            <React.Fragment>
+              <label
+                htmlFor="formFileIcon"
+                className="flex-fill form-label d-block text-center mb-0 p-5"
+              >
+                Click to choose image or drag it here.
+              </label>
+              <input
+                className="form-control d-none"
+                type="file"
+                id="formFileIcon"
+                onChange={(e) => handleFileChange(e)}
+              />
+            </React.Fragment>
           )}
         </div>
         {canvasIconValues.fileImageURL && (
@@ -167,8 +182,8 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               title="Icon Scale"
               defaultValue={canvasIconValues.scale}
               min={1}
-              max={max}
-              step={1}
+              max={max / 2}
+              step={maxStep / 2}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -177,6 +192,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Scale"}
               labelValue={canvasIconValues.scale}
+              type="scale"
             />
             <RangeControl
               id="iconPaddingRange"
@@ -193,14 +209,19 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Padding"}
               labelValue={canvasIconValues.padding}
+              type="padding"
             />
             <RangeControl
               id="iconHorizontalRange"
               title="Icon Horizontal Position"
-              defaultValue={canvasIconValues.position.x}
-              min={1}
+              value={canvasIconValues.position.x}
+              align={canvasIconValues.align.horizontal}
+              min={-max}
               max={max}
               step={maxStep}
+              onHorizontalAlignChange={(e: any) =>
+                handleHorizontalAlignChange(e)
+              }
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -212,15 +233,18 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Horizontal Position"}
               labelValue={canvasIconValues.position.x}
+              type="horizontal-position"
             />
             <RangeControl
               id="iconVerticalRange"
               title="Icon Vertical Position"
               className="form-range"
-              min={1}
+              min={-max}
               max={max}
               step={1}
-              defaultValue={canvasIconValues.position.y}
+              value={canvasIconValues.position.y}
+              align={canvasIconValues.align.vertical}
+              onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
@@ -232,6 +256,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               }
               labelTitle={"Vertical Position"}
               labelValue={canvasIconValues.position.y}
+              type="vertical-position"
             />
           </Fragment>
         )}

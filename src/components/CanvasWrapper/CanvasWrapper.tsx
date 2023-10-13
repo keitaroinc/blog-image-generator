@@ -23,7 +23,6 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
-  const logoRef = React.useRef<HTMLImageElement>(null);
 
   const onDownload = useCallback(
     (type: string) => {
@@ -67,10 +66,11 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
   return (
     <div className={className} data-testid="CanvasWrapper">
       <div
-        className="canvas grid flex-grow-1"
+        className={`canvas grid flex-fill`}
         data-testid="canvasPreviewWrapper"
         ref={canvasRef}
         style={{
+          padding: `${canvasBackgroundValues.padding}em`,
           backgroundColor: `${canvasBackgroundValues.color}`,
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
@@ -79,7 +79,15 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
       >
         {canvasBackgroundValues.fileImageURL ? (
           <div
-            className="blur"
+            className={`blur ${
+              canvasBackgroundValues.align.horizontal
+                ? `align-h-${canvasBackgroundValues.align.horizontal} text-${canvasBackgroundValues.align.horizontal}`
+                : ``
+            } ${
+              canvasBackgroundValues.align.vertical
+                ? `align-v-${canvasBackgroundValues.align.vertical}`
+                : ``
+            }`}
             style={{
               backgroundImage: `url(${canvasBackgroundValues.fileImageURL})`,
               backgroundSize: `auto ${canvasBackgroundValues.size}%`,
@@ -91,11 +99,19 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         ) : null}
         <GradientComponent canvasGradientValues={canvasGradientValues} />
         <h1
-          className={`title`}
+          className={`title ${
+            canvasHeadlineValues.align.horizontal
+              ? `align-h-${canvasHeadlineValues.align.horizontal} text-${canvasHeadlineValues.align.horizontal}`
+              : ``
+          } ${
+            canvasHeadlineValues.align.vertical
+              ? `align-v-${canvasHeadlineValues.align.vertical}`
+              : ``
+          }`}
           data-testid="canvasHeadlineTitle"
           style={{
-            gridColumnStart: canvasHeadlineValues.position.x,
-            gridRowStart: canvasHeadlineValues.position.y,
+            left: `${Number(canvasHeadlineValues.position.x)}em`,
+            top: `${Number(canvasHeadlineValues.position.y)}em`,
             color: canvasHeadlineValues.color,
             fontSize: `${canvasHeadlineValues.size}em`,
           }}
@@ -105,10 +121,18 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         </h1>
         {canvasIconValues.fileImageURL && (
           <div
-            className="icon"
+            className={`icon ${
+              canvasIconValues.align.horizontal
+                ? `align-h-${canvasIconValues.align.horizontal}`
+                : ``
+            } ${
+              canvasIconValues.align.vertical
+                ? `align-v-${canvasIconValues.align.vertical}`
+                : ``
+            }`}
             style={{
-              gridColumnStart: canvasIconValues.position.x,
-              gridRowStart: canvasIconValues.position.y,
+              left: `${Number(canvasIconValues.position.x)}em`,
+              top: `${Number(canvasIconValues.position.y)}em`,
               backgroundColor: `${canvasIconValues.color}`,
               transform: `scale(${1 * canvasIconValues.scale})`,
               padding: `${canvasIconValues.padding}vw`,
@@ -126,11 +150,19 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           </div>
         )}
         <div
-          className="logo align-self-end d-flex flex-column justify-content-center"
+          className={`logo ${
+            canvasLogoValues.align.horizontal
+              ? `align-h-${canvasLogoValues.align.horizontal}`
+              : ``
+          } ${
+            canvasLogoValues.align.vertical
+              ? `align-v-${canvasLogoValues.align.vertical}`
+              : ``
+          }`}
           data-testid="canvasLogoPreview"
           style={{
-            gridColumnStart: canvasLogoValues.position.x,
-            gridRowStart: canvasLogoValues.position.y,
+            left: `${Number(canvasLogoValues.position.x)}em`,
+            bottom: `${Number(canvasLogoValues.position.y)}em`,
             opacity: `${canvasLogoValues.opacity}%`,
           }}
         >
@@ -152,7 +184,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         <div className="col">
           <div className="form-floating">
             <select
-              title="canvasAspectRatio"
+              id="canvasAspectRatio"
               onChange={(e) => setCanvasAspectRatio(e.target.value)}
               className="form-select"
               aria-label="Select canvas aspect ratio"
@@ -185,18 +217,10 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               <span className="visually-hidden">Toggle Dropdown</span>
             </button>
             <ul className="dropdown-menu">
-              <li
-                className="dropdown-item"
-                role="button"
-                onClick={() => onDownload("png")}
-              >
+              <li className="dropdown-item" onClick={() => onDownload("png")}>
                 PNG
               </li>
-              <li
-                className="dropdown-item"
-                role="button"
-                onClick={() => onDownload("jpg")}
-              >
+              <li className="dropdown-item" onClick={() => onDownload("jpg")}>
                 JPG
               </li>
             </ul>

@@ -23,6 +23,10 @@ export interface CanvasHeadlineValuesInterface {
   content: string;
   color: string;
   size: number;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: number;
     y: number;
@@ -40,6 +44,10 @@ export interface CanvasIconValuesInterface {
   color: string;
   scale: number;
   padding: number;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: number;
     y: number;
@@ -47,9 +55,14 @@ export interface CanvasIconValuesInterface {
 }
 
 export interface CanvasBackgroundValuesInterface {
+  padding: number;
   color: string;
   fileImage: Blob | null;
   fileImageURL: string | ArrayBuffer | null;
+  align: {
+    horizontal: string;
+    vertical: string;
+  };
   position: {
     x: string;
     y: string;
@@ -64,6 +77,10 @@ export interface CanvasLogoValuesInterface {
   title: {
     content: string;
     color: string;
+  };
+  align: {
+    horizontal: string;
+    vertical: string;
   };
   position: {
     x: number;

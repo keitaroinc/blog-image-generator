@@ -7,9 +7,13 @@
       "content": "Headline text goes here and it can get pretty long...",
       "color": "#000000",
       "size": 4,
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
-        "x": 2,
-        "y": 2
+        "x": 0,
+        "y": 0
       }
     },
     "canvasBorderValues": {
@@ -22,12 +26,17 @@
       "color": "#f4f4f4",
       "scale": 1,
       "padding": 0,
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
         "x": 17,
         "y": 14
       }
     },
     "canvasBackgroundValues": {
+      "padding": 5,
       "color": "#ffffff",
       "fileImage": null,
       "fileImageURL": null,
@@ -45,9 +54,13 @@
         "content": "",
         "color": "#000000"
       },
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
-        "x": 2,
-        "y": 22
+        "x": 0,
+        "y": 0
       }
     },
     "canvasGradientValues": []
@@ -59,10 +72,14 @@
     "canvasHeadlineValues": {
       "content": "ckan-ext\nEXTENSION NAME",
       "color": "#ffffff",
-      "size": 5,
+      "size": 4,
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
-        "x": 2,
-        "y": 2
+        "x": 0,
+        "y": 0
       }
     },
     "canvasBorderValues": {
@@ -73,14 +90,19 @@
       "fileImage": null,
       "fileImageURL": null,
       "color": "#55504C",
-      "scale": 2,
-      "padding": 1,
+      "scale": 1,
+      "padding": 0,
+      "align": {
+        "horizontal": "end",
+        "vertical": ""
+      },
       "position": {
-        "x": 17,
-        "y": 14
+        "x": 0,
+        "y": 0
       }
     },
     "canvasBackgroundValues": {
+      "padding": 7,
       "color": "#55504C",
       "fileImage": null,
       "fileImageURL": null,
@@ -98,9 +120,13 @@
         "content": "CKAN Extension by",
         "color": "#ffffff"
       },
+      "align": {
+        "horizontal": "",
+        "vertical": ""
+      },
       "position": {
-        "x": 2,
-        "y": 23
+        "x": 0,
+        "y": 0
       }
     },
     "canvasGradientValues": []

@@ -33,9 +33,13 @@ export const Provider = (props: {
       content: "Headline text goes here and it can get pretty long...",
       color: "#000000",
       size: 4,
+      align: {
+        horizontal: "",
+        vertical: "",
+      },
       position: {
-        x: 2,
-        y: 2,
+        x: 0,
+        y: 0,
       },
     });
 
@@ -51,20 +55,29 @@ export const Provider = (props: {
       color: "#dee2e6",
       scale: 1,
       padding: 0,
+      align: {
+        horizontal: "end",
+        vertical: "",
+      },
       position: {
-        x: 17,
-        y: 14,
+        x: 0,
+        y: 0,
       },
     });
 
   const [canvasBackgroundValues, setCanvasBackgroundValues] =
     useState<CanvasBackgroundValuesInterface>({
+      padding: 5,
       color: "#FFFFFF",
       fileImage: null,
       fileImageURL: null,
       position: {
         x: "50",
         y: "50",
+      },
+      align: {
+        horizontal: "",
+        vertical: "",
       },
       size: "100",
       blur: 0,
@@ -78,9 +91,13 @@ export const Provider = (props: {
         content: "",
         color: "#000000",
       },
+      align: {
+        horizontal: "",
+        vertical: "",
+      },
       position: {
-        x: 2,
-        y: 22,
+        x: 0,
+        y: 0,
       },
     });
 

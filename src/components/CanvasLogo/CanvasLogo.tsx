@@ -19,8 +19,28 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
     CanvasPreviewContextValues
   );
 
-  const max = 24;
+  const max = 100;
   const maxStep = 1;
+
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasLogoValues({
+      ...canvasLogoValues,
+      align: { ...canvasLogoValues.align, horizontal: event.target.value },
+      position: { ...canvasLogoValues.position, x: 0 },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasLogoValues({
+      ...canvasLogoValues,
+      align: { ...canvasLogoValues.align, vertical: event.target.value },
+      position: { ...canvasLogoValues.position, y: 0 },
+    });
+  };
 
   return (
     <Fragment>
@@ -100,14 +120,17 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           labelTitle={"Opacity"}
           labelValue={canvasLogoValues.opacity}
           labelValueType="%"
+          type="opacity"
         />
         <RangeControl
           id="logoHorizontalPosition"
           title="Logo Horizontal Position"
           value={canvasLogoValues.position.x}
-          min={1}
-          max={max - 2}
+          align={canvasLogoValues.align.horizontal}
+          min={-max}
+          max={max}
           step={maxStep}
+          onHorizontalAlignChange={(e: any) => handleHorizontalAlignChange(e)}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -119,14 +142,17 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
           labelTitle={"Horizontal Position"}
           labelValue={canvasLogoValues.position.x}
+          type="horizontal-position"
         />
         <RangeControl
           id="logoVerticalPosition"
           title="Logo Vertical Position"
-          defaultValue={canvasLogoValues.position.y}
-          min={1}
+          value={canvasLogoValues.position.y}
+          align={canvasLogoValues.align.vertical}
+          min={-max}
+          max={max}
           step={maxStep}
-          max={max - 1}
+          onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
           onChange={(e: any) =>
             setCanvasLogoValues({
               ...canvasLogoValues,
@@ -138,6 +164,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
           }
           labelTitle={"Vertical Position"}
           labelValue={canvasLogoValues.position.y}
+          type="vertical-position"
         />
       </div>
     </Fragment>

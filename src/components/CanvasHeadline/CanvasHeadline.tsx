@@ -14,6 +14,26 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     CanvasPreviewContextValues
   );
 
+  const handleHorizontalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      align: { ...canvasHeadlineValues.align, horizontal: event.target.value },
+      position: { ...canvasHeadlineValues.position, x: 0 },
+    });
+  };
+
+  const handleVerticalAlignChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      align: { ...canvasHeadlineValues.align, vertical: event.target.value },
+      position: { ...canvasHeadlineValues.position, y: 0 },
+    });
+  };
+
   const handleHorizontalPositionChange = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
@@ -38,7 +58,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
     });
   };
 
-  const max = 24;
+  const max = 25;
   const maxStep = 1;
 
   return (
@@ -63,7 +83,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
             className="form-control h-100"
             id="headlineTextarea"
             data-testid="headlineTextarea"
-            placeholder="Leave a comment here"
+            placeholder="Enter headline text here"
             rows={3}
             value={canvasHeadlineValues.content}
             onChange={(e) =>
@@ -73,7 +93,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
               })
             }
           ></textarea>
-          <label htmlFor="headlineTextarea">Enter headline text here</label>
+          <label htmlFor="headlineTextarea">Headline text</label>
         </div>
         <RangeControl
           min={3}
@@ -86,28 +106,35 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelTitle={"Size"}
           labelValue={canvasHeadlineValues.size}
           labelValueType=""
+          type="size"
         />
         <RangeControl
-          min={1}
+          min={-max}
           max={max}
           step={maxStep}
           title="Headline Horizontal Position"
           id="headlineHorizontalRange"
           value={canvasHeadlineValues.position.x}
+          align={canvasHeadlineValues.align.horizontal}
           onChange={(e: any) => handleHorizontalPositionChange(e)}
+          onHorizontalAlignChange={(e: any) => handleHorizontalAlignChange(e)}
           labelTitle={"Horizontal Position"}
           labelValue={canvasHeadlineValues.position.x}
+          type="horizontal-position"
         />
         <RangeControl
-          min={1}
+          min={-max}
           max={max}
           step={maxStep}
           title="Headline Vertical Position"
           id="headlineVerticalRange"
           value={canvasHeadlineValues.position.y}
+          align={canvasHeadlineValues.align.vertical}
           onChange={(e: any) => handleVerticalPositionChange(e)}
+          onVerticalAlignChange={(e: any) => handleVerticalAlignChange(e)}
           labelTitle={"Vertical Position"}
           labelValue={canvasHeadlineValues.position.y}
+          type="vertical-position"
         />
       </div>
     </Fragment>
