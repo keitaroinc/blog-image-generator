@@ -60,7 +60,7 @@ describe("App.tsx tests", () => {
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
       const styles = window.getComputedStyle(headlinePreviewElement);
-      expect(styles.gridColumnStart).toBe("5");
+      expect(styles.left).toBe("5em");
     });
 
     it("should change headline vertical position", () => {
@@ -71,7 +71,7 @@ describe("App.tsx tests", () => {
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
       const styles = window.getComputedStyle(headlinePreviewElement);
-      expect(styles.gridRowStart).toBe("5");
+      expect(styles.top).toBe("5em");
     });
   });
 
@@ -97,7 +97,7 @@ describe("App.tsx tests", () => {
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const logoPreviewElement = screen.getByTestId(/canvasLogoPreview/i);
       const styles = window.getComputedStyle(logoPreviewElement);
-      expect(styles.gridColumnStart).toBe("5");
+      expect(styles.left).toBe("5em");
     });
 
     it("should change logo vertical position", () => {
@@ -108,7 +108,7 @@ describe("App.tsx tests", () => {
       fireEvent.change(rangeElement, { target: { value: "5" } });
       const logoPreviewElement = screen.getByTestId(/canvasLogoPreview/i);
       const styles = window.getComputedStyle(logoPreviewElement);
-      expect(styles.gridRowStart).toBe("5");
+      expect(styles.bottom).toBe("5em");
     });
   });
 });
