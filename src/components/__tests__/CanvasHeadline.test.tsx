@@ -11,7 +11,7 @@ describe("CanvasHeadlines.tsx tests", () => {
       </CanvasPreviewContextProvider>
     );
     const textAreaElement = screen.getByPlaceholderText(
-      /Leave a comment here/i
+      /Enter headline text here/i
     ) as HTMLInputElement;
     fireEvent.change(textAreaElement, {
       target: { value: "Text for the headline component" },
