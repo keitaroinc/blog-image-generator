@@ -53,7 +53,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 
 ### 1. Blank screen when opening the application
 
-Usually a blank screen is caused by an error in the application, which can be specifically explored in the Developer Tools. However, a blank screen **might also be caused by changes in the templates.json  configuration**. If that is the case, a quick fix could be cleaning the application data in your browser's Developer Tools.
+Usually a blank screen is caused by an error in the application, which can be specifically explored in the Developer Tools. However, a blank screen **might also be caused by changes in the templates.json configuration**. If that is the case, a quick fix could be cleaning the application data in your browser's Developer Tools.
 
 - https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox#w_clear-all-cookies-site-data-and-cache
 - https://www.howtogeek.com/664912/how-to-clear-storage-and-site-data-for-a-single-site-on-google-chrome/
