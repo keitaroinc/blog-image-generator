@@ -52,9 +52,24 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
             >
               <i className="bi bi-star me-2" title="Your Templates icon"></i>
               <span className="me-auto">{template.templateName}</span>
+              <a
+                href={`data:text/json;charset=utf-8, ${encodeURIComponent(
+                  JSON.stringify(
+                    canvasTemplates.filter((item) =>
+                      item.templateName.includes(template.templateName)
+                    )
+                  )
+                )}`}
+                download={`${template.templateName}-preset-big.json`}
+                data-testid="downloadTemplateBtn"
+                className="ms-3 btn btn-sm btn-outline-secondary"
+                title="Download Template"
+              >
+                <i className="bi bi-download" title="Download Template"></i>
+              </a>
               <button
                 data-testid="deleteTemplateBtn"
-                className="ms-3 btn btn-sm btn-outline-danger"
+                className="ms-2 btn btn-sm btn-outline-danger"
                 data-bs-dismiss="modal"
                 onClick={() => handleDeleteTemplate(template.templateName)}
                 title="Delete Template"
