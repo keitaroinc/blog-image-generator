@@ -79,15 +79,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
       >
         {canvasBackgroundValues.fileImageURL ? (
           <div
-            className={`blur ${
-              canvasBackgroundValues.align.horizontal
-                ? `align-h-${canvasBackgroundValues.align.horizontal} text-${canvasBackgroundValues.align.horizontal}`
-                : ``
-            } ${
-              canvasBackgroundValues.align.vertical
-                ? `align-v-${canvasBackgroundValues.align.vertical}`
-                : ``
-            }`}
+            className={`blur`}
             style={{
               backgroundImage: `url(${canvasBackgroundValues.fileImageURL})`,
               backgroundSize: `auto ${canvasBackgroundValues.size}%`,
