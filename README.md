@@ -2,6 +2,8 @@
 
 [![Deploy](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml) [![Lint](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml)
 
+Blog Image Generator (BIG) is a single page application for creating blog post images developed by Keitaro. Please check the [Wiki](https://github.com/keitaroinc/blog-image-generator/wiki) for further details.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -46,3 +48,13 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+## Known Issues
+
+### 1. Blank screen when opening the application
+
+Usually a blank screen is caused by an error in the application, which can be specifically explored in the Developer Tools. However, a blank screen **might also be caused by changes in the templates.json configuration**. If that is the case, a quick fix could be cleaning the application data in your browser's Developer Tools.
+
+- https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox#w_clear-all-cookies-site-data-and-cache
+- https://www.howtogeek.com/664912/how-to-clear-storage-and-site-data-for-a-single-site-on-google-chrome/
+- https://www.laptopmag.com/articles/safari-delete-cookies
