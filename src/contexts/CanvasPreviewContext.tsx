@@ -52,7 +52,7 @@ export const Provider = (props: {
     useState<CanvasIconValuesInterface>({
       fileImage: null,
       fileImageURL: null,
-      color: "#dee2e6",
+      color: "#FFFFFF",
       scale: 1,
       padding: 0,
       align: {
