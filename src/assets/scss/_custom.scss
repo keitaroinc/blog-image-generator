@@ -1,7 +1,5 @@
 .drag-and-drop-container {
   @extend .text-muted;
-  @extend .bg-white;
-  @extend .p-2;
 
   .form-label {
     transition: border 150ms ease-in-out;

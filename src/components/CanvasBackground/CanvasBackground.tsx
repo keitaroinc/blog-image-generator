@@ -175,7 +175,7 @@ export const CanvasBackground: React.FunctionComponent<
                 id="iconSmallImage"
                 className="img-fluid"
                 src={`${canvasBackgroundValues.fileImageURL}`}
-                alt="Added images"
+                alt="Background image"
               />
               <button
                 type="button"
@@ -188,7 +188,7 @@ export const CanvasBackground: React.FunctionComponent<
             <React.Fragment>
               <label
                 htmlFor="formFileBackground"
-                className="flex-fill form-label d-block text-center mb-0 p-5"
+                className="flex-fill form-label bg-white d-block text-center mb-0 p-5"
               >
                 Click to choose image or drag it here.
               </label>
