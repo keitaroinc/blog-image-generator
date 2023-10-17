@@ -175,7 +175,7 @@ export const CanvasBackground: React.FunctionComponent<
                 id="iconSmallImage"
                 className="img-fluid"
                 src={`${canvasBackgroundValues.fileImageURL}`}
-                alt="Added images"
+                alt="Background image"
               />
               <button
                 type="button"
