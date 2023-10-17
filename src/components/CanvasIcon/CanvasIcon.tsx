@@ -140,9 +140,8 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
-          style={{ backgroundColor: canvasIconValues.color }}
           ref={dragAndDropContainer}
-        >
+          >
           {canvasIconValues.fileImageURL ? (
             <div className="alert alert-dismissible">
               <img
@@ -159,8 +158,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               />
             </div>
           ) : (
-            <React.Fragment>
+              <React.Fragment>
               <label
+                style={{ backgroundColor: canvasIconValues.color }}
                 htmlFor="formFileIcon"
                 className="flex-fill form-label d-block text-center mb-0 p-5"
               >
