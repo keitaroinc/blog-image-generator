@@ -42,7 +42,12 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasHeadlineValues(templatesData[0].canvasHeadlineValues);
       setCanvasBackgroundValues(templatesData[0].canvasBackgroundValues);
       setCanvasBorderValues(templatesData[0].canvasBorderValues);
-      setCanvasIconValues(templatesData[0].canvasIconValues);
+      // Override fileImage or fileImageURL due to limited local storage
+      setCanvasIconValues({
+        ...templatesData[0].canvasIconValues,
+        fileImage: null,
+        fileImageURL: null,
+      });
       setCanvasLogoValues(templatesData[0].canvasLogoValues);
       setCanvasGradientValues(templatesData[0].canvasGradientValues);
     } else {
@@ -55,7 +60,12 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
         setCanvasHeadlineValues(filteredTemplate[0].canvasHeadlineValues);
         setCanvasBackgroundValues(filteredTemplate[0].canvasBackgroundValues);
         setCanvasBorderValues(filteredTemplate[0].canvasBorderValues);
-        setCanvasIconValues(filteredTemplate[0].canvasIconValues);
+        // Override fileImage or fileImageURL due to limited local storage
+        setCanvasIconValues({
+          ...filteredTemplate[0].canvasIconValues,
+          fileImage: null,
+          fileImageURL: null,
+        });
         setCanvasLogoValues(filteredTemplate[0].canvasLogoValues);
         setCanvasGradientValues(filteredTemplate[0].canvasGradientValues);
       }
