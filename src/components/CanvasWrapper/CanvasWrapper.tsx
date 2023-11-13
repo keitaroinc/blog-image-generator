@@ -132,12 +132,8 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           >
             <img
               className="justify-self-end"
-              src={
-                canvasIconValues.fileImageURL
-                  ? `${canvasIconValues.fileImageURL}`
-                  : "/image-generator/static/media/keitaro-logo-full-color.44775c6e1a17ea7494df1b4c93c5dd09.svg"
-              }
-              alt="Keitaro logo"
+              src={`${canvasIconValues.fileImageURL}`}
+              alt="Canvas icon"
             />
           </div>
         )}
