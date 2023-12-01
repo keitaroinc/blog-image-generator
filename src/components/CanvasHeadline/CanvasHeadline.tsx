@@ -126,7 +126,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           onChange={(e: any) => handleWidthChange(e)}
           labelTitle={"Width"}
           labelValue={canvasHeadlineValues.width}
-          labelValueType=""
+          labelValueType="%"
           type="width"
         />
         <RangeControl
