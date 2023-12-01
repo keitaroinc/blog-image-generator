@@ -23,6 +23,7 @@ export interface CanvasHeadlineValuesInterface {
   content: string;
   color: string;
   size: number;
+  width: number;
   align: {
     horizontal: string;
     vertical: string;

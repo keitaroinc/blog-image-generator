@@ -33,6 +33,7 @@ export const Provider = (props: {
       content: "Headline text goes here and it can get pretty long...",
       color: "#000000",
       size: 4,
+      width: 80,
       align: {
         horizontal: "",
         vertical: "",

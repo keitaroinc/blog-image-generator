@@ -51,10 +51,18 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
       position: { ...canvasHeadlineValues.position, y: event.target.value },
     });
   };
+
   const handleFontSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
       size: event.target.value,
+    });
+  };
+
+  const handleWidthChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setCanvasHeadlineValues({
+      ...canvasHeadlineValues,
+      width: event.target.value,
     });
   };
 
@@ -107,6 +115,19 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
           labelValue={canvasHeadlineValues.size}
           labelValueType=""
           type="size"
+        />
+        <RangeControl
+          min={0}
+          max={100}
+          step={1}
+          id="headlineWidthRange"
+          title="Headline Width"
+          value={canvasHeadlineValues.width}
+          onChange={(e: any) => handleWidthChange(e)}
+          labelTitle={"Width"}
+          labelValue={canvasHeadlineValues.width}
+          labelValueType=""
+          type="width"
         />
         <RangeControl
           min={-max}
