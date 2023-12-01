@@ -106,6 +106,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             top: `${Number(canvasHeadlineValues.position.y)}em`,
             color: canvasHeadlineValues.color,
             fontSize: `${canvasHeadlineValues.size}em`,
+            width: `${canvasHeadlineValues.width}%`,
           }}
           ref={headlineRef}
         >
