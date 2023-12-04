@@ -24,9 +24,10 @@
     "canvasIconValues": {
       "fileImage": null,
       "fileImageURL": null,
-      "color": "#f4f4f4",
+      "color": "#ffffff",
       "scale": 1,
-      "padding": 0,
+      "border": 0,
+      "borderType": "solid",
       "align": {
         "horizontal": "",
         "vertical": ""
@@ -91,9 +92,10 @@
     "canvasIconValues": {
       "fileImage": null,
       "fileImageURL": null,
-      "color": "#55504C",
+      "color": "#ffffff",
       "scale": 1,
-      "padding": 0,
+      "border": 0,
+      "borderType": "solid",
       "align": {
         "horizontal": "end",
         "vertical": ""
