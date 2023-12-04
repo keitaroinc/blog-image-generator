@@ -55,7 +55,9 @@ export const Provider = (props: {
       fileImageURL: null,
       color: "#FFFFFF",
       scale: 1,
-      padding: 0,
+      mask: "none",
+      border: 0,
+      borderType: "solid",
       align: {
         horizontal: "end",
         vertical: "",
