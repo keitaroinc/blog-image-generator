@@ -10,6 +10,8 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
+import { MaskControl } from "../MaskControl/MaskControl";
+import { BorderTypeControl } from "../BorderTypeControl/BorderTypeControl";
 
 interface CanvasIconProps {}
 
@@ -177,6 +179,17 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
         </div>
         {canvasIconValues.fileImageURL && (
           <Fragment>
+            <MaskControl
+              id="iconMaskType"
+              title="Mask Type"
+              defaultValue={canvasIconValues.mask}
+              onChange={(e: any) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  mask: e.target.value,
+                })
+              }
+            />
             <RangeControl
               id="iconScaleRange"
               title="Icon Scale"
@@ -195,21 +208,33 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
               type="scale"
             />
             <RangeControl
-              id="iconPaddingRange"
-              title="Icon Padding"
-              defaultValue={canvasIconValues.padding}
+              id="iconBorderRange"
+              title="Icon Border Width"
+              defaultValue={canvasIconValues.border}
               min={0}
-              max={max / 2}
-              step={maxStep}
+              max={3}
+              step={maxStep / 2}
               onChange={(e: any) =>
                 setCanvasIconValues({
                   ...canvasIconValues,
-                  padding: e.target.value,
+                  border: e.target.value,
                 })
               }
-              labelTitle={"Padding"}
-              labelValue={canvasIconValues.padding}
-              type="padding"
+              labelTitle={"Border Width"}
+              labelValue={canvasIconValues.border}
+              type="border"
+            />
+            <BorderTypeControl
+              id="iconBorderType"
+              title="Border Type"
+              className={`mt-3`}
+              defaultValue={canvasIconValues.borderType}
+              onChange={(e: any) =>
+                setCanvasIconValues({
+                  ...canvasIconValues,
+                  borderType: e.target.value,
+                })
+              }
             />
             <RangeControl
               id="iconHorizontalRange"
