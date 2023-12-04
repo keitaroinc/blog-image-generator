@@ -126,15 +126,22 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             style={{
               left: `${Number(canvasIconValues.position.x)}em`,
               top: `${Number(canvasIconValues.position.y)}em`,
-              backgroundColor: `${canvasIconValues.color}`,
               transform: `scale(${1 * canvasIconValues.scale})`,
-              padding: `${canvasIconValues.padding}vw`,
             }}
           >
             <img
-              className="justify-self-end"
+              className={`justify-self-end ${
+                canvasIconValues.mask ? `rounded` : ``
+              }${
+                canvasIconValues.mask !== "rounded"
+                  ? `-${canvasIconValues.mask}`
+                  : ` rounded-5 h-auto`
+              } object-fit-cover`}
               src={`${canvasIconValues.fileImageURL}`}
               alt="Canvas icon"
+              style={{
+                border: `${canvasIconValues.border}vw ${canvasIconValues.borderType} ${canvasIconValues.color}`,
+              }}
             />
           </div>
         )}
