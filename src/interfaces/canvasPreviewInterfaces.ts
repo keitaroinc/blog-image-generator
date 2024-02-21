@@ -1,4 +1,6 @@
 export interface CanvasPreviewContextInterface {
+  canvasWidth: number;
+  setCanvasWidth: Function;
   canvasAspectRatio: string;
   setCanvasAspectRatio: Function;
   canvasTemplates: any[];

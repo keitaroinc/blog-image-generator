@@ -2,6 +2,7 @@
   {
     "templateName": "Default",
     "templateType": "default",
+    "canvasWidth": 1920,
     "canvasAspectRatio": "16/9",
     "canvasHeadlineValues": {
       "content": "Headline text goes here and it can get pretty long...",
@@ -70,6 +71,7 @@
   {
     "templateName": "CKAN Extension",
     "templateType": "default",
+    "canvasWidth": 1920,
     "canvasAspectRatio": "16/9",
     "canvasHeadlineValues": {
       "content": "ckan-ext\nEXTENSION NAME",

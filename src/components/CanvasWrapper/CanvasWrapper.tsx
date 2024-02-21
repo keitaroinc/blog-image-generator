@@ -11,6 +11,8 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
   className,
 }) => {
   const {
+    canvasWidth,
+    setCanvasWidth,
     canvasHeadlineValues,
     canvasBorderValues,
     canvasLogoValues,
@@ -30,7 +32,13 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         return;
       }
       if (type === "png") {
-        toPng(canvasRef.current, { cacheBust: true, pixelRatio: 1.5 })
+        toPng(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+        })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -45,7 +53,13 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           });
       }
       if (type === "jpg") {
-        toJpeg(canvasRef.current, { cacheBust: true, pixelRatio: 1.5 })
+        toJpeg(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+        })
           .then((dataUrl) => {
             const link = document.createElement("a");
             link.download = `${canvasHeadlineValues.content
@@ -60,7 +74,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           });
       }
     },
-    [canvasHeadlineValues.content, canvasRef]
+    [canvasHeadlineValues.content, canvasWidth, canvasRef]
   );
 
   return (
@@ -176,7 +190,20 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           <LogoComponent logoType={canvasLogoValues.src} />
         </div>
       </div>
-      <div className="row row-cols-1 row-cols-md-2">
+      <div className="row row-cols-1 row-cols-md-3">
+        <div className="col">
+          <div className="form-floating">
+            <input
+              className="form-control"
+              type="number"
+              id="canvasWidth"
+              onChange={(e) => setCanvasWidth(parseInt(e.target.value))}
+              aria-label="Enter image size"
+              value={canvasWidth}
+            />
+            <label htmlFor="canvasWidth">Image Width</label>
+          </div>
+        </div>
         <div className="col">
           <div className="form-floating">
             <select
@@ -195,32 +222,30 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             <label htmlFor="canvasAspectRatio">Aspect Ratio</label>
           </div>
         </div>
-        <div className="col d-flex flex-column">
-          <div className="btn-group flex-grow-1">
-            <button
-              type="button"
-              className="btn btn-lg text-light btn-keitaro-alt"
-              onClick={() => onDownload("png")}
-            >
-              Download
-            </button>
-            <button
-              type="button"
-              className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
-              data-bs-toggle="dropdown"
-              aria-expanded="false"
-            >
-              <span className="visually-hidden">Toggle Dropdown</span>
-            </button>
-            <ul className="dropdown-menu">
-              <li className="dropdown-item" onClick={() => onDownload("png")}>
-                PNG
-              </li>
-              <li className="dropdown-item" onClick={() => onDownload("jpg")}>
-                JPG
-              </li>
-            </ul>
-          </div>
+        <div className="col btn-group">
+          <button
+            type="button"
+            className="btn btn-lg text-light btn-keitaro-alt"
+            onClick={() => onDownload("png")}
+          >
+            Download
+          </button>
+          <button
+            type="button"
+            className="btn btn-keitaro-alt text-light dropdown-toggle dropdown-toggle-split"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <span className="visually-hidden">Toggle Dropdown</span>
+          </button>
+          <ul className="dropdown-menu">
+            <li className="dropdown-item" onClick={() => onDownload("png")}>
+              PNG
+            </li>
+            <li className="dropdown-item" onClick={() => onDownload("jpg")}>
+              JPG
+            </li>
+          </ul>
         </div>
       </div>
     </div>

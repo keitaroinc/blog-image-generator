@@ -17,7 +17,6 @@ export const Provider = (props: {
     | number
     | boolean
     | React.ReactElement<any, string | React.JSXElementConstructor<any>>
-    | React.ReactFragment
     | React.ReactPortal
     | null
     | undefined;
@@ -26,6 +25,7 @@ export const Provider = (props: {
   const [currentSelectedTemplate, setCurrentSelectedTemplate] =
     useState<string>("Default");
 
+  const [canvasWidth, setCanvasWidth] = useState<number>(1920);
   const [canvasAspectRatio, setCanvasAspectRatio] = useState<string>("16/9");
 
   const [canvasHeadlineValues, setCanvasHeadlineValues] =
@@ -109,6 +109,8 @@ export const Provider = (props: {
   >([]);
 
   const canvasPreviewValues = {
+    canvasWidth,
+    setCanvasWidth,
     canvasAspectRatio,
     setCanvasAspectRatio,
     canvasTemplates,
