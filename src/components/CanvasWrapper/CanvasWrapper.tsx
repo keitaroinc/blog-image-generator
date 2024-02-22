@@ -89,7 +89,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
           aspectRatio: `${canvasAspectRatio}`,
-          width: `${canvasWidth}px`
+          width: `${canvasWidth}px`,
         }}
       >
         {canvasBackgroundValues.fileImageURL ? (
