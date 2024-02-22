@@ -23,6 +23,7 @@ concurrency:
 
 jobs:
   build:
+    needs: run-linters
     runs-on: ubuntu-latest
     env:
       NODE_ENV: production
