@@ -38,6 +38,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             canvasWidth /
             (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
           quality: 0.92,
+          pixelRatio: 1,
         })
           .then((dataUrl) => {
             const link = document.createElement("a");
@@ -59,6 +60,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             canvasWidth /
             (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
           quality: 0.92,
+          pixelRatio: 1,
         })
           .then((dataUrl) => {
             const link = document.createElement("a");
