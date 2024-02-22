@@ -40,10 +40,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  overflow: auto;
 }
 
 @include media-breakpoint-up(xl) {
   .sidebar {
+    position: sticky;
+    top: 0;
     height: 100vh;
     overflow: auto;
   }
