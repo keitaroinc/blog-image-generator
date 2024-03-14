@@ -41,17 +41,12 @@
   align-items: center;
   justify-content: center;
   overflow: auto;
+  height: 100vh;
 }
 
 @include media-breakpoint-up(xl) {
   .sidebar {
     height: 100vh;
     overflow: auto;
-  }
-}
-
-@include media-breakpoint-down(xl) {
-  .canvas-wrapper {
-    height: 100vh;
   }
 }
