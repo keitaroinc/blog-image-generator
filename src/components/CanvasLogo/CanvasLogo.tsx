@@ -59,10 +59,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             aria-label="Logo Type"
           >
             {logoOptions.map((option) => (
-              <option
-                key={option.label}
-                value={option.src}
-              >
+              <option key={option.label} value={option.src}>
                 {option.label}
               </option>
             ))}
