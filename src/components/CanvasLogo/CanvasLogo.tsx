@@ -54,6 +54,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
             onChange={(e) =>
               setCanvasLogoValues({ ...canvasLogoValues, src: e.target.value })
             }
+            defaultValue={canvasLogoValues.src}
             className="form-select"
             aria-label="Logo Type"
           >
@@ -61,7 +62,6 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
               <option
                 key={option.label}
                 value={option.src}
-                selected={canvasLogoValues.src === option.src}
               >
                 {option.label}
               </option>
