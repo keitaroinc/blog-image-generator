@@ -214,7 +214,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               className="form-select"
               aria-label="Select canvas aspect ratio"
               value={canvasAspectRatio}
-            >z
+            >
               {aspectRatioOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
