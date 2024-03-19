@@ -91,7 +91,6 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
           aspectRatio: `${canvasAspectRatio}`,
-          width: `${canvasWidth}px`,
         }}
       >
         {canvasBackgroundValues.fileImageURL ? (
@@ -215,7 +214,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
               className="form-select"
               aria-label="Select canvas aspect ratio"
               value={canvasAspectRatio}
-            >
+            >z
               {aspectRatioOptions.map((option) => (
                 <option key={option} value={option}>
                   {option}
