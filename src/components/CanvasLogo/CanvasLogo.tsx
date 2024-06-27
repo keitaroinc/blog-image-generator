@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, use } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { Heading } from "../Heading/Heading";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
@@ -15,7 +15,7 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
+  const { canvasLogoValues, setCanvasLogoValues } = use(
     CanvasPreviewContextValues
   );
 

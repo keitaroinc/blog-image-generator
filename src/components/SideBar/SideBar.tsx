@@ -1,3 +1,4 @@
+import React from "react";
 import {
   CanvasBackground,
   CanvasGradient,
@@ -5,12 +6,13 @@ import {
   CanvasHeadline,
   CanvasLogo,
 } from "../";
-
-import keitaroLogo from "../../assets/svg/keitaro-logo-full-color.svg";
+import keitaroLogo from "../../assets/svg/keitaro-logo-full-color.svg"
 import { CanvasBorder } from "../CanvasBorder/CanvasBorder";
 import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";
 
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
+    "use no memo"
+  console.log("Render Sidebar")
   return (
     <div data-testid="SideBar" className={className}>
       <div className="bg-gray-light sticky-top shadow shadow-lg d-flex justify-content-center flex-column align-items-center py-5 px-3">

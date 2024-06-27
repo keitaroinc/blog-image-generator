@@ -52,7 +52,7 @@ export const CanvasBackground: React.FunctionComponent<
     }
   };
 
-  const handleDrop = useCallback(
+  const handleDrop = (
     (e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       const files = Array.from(e.dataTransfer.files);
@@ -65,25 +65,24 @@ export const CanvasBackground: React.FunctionComponent<
           "border-success"
         );
       }
-    },
-    [canvasBackgroundValues, setCanvasBackgroundValues]
+    }
   );
 
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = ((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.add("border-success");
     }
-  }, []);
+  });
 
-  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = ((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.remove(
         "border-success"
       );
     }
-  }, []);
+  });
 
   const handleHorizontalPositionChange = (
     event: React.ChangeEvent<HTMLInputElement>

@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect, useState } from "react";
+import React, { Fragment, use, useEffect, useState } from "react";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { CreateTemplate } from "../CreateTemplate/CreateTemplate";
@@ -24,7 +24,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     setCanvasLogoValues,
     setCanvasAspectRatio,
     setCanvasWidth,
-  } = useContext(CanvasPreviewContextValues);
+  } = use(CanvasPreviewContextValues);
 
   useEffect(() => {
     let storageTemplateData = localStorage.getItem("templates");

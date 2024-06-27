@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { use } from "react";
 import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
@@ -21,12 +21,12 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     canvasGradientValues,
     canvasAspectRatio,
     setCanvasAspectRatio,
-  } = React.useContext(CanvasPreviewContextValues);
+  } = use(CanvasPreviewContextValues);
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
 
-  const onDownload = useCallback(
+  const onDownload = (
     (type: string) => {
       if (canvasRef.current === null) {
         return;
@@ -75,8 +75,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             console.log(err);
           });
       }
-    },
-    [canvasHeadlineValues.content, canvasWidth, canvasRef]
+    }
   );
 
   return (

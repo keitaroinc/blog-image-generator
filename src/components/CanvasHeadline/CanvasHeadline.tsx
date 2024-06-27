@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, use } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -10,7 +10,7 @@ interface CanvasHeadlineProps {}
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   props
 ) => {
-  const { canvasHeadlineValues, setCanvasHeadlineValues } = React.useContext(
+  const { canvasHeadlineValues, setCanvasHeadlineValues } = use(
     CanvasPreviewContextValues
   );
 

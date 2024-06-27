@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, use } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -38,7 +38,7 @@ const blendingMode = [
 ];
 
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
-  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
+  const { canvasGradientValues, setCanvasGradientValues } = use(
     CanvasPreviewContextValues
   );
 

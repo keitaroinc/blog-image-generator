@@ -1,8 +1,7 @@
 import React, {
   Fragment,
   useRef,
-  useContext,
-  useCallback,
+  use,
   useEffect,
 } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
@@ -16,7 +15,7 @@ import { BorderTypeControl } from "../BorderTypeControl/BorderTypeControl";
 interface CanvasIconProps {}
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
-  const { canvasIconValues, setCanvasIconValues } = useContext(
+  const { canvasIconValues, setCanvasIconValues } = use(
     CanvasPreviewContextValues
   );
   const dragAndDropContainer = useRef<HTMLDivElement>(null);
@@ -59,8 +58,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     }
   };
 
-  const handleDrop = useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDrop = ((e: React.DragEvent<HTMLDivElement>) => {
       e.preventDefault();
       const files = Array.from(e.dataTransfer.files);
       setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
@@ -69,25 +67,24 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
           "border-success"
         );
       }
-    },
-    [canvasIconValues, setCanvasIconValues]
+    }
   );
 
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = ((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.add("border-success");
     }
-  }, []);
+  });
 
-  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = ((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.remove(
         "border-success"
       );
     }
-  }, []);
+  });
 
   const max = 100;
   const maxStep = 1;

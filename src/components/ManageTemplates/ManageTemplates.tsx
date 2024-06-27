@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { use } from "react";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import templatesData from "../../config/templates.json";
@@ -17,7 +17,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
     setCanvasIconValues,
     setCanvasLogoValues,
     setCanvasGradientValues,
-  } = useContext(CanvasPreviewContextValues);
+  } = use(CanvasPreviewContextValues);
 
   const handleDeleteTemplate = (templateName: string) => {
     if (confirm("Delete selected template?") == true) {
