@@ -16,14 +16,14 @@ const logoOptions = [
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   const { canvasLogoValues, setCanvasLogoValues } = use(
-    CanvasPreviewContextValues
+    CanvasPreviewContextValues,
   );
 
   const max = 100;
   const maxStep = 1;
 
   const handleHorizontalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasLogoValues({
       ...canvasLogoValues,
@@ -33,7 +33,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   };
 
   const handleVerticalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasLogoValues({
       ...canvasLogoValues,

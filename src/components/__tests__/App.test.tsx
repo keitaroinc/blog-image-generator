@@ -86,7 +86,6 @@
 //       const styles = window.getComputedStyle(canvasPreviewWrapper);
 //       expect(styles.borderWidth).toBe("5em");Check compatibility of third-party libraries and packages used and update them accordingly to work with React 19
 
-
 //     });
 //   });
 

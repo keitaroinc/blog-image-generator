@@ -5,7 +5,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 interface CreateTemplateProps {}
 
 export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
-  props
+  props,
 ) => {
   const {
     canvasTemplates,

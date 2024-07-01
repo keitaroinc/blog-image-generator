@@ -9,7 +9,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 interface CanvasTemplatesProps {}
 
 export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
-  props
+  props,
 ) => {
   const {
     canvasTemplates,
@@ -54,7 +54,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasGradientValues(templatesData[0].canvasGradientValues);
     } else {
       let filteredTemplate = canvasTemplates.filter(
-        (template) => template.templateName === e.target.value
+        (template) => template.templateName === e.target.value,
       );
       if (filteredTemplate.length > 0) {
         setCurrentSelectedTemplate(filteredTemplate[0].templateName);

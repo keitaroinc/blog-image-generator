@@ -26,57 +26,55 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
 
-  const onDownload = (
-    (type: string) => {
-      if (canvasRef.current === null) {
-        return;
-      }
-      if (type === "png") {
-        toPng(canvasRef.current, {
-          canvasWidth: canvasWidth,
-          canvasHeight:
-            canvasWidth /
-            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-          quality: 0.92,
-          pixelRatio: 1,
-        })
-          .then((dataUrl) => {
-            const link = document.createElement("a");
-            link.download = `${canvasHeadlineValues.content
-              .toLowerCase()
-              .split(" ")
-              .join("-")}.png`;
-            link.href = dataUrl;
-            link.click();
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-      if (type === "jpg") {
-        toJpeg(canvasRef.current, {
-          canvasWidth: canvasWidth,
-          canvasHeight:
-            canvasWidth /
-            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-          quality: 0.92,
-          pixelRatio: 1,
-        })
-          .then((dataUrl) => {
-            const link = document.createElement("a");
-            link.download = `${canvasHeadlineValues.content
-              .toLowerCase()
-              .split(" ")
-              .join("-")}.jpg`;
-            link.href = dataUrl;
-            link.click();
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
+  const onDownload = (type: string) => {
+    if (canvasRef.current === null) {
+      return;
     }
-  );
+    if (type === "png") {
+      toPng(canvasRef.current, {
+        canvasWidth: canvasWidth,
+        canvasHeight:
+          canvasWidth /
+          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+        quality: 0.92,
+        pixelRatio: 1,
+      })
+        .then((dataUrl) => {
+          const link = document.createElement("a");
+          link.download = `${canvasHeadlineValues.content
+            .toLowerCase()
+            .split(" ")
+            .join("-")}.png`;
+          link.href = dataUrl;
+          link.click();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    if (type === "jpg") {
+      toJpeg(canvasRef.current, {
+        canvasWidth: canvasWidth,
+        canvasHeight:
+          canvasWidth /
+          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+        quality: 0.92,
+        pixelRatio: 1,
+      })
+        .then((dataUrl) => {
+          const link = document.createElement("a");
+          link.download = `${canvasHeadlineValues.content
+            .toLowerCase()
+            .split(" ")
+            .join("-")}.jpg`;
+          link.href = dataUrl;
+          link.click();
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   return (
     <div className={className} data-testid="CanvasWrapper">
