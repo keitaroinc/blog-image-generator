@@ -14,6 +14,7 @@
     "@popperjs/core": "^2.11.8",
     "babel-plugin-react-compiler": "^0.0.0-experimental-696af53-20240625",
     "eslint-plugin-react-compiler": "^0.0.0-experimental-0998c1e-20240625",
+    "prettier": "^3.3.2",
     "react": "^19.0.0-beta-26f2496093-20240514",
     "react-dom": "^19.0.0-beta-26f2496093-20240514"
   },
