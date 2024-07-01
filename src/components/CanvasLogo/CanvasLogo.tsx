@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, use } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { Heading } from "../Heading/Heading";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
@@ -15,15 +15,15 @@ const logoOptions = [
 ];
 
 export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
-  const { canvasLogoValues, setCanvasLogoValues } = React.useContext(
-    CanvasPreviewContextValues
+  const { canvasLogoValues, setCanvasLogoValues } = use(
+    CanvasPreviewContextValues,
   );
 
   const max = 100;
   const maxStep = 1;
 
   const handleHorizontalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasLogoValues({
       ...canvasLogoValues,
@@ -33,7 +33,7 @@ export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
   };
 
   const handleVerticalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasLogoValues({
       ...canvasLogoValues,
