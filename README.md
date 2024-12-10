@@ -1,6 +1,9 @@
-# React + Vite
+# Blog Image Generator by Keitaro
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Blog Image Generator (BIG) is a single page application for creating blog post images developed by Keitaro. Please check the [Wiki](https://github.com/keitaroinc/blog-image-generator/wiki) for further details.
+
 
 Currently, two official plugins are available:
 
