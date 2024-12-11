@@ -4,7 +4,6 @@ This template provides a minimal setup to get React working in Vite with HMR and
 
 Blog Image Generator (BIG) is a single page application for creating blog post images developed by Keitaro. Please check the [Wiki](https://github.com/keitaroinc/blog-image-generator/wiki) for further details.
 
-
 Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
