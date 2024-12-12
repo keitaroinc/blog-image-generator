@@ -8,10 +8,10 @@ import { ColorPicker } from "../ColorPicker/ColorPicker";
 interface CanvasBorderProps {}
 
 export const CanvasBorder: React.FunctionComponent<CanvasBorderProps> = (
-  props
+  props,
 ) => {
   const { canvasBorderValues, setCanvasBorderValues } = useContext(
-    CanvasPreviewContextValues
+    CanvasPreviewContextValues,
   );
 
   const handleBorderWidthChange = (e: React.ChangeEvent<HTMLInputElement>) => {
