@@ -52,38 +52,41 @@ export const CanvasBackground: React.FunctionComponent<
     }
   };
 
-  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    const files = Array.from(e.dataTransfer.files);
-    setCanvasBackgroundValues({
-      ...canvasBackgroundValues,
-      fileImage: files[0],
-    });
-    if (dragAndDropContainer.current) {
-      dragAndDropContainer.current.children[0].classList.remove(
-        "border-success",
-      );
-    }
-  };
+  const handleDrop = useCallback(
+    (e: React.DragEvent<HTMLDivElement>) => {
+      e.preventDefault();
+      const files = Array.from(e.dataTransfer.files);
+      setCanvasBackgroundValues({
+        ...canvasBackgroundValues,
+        fileImage: files[0],
+      });
+      if (dragAndDropContainer.current) {
+        dragAndDropContainer.current.children[0].classList.remove(
+          "border-success"
+        );
+      }
+    },
+    [canvasBackgroundValues, setCanvasBackgroundValues]
+  );
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.add("border-success");
     }
-  };
+  }, []);
 
-  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.remove(
-        "border-success",
+        "border-success"
       );
     }
-  };
+  }, []);
 
   const handleHorizontalPositionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setCanvasBackgroundValues({
       ...canvasBackgroundValues,
@@ -92,7 +95,7 @@ export const CanvasBackground: React.FunctionComponent<
   };
 
   const handleVerticalPositionChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setCanvasBackgroundValues({
       ...canvasBackgroundValues,
@@ -108,7 +111,7 @@ export const CanvasBackground: React.FunctionComponent<
   };
 
   const handleBackgroundImageScale = (
-    event: React.ChangeEvent<HTMLInputElement>,
+    event: React.ChangeEvent<HTMLInputElement>
   ) => {
     setCanvasBackgroundValues({
       ...canvasBackgroundValues,

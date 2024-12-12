@@ -1,11 +1,11 @@
-import React, { use } from "react";
+import React, { useContext } from "react";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import templatesData from "../../config/templates.json";
 interface ManageTemplatesProps {}
 
 export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
-  props,
+  props
 ) => {
   const {
     canvasTemplates,
@@ -17,13 +17,13 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
     setCanvasIconValues,
     setCanvasLogoValues,
     setCanvasGradientValues,
-  } = use(CanvasPreviewContextValues);
+  } = useContext(CanvasPreviewContextValues);
 
   const handleDeleteTemplate = (templateName: string) => {
     if (confirm("Delete selected template?") == true) {
       let filteredTemplates = canvasTemplates.filter(
         (template: { templateName: string }) =>
-          template.templateName !== templateName,
+          template.templateName !== templateName
       );
       localStorage.setItem("templates", JSON.stringify(filteredTemplates));
 
@@ -56,9 +56,9 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
                 href={`data:text/json;charset=utf-8, ${encodeURIComponent(
                   JSON.stringify(
                     canvasTemplates.filter((item) =>
-                      item.templateName.includes(template.templateName),
-                    ),
-                  ),
+                      item.templateName.includes(template.templateName)
+                    )
+                  )
                 )}`}
                 download={`${template.templateName}-preset-big.json`}
                 data-testid="downloadTemplateBtn"
@@ -77,7 +77,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
                 <i className="bi bi-trash" title="Delete Template"></i>
               </button>
             </li>
-          ),
+          )
       );
     } else {
       return (
@@ -98,7 +98,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
           ></i>
           {template.templateName}
         </li>
-      ) : null,
+      ) : null
     );
   };
 
