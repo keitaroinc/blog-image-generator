@@ -1,4 +1,4 @@
-import React, { Fragment, use, useEffect, useState } from "react";
+import React, { Fragment, useContext, useEffect, useState } from "react";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { CreateTemplate } from "../CreateTemplate/CreateTemplate";
@@ -9,7 +9,7 @@ import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext"
 interface CanvasTemplatesProps {}
 
 export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
-  props,
+  props
 ) => {
   const {
     canvasTemplates,
@@ -24,7 +24,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
     setCanvasLogoValues,
     setCanvasAspectRatio,
     setCanvasWidth,
-  } = use(CanvasPreviewContextValues);
+  } = useContext(CanvasPreviewContextValues);
 
   useEffect(() => {
     let storageTemplateData = localStorage.getItem("templates");
@@ -54,7 +54,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasGradientValues(templatesData[0].canvasGradientValues);
     } else {
       let filteredTemplate = canvasTemplates.filter(
-        (template) => template.templateName === e.target.value,
+        (template) => template.templateName === e.target.value
       );
       if (filteredTemplate.length > 0) {
         setCurrentSelectedTemplate(filteredTemplate[0].templateName);

@@ -1,4 +1,4 @@
-import React, { use } from "react";
+import React, { useCallback } from "react";
 import "./CanvasWrapper.scss";
 import { toJpeg, toPng } from "html-to-image";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
@@ -21,60 +21,63 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     canvasGradientValues,
     canvasAspectRatio,
     setCanvasAspectRatio,
-  } = use(CanvasPreviewContextValues);
+  } = React.useContext(CanvasPreviewContextValues);
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
 
-  const onDownload = (type: string) => {
-    if (canvasRef.current === null) {
-      return;
-    }
-    if (type === "png") {
-      toPng(canvasRef.current, {
-        canvasWidth: canvasWidth,
-        canvasHeight:
-          canvasWidth /
-          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-        quality: 0.92,
-        pixelRatio: 1,
-      })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content
-            .toLowerCase()
-            .split(" ")
-            .join("-")}.png`;
-          link.href = dataUrl;
-          link.click();
+  const onDownload = useCallback(
+    (type: string) => {
+      if (canvasRef.current === null) {
+        return;
+      }
+      if (type === "png") {
+        toPng(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+          pixelRatio: 1,
         })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    if (type === "jpg") {
-      toJpeg(canvasRef.current, {
-        canvasWidth: canvasWidth,
-        canvasHeight:
-          canvasWidth /
-          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-        quality: 0.92,
-        pixelRatio: 1,
-      })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content
-            .toLowerCase()
-            .split(" ")
-            .join("-")}.jpg`;
-          link.href = dataUrl;
-          link.click();
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.png`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+      if (type === "jpg") {
+        toJpeg(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+          pixelRatio: 1,
         })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-  };
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.jpg`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    },
+    [canvasHeadlineValues.content, canvasWidth, canvasRef]
+  );
 
   return (
     <div className={className} data-testid="CanvasWrapper">

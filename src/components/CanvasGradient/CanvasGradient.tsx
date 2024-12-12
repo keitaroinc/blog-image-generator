@@ -1,4 +1,4 @@
-import React, { Fragment, use } from "react";
+import React, { Fragment } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -38,14 +38,14 @@ const blendingMode = [
 ];
 
 export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
-  const { canvasGradientValues, setCanvasGradientValues } = use(
-    CanvasPreviewContextValues,
+  const { canvasGradientValues, setCanvasGradientValues } = React.useContext(
+    CanvasPreviewContextValues
   );
 
   const handleEditTypeOfGradient = (
     event: React.ChangeEvent<HTMLInputElement>,
     index: number,
-    typeOfGradientEdit: any,
+    typeOfGradientEdit: any
   ) => {
     const newGradients = [...canvasGradientValues];
     switch (typeOfGradientEdit) {
@@ -101,7 +101,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
 
   const handleRemoveGradient = (indexToRemove: number) => {
     const newGradients = canvasGradientValues.filter(
-      (_, index) => index !== indexToRemove,
+      (_, index) => index !== indexToRemove
     );
     setCanvasGradientValues(newGradients);
   };
@@ -145,7 +145,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                       handleEditTypeOfGradient(
                         event,
                         index,
-                        "startColorPercentage",
+                        "startColorPercentage"
                       )
                     }
                   />
@@ -172,7 +172,7 @@ export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
                       handleEditTypeOfGradient(
                         event,
                         index,
-                        "endColorPercentage",
+                        "endColorPercentage"
                       )
                     }
                   />
