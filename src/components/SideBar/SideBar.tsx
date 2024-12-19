@@ -1,4 +1,3 @@
-import React from "react";
 import {
   CanvasBackground,
   CanvasGradient,
@@ -6,6 +5,7 @@ import {
   CanvasHeadline,
   CanvasLogo,
 } from "../";
+
 import keitaroLogo from "../../assets/svg/keitaro-logo-full-color.svg";
 import { CanvasBorder } from "../CanvasBorder/CanvasBorder";
 import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";

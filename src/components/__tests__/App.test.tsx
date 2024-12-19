@@ -1,6 +1,9 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import { App } from "../../App";
+import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { App } from "../../App";
 
 describe("App.tsx tests", () => {
     it("should render a component with test-id SideBar", () => {
@@ -13,6 +16,20 @@ describe("App.tsx tests", () => {
         expect(screen.getByTestId("CanvasWrapper")).toBeInTheDocument();
       });
 
+  describe("Headline inegrated tests", () => {
+    it("should render updated text from headline textarea on the canvas", () => {
+      render(<App />);
+      const textAreaElement = screen.getByTestId(
+        /headlineTextarea/i
+      ) as HTMLInputElement;
+      fireEvent.change(textAreaElement, {
+        target: { value: "Headline text was changed" },
+      });
+      const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
+      expect(headlinePreviewElement).toHaveTextContent(
+        "Headline text was changed"
+      );
+    });
   describe("Headline inegrated tests", () => {
     it("should render updated text from headline textarea on the canvas", () => {
       render(<App />);
@@ -40,7 +57,29 @@ describe("App.tsx tests", () => {
       const styles = window.getComputedStyle(headlinePreviewElement);
       expect(styles.color).toBe("rgb(244, 244, 244)");
     });
+    it("should change headline text color on the canvas", () => {
+      render(<App />);
+      const colorPickerElement = screen.getByTitle(
+        /Headline Color/i
+      ) as HTMLInputElement;
+      fireEvent.change(colorPickerElement, {
+        target: { value: "#f4f4f4" },
+      });
+      const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
+      const styles = window.getComputedStyle(headlinePreviewElement);
+      expect(styles.color).toBe("rgb(244, 244, 244)");
+    });
 
+    it("should change healine font size", () => {
+      render(<App />);
+      const rangeElement = screen.getByTitle(
+        /Headline Size/i
+      ) as HTMLInputElement;
+      fireEvent.change(rangeElement, { target: { value: "5" } });
+      const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
+      const styles = window.getComputedStyle(headlinePreviewElement);
+      expect(styles.fontSize).toBe("5em");
+    });
     it("should change healine font size", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
@@ -62,7 +101,28 @@ describe("App.tsx tests", () => {
       const styles = window.getComputedStyle(headlinePreviewElement);
       expect(styles.left).toBe("5em");
     });
+    it("should change headline horizontal position", () => {
+      render(<App />);
+      const rangeElement = screen.getByTitle(
+        /Headline Horizontal Position/i
+      ) as HTMLInputElement;
+      fireEvent.change(rangeElement, { target: { value: "5" } });
+      const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
+      const styles = window.getComputedStyle(headlinePreviewElement);
+      expect(styles.left).toBe("5em");
+    });
 
+    it("should change headline vertical position", () => {
+      render(<App />);
+      const rangeElement = screen.getByTitle(
+        /Headline Vertical Position/i
+      ) as HTMLInputElement;
+      fireEvent.change(rangeElement, { target: { value: "5" } });
+      const headlinePreviewElement = screen.getByTestId(/canvasHeadlineTitle/i);
+      const styles = window.getComputedStyle(headlinePreviewElement);
+      expect(styles.top).toBe("5em");
+    });
+  });
     it("should change headline vertical position", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
@@ -101,6 +161,18 @@ describe("App.tsx tests", () => {
       expect(styles.left).toBe("5em");
     });
 
+    it("should change logo vertical position", () => {
+      render(<App />);
+      const rangeElement = screen.getByTitle(
+        /Logo Vertical Position/i
+      ) as HTMLInputElement;
+      fireEvent.change(rangeElement, { target: { value: "5" } });
+      const logoPreviewElement = screen.getByTestId(/canvasLogoPreview/i);
+      const styles = window.getComputedStyle(logoPreviewElement);
+      expect(styles.bottom).toBe("5em");
+    });
+  });
+});
     it("should change logo vertical position", () => {
       render(<App />);
       const rangeElement = screen.getByTitle(
