@@ -22,7 +22,7 @@ describe("CanvasGradient.tsx tests", () => {
   it("should renderder AddGradient button", () => {
     render(<MockCanvasGradient />);
     const buttonElement = screen.getByTestId(
-      /addGradient/i
+      /addGradient/i,
     ) as HTMLButtonElement;
     expect(buttonElement).toBeInTheDocument();
   });
@@ -31,11 +31,11 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(3);
     const gradientOptionElements = screen.getAllByTestId(
-      /canvasGradientOption/i
+      /canvasGradientOption/i,
     ) as HTMLDivElement[];
     expect(gradientOptionElements).toHaveLength(3);
     const deleteButtonElement = screen.getAllByTestId(
-      /delete-gradient-option/i
+      /delete-gradient-option/i,
     ) as HTMLButtonElement[];
     fireEvent.click(deleteButtonElement[0]);
     expect(screen.getAllByTestId(/canvasGradientOption/i)).toHaveLength(2);
@@ -45,7 +45,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const selectElements = screen.getAllByTitle(
-      /Gradient Options/i
+      /Gradient Options/i,
     ) as HTMLInputElement[];
     selectElements.forEach((element) => {
       fireEvent.change(element, { target: { value: "linear-gradient" } });
@@ -57,7 +57,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const selectElements = screen.getAllByTitle(
-      /BlendingMode/i
+      /BlendingMode/i,
     ) as HTMLInputElement[];
     selectElements.forEach((element) => {
       fireEvent.change(element, { target: { value: "luminosity" } });
@@ -69,7 +69,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const gradientOptionElements = screen.getAllByTestId(
-      /gradientStartColorType/i
+      /gradientStartColorType/i,
     ) as HTMLInputElement[];
     expect(gradientOptionElements).toHaveLength(2);
     gradientOptionElements.forEach((element) => {
@@ -82,7 +82,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const gradientOptionElements = screen.getAllByTestId(
-      /gradientEndColorType/i
+      /gradientEndColorType/i,
     ) as HTMLInputElement[];
     expect(gradientOptionElements).toHaveLength(2);
     gradientOptionElements.forEach((element) => {
@@ -95,7 +95,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const gradientOptionElements = screen.getAllByTestId(
-      /gradientStartColorPercentage/i
+      /gradientStartColorPercentage/i,
     ) as HTMLInputElement[];
     expect(gradientOptionElements).toHaveLength(2);
     gradientOptionElements.forEach((element) => {
@@ -108,7 +108,7 @@ describe("CanvasGradient.tsx tests", () => {
     render(<MockCanvasGradient />);
     addGradient(2);
     const gradientOptionElements = screen.getAllByTestId(
-      /gradientEndColorPercentage/i
+      /gradientEndColorPercentage/i,
     ) as HTMLInputElement[];
     expect(gradientOptionElements).toHaveLength(2);
     gradientOptionElements.forEach((element) => {

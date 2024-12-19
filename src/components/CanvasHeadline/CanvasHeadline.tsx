@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, use } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -8,14 +8,14 @@ import { RangeControl } from "../RangeControl/RangeControl";
 interface CanvasHeadlineProps {}
 
 export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
-  props
+  props,
 ) => {
-  const { canvasHeadlineValues, setCanvasHeadlineValues } = React.useContext(
-    CanvasPreviewContextValues
+  const { canvasHeadlineValues, setCanvasHeadlineValues } = use(
+    CanvasPreviewContextValues,
   );
 
   const handleHorizontalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
@@ -25,7 +25,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   };
 
   const handleVerticalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
@@ -35,7 +35,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   };
 
   const handleHorizontalPositionChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,
@@ -44,7 +44,7 @@ export const CanvasHeadline: React.FunctionComponent<CanvasHeadlineProps> = (
   };
 
   const handleVerticalPositionChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasHeadlineValues({
       ...canvasHeadlineValues,

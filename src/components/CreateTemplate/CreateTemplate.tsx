@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useState, use } from "react";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
 interface CreateTemplateProps {}
 
 export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
-  props
+  props,
 ) => {
   const {
     canvasTemplates,
@@ -18,7 +18,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
     canvasBackgroundValues,
     canvasLogoValues,
     canvasGradientValues,
-  } = useContext(CanvasPreviewContextValues);
+  } = use(CanvasPreviewContextValues);
   const [templateName, setTemplateName] = useState("");
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
