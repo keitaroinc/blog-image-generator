@@ -8,7 +8,7 @@ const ReactCompilerConfig = {
 
 export default defineConfig({
   build: {
-    outDir: 'build',
+    outDir: "build",
     emptyOutDir: true, // also necessary
   },
   plugins: [
