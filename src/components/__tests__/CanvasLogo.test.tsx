@@ -15,7 +15,7 @@ describe("CanvasLogo.tsx tests", () => {
   it("should be able to set logo title", () => {
     render(<MockCanvasLogo />);
     const textAreaElement = screen.getByPlaceholderText(
-      /Leave a comment here/i
+      /Leave a comment here/i,
     ) as HTMLInputElement;
     fireEvent.change(textAreaElement, {
       target: { value: "Text for the logo title" },
@@ -26,7 +26,7 @@ describe("CanvasLogo.tsx tests", () => {
   it("should be able to select logo type", () => {
     render(<MockCanvasLogo />);
     const selectElement = screen.getByTitle(
-      /Canvas Logo Options/i
+      /Canvas Logo Options/i,
     ) as HTMLInputElement;
     fireEvent.change(selectElement, {
       target: { value: "KeitaroFullColorLogo" },

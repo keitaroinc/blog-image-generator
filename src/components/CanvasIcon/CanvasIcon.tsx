@@ -1,10 +1,4 @@
-import React, {
-  Fragment,
-  useRef,
-  useContext,
-  useCallback,
-  useEffect,
-} from "react";
+import React, { Fragment, useRef, use, useEffect } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
@@ -16,8 +10,8 @@ import { BorderTypeControl } from "../BorderTypeControl/BorderTypeControl";
 interface CanvasIconProps {}
 
 export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
-  const { canvasIconValues, setCanvasIconValues } = useContext(
-    CanvasPreviewContextValues
+  const { canvasIconValues, setCanvasIconValues } = use(
+    CanvasPreviewContextValues,
   );
   const dragAndDropContainer = useRef<HTMLDivElement>(null);
 
@@ -59,35 +53,32 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
     }
   };
 
-  const handleDrop = useCallback(
-    (e: React.DragEvent<HTMLDivElement>) => {
-      e.preventDefault();
-      const files = Array.from(e.dataTransfer.files);
-      setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
-      if (dragAndDropContainer.current) {
-        dragAndDropContainer.current.children[0].classList.remove(
-          "border-success"
-        );
-      }
-    },
-    [canvasIconValues, setCanvasIconValues]
-  );
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const files = Array.from(e.dataTransfer.files);
+    setCanvasIconValues({ ...canvasIconValues, fileImage: files[0] });
+    if (dragAndDropContainer.current) {
+      dragAndDropContainer.current.children[0].classList.remove(
+        "border-success",
+      );
+    }
+  };
 
-  const handleDragOver = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.add("border-success");
     }
-  }, []);
+  };
 
-  const handleDragLeave = useCallback((e: React.DragEvent<HTMLDivElement>) => {
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
     if (dragAndDropContainer.current) {
       dragAndDropContainer.current.children[0].classList.remove(
-        "border-success"
+        "border-success",
       );
     }
-  }, []);
+  };
 
   const max = 100;
   const maxStep = 1;
@@ -101,7 +92,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   };
 
   const handleHorizontalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasIconValues({
       ...canvasIconValues,
@@ -111,7 +102,7 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
   };
 
   const handleVerticalAlignChange = (
-    event: React.ChangeEvent<HTMLInputElement>
+    event: React.ChangeEvent<HTMLInputElement>,
   ) => {
     setCanvasIconValues({
       ...canvasIconValues,

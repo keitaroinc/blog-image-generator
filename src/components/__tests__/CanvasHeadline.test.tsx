@@ -8,10 +8,10 @@ describe("CanvasHeadlines.tsx tests", () => {
     render(
       <CanvasPreviewContextProvider>
         <CanvasHeadline />
-      </CanvasPreviewContextProvider>
+      </CanvasPreviewContextProvider>,
     );
     const textAreaElement = screen.getByPlaceholderText(
-      /Enter headline text here/i
+      /Enter headline text here/i,
     ) as HTMLInputElement;
     fireEvent.change(textAreaElement, {
       target: { value: "Text for the headline component" },
