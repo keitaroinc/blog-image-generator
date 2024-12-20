@@ -7,6 +7,10 @@ const ReactCompilerConfig = {
 };
 
 export default defineConfig({
+  build: {
+    outDir: 'build',
+    emptyOutDir: true, // also necessary
+  },
   plugins: [
     react({
       babel: {
