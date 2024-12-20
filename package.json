@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
+    "lint": "npx prettier -cw . '!**/*.{png,txt,ico}'",
     "preview": "vite preview",
     "test": "jest"
   },
