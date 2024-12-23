@@ -2,11 +2,9 @@ import React, { use } from "react";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import templatesData from "../../config/templates.json";
-interface ManageTemplatesProps {}
+// interface ManageTemplatesProps {}
 
-export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
-  props,
-) => {
+export const ManageTemplates: React.FunctionComponent = () => {
   const {
     canvasTemplates,
     setCanvasTemplates,
@@ -21,7 +19,7 @@ export const ManageTemplates: React.FunctionComponent<ManageTemplatesProps> = (
 
   const handleDeleteTemplate = (templateName: string) => {
     if (confirm("Delete selected template?") == true) {
-      let filteredTemplates = canvasTemplates.filter(
+      const filteredTemplates = canvasTemplates.filter(
         (template: { templateName: string }) =>
           template.templateName !== templateName,
       );
