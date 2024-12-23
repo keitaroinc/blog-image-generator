@@ -1,4 +1,4 @@
-import React, { Fragment, use, useEffect, useState } from "react";
+import React, { Fragment, use, useEffect } from "react";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { CreateTemplate } from "../CreateTemplate/CreateTemplate";
@@ -6,11 +6,9 @@ import { ManageTemplates } from "../ManageTemplates/ManageTemplates";
 import templatesData from "../../config/templates.json";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CanvasTemplatesProps {}
+// interface CanvasTemplatesProps {}
 
-export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
-  props,
-) => {
+export const CanvasTemplates: React.FunctionComponent = () => {
   const {
     canvasTemplates,
     setCanvasTemplates,
@@ -27,7 +25,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
   } = use(CanvasPreviewContextValues);
 
   useEffect(() => {
-    let storageTemplateData = localStorage.getItem("templates");
+    const storageTemplateData = localStorage.getItem("templates");
     if (storageTemplateData === null) {
       localStorage.setItem("templates", JSON.stringify(templatesData));
       setCanvasTemplates(templatesData);
@@ -53,7 +51,7 @@ export const CanvasTemplates: React.FunctionComponent<CanvasTemplatesProps> = (
       setCanvasLogoValues(templatesData[0].canvasLogoValues);
       setCanvasGradientValues(templatesData[0].canvasGradientValues);
     } else {
-      let filteredTemplate = canvasTemplates.filter(
+      const filteredTemplate = canvasTemplates.filter(
         (template) => template.templateName === e.target.value,
       );
       if (filteredTemplate.length > 0) {

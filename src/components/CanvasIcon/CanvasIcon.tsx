@@ -7,9 +7,9 @@ import { RangeControl } from "../RangeControl/RangeControl";
 import { MaskControl } from "../MaskControl/MaskControl";
 import { BorderTypeControl } from "../BorderTypeControl/BorderTypeControl";
 
-interface CanvasIconProps {}
+// interface CanvasIconProps {}
 
-export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
+export const CanvasIcon: React.FunctionComponent = () => {
   const { canvasIconValues, setCanvasIconValues } = use(
     CanvasPreviewContextValues,
   );
@@ -17,9 +17,9 @@ export const CanvasIcon: React.FunctionComponent<CanvasIconProps> = (props) => {
 
   useEffect(() => {
     let fileReader: FileReader,
-      isCancel: boolean = false;
+      isCancel = false;
     if (canvasIconValues.fileImage) {
-      let file = canvasIconValues.fileImage;
+      const file = canvasIconValues.fileImage;
       fileReader = new FileReader();
       fileReader.onload = (e) => {
         if (

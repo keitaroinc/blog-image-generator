@@ -5,7 +5,7 @@ import { Heading } from "../Heading/Heading";
 import { AddGradient } from "../AddGradient/AddGradient";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface GradientComponentProps {}
+// interface GradientComponentProps {}
 
 const gradientOptions = [
   { value: "linear-gradient", label: "Linear" },
@@ -37,7 +37,7 @@ const blendingMode = [
   { value: "unset", label: "Unset" },
 ];
 
-export const CanvasGradient: React.FC<GradientComponentProps> = (props) => {
+export const CanvasGradient: React.FC = () => {
   const { canvasGradientValues, setCanvasGradientValues } = use(
     CanvasPreviewContextValues,
   );

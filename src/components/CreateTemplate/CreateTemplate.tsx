@@ -2,11 +2,9 @@ import React, { useState, use } from "react";
 import { Dialog } from "../Dialog/Dialog";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 
-interface CreateTemplateProps {}
+// interface CreateTemplateProps {}
 
-export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
-  props,
-) => {
+export const CreateTemplate: React.FunctionComponent = () => {
   const {
     canvasTemplates,
     setCanvasTemplates,
@@ -23,7 +21,7 @@ export const CreateTemplate: React.FunctionComponent<CreateTemplateProps> = (
 
   const handleSave = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    let currentTemplateData = localStorage.getItem("templates");
+    const currentTemplateData = localStorage.getItem("templates");
     if (currentTemplateData !== null && templateName !== "") {
       const combinedData = {
         templateName,

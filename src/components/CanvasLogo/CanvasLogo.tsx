@@ -5,7 +5,7 @@ import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { RangeControl } from "../RangeControl/RangeControl";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 
-interface CanvasLogoProps {}
+// interface CanvasLogoProps {}
 
 const logoOptions = [
   { src: "KeitaroFullColorLogo", label: "Full Color" },
@@ -14,7 +14,7 @@ const logoOptions = [
   { src: "KeitaroWhiteLogo", label: "White" },
 ];
 
-export const CanvasLogo: React.FunctionComponent<CanvasLogoProps> = (props) => {
+export const CanvasLogo: React.FunctionComponent = () => {
   const { canvasLogoValues, setCanvasLogoValues } = use(
     CanvasPreviewContextValues,
   );

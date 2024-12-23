@@ -1,24 +1,22 @@
-import React, { Fragment, useCallback, useEffect } from "react";
+import React, { Fragment, useEffect } from "react";
 import { CanvasPreviewContextValues } from "../../contexts/CanvasPreviewContext";
 import { HeaderComponent } from "../HeaderComponent/HeaderComponent";
 import { Heading } from "../Heading/Heading";
 import { ColorPicker } from "../ColorPicker/ColorPicker";
 import { RangeControl } from "../RangeControl/RangeControl";
 
-interface CanvasBackgroundProps {}
+// interface CanvasBackgroundProps {}
 
-export const CanvasBackground: React.FunctionComponent<
-  CanvasBackgroundProps
-> = (props) => {
+export const CanvasBackground: React.FunctionComponent = () => {
   const { canvasBackgroundValues, setCanvasBackgroundValues } =
     React.useContext(CanvasPreviewContextValues);
   const dragAndDropContainer = React.useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     let fileReader: FileReader,
-      isCancel: boolean = false;
+      isCancel = false;
     if (canvasBackgroundValues.fileImage) {
-      let file = canvasBackgroundValues.fileImage;
+      const file = canvasBackgroundValues.fileImage;
       fileReader = new FileReader();
       fileReader.onload = (e) => {
         if (
