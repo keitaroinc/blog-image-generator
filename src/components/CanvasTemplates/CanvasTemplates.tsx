@@ -32,7 +32,7 @@ export const CanvasTemplates: React.FunctionComponent = () => {
     } else {
       setCanvasTemplates(JSON.parse(storageTemplateData));
     }
-  }, []);
+  }, [setCanvasTemplates]);
 
   const handleSelectTemplate = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value === "Default") {
