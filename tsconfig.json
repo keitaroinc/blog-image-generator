@@ -18,6 +18,5 @@
     "types": ["react"],
     "strictFunctionTypes": true
   },
-  "include": ["src"],
-  "exclude": ["node_modules", "build", "dist"]
+  "include": ["src"]
 }
