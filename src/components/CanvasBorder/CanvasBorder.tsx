@@ -21,7 +21,7 @@ export const CanvasBorder: React.FunctionComponent = () => {
       <HeaderComponent>
         <Heading title="Border" />
         <ColorPicker
-          inputValue="#000000"
+          inputValue={canvasBorderValues.color}
           inputId="canvasBorderColorPicker"
           inputTitle="Border Color"
           onChange={(e: any) =>
