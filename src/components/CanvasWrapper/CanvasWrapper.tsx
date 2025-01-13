@@ -25,6 +25,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
+  const prefix = 'keitaro';
 
   const onDownload = (type: string) => {
     if (canvasRef.current === null) {
@@ -41,7 +42,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
       })
         .then((dataUrl) => {
           const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content
+          link.download = `${prefix}-${canvasHeadlineValues.content
             .toLowerCase()
             .split(" ")
             .join("-")}.png`;
@@ -63,7 +64,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
       })
         .then((dataUrl) => {
           const link = document.createElement("a");
-          link.download = `${canvasHeadlineValues.content
+          link.download = `${prefix}-${canvasHeadlineValues.content
             .toLowerCase()
             .split(" ")
             .join("-")}.jpg`;
