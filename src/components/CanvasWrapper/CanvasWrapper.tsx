@@ -25,7 +25,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
 
   const canvasRef = React.useRef<HTMLDivElement>(null);
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
-  const prefix = 'keitaro';
+  const prefix = "keitaro";
 
   const onDownload = (type: string) => {
     if (canvasRef.current === null) {
