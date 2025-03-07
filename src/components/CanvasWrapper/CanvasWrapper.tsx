@@ -31,49 +31,51 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
     if (canvasRef.current === null) {
       return;
     }
-    if (type === "png") {
-      toPng(canvasRef.current, {
-        canvasWidth: canvasWidth,
-        canvasHeight:
-          canvasWidth /
-          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-        quality: 0.92,
-        pixelRatio: 1,
-      })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${prefix}-${canvasHeadlineValues.content
-            .toLowerCase()
-            .split(" ")
-            .join("-")}.png`;
-          link.href = dataUrl;
-          link.click();
+
+    switch (type) {
+      case "jpg":
+        toJpeg(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+          pixelRatio: 1,
         })
-        .catch((err) => {
-          console.log(err);
-        });
-    }
-    if (type === "jpg") {
-      toJpeg(canvasRef.current, {
-        canvasWidth: canvasWidth,
-        canvasHeight:
-          canvasWidth /
-          (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
-        quality: 0.92,
-        pixelRatio: 1,
-      })
-        .then((dataUrl) => {
-          const link = document.createElement("a");
-          link.download = `${prefix}-${canvasHeadlineValues.content
-            .toLowerCase()
-            .split(" ")
-            .join("-")}.jpg`;
-          link.href = dataUrl;
-          link.click();
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${prefix}-${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.jpg`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+        break;
+      default:
+        toPng(canvasRef.current, {
+          canvasWidth: canvasWidth,
+          canvasHeight:
+            canvasWidth /
+            (canvasRef.current?.clientWidth / canvasRef.current?.clientHeight),
+          quality: 0.92,
+          pixelRatio: 1,
         })
-        .catch((err) => {
-          console.log(err);
-        });
+          .then((dataUrl) => {
+            const link = document.createElement("a");
+            link.download = `${prefix}-${canvasHeadlineValues.content
+              .toLowerCase()
+              .split(" ")
+              .join("-")}.png`;
+            link.href = dataUrl;
+            link.click();
+          })
+          .catch((err) => {
+            console.log(err);
+          });
     }
   };
 
@@ -239,11 +241,21 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             <span className="visually-hidden">Toggle Dropdown</span>
           </button>
           <ul className="dropdown-menu">
-            <li className="dropdown-item" onClick={() => onDownload("png")}>
-              PNG
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={() => onDownload("png")}
+              >
+                PNG
+              </button>
             </li>
-            <li className="dropdown-item" onClick={() => onDownload("jpg")}>
-              JPG
+            <li>
+              <button
+                className="dropdown-item"
+                onClick={() => onDownload("jpg")}
+              >
+                JPG
+              </button>
             </li>
           </ul>
         </div>
