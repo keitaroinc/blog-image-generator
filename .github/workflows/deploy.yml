@@ -42,7 +42,7 @@ jobs:
           # Enable linters
           # eslint: true
           prettier: true
-  build:
+  deploy:
     needs: lint
     runs-on: ubuntu-latest
     env:
@@ -63,16 +63,7 @@ jobs:
           NODE_ENV: production
       - run: npm run build
       # - run: npm test
-  deploy:
-    needs: [lint, build]
-    runs-on: ubuntu-latest
-    env:
-      NODE_ENV: production
-    strategy:
-      matrix:
-        node-version: [20.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-    steps:
+
       - name: Setup Pages
         uses: actions/configure-pages@v3
 
