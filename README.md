@@ -1,6 +1,6 @@
 # Blog Image Generator by Keitaro
 
-[![Deploy](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml) [![Lint](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/lint.yml)
+[![Deploy](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml/badge.svg)](https://github.com/keitaroinc/blog-image-generator/actions/workflows/deploy.yml)
 
 Blog Image Generator (BIG) is a single page application for creating blog post images developed by Keitaro. Please check the [Wiki](https://github.com/keitaroinc/blog-image-generator/wiki) for further details.
 
