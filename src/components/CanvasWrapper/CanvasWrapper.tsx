@@ -27,7 +27,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
   const headlineRef = React.useRef<HTMLHeadingElement>(null);
   const prefix = "keitaro";
 
-  const onDownload = (type: string) => {
+  const onDownload = (type: string = 'png') => {
     if (canvasRef.current === null) {
       return;
     }
@@ -228,7 +228,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
           <button
             type="button"
             className="btn btn-lg text-light btn-keitaro-alt"
-            onClick={() => onDownload("png")}
+            onClick={() => onDownload()}
           >
             Download
           </button>
@@ -244,7 +244,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
             <li>
               <button
                 className="dropdown-item"
-                onClick={() => onDownload("png")}
+                onClick={() => onDownload()}
               >
                 PNG
               </button>
