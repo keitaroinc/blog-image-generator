@@ -20,6 +20,10 @@ jobs:
   lint:
     name: Run linters
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
 
     steps:
       - name: Check out Git repository
@@ -45,6 +49,10 @@ jobs:
   deploy:
     needs: lint
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pull-requests: write
+      repository-projects: write
     env:
       NODE_ENV: production
     strategy:
