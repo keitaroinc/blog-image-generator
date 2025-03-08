@@ -49,10 +49,6 @@ jobs:
   deploy:
     needs: lint
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
-      pull-requests: write
-      repository-projects: write
     env:
       NODE_ENV: production
     strategy:
