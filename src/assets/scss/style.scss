@@ -34,6 +34,9 @@
 // Custom SCSS
 @import "./custom";
 
+@import "@fontsource-variable/montserrat/wght.css";
+@import "@fontsource-variable/montserrat/wght-italic.css";
+
 // Bootstrap Icons v1.10.5
 $bootstrap-icons-font-dir: "bootstrap-icons/font/fonts";
 @import "bootstrap-icons/font/bootstrap-icons";
