@@ -17,7 +17,6 @@
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.3",
     "@babel/preset-typescript": "^7.26.0",
-    "@fontsource-variable/montserrat": "^5.2.5",
     "@popperjs/core": "^2.11.8",
     "@svgr/core": "^8.1.0",
     "@svgr/plugin-jsx": "^8.1.0",
