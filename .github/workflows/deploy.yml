@@ -51,6 +51,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: production
+      VITE_GTAG: ${{ secrets.VITE_GTAG }}
     strategy:
       matrix:
         node-version: [20.x]
