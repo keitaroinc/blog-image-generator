@@ -13,7 +13,7 @@ import { CanvasTemplates } from "../CanvasTemplates/CanvasTemplates";
 export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
   return (
     <div data-testid="SideBar" className={className}>
-      <div className="bg-body-tertiary sticky-top shadow shadow-lg d-flex justify-content-center flex-column align-items-center py-5 px-3">
+      <div className="bg-body-secondary sticky-top shadow shadow-lg vstack justify-content-center flex-column align-items-center py-5 px-3">
         <a href="/blog-image-generator" rel="bookmark">
           <img
             className="img-fluid sidebar-logo p-3"
