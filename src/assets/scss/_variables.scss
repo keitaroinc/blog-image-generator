@@ -309,10 +309,8 @@ $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: $gray-100 !default;
+$light: $gray-200 !default;
 $dark: $gray-900 !default;
-$gray-light: #eee;
-$gray-medium: #ddd;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
@@ -325,8 +323,6 @@ $theme-colors: (
   "danger": $danger,
   "light": $light,
   "dark": $dark,
-  "gray-light": $gray-light,
-  "gray-medium": $gray-medium,
   "keitaro-alt": $keitaro-green-light,
   "keitaro-neutral": $keitaro-neutral,
   "keitaro-neutral-light": lighten($keitaro-neutral, 25%),
@@ -1102,7 +1098,7 @@ $form-select-transition: $input-transition !default;
 $form-range-track-width: 100% !default;
 $form-range-track-height: 0.5rem !default;
 $form-range-track-cursor: pointer !default;
-$form-range-track-bg: var(--#{$prefix}gray-medium) !default;
+$form-range-track-bg: $gray-400 !default;
 $form-range-track-border-radius: 1rem !default;
 $form-range-track-box-shadow: $box-shadow-inset !default;
 
@@ -1680,7 +1676,7 @@ $progress-bar-transition: width 0.6s ease !default;
 
 // scss-docs-start list-group-variables
 $list-group-color: var(--#{$prefix}body-color) !default;
-$list-group-bg: var(--#{$prefix}gray-light) !default;
+$list-group-bg: var(--#{$prefix}-light) !default;
 $list-group-border-color: var(--#{$prefix}border-color) !default;
 $list-group-border-width: var(--#{$prefix}border-width) !default;
 $list-group-border-radius: var(--#{$prefix}border-radius) !default;

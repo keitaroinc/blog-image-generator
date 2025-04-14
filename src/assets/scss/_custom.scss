@@ -31,7 +31,7 @@
 .sidebar {
   display: flex;
   flex-direction: column;
-  @extend .bg-gray-light;
+  @extend .bg-body-tertiary;
 }
 
 .canvas {
