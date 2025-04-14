@@ -21,9 +21,9 @@ export const SideBar: React.FC<{ className?: string }> = ({ className }) => {
             alt="Keitaro Logo"
           />
         </a>
-        <p className="mb-0 bg-white py-1 px-2 fs-6 fw-bold">
+        <h1 className="mb-0 bg-white py-1 px-2 fs-6 fw-bold">
           Blog Image Generator
-        </p>
+        </h1>
       </div>
       <div className="list-group list-group-flush">
         <div className="list-group-item">
