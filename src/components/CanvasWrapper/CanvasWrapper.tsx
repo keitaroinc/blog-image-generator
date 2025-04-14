@@ -88,6 +88,7 @@ export const CanvasWrapper: React.FC<{ className?: string }> = ({
         style={{
           padding: `${canvasBackgroundValues.padding}em`,
           backgroundColor: `${canvasBackgroundValues.color}`,
+          borderStyle: "solid",
           borderColor: canvasBorderValues.color,
           borderWidth: `${canvasBorderValues.width}em`,
           aspectRatio: `${canvasAspectRatio}`,
